@@ -28,18 +28,18 @@ export const Home = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className="intro_sec d-block d-lg-flex align-items-center">
-          <div className="h_bg-image order-1 order-lg-2 h-100 home-image">
+          <div className="h_bg-image order-1 order-lg-2 h-100 home-image image-slider">
             <Row style={{ paddingTop: "40px", marginTop: "0px", marginBottom: "0px" }}>
               <Col>
                 <ImageSlider images={images} interval={5000} />
               </Col>
             </Row>
-            <Row style={{ paddingTop: "280px", marginTop: "0px", marginBottom: "0px" }}>
+            <Row style={{ paddingTop: "230px", marginTop: "0px", marginBottom: "0px" }}>
               <Col>
                 <ImageSlider images={images1} interval={5000} />
               </Col>
             </Row>
-            <Row style={{ paddingTop: "280px", marginTop: "0px", marginBottom: "0px" }}>
+            <Row style={{ paddingTop: "230px", marginTop: "0px", marginBottom: "0px" }}>
               <Col>
                 <ImageSlider images={images2} interval={5000} />
               </Col>
@@ -84,6 +84,8 @@ export const Home = () => {
                     </div>
                   </Link>
                 </div>
+                <p style={{ marginTop: "10px" }}>#So_Media</p>
+                <p style={{marginTop:"-20px"}}>#khoanh_khac_dau_tien</p>
               </div>
             </div>
           </div>

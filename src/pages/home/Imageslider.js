@@ -20,7 +20,7 @@ const ImageSlider = ({ images, interval = 2000 }) => {
                     src={image}
                     alt={`image-${index}`}
                     className={index === currentImage ? 'visible' : 'hidden'}
-                    style={{ objectFit: 'cover', height: '30%', width: '100%', position: 'absolute' }}
+                    style={{ objectFit: 'cover', height: '31%', width: '100%', position: 'absolute' }}
                 />
             ))}
         </div>

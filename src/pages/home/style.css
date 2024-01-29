@@ -6,26 +6,31 @@ section {
     -o-transition: all .5s ease-in;
     transition: all .5s ease-in;
 }
+/* Add or modify these styles in your CSS file */
+
 .image-slider img {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
-  
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+  transform: translateX(100%); /* Adjust for desired starting position */
 }
 
 .image-slider img.visible {
   opacity: 1;
+  transform: translateX(0%);
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
 }
 
 .image-slider img.hidden {
+  opacity: 0; /* Set opacity for leaving images */
+  transform: translateX(100%) ; /* Set the transformation for leaving images */
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
   display: none;
-}
-.home-image img {
-  transition: transform 1s ease-in-out; /* Set the animation properties */
 }
 
 .home-image img:hover {
-  transform: scale(1.1); /* Set the transformation on hover (you can customize this) */
+  transform: translateX(-10%); /* Set the new transformation on hover (you can customize this) */
 }
+
 .who_am_I {
     font-family: Cinzel;
 }
