@@ -16,8 +16,8 @@ const introdata = {
 };
 
 const dataabout = {
-    title: "abit about my self",
-    aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis dolor id ligula semper elementum feugiat pretium nulla. Nunc non commodo dolor. Nunc mollis dignissim facilisis. Morbi ut magna ultricies.",
+    title: "abit about us",
+    aboutme: "Established in 2016 with 3 founding members, So Media is a gathering place for students passionate about photography, videography, and design. Coming to So Media, you will join a dynamic club, always full of positive energy and enthusiasm. Currently So Media is one of the leading photography and videography units in PTIT, participating in almost all large and small activities not only inside but also outside the institute.",
 };
 const worktimeline = [{
         jobtitle: "Designer of week",
@@ -58,17 +58,22 @@ const skills = [{
     },
 ];
 
-const services = [{
-        title: "UI & UX Design",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
+const services = [
+    
+    {
+        title: "About training",
+        description: "When you join the club, you will be trained in some media skills as below",
+    },{
+        title: "Photography",
+    description: "You will be taught how to use the camera, use editing software, composition and color from basic to advanced.",
     },
     {
-        title: "Mobile Apps",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
+        title: "Videography",
+        description: "You will learn how to film, how to edit a video, and use tools like Adobe Premere.",
     },
     {
-        title: "Wordpress Design",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
+        title: "Design",
+        description: "You will learn how to use professional design software such as Photoshop, Ilustrator, Canva, along with layout and color in design to create your own design thinking and creative publications.",
     },
 ];
 
@@ -121,6 +126,19 @@ const dataportfolio = [{
     
     
 ];
+const activities = [{
+    img: "https://assets.unlayer.com/stock-templates/1706454526536-380272415_644128067824993_6241835109622914696_n.jpg",
+    detail:"So Media TVC 2023 - The Growth",
+    description: "So Media TVC 2023 - The Growth",
+    link: "https://www.youtube.com/watch?v=ZrfJXRTsrEo",
+},
+{
+    img: "https://assets.unlayer.com/stock-templates/1706454838255-Screenshot%202024-01-28%20221342.png",
+    detail: "So Media TVC 2023 - The Growth",
+    description: "Ngay dau tien PTIT Version ",
+    link: "https://www.youtube.com/watch?v=y7Y7VtKb9rY",
+},
+];
 
 const contactConfig = {
     YOUR_EMAIL: "clbsomediaptit@gmail.com",
@@ -150,4 +168,5 @@ export {
     contactConfig,
     socialprofils,
     logotext,
+    activities,
 };
