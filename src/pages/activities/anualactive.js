@@ -14,12 +14,7 @@ export const AnualActivities = () => {
 
     return (
         <div>
-            <HelmetProvider>
-                <Helmet>
-                    <title>Anual Activities</title>
-                </Helmet>
-            </HelmetProvider>
-
+            
             <Container>
                 <h2 className="text-center">Annual Activities</h2>
                 <hr />

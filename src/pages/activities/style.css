@@ -108,7 +108,8 @@
   .activity .text {
     width: 80%;
     font-size: 30px;
-    font-family: var(--bs-font-sans-serif);  
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif!important;
     align-items: center;
     align-content: right !important;
     transition: ease-in-out 0.5s;

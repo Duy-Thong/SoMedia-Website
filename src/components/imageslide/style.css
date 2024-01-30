@@ -8,6 +8,11 @@
 .slide {
   /* background-color: #515151; */
   align-items: center;
+  transition: ease-in-out 1s;
+}
+.slide:hover {
+  transform: scale(1.05);
+  transition: ease-in-out 1s;
 }
 
 .description {
@@ -15,7 +20,8 @@
   font-size: 2rem;
   padding-top: 20px; /* Adjusted padding */
   text-align: center;
-  font-weight: 500;
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif!important;
 }
 
 
