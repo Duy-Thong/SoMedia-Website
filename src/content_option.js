@@ -26,11 +26,7 @@ const introdata = {
 };
 
 const dataabout = {
-<<<<<<< HEAD
     title: "abit about our club",
-=======
-    title: "abit about us",
->>>>>>> 9bbf07008757ac3121c0326614586fbc43f94637
     aboutme: "Established in 2016 with 3 founding members, So Media is a gathering place for students passionate about photography, videography, and design. Coming to So Media, you will join a dynamic club, always full of positive energy and enthusiasm. Currently So Media is one of the leading photography and videography units in PTIT, participating in almost all large and small activities not only inside but also outside the institute.",
 };
 const worktimeline = [{
@@ -73,22 +69,12 @@ const skills = [{
 ];
 
 const services = [
-<<<<<<< HEAD
     {
         title: "About training",
         description: "When you join the club, you will be trained in some media skills as below",
     }, {
         title: "Photography",
         description: "You will be taught how to use the camera, use editing software, composition and color from basic to advanced.",
-=======
-    
-    {
-        title: "About training",
-        description: "When you join the club, you will be trained in some media skills as below",
-    },{
-        title: "Photography",
-    description: "You will be taught how to use the camera, use editing software, composition and color from basic to advanced.",
->>>>>>> 9bbf07008757ac3121c0326614586fbc43f94637
     },
     {
         title: "Videography",
@@ -97,7 +83,6 @@ const services = [
     {
         title: "Design",
         description: "You will learn how to use professional design software such as Photoshop, Ilustrator, Canva, along with layout and color in design to create your own design thinking and creative publications.",
-<<<<<<< HEAD
     },
 ];
 const slides = [
@@ -150,8 +135,6 @@ const slides = [
         "src": womanday2,
         "alt": "Image 10 for carousel",
         "description": "International Women's Day",
-=======
->>>>>>> 9bbf07008757ac3121c0326614586fbc43f94637
     },
 ];
 
@@ -247,9 +230,5 @@ export {
     contactConfig,
     socialprofils,
     logotext,
-<<<<<<< HEAD
     slides,
-=======
-    activities,
->>>>>>> 9bbf07008757ac3121c0326614586fbc43f94637
 };
