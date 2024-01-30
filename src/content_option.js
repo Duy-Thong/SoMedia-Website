@@ -9,6 +9,8 @@ import training2023 from "./assets/active/training2023.jpg";
 import welcomed23 from "./assets/active/welcomed23.jpg";
 import womanday from "./assets/active/womanday.jpg";
 import womanday2 from "./assets/active/womanday2.jpg";
+import teacherday from "./assets/active/teacherday.jpg";
+import recruitment from "./assets/active/recruitment.jpg";
 const logotext = "SO MEDIA";
 const meta = {
     title: "So Media",
@@ -219,6 +221,12 @@ const socialprofils = {
     tiktok: "https://www.tiktok.com/@clbsomedia",
     youtube: "https://www.youtube.com/@SoMedia2016"
 };
+const activitiesData = [
+    { time: "September", description: "Recruit members", img: recruitment },
+    { time: "November", description: "Major events", img: welcomed23 },
+    { time: "December", description: "Vietnamese Teacher's Day", img: teacherday },
+    
+];
 export {
     meta,
     dataabout,
@@ -232,4 +240,5 @@ export {
     logotext,
     activities,
     slides,
+    activitiesData,
 };

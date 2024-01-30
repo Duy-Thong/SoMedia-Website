@@ -64,3 +64,66 @@
 .indicator-inactive {
   background-color: grey;
 }
+/* style.css */
+.imageactive{
+  width: 50%!important;
+  max-width: 500px!important;
+  height: auto!important;
+  border-radius: 10px!important;
+
+}
+.activity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+ 
+}
+
+.activity img {
+  width: 100%;
+  max-width: 300px; /* Adjust the max-width as needed */
+  order: 1; /* Set image to the left in odd rows and to the right in even rows */
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .activity {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .activity img {
+    width: 50%; /* Image takes up half the width of the row on larger screens */
+    max-width: none;
+    transition: ease-in-out 0.5s;
+    
+  }
+  .activity img:hover {
+    transform: scale(1.05);
+  }
+
+
+  .activity .text {
+    width: 80%;
+    font-size: 30px;
+    font-family: var(--bs-font-sans-serif);  
+    align-items: center;
+    align-content: right !important;
+    transition: ease-in-out 0.5s;
+     /* border: 2px solid var(--secondary-color);
+  border-radius: 10px;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border-right-color: var(--first-color); */
+  }
+  .activity .text:hover {
+    transform: translateX(50px);
+  }
+
+  .activity:nth-child(even) img {
+    order: 2; /* Move image to the right in even rows */
+  }
+}
+

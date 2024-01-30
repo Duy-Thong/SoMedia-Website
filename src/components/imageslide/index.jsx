@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import { Row, Col } from "react-bootstrap";
 import "./style.css";
@@ -14,19 +14,26 @@ const prevSlide = () => {
   setSlide(slide === 0 ? data.length - 1 : slide - 1);
 };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
 
+    return () => clearInterval(interval); // Clear the interval on component unmount
+
+  }, [slide]);
   return (
     <div className="carousel">
       <Row className="carousel-content"  >
         {data.map((item, idx) => (
           <Col key={idx} lg="12">
-            <div className={slide === idx ? "slide" : "slide slide-hidden"}>
+            <div className={slide === idx ? "slide" : "slide slide-hidden" } >
               <Row>
                 <Col lg="6">
                   <img
               src={item.src}
               alt={item.alt}
-              style={{ width: "100%", height: "500px",objectFit:"cover" }}
+              style={{ width: "100%",height: "350px",objectFit:"cover" }}
             />
                 </Col>
                 <Col lg="6" xs="12" className="description">
@@ -43,17 +50,7 @@ const prevSlide = () => {
         onClick={nextSlide}
         className="arrow arrow-right"
       />
-      <span className="indicators">
-        {data.map((_, idx) => (
-          <button
-            key={idx}
-            className={
-              slide === idx ? "indicator" : "indicator indicator-inactive"
-            }
-            onClick={() => setSlide(idx)}
-          ></button>
-        ))}
-      </span>
+      
       </div>
       
   );
