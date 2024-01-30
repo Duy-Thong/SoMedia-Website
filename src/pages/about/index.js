@@ -21,8 +21,13 @@ export const About = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <Row className="mb-5 mt-3 pt-md-3">
+<<<<<<< HEAD
           <Col lg="12">
             <h1 className="display-4 mb-4 " style={{ textAlign: "right" }}>About us</h1>
+=======
+          <Col lg="8">
+            <h1 className="display-4 mb-4">About us</h1>
+>>>>>>> 9bbf07008757ac3121c0326614586fbc43f94637
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
