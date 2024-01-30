@@ -43,3 +43,12 @@ button.btn.ac_btn:hover {
         transform: translateX(100%);
     }
 }
+.Typewriter__wrapper {
+  font-size: 1.2em !important;
+  color: var(--secondary-color);
+  font-weight: 500 !important;
+}
+.Typewriter__cursor {
+  font-size: 1.5em !important;
+  color: var(--secondary-color);
+}

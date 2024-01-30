@@ -1,9 +1,19 @@
+import React, { useState } from "react";
+import hoibao from "./assets/active/hoibao.jpg";
+import boyday1911 from "./assets/active/boyday1911.jpg";
+import birthday from "./assets/active/birthday.jpg";
+import insideout from "./assets/active/insideout.jpg";
+import interview2023 from "./assets/active/interview2023.jpg";
+import outdoor from "./assets/active/outdoor.jpg";
+import training2023 from "./assets/active/training2023.jpg";
+import welcomed23 from "./assets/active/welcomed23.jpg";
+import womanday from "./assets/active/womanday.jpg";
+import womanday2 from "./assets/active/womanday2.jpg";
 const logotext = "SO MEDIA";
 const meta = {
     title: "So Media",
     description: "We are a photography club at PTIT. At Media Book, you can further develop your media and design skills as well as many interesting and dynamic activities.",
 };
-
 const introdata = {
     title: "We are So Media ",
     animated: {
@@ -16,8 +26,8 @@ const introdata = {
 };
 
 const dataabout = {
-    title: "abit about my self",
-    aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis dolor id ligula semper elementum feugiat pretium nulla. Nunc non commodo dolor. Nunc mollis dignissim facilisis. Morbi ut magna ultricies.",
+    title: "abit about our club",
+    aboutme: "Established in 2016 with 3 founding members, So Media is a gathering place for students passionate about photography, videography, and design. Coming to So Media, you will join a dynamic club, always full of positive energy and enthusiasm. Currently So Media is one of the leading photography and videography units in PTIT, participating in almost all large and small activities not only inside but also outside the institute.",
 };
 const worktimeline = [{
         jobtitle: "Designer of week",
@@ -58,17 +68,73 @@ const skills = [{
     },
 ];
 
-const services = [{
-        title: "UI & UX Design",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
+const services = [
+    {
+        title: "About training",
+        description: "When you join the club, you will be trained in some media skills as below",
+    }, {
+        title: "Photography",
+        description: "You will be taught how to use the camera, use editing software, composition and color from basic to advanced.",
     },
     {
-        title: "Mobile Apps",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
+        title: "Videography",
+        description: "You will learn how to film, how to edit a video, and use tools like Adobe Premere.",
     },
     {
-        title: "Wordpress Design",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum sollicitudin.",
+        title: "Design",
+        description: "You will learn how to use professional design software such as Photoshop, Ilustrator, Canva, along with layout and color in design to create your own design thinking and creative publications.",
+    },
+];
+const slides = [
+    {
+        "src": birthday,
+        "alt": "Image 1 for carousel",
+        "description": "So Media 6th Birthday",
+    },
+    {
+        "src": hoibao,
+        "alt": "Image 2 for carousel",
+        "description": "National newspaper youth camp 2023",
+    },
+    {
+        "src": boyday1911,
+        "alt": "Image 3 for carousel",
+        "description": "Men's Day 19/11",
+    },
+    {
+        "src": insideout,
+        "alt": "Image 4 for carousel",
+        "description": "Inside Out photography contest",
+    },
+    {
+        "src": interview2023,
+        "alt": "Image 5 for carousel",
+        "description": "So Media Interview 2023",
+    },
+    {
+        "src": outdoor,
+        "alt": "Image 6 for carousel",
+        "description": "Outdoor photography ",
+    },
+    {
+        "src": training2023,
+        "alt": "Image 7 for carousel",
+        "description": "Training photography",
+    },
+    {
+        "src": welcomed23,
+        "alt": "Image 8 for carousel",
+        "description": "Welcome D23 PTIT",
+    },
+    {
+        "src": womanday,
+        "alt": "Image 9 for carousel",
+        "description": "Vietnamese Woman's Day",
+    },
+    {
+        "src": womanday2,
+        "alt": "Image 10 for carousel",
+        "description": "International Women's Day",
     },
 ];
 
@@ -77,11 +143,7 @@ const dataportfolio = [{
     description: "So Media TVC 2023 - The Growth",
     link: "https://www.youtube.com/watch?v=ZrfJXRTsrEo",
     },
-    {
-        img: "https://assets.unlayer.com/stock-templates/1706454838255-Screenshot%202024-01-28%20221342.png",
-        description: "Ngay dau tien PTIT Version ",
-        link: "https://www.youtube.com/watch?v=y7Y7VtKb9rY",
-    },
+    
     {
         img: "https://assets.unlayer.com/stock-templates/1706517867378-Screenshot%202024-01-29%20154244.png",
         description: "Profile Shooting 2023",
@@ -93,14 +155,25 @@ const dataportfolio = [{
         link: "https://www.facebook.com/photo/?fbid=669829851921481&set=pcb.669830815254718",
     },
     {
+        img: "https://assets.unlayer.com/stock-templates/1706454838255-Screenshot%202024-01-28%20221342.png",
+        description: "Ngay dau tien PTIT Version ",
+        link: "https://www.youtube.com/watch?v=y7Y7VtKb9rY",
+    },
+    {
         img: "https://assets.unlayer.com/stock-templates/1706518226945-397551449_664880412416425_6495822736177543714_n.jpg",
         description: "KACHOUFUUGETSU HANU",
         link: "https://www.facebook.com/photo/?fbid=664880609083072&set=pcb.664904622414004",
     },
+    
     {
         img: "https://assets.unlayer.com/stock-templates/1706518396742-387207800_652564120314721_4877621676947583441_n.jpg",
         description: "BREAK THE SHELL",
         link: "https://www.facebook.com/photo?fbid=652563173648149&set=pcb.652571926980607",
+    },
+    {
+        img: "https://assets.unlayer.com/stock-templates/1706615636704-Screenshot%202024-01-30%20184640.png",
+        description: "THE P-CHAIN 2022",
+        link: "https://www.facebook.com/somedia.vn.2016/videos/941481530159388",
     },
     {
         img: "https://assets.unlayer.com/stock-templates/1706518644364-Screenshot%202024-01-29%20155655.png",
@@ -112,19 +185,13 @@ const dataportfolio = [{
         description: "INSIDE OUT",
         link: "https://www.facebook.com/photo/?fbid=579806644257136&set=pcb.579806707590463",
     },
-    // {
-    //     img: "https://assets.unlayer.com/stock-templates/1706518644364-Screenshot%202024-01-29%20155655.png",
-    //     description: "DONG PHUC PTIT 2023",
-    //     link: "https://www.facebook.com/somedia.vn.2016/videos/305607272023242",
-    // },
-    
-    
-    
+   
 ];
 
 const contactConfig = {
     YOUR_EMAIL: "clbsomediaptit@gmail.com",
     YOUR_FONE: "(+84) 39 7403 808",
+    YOUR_ADDRESS: "Km 10 Nguyen Trai, Hanoi, Vietnam",
     description: "Let's do something interesting together!",
     // creat an emailjs.com account 
     // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
@@ -150,4 +217,5 @@ export {
     contactConfig,
     socialprofils,
     logotext,
+    slides,
 };

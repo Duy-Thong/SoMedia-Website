@@ -5,9 +5,9 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { meta } from "../../content_option";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import { contactConfig } from "../../content_option";
-
+import Typewriter from "typewriter-effect";
 export const ContactUs = () => {
-  
+
   const [formData, setFormdata] = useState({
     email: "",
     name: "",
@@ -70,7 +70,7 @@ export const ContactUs = () => {
       <Container>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{meta.title} | Contact</title>
+          <title>Contact | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
         <Row className="mb-5 mt-3 pt-md-3">
@@ -84,9 +84,8 @@ export const ContactUs = () => {
             <Alert
               //show={formData.show}
               variant={formData.variant}
-              className={`rounded-0 co_alert ${
-                formData.show ? "d-block" : "d-none"
-              }`}
+              className={`rounded-0 co_alert ${formData.show ? "d-block" : "d-none"
+                }`}
               onClose={() => setFormdata({ show: false })}
               dismissible
             >
@@ -109,8 +108,24 @@ export const ContactUs = () => {
               ) : (
                 ""
               )}
+             
+              <strong>Address:</strong> {contactConfig.YOUR_ADDRESS}
             </address>
-            <p>{contactConfig.description}</p>
+            <Typewriter
+              options={{
+                strings: [
+                  "#So Media",
+                  "#Khoanh khac dau tien",
+                  
+                ],
+                autoStart: true,
+                loop: true,
+                deleteSpeed: 10,
+                cursor:"_",
+              }}
+              
+            />
+
           </Col>
           <Col lg="7" className="d-flex align-items-center">
             <form onSubmit={handleSubmit} className="contact__form w-100">

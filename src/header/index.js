@@ -19,7 +19,7 @@ const Headermain = () => {
         <div className="d-flex align-items-center justify-content-between">
           {/* <img src={clublogo} alt="logo" style={{width:"5%"}} /> */}
           <Link className="navbar-brand nav_ac" to="/">
-            <img src={clublogo} alt="Club Logo" style={{ width: '3%' }} />
+            <img src={clublogo} alt="Club Logo" style={{ width: '2.5rem' }} />
             {/* {logotext} */}
           </Link>
 
@@ -43,8 +43,11 @@ const Headermain = () => {
                   <li className="menu_item">
                     <Link onClick={handleToggle} to="/about" className="my-3"> About  </Link>
                   </li>
+                  <li className="menu_item ">
+                    <Link onClick={handleToggle} to="/activities" className="my-3">Activities</Link>
+                  </li>
                   <li className="menu_item">
-                    <Link onClick={handleToggle} to="/portfolio" className="my-3">Projects</Link>
+                    <Link onClick={handleToggle} to="/projects" className="my-3">Projects</Link>
                   </li>
                   <li className="menu_item">
                     <Link onClick={handleToggle} to="/contact" className="my-3"> Contact</Link>
