@@ -14,15 +14,14 @@ export const AnualActivities = () => {
 
     return (
         <div>
-            
             <Container>
                 <h2 className="text-center">Annual Activities</h2>
                 <hr />
-                <Row>
+                <Row style={{width:"110%"}}>
                     {activities.map((activity, index) => (
                         <div key={index} className="activity">
-                            <img src={activity.img} alt={`Activity ${index + 1}`} className="imageactive" />
-                            <div className="text">
+                            <img src={activity.img} alt={`Activity ${index + 1}`} className="imageactive black-and-white" />
+                            <div className="textactive">
                                 <strong>{activity.time}:</strong> {activity.description}
                             </div>
                         </div>

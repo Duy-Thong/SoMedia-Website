@@ -11,6 +11,11 @@ import womanday from "./assets/active/womanday.jpg";
 import womanday2 from "./assets/active/womanday2.jpg";
 import teacherday from "./assets/active/teacherday.jpg";
 import recruitment from "./assets/active/recruitment.jpg";
+import chaotan from "./assets/active/chaotan.jpg";
+import trainingd23 from "./assets/active/trainingd23.jpg";
+import hoibao2 from "./assets/active/hoibao2.jpg";
+import tedhanu from "./assets/active/tedhanu.jpg";
+import contest from "./assets/active/contest.jpg";
 const logotext = "SO MEDIA";
 const meta = {
     title: "So Media",
@@ -223,8 +228,15 @@ const socialprofils = {
 };
 const activitiesData = [
     { time: "September", description: "Recruit members", img: recruitment },
-    { time: "November", description: "Major events", img: welcomed23 },
-    { time: "December", description: "Vietnamese Teacher's Day", img: teacherday },
+    { time: "October", description: "Major events", img: chaotan },
+    { time: "November", description: "Vietnamese Teacher's Day", img: teacherday },
+    { time: "November", description: "Event media sponsor", img: tedhanu  },
+    { time: "December", description: "Training", img: trainingd23 },
+    { time: "March", description: "Youth Month activities", img: hoibao2 },
+    { time: "April", description: "Club Birthday", img: birthday },
+    { time: "May", description: "Photo Contest", img: contest },
+
+
     
 ];
 export {

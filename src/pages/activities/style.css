@@ -3,89 +3,51 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1200px;
+  width: 100%; /* Use percentage to make it responsive */
+  max-width: 1200px; /* Set a max-width to avoid stretching on larger screens */
   height: 400px;
-  
+  margin: 0 auto; /* Center the carousel horizontally */
+  margin-top: -40px;
 }
 
-.slide {
-  box-shadow: 0px 0px 7px #666;
-  width: 100%;
-  height: 100%;
-  border: 8px solid var(--secondary-color);
-  backdrop-filter: blur(10px); /* Adjust the blur strength as needed */
+/* Adjust the image size to be responsive */
+.imageactive {
+  width: 50% !important;
+  height: auto !important;
+  border-radius: 10px !important;
+  transition: transform 0.5s ease-in-out; /* Adding a smooth transition effect */
+}
+/* .imageactive.black-and-white {
+  filter: grayscale(100%)!important;
+  filter: contrast(1.2) grayscale(100%) !important;
+} */
+
+
+.imageactive:hover {
+  transform: scale(1.05) !important; /* Removing single quotes around '180deg' */
+  box-shadow: 0px 0px 10px 0px var(--secondary-color);
 }
 
-.slide-hidden {
-  display: none;
+.textactive {
+  font-size: 30px;
+  font-family: 'Raleway', sans-serif!important;
+  text-wrap: wrap;
 }
-
-.arrow {
-  
-  position: absolute;
-  filter: drop-shadow(0px 0px 5px #555);
-  width: 2rem;
-  height: 2rem;
-  color: white;
-}
-
-.arrow:hover {
-  cursor: pointer;
-}
-
-.arrow-left {
-  left: 1rem;
-   margin-left: 0.5rem;
-}
-
-.arrow-right {
-  right: 1rem;
-  margin-right: 35rem;
-}
-
-.indicators {
-  display: flex;
-  position: absolute;
-  bottom: 1rem;
-}
-
-.indicator {
-  background-color: white;
-  height: 0.5rem;
-  width: 0.5rem;
-  border-radius: 100%;
-  border: none;
-  outline: none;
-  box-shadow: 0px 0px 5px #555;
-  margin: 0 0.2rem;
-  cursor: pointer;
-}
-
-.indicator-inactive {
-  background-color: grey;
-}
-/* style.css */
-.imageactive{
-  width: 50%!important;
-  max-width: 500px!important;
-  height: auto!important;
-  border-radius: 10px!important;
-
-}
+/* Make activities responsive */
 .activity {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin-bottom: 20px;
- 
 }
 
 .activity img {
   width: 100%;
-  max-width: 300px; /* Adjust the max-width as needed */
-  order: 1; /* Set image to the left in odd rows and to the right in even rows */
+  max-width: 300px;
   position: relative;
+  margin-left: 50px;
+  margin-right: 50px
 }
 
 @media (min-width: 768px) {
@@ -95,36 +57,31 @@
   }
 
   .activity img {
-    width: 50%; /* Image takes up half the width of the row on larger screens */
+    width: 50%;
     max-width: none;
     transition: ease-in-out 0.5s;
     
   }
+
   .activity img:hover {
     transform: scale(1.05);
   }
 
-
   .activity .text {
-    width: 80%;
+    width: 100%;
     font-size: 30px;
     font-weight: 400;
     font-family: 'Raleway', sans-serif!important;
     align-items: center;
     align-content: right !important;
     transition: ease-in-out 0.5s;
-     /* border: 2px solid var(--secondary-color);
-  border-radius: 10px;
-    border-top-right-radius: 0%;
-    border-bottom-right-radius: 0%;
-    border-right-color: var(--first-color); */
   }
+
   .activity .text:hover {
-    transform: translateX(50px);
+    transform: translateX(0); /* Reset translation on hover */
   }
 
   .activity:nth-child(even) img {
-    order: 2; /* Move image to the right in even rows */
+    order: 2;
   }
 }
-

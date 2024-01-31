@@ -37,8 +37,9 @@
 .slide img {
   width: 100%;
   height: auto;
-  /* border-radius: 10%; */
+  border-radius: 10px;
   object-fit: cover;
+  
  
 }
 
@@ -63,12 +64,11 @@
 .arrow-left {
   left: 1rem;
   position: absolute;
+  
 }
 
 .arrow-right {
-  left: 28.5rem; /* Adjusted from "right: 5rem;" to "left: 5rem;" */
-  align-self: center;
-  margin-left: 50px;
+  right: 1rem;
   position: absolute;
 }
 

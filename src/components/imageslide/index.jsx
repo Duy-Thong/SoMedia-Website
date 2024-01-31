@@ -23,7 +23,7 @@ const prevSlide = () => {
 
   }, [slide]);
   return (
-    <div className="carousel">
+    <div className="carousel" >
       <Row className="carousel-content"  >
         {data.map((item, idx) => (
           <Col key={idx} lg="12">
