@@ -92,6 +92,13 @@ section {
         padding-right: 20px;
     }
 }
+@media (max-width: 767px) {
+    /* Add styles for smaller screens */
+    .intro_sec .text h1 {
+        font-size: 24px; /* Adjust font size for smaller screens */
+        margin-bottom: 30px; /* Adjust spacing for smaller screens */
+    }
+}
 
 .intro_sec .intro .feature .wrap-icon {
     background: 0 0!important;

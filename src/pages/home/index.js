@@ -46,7 +46,7 @@ export const Home = () => {
             </Row>
           </div>
 
-          <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
+          <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center" style={{ marginTop: "200px" }}>
             <div className="align-self-center ">
               <div className="intro mx-auto">
                 <h2 className="mb-1x">{introdata.title}</h2>
