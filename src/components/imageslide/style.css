@@ -37,8 +37,10 @@
 .slide img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   object-fit: cover;
+  border: 5px var(--secondary-color) solid;
+  border-bottom: 30px var(--secondary-color) solid;
   
  
 }

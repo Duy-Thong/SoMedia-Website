@@ -14,7 +14,7 @@
 .imageactive {
   width: 50% !important;
   height: auto !important;
-  border-radius: 10px !important;
+  /* border-radius: 10px !important; */
   transition: transform 0.5s ease-in-out; /* Adding a smooth transition effect */
 }
 /* .imageactive.black-and-white {
