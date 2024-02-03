@@ -9,12 +9,14 @@ section {
 /* Add or modify these styles in your CSS file */
 
 .image-slider img {
+    margin: top 0.5rem bottom 0.5rem!important;
   opacity: 0;
   transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
   transform: translateX(100%); /* Adjust for desired starting position */
 }
 
 .image-slider img.visible {
+margin: top 0.5rem bottom 0.5rem!important;
   opacity: 1;
   transform: translateX(0%);
   transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
