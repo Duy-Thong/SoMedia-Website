@@ -8,7 +8,6 @@ import withRouter from "../hooks/withRouter";
 import AppRoutes from "./routes";
 import Headermain from "../header";
 import AnimatedCursor from "../hooks/AnimatedCursor";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./App.css";
 function _ScrollToTop(props) {
   const { pathname } = useLocation();
