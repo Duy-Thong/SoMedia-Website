@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
+
 const ImageSlider = ({ images, interval = 2000 }) => {
     const [currentImage, setCurrentImage] = useState(0);
 

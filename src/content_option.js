@@ -46,20 +46,26 @@ const dataabout = {
 
 };
 const worktimeline = [{
-    jobtitle: "Designer of week",
-    where: "YAdfi",
-    date: "2020",
+    jobtitle: "First prize of the contest 'Net dep truong P' ",
+    where: "PTIT",
+    date: "2022",
 },
 {
-    jobtitle: "Designer of week",
-    where: "Jamalya",
-    date: "2019",
+    jobtitle: "Third prize of the contest 'Dong phuc PTIT' ",
+    where: "PTIT",
+    date: "2023",
 },
 {
-    jobtitle: "Designer of week",
-    where: "ALquds",
-    date: "2019",
+    jobtitle: "Club has excellent achievements in union activities and youth movements",
+    where: "PTIT",
+    date: "2022-2023",
 },
+{
+    jobtitle: "Media sponsor of the event welcoming new students D23",
+    where: "PTIT",
+    date: "2023",
+    },
+
 ];
 
 
@@ -159,7 +165,7 @@ const slides = [
         "alt": "Image 10 for carousel",
         "description": "International Women's Day",
     },
-    
+
 
 ];
 
@@ -182,12 +188,12 @@ const dataportfolio = [{
 {
     img: "https://assets.unlayer.com/stock-templates/1706518095715-399828778_669829441921522_1834242137200868664_n.jpg",
     description: "TEDxHANU 2023",
-    link: "https://www.facebook.com/photo/?fbid=669829851921481&set=pcb.669830815254718",
+    link: "https://www.facebook.com/tedxhanu/videos/1365086274436809",
 },
 {
     img: "https://assets.unlayer.com/stock-templates/1706518226945-397551449_664880412416425_6495822736177543714_n.jpg",
     description: "KACHOUFUUGETSU HANU",
-    link: "https://www.facebook.com/photo/?fbid=664880609083072&set=pcb.664904622414004",
+    link: "https://www.facebook.com/100063582549627/videos/1459914988185464",
 },
 {
     img: "https://assets.unlayer.com/stock-templates/1706454838255-Screenshot%202024-01-28%20221342.png",
@@ -205,12 +211,12 @@ const dataportfolio = [{
     img: "https://assets.unlayer.com/stock-templates/1706615636704-Screenshot%202024-01-30%20184640.png",
     description: "THE P-CHAIN 2022",
     link: "https://www.facebook.com/somedia.vn.2016/videos/941481530159388",
-    },
-    {
-        img: neu,
-        description: "AGRIUP 2023 - NEU",
-        link: "https://www.facebook.com/photo?fbid=672767738294359&set=pcb.672770154960784",
-    },
+},
+{
+    img: neu,
+    description: "AGRIUP 2023 - NEU",
+    link: "https://www.facebook.com/agriup.NEU/videos/2103583136647621",
+},
 
 
     // {
@@ -225,7 +231,7 @@ const dataportfolio = [{
 const contactConfig = {
     YOUR_EMAIL: "clbsomediaptit@gmail.com",
     YOUR_FONE: "(+84) 39 7403 808",
-    YOUR_ADDRESS: "Km 10 Nguyen Trai, Hanoi, Vietnam",
+    YOUR_ADDRESS: "Posts and Telecommunications Institute of Technology, Km 10 Nguyen Trai, Hanoi, Vietnam",
     description: "Let's do something interesting together!",
     // creat an emailjs.com account 
     // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
@@ -249,7 +255,7 @@ const activitiesData = [
     { time: "March", description: "Youth Month activities", img: hoibao2 },
     { time: "April", description: "Club Birthday", img: birthday },
     { time: "May", description: "Photo Contest", img: contest },
-    
+
 
 
 
