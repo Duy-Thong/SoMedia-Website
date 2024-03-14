@@ -35,7 +35,7 @@ const introdata = {
         second: "We love videography",
         third: "We love design",
     },
-    description: "We are a photography club at PTIT. At So Media, you can further develop your media and design skills as well as many interesting and dynamic activities.",
+    description: "We are a photography club at PTIT. At So Media, you can further develop your media and design skills, as well as engage in many interesting and dynamic activities.",
     your_img_url: "https://assets.unlayer.com/stock-templates/1706451135609-homepic.png",
 };
 
@@ -46,12 +46,12 @@ const dataabout = {
 
 };
 const worktimeline = [{
-    jobtitle: "First prize of the contest 'Net dep truong P' ",
+    jobtitle: "First prize of the contest 'Nét đẹp trường P' ",
     where: "PTIT",
     date: "2022",
 },
 {
-    jobtitle: "Third prize of the contest 'Dong phuc PTIT' ",
+    jobtitle: "Third prize of the contest 'Đồng phục PTIT' ",
     where: "PTIT",
     date: "2023",
 },
@@ -64,12 +64,12 @@ const worktimeline = [{
     jobtitle: "Media sponsor of the event welcoming new students D23",
     where: "PTIT",
     date: "2023",
-    },
-    {
-        jobtitle: "And many other Media sponsorship certificates",
-        where: "",
-        date: "",
-    },
+},
+{
+    jobtitle: "And many other Media sponsorship certificates",
+    where: "",
+    date: "",
+},
 
 ];
 

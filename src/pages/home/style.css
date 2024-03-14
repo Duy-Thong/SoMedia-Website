@@ -6,11 +6,12 @@ section {
     -o-transition: all .5s ease-in;
     transition: all .5s ease-in;
 }
+
 /* Add or modify these styles in your CSS file */
 /* Add or modify these styles in your CSS file */
 
 .image-slider img {
-    margin: top 0.5rem bottom 0.5rem!important;
+    margin: top 0.5rem bottom 0.5rem !important;
     opacity: 0;
     transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
     transform: translateX(100%);
@@ -25,15 +26,16 @@ section {
 .image-slider img.hidden {
     opacity: 0;
     transform: translateX(100%);
-    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
-    display: none;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    /* display: none; */
 }
 
 
 
 
 .home-image img:hover {
-  transform: translateX(-10%); /* Set the new transformation on hover (you can customize this) */
+    transform: translateX(-10%);
+    /* Set the new transformation on hover (you can customize this) */
 }
 
 .who_am_I {
@@ -69,7 +71,7 @@ section {
 @media (max-width:991.98px) {
     .intro_sec {
         display: block;
-        height: auto!important;
+        height: auto !important;
     }
 }
 
@@ -79,6 +81,7 @@ section {
 }
 
 @media (max-width:991.98px) {
+
     .intro_sec .text,
     .intro_sec .h_bg-image {
         width: 100%;
@@ -97,16 +100,20 @@ section {
         padding-right: 20px;
     }
 }
+
 @media (max-width: 767px) {
+
     /* Add styles for smaller screens */
     .intro_sec .text h1 {
-        font-size: 24px; /* Adjust font size for smaller screens */
-        margin-bottom: 30px; /* Adjust spacing for smaller screens */
+        font-size: 24px;
+        /* Adjust font size for smaller screens */
+        margin-bottom: 30px;
+        /* Adjust spacing for smaller screens */
     }
 }
 
 .intro_sec .intro .feature .wrap-icon {
-    background: 0 0!important;
+    background: 0 0 !important;
     width: auto;
     height: auto;
     margin-bottom: 0;
@@ -234,6 +241,7 @@ section {
         min-height: 75vh;
         margin-bottom: 30px;
     }
+
     .intro_sec .h_bg-image .block {
         top: unset;
         bottom: 0;
