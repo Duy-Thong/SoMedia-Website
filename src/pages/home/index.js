@@ -29,17 +29,17 @@ export const Home = () => {
         </Helmet>
         <div className="intro_sec d-block d-lg-flex align-items-center">
           <div className="h_bg-image order-1 order-lg-2 h-100 home-image image-slider">
-            <Row style={{ paddingTop: "40px", marginTop: "0px", marginBottom: "0px" }}>
+            <Row style={{ paddingTop: "40px" }}>
               <Col>
                 <ImageSlider images={images} interval={4500} />
               </Col>
             </Row>
-            <Row style={{ paddingTop: "230px", marginTop: "0px", marginBottom: "0px" }}>
+            <Row style={{ paddingTop: "230px"}}>
               <Col>
                 <ImageSlider images={images1} interval={5500} />
               </Col>
             </Row>
-            <Row style={{ paddingTop: "230px", marginTop: "0px", marginBottom: "0px" }}>
+            <Row style={{ paddingTop: "230px"}}>
               <Col>
                 <ImageSlider images={images2} interval={6500} />
               </Col>
