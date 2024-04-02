@@ -9,6 +9,7 @@ import {
   skills,
   services,
   slides,
+  departments,
 } from "../../content_option";
 import { Carousel } from "../../components/imageslide/index";
 export const About = () => {
@@ -27,30 +28,30 @@ export const About = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lg="5">
+          <Col lg="4">
             <h3 className="color_sec py-4">{dataabout.title}</h3>
           </Col>
-          <Col lg="7" className="d-flex align-items-center">
+          <Col lg="8" className="d-flex align-items-center">
             <div>
               <p>{dataabout.aboutme}</p>
             </div>
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lg="5">
+          <Col lg="4">
             <h3 className="color_sec py-4">Goal</h3>
           </Col>
-          <Col lg="7" className="d-flex align-items-center">
+          <Col lg="8" className="d-flex align-items-center">
             <div>
               <p>{dataabout.goals}</p>
             </div>
           </Col>
         </Row>
         <Row className=" sec_sp">
-          <Col lg="5">
+          <Col lg="4">
             <h3 className="color_sec py-4">Achievements</h3>
           </Col>
-          <Col lg="7">
+          <Col lg="8">
             <table className="table caption-top">
               <tbody>
                 {worktimeline.map((data, i) => {
@@ -67,10 +68,25 @@ export const About = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lang="5">
+          <Col lang="4">
+            <h3 className="color_sec py-4">4 Department</h3>
+          </Col>
+          <Col lg="8">
+            {departments.map((data, i) => {
+              return (
+                <div className="service_ py-4" key={i}>
+                  <h5 className="service__title">{data.name}</h5>
+                  <p className="service_desc">{data.description}</p>
+                </div>
+              );
+            })}
+          </Col>
+        </Row>
+        <Row className="sec_sp">
+          <Col lang="4">
             <h3 className="color_sec py-4">Training</h3>
           </Col>
-          <Col lg="7">
+          <Col lg="8">
             {services.map((data, i) => {
               return (
                 <div className="service_ py-4" key={i}>
