@@ -23,6 +23,8 @@ import tvc from "./assets/active/tvc.jpg";
 import outdoor1 from "./assets/active/outdoor1.jpg";
 import trainingd22 from "./assets/active/trainingd22.jpg";
 import pchain from "./assets/active/pchain.jpg";
+import profile from "./assets/active/profile.jpg";
+import birthday2024 from "./assets/active/birthday2024.jpg";
 const logotext = "SO MEDIA";
 const meta = {
     title: "So Media",
@@ -119,6 +121,11 @@ const slides = [
         "description": "So Media 6th Birthday",
     },
     {
+        "src": birthday2024,
+        "alt": "Image 10 for carousel",
+        "description": "So Media 7th Birthday",
+    },
+    {
         "src": hoibao,
         "alt": "Image 2 for carousel",
         "description": "National newspaper youth camp 2023",
@@ -188,6 +195,13 @@ const slides = [
         "alt": "Image 10 for carousel",
         "description": "International Women's Day",
     },
+    {
+        "src": profile,
+        "alt": "Image 10 for carousel",
+        "description": "Profile Shooting",
+    },
+    
+
 
 
 ];
@@ -271,7 +285,7 @@ const socialprofils = {
 };
 const activitiesData = [
     { time: "September", description: "Recruit members", img: recruitment },
-    { time: "October", description: "Major events", img: chaotan },
+    { time: "October", description: "School events", img: chaotan },
     { time: "November", description: "Vietnamese Teacher's Day", img: teacherday },
     { time: "November", description: "Event media sponsor", img: tedhanu },
     { time: "December", description: "Training", img: trainingd23 },
