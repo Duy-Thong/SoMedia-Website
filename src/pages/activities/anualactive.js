@@ -17,7 +17,7 @@ export const AnualActivities = () => {
             <Container>
                 <h2 className="text-center">Annual Activities</h2>
                 <hr />
-                <Row style={{width:"110%"}}>
+                <Row style={{ width: "110%" }}>
                     {activities.map((activity, index) => (
                         <div key={index} className="activity">
                             <img src={activity.img} alt={`Activity ${index + 1}`} className="imageactive black-and-white" />

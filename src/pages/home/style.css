@@ -7,6 +7,21 @@ section {
     transition: all .5s ease-in;
 }
 
+.introsec1 {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.backgroundvideo {
+    background-color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 /* Add or modify these styles in your CSS file */
 /* Add or modify these styles in your CSS file */
 
@@ -24,7 +39,7 @@ section {
 
 .image-slider img.hidden {
     opacity: 0;
-    transition:  opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .who_am_I {
@@ -113,7 +128,7 @@ section {
 }
 
 .intro_sec .text h1 {
-    font-size: 30px;
+    font-size: 40px;
     margin-bottom: 50px;
     font-weight: 700;
 }

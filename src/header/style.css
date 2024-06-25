@@ -1,4 +1,5 @@
 .site__header {
+    background-color: black;
     top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -165,6 +166,7 @@
     .menu__container {
         margin-left: 33.3333%;
     }
+
     .the_menu {
         padding-top: 10vh;
         padding-bottom: 10vh;

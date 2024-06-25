@@ -3,10 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Use percentage to make it responsive */
-  max-width: 1200px; /* Set a max-width to avoid stretching on larger screens */
+  width: 100%;
+  /* Use percentage to make it responsive */
+  max-width: 1200px;
+  /* Set a max-width to avoid stretching on larger screens */
   height: 400px;
-  margin: 0 auto; /* Center the carousel horizontally */
+  margin: 0 auto;
+  /* Center the carousel horizontally */
   margin-top: -40px;
 }
 
@@ -15,17 +18,14 @@
   width: 50% !important;
   height: auto !important;
   /* border-radius: 10px !important; */
-  transform:
-    perspective(1750px)
-    translate3d(0px, 0px, -50px)
-    rotateX(15deg)
-    scale(0.9, 0.9);
+
   /* border-radius: 20px; */
   border: 5px var(--secondary-color) solid;
   border-bottom: 30px var(--secondary-color) solid;
   box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
-  transition: 0.4s ease-in-out transform; /* Adding a smooth transition effect */
+  /* Adding a smooth transition effect */
 }
+
 /* .imageactive.black-and-white {
   filter: grayscale(100%)!important;
   filter: contrast(1.2) grayscale(100%) !important;
@@ -33,15 +33,18 @@
 
 
 .imageactive:hover {
-  transform: translate3d(0px, 0px, -250px) !important; /* Removing single quotes around '180deg' */
+  transform: translateX(30px);
+  transition: transform 1s ease-in-out;
+  /* Removing single quotes around '180deg' */
   /* box-shadow: 0px 0px 10px 0px var(--secondary-color); */
 }
 
 .textactive {
   font-size: 30px;
-  font-family: 'Raleway', sans-serif!important;
+  font-family: 'Raleway', sans-serif !important;
   text-wrap: wrap;
 }
+
 /* Make activities responsive */
 .activity {
   display: flex;
@@ -68,7 +71,7 @@
     width: 50%;
     max-width: none;
     transition: ease-in-out 0.5s;
-    
+
   }
 
 
@@ -76,14 +79,15 @@
     width: 100%;
     font-size: 30px;
     font-weight: 400;
-    font-family: 'Raleway', sans-serif!important;
+    font-family: 'Raleway', sans-serif !important;
     align-items: center;
     align-content: right !important;
     transition: ease-in-out 0.5s;
   }
 
   .activity .text:hover {
-    transform: translateX(0); /* Reset translation on hover */
+    transform: translateX(0);
+    /* Reset translation on hover */
   }
 
   .activity:nth-child(even) img {

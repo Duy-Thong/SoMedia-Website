@@ -1,5 +1,11 @@
 .sec_sp {
-    margin-bottom: 3rem;
+    margin-top: 10px;
+}
+
+.backgroundvideo {
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(15px);
 }
 
 .table td,
@@ -14,7 +20,6 @@
 .progress-title {
     font-size: 16px;
     font-weight: 700;
-    margin: 15px 0 20px;
     font-family: 'Raleway';
 }
 
@@ -37,7 +42,6 @@
 
 .progress .progress-value {
     position: absolute;
-    top: -30px;
     right: 8px;
     font-size: 17px;
     font-weight: bold;
@@ -62,13 +66,11 @@
 }
 
 .service__title {
-    padding: 8px 0;
+
     border-bottom: solid 2px var(--secondary-color);
 }
 
-.service-section .service-category-title {
-    padding-bottom: 4px;
-}
+.service-section .service-category-title {}
 
 
 /*! CSS Used keyframes */
@@ -79,6 +81,7 @@
         -webkit-transform: translate3d(0, 100%, 0);
         transform: translate3d(0, 100%, 0);
     }
+
     to {
         opacity: 1;
         -webkit-transform: translateZ(0);
@@ -92,6 +95,7 @@
         -webkit-transform: translate3d(0, 100%, 0);
         transform: translate3d(0, 100%, 0);
     }
+
     to {
         opacity: 1;
         -webkit-transform: translateZ(0);

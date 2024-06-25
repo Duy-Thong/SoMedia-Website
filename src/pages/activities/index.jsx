@@ -21,6 +21,9 @@ export const Activities = () => {
           <title> Activities | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
+        <div className="backgroundvideo" >
+          <img src="/active.png" alt="background" />
+        </div>
         <Row className="mb-5 mt-3 pt-md-3" >
           <Col lg="12">
             <h1 className="display-4 mb-4 " style={{ textAlign: "left",marginTop:"-30px" }}>Our Activities</h1>

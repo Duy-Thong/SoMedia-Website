@@ -73,6 +73,9 @@ export const ContactUs = () => {
           <title>Contact | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
+        <div className="backgroundvideo">
+          <img src="/home6.jpg" alt="background" />
+        </div>
         <Row className="mb-5 mt-3 pt-md-3">
           <Col lg="8">
             <h1 className="display-4 mb-4">Contact Us <span class="wave">👋</span> </h1>
@@ -108,7 +111,7 @@ export const ContactUs = () => {
               ) : (
                 ""
               )}
-             
+
               <strong>Address:</strong> {contactConfig.YOUR_ADDRESS}
             </address>
             <Typewriter
@@ -116,14 +119,14 @@ export const ContactUs = () => {
                 strings: [
                   "#So Media",
                   "#Khoanh khac dau tien",
-                  
+
                 ],
                 autoStart: true,
                 loop: true,
                 deleteSpeed: 10,
-                cursor:"_",
+                cursor: "_",
               }}
-              
+
             />
 
           </Col>

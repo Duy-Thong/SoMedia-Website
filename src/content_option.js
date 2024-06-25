@@ -33,17 +33,17 @@ const meta = {
 const introdata = {
     title: "We are So Media ",
     "animated": {
-        "first": "We love photography!",
-        "second": "We love videography!",
-        "third": "We love design!",
-        "fourth": "We love content creation!",
+        "first": "Photography",
+        "second": "Videography",
+        "third": "Design",
+        "fourth": "Content creation",
     },
     description: "We are a media club at PTIT. At So Media, you can further develop your media skills,expand your network as well as engage in many interesting and dynamic activities.",
     your_img_url: "https://assets.unlayer.com/stock-templates/1706451135609-homepic.png",
 };
 
 const dataabout = {
-    title: "Abit about our club",
+    title: "About the club",
     aboutme: "Established in 2016 with 3 founding members, So Media is a gathering place for students passionate about photography, videography, and design. Coming to So Media, you will join a dynamic club, always full of positive energy and enthusiasm. Currently So Media is one of the leading photography and videography units in PTIT, participating in almost all large and small activities not only inside but also outside the institute.",
     goals: "So Media's goal is to become a place to connect and develop the passion of students in the field of photography, videography and design. In So Media, the priority is the development of our members. We always strive to create a professional and creative working environment, where members can freely express their ideas and develop their skills.",
 
@@ -79,20 +79,20 @@ const worktimeline = [{
 const departments = [
     {
         name: "Media",
-        description:"As the club's largest membership, its main activity is filming, taking photos at events, and creating products such as photos and videos for club communication.",
+        description: "As the club's largest membership, its main activity is filming, taking photos at events, and creating products such as photos and videos for club communication.",
 
     },
     {
         name: "Communication",
-        description:"The task of the Communication Department is to create content, write posts on fanpages to spread positive and useful information.Sometimes the Communication Department also plans club events."
+        description: "The task of the Communication Department is to create content, write posts on fanpages to spread positive and useful information.Sometimes the Communication Department also plans club events."
     },
     {
         name: "Design",
-        description:"As a committee with many personality and creative members, the Design Department is the place to produce publications such as logos, posters, banners ... The members of the Design Department are proficient in design software such as Photoshop, Illustrator, ..."
+        description: "As a committee with many personality and creative members, the Design Department is the place to produce publications such as logos, posters, banners ... The members of the Design Department are proficient in design software such as Photoshop, Illustrator, ..."
     },
     {
         name: "Human Resource",
-        description:"The Human Resources department's activities, though often behind the scenes, are crucial. Their role involves managing member activities and actively participating in the logistics of club events."
+        description: "The Human Resources department's activities, though often behind the scenes, are crucial. Their role involves managing member activities and actively participating in the logistics of club events."
     },
 ];
 const services = [
@@ -200,7 +200,7 @@ const slides = [
         "alt": "Image 10 for carousel",
         "description": "Profile Shooting",
     },
-    
+
 
 
 
