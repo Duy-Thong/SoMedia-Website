@@ -242,7 +242,7 @@ const dataportfolio = [{
 {
     img: "https://assets.unlayer.com/stock-templates/1706518396742-387207800_652564120314721_4877621676947583441_n.jpg",
     description: "BREAK THE SHELL",
-    link: "https://www.facebook.com/photo?fbid=652563173648149&set=pcb.652571926980607",
+    link: "https://www.facebook.com/share/v/cuTCEFhncdc92YCf/",
 },
 {
     img: "https://assets.unlayer.com/stock-templates/1706615636704-Screenshot%202024-01-30%20184640.png",
