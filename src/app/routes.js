@@ -1,11 +1,12 @@
 import React from "react";
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import withRouter from "../hooks/withRouter"
 import { Home } from "../pages/home";
 import { Portfolio } from "../pages/portfolio";
 import { ContactUs } from "../pages/contact";
 import { About } from "../pages/about";
 import { Socialicons } from "../components/socialicons";
+import { Recruit } from "../pages/recruitment";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Activities } from "../pages/activities";
 const AnimatedRoutes = withRouter(({ location }) => (
@@ -27,6 +28,7 @@ const AnimatedRoutes = withRouter(({ location }) => (
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/activities" element={<Activities />} />
         <Route path="*" element={<Home />} />
+        <Route path="/recruitment" element={<Recruit />} />
       </Routes>
     </CSSTransition>
   </TransitionGroup>

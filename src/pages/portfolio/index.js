@@ -13,10 +13,8 @@ export const Portfolio = () => {
           <title> Projects | {meta.title} </title>{" "}
           <meta name="description" content={meta.description} />
         </Helmet>
-        <div className="backgroundvideo">
-          <video autoPlay loop style={{ width: '100%', height: '170%', objectFit: 'cover', position: 'absolute', zIndex: '-1' }}>
-            <source src="/TVC.mp4" type="video/mp4" />
-          </video>
+        <div className="backgroundvideo" >
+          <img src="/active2.png" alt="background" />
         </div>
         <Row className="mb-5 mt-3 pt-md-3">
           <Col lg="8">

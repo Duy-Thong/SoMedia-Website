@@ -283,6 +283,19 @@ const socialprofils = {
     tiktok: "https://www.tiktok.com/@clbsomedia",
     youtube: "https://www.youtube.com/c/S%E1%BB%95Media2016"
 };
+
+const recruitmentpage =
+{
+    title1: "Being trained by seniors in skills in photography, videography, design, layout, thinking, color and software use. From there, you will gain the necessary skills for both study and future work.",
+    title2: "Not only will you learn knowledge, you will also learn soft skills such as event organization, team management, teamwork,... through many events that the club organizes.",
+    button: "Apply Now !",
+    cvtime: "From 15/10/2023 to 15/11/2023",
+    interviewtime: "From 20/11/2023 to 25/11/2023",
+    trainingtime: "From 01/12/2023 to 15/12/2023",
+    passtime: "From 20/12/2023 to 25/12/2023",
+    applylink: "https://www.facebook.com/somedia.vn.2016",
+};
+
 const activitiesData = [
     { time: "September", description: "Recruit members ", img: recruitment },
     { time: "October", description: "School events", img: chaotan },
@@ -297,6 +310,7 @@ const activitiesData = [
 
 
 ];
+
 export {
     meta,
     dataabout,
@@ -310,4 +324,5 @@ export {
     slides,
     activitiesData,
     departments,
+    recruitmentpage,
 };
