@@ -284,7 +284,7 @@ const socialprofils = {
     youtube: "https://www.youtube.com/c/S%E1%BB%95Media2016"
 };
 const activitiesData = [
-    { time: "September", description: "Recruit members", img: recruitment },
+    { time: "September", description: "Recruit members ", img: recruitment },
     { time: "October", description: "School events", img: chaotan },
     { time: "November", description: "Vietnamese Teacher's Day", img: teacherday },
     { time: "November", description: "Event media sponsor", img: tedhanu },

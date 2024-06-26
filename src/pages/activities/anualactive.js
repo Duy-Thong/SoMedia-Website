@@ -22,7 +22,7 @@ export const AnualActivities = () => {
                         <div key={index} className="activity">
                             <img src={activity.img} alt={`Activity ${index + 1}`} className="imageactive black-and-white" />
                             <div className="textactive">
-                                <strong>{activity.time} :</strong> {activity.description}
+                                <strong>{activity.time}:</strong> {activity.description}
                             </div>
                         </div>
                     ))}
