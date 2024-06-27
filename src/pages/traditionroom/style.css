@@ -2,9 +2,19 @@
     margin-top: 10px;
 }
 
+.prize {
+    margin-top: 10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.prize p {
+    font-size: 20px;
+}
+
 .carouselroom {
-    width: 400px;
-    height: 400px;
+    width: 80%;
+    height: 80%;
 }
 
 .slideroom {
@@ -15,9 +25,9 @@
 }
 
 /* Adjust the image size to be responsive */
-.imageactive {
+.imageactive1 {
     width: 100%;
-    height: auto;
+    height: 100%;
     max-height: 500px;
     border: 5px var(--secondary-color) solid;
     border-bottom: 30px var(--secondary-color) solid;
@@ -25,6 +35,34 @@
 
 }
 
+.carousel-indicators {
+    display: none;
+}
+
+.carousel-caption {
+    left: -20px;
+    position: relative;
+    max-width: 100%;
+    padding: 20px;
+    margin-top: 40px;
+    text-align: center;
+    word-wrap: break-word !important;
+    /* Correct property for breaking long words */
+    overflow-wrap: break-word !important;
+    /* Ensures words break to prevent overflow */
+    white-space: pre-wrap !important;
+    /* Maintains whitespace but allows wrapping */
+    text-wrap: balance !important;
+    margin-right: 60px !important;
+}
+
+.carouselroom .carousel-caption h3,
+.carouselroom .carousel-caption p {
+    color: #ffffff;
+    /* display: flex; */
+    text-align: left;
+    margin-left: 0px;
+}
 
 /* CSS */
 .backgroundvideo img {
@@ -40,6 +78,10 @@
         /* This makes the image take the full height of the viewport */
         object-fit: cover;
         /* Ensures the image covers the area without distortion */
+    }
+
+    .carousel-caption p {
+        display: none;
     }
 }
 

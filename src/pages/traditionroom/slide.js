@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import './style.css'; // Import custom CSS
 
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -26,16 +27,23 @@ function ControlledCarousel() {
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} className='carouselroom'>
             {data.map((item, i) => (
-                <Carousel.Item key={i}>
-                    <img
-                        src={item.image}
-                        alt={item.name || 'Image'}
-                        className='imageactive'
-                    />
-                    <Carousel.Caption>
-                        <h3>{item.name}</h3>
-                        <p>{item.description}</p>
-                    </Carousel.Caption>
+                <Carousel.Item key={i} className='carousel-item'>
+                    <div className="row">
+                        <div className="col-md-6">
+                            <img
+                                src={item.image}
+                                alt={item.name || 'Image'}
+                                className='imageactive1'
+                            />
+                        </div>
+                        <div className="col-md-6" style={{marginLeft:'0px'}}>
+                            <div className="carousel-caption">
+                                <h3>{item.name}</h3>
+                                <p>{item.description}</p>
+                                <p>{item.detail}</p>
+                            </div>
+                        </div>
+                    </div>
                 </Carousel.Item>
             ))}
         </Carousel>

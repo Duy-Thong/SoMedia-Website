@@ -33,7 +33,7 @@ export const About = () => {
                 <div className="ring one"></div>
                 <div className="ring two"></div>
                 <div className="ring three"></div>
-                <span className="buttontext">To Trandition Room</span>
+                <span className="buttontext">To Traditional Room</span>
               </div>
             </Link>
           </Col>

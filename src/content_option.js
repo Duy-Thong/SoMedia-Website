@@ -48,7 +48,8 @@ const dataabout = {
     goals: "So Media's goal is to become a place to connect and develop the passion of students in the field of photography, videography and design. In So Media, the priority is the development of our members. We always strive to create a professional and creative working environment, where members can freely express their ideas and develop their skills.",
 
 };
-const worktimeline = [{
+
+const Prizes = [{
     jobtitle: "First prize of the contest 'Nét đẹp trường P' ",
     where: "PTIT",
     date: "2022",
@@ -63,16 +64,7 @@ const worktimeline = [{
     where: "PTIT",
     date: "2022-2023",
 },
-{
-    jobtitle: "Media sponsor of the event welcoming new students D23",
-    where: "PTIT",
-    date: "2023",
-},
-{
-    jobtitle: "And many other Media sponsorship certificates",
-    where: "",
-    date: "",
-},
+
 
 ];
 
@@ -312,32 +304,43 @@ const activitiesData = [
 ];
 const chairman = [
     {
-        image: "/clblogo.png",
+        image: "/anhtuyen.jpg",
         name: "Vu Cong Tuyen",
-        description: "Founder of So Media",
+        description: "Founder",
+        detail: "With a strong passion for filming and photography, Vu Cong Tuyen is one of the two founding members of the club."
     },
     {
-        image: "/clblogo.png",
+        image: "/anhkhoa.jpg",
         name: "Nguyen Dang Khoa",
         description: "Gen 2&3",
+        detail: "Dang Khoa is a D19 student majoring in Telecommunications, and became the club president when he was a second-year student. However, with his passion, enthusiasm and love for So, he has taken on the role well. of a leader, leading the club throughout the past year."
     },
     {
-        image: " /clblogo.png",
+        image: " /anhnam.jpg",
         name: "Pham Khac Hoai Nam",
         description: "Gen 4",
+        detail: "Hoai Nam is the Big Brother with cheerful, dynamic and responsible energy. During his journey with the So Media Family, he brought new directions for the Club to develop into what it is today."
     },
     {
-        image: "/clblogo.png",
+        image: "/duythong.jpg",
         name: "Dao Duy Thong",
         description: "Gen 5",
+        detail: "Originally a member of Gen 5, with his leadership talent and high expertise in photography, he became head of the Media department after only 1 year of operation. Now, with his meticulousness, carefulness and enthusiasm at work, he has been trusted by the So Media family for a greater responsibility and more challenges in the new term."
     },
+    {
+        image: "/trinhtrang.jpg",
+        name: "Trinh Thuy Trang",
+        description: "Gen 5",
+        detail: "Thuy Trang - started out as a member of Gen 5, with her existing management talent and valuable experience, she has received everyone's trust as the new Vice President.",
+    },
+
 
 ];
 export {
     meta,
     dataabout,
     dataportfolio,
-    worktimeline,
+    Prizes,
     services,
     introdata,
     contactConfig,

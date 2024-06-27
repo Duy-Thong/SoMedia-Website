@@ -12,11 +12,37 @@
   display: flex;
 }
 
+.carouseltext {
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    flex-direction: column;
+  }
+
+  .imageactive {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .carouselactive {
+    width: 100%;
+  }
+
+  .carouseltext {
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+}
+
 /* Adjust the image size to be responsive */
 .imageactive {
   width: 100%;
   height: auto;
-  max-height: 500px;
+  max-height: 550px;
   border: 5px var(--secondary-color) solid;
   border-bottom: 30px var(--secondary-color) solid;
   box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
@@ -28,7 +54,7 @@
   filter: contrast(1.2) grayscale(100%) !important;
 } */
 .textactive {
-  font-size: 30px;
+  font-size: medium;
   font-family: 'Raleway', sans-serif !important;
   text-wrap: wrap;
 }
@@ -39,6 +65,11 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.activity :hover {
+  transform: translateX(20px);
+  /* Move the text 20px to the right */
 }
 
 .activity img {

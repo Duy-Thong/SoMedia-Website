@@ -9,7 +9,7 @@ import { Socialicons } from "../components/socialicons";
 import { Recruit } from "../pages/recruitment";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Activities } from "../pages/activities";
-import { Trandition } from "../pages/tranditionroom";
+import { Trandition } from "../pages/traditionroom";
 const AnimatedRoutes = withRouter(({ location }) => (
   <TransitionGroup>
     <CSSTransition

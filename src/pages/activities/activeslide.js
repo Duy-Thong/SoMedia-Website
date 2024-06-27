@@ -31,7 +31,7 @@ function ControlledCarousel() {
                         alt={item.alt || 'Image'}
                     />
                     <Carousel.Caption>
-                        <h3>{item.description}</h3>
+                        <h3 className='carouseltext'>{item.description}</h3>
                         {/* <p>{item.description}</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
