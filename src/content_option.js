@@ -310,7 +310,29 @@ const activitiesData = [
 
 
 ];
+const chairman = [
+    {
+        image: "/clblogo.png",
+        name: "Vu Cong Tuyen",
+        description: "Founder of So Media",
+    },
+    {
+        image: "/clblogo.png",
+        name: "Nguyen Dang Khoa",
+        description: "Gen 2&3",
+    },
+    {
+        image: " /clblogo.png",
+        name: "Pham Khac Hoai Nam",
+        description: "Gen 4",
+    },
+    {
+        image: "/clblogo.png",
+        name: "Dao Duy Thong",
+        description: "Gen 5",
+    },
 
+];
 export {
     meta,
     dataabout,
@@ -325,4 +347,5 @@ export {
     activitiesData,
     departments,
     recruitmentpage,
+    chairman,
 };

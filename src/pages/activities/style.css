@@ -1,44 +1,32 @@
-.carousel {
-  position: relative;
+.carouselactive {
+  width: 80% !important;
+  height: auto;
+  align-self: center;
+  text-align: center;
+}
+
+.slide {
+  text-align: center !important;
+  align-items: center !important;
+  justify-content: center !important;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  /* Use percentage to make it responsive */
-  max-width: 1200px;
-  /* Set a max-width to avoid stretching on larger screens */
-  height: 400px;
-  margin: 0 auto;
-  /* Center the carousel horizontally */
-  margin-top: -40px;
 }
 
 /* Adjust the image size to be responsive */
 .imageactive {
-  width: 50% !important;
-  height: auto !important;
-  /* border-radius: 10px !important; */
-
-  /* border-radius: 20px; */
+  width: 100%;
+  height: auto;
+  max-height: 500px;
   border: 5px var(--secondary-color) solid;
   border-bottom: 30px var(--secondary-color) solid;
   box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
-  /* Adding a smooth transition effect */
+
 }
 
 /* .imageactive.black-and-white {
   filter: grayscale(100%)!important;
   filter: contrast(1.2) grayscale(100%) !important;
 } */
-
-
-.imageactive:hover {
-  transform: translateX(30px);
-  transition: transform 1s ease-in-out;
-  /* Removing single quotes around '180deg' */
-  /* box-shadow: 0px 0px 10px 0px var(--secondary-color); */
-}
-
 .textactive {
   font-size: 30px;
   font-family: 'Raleway', sans-serif !important;

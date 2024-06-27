@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import {
   dataabout,
   meta,
@@ -22,12 +23,23 @@ export const About = () => {
         <div className="backgroundvideo">
           <img src="/home9.jpg" alt="background" />
         </div>
-        <Row className="mb-5 mt-3 pt-md-3">
-          <Col lg="12">
-            <h1 className="display-4 mb-4 " style={{ textAlign: "right" }}>About us</h1>
-            <hr className="t_border my-4 ml-0 text-left" />
+        <Row className="mb-5 mt-3 pt-md-3" style={{ alignItems: 'baseline' }}>
+          <Col lg="6">
+            <h1 className="display-4 mb-4" style={{ textAlign: "left" }}>About us</h1>
           </Col>
+          <Col lg="6" className="text-right"> {/* Maintain text-right for right alignment */}
+            <Link to="/tranditionroom" className="text_2">
+              <div id="button_b" className="ac_btn btn d-flex justify-content-end" >
+                <div className="ring one"></div>
+                <div className="ring two"></div>
+                <div className="ring three"></div>
+                <span className="buttontext">To Trandition Room</span>
+              </div>
+            </Link>
+          </Col>
+          <hr className="t_border my-4 ml-0 text-left" />
         </Row>
+
         <Row className="sec_sp">
           <Col lg="4">
             <h3 className="color_sec py-4">{dataabout.title}</h3>
@@ -64,7 +76,7 @@ export const About = () => {
             })}
           </Col>
         </Row>
-      </Container>
+      </Container >
 
     </HelmetProvider >
   );

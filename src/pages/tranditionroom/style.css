@@ -2,12 +2,29 @@
     margin-top: 10px;
 }
 
-#button_b .buttontext {
-    /* Add ID selector to target specific element */
-    font-size: medium;
-    font-family: 'Raleway', sans-serif;
-    text-decoration: none !important;
+.carouselroom {
+    width: 400px;
+    height: 400px;
 }
+
+.slideroom {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex;
+}
+
+/* Adjust the image size to be responsive */
+.imageactive {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    border: 5px var(--secondary-color) solid;
+    border-bottom: 30px var(--secondary-color) solid;
+    box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+
+}
+
 
 /* CSS */
 .backgroundvideo img {
@@ -25,8 +42,6 @@
         /* Ensures the image covers the area without distortion */
     }
 }
-
-
 
 .backgroundvideo img {
     width: 100%;
