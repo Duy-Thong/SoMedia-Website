@@ -7,6 +7,7 @@
 
 .menu__button {
     color: var(--text-color);
+
 }
 
 .menu__button:focus,
@@ -46,7 +47,8 @@
 .br-left {
     position: fixed;
     z-index: 999999;
-    background: var(--primary-color);
+    background: black;
+    background-color: black;
 }
 
 .br-top {
@@ -61,6 +63,7 @@
     left: 0;
     height: 10px;
     width: 100%;
+
 }
 
 .br-right {
