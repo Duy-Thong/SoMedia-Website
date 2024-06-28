@@ -11,7 +11,7 @@ import {
 } from "../../content_option";
 import Slide from "./slide";
 
-export const Trandition = () => {
+export const Tradition = () => {
   return (
     <HelmetProvider>
 
