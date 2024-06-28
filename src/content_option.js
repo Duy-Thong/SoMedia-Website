@@ -312,7 +312,7 @@ const chairman = [
     {
         image: "/anhkhoa.jpg",
         name: "Nguyen Dang Khoa",
-        description: "Gen 2&3",
+        description: "Gen 3",
         detail: "Dang Khoa is a D19 student majoring in Telecommunications, and became the club president when he was a second-year student. However, with his passion, enthusiasm and love for So, he has taken on the role well. of a leader, leading the club throughout the past year."
     },
     {
