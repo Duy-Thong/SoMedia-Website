@@ -4,9 +4,10 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 50px 0;
-    align-items: center;
-    text-align: center;
+    align-items: center !important;
+    text-align: center !important;
     margin-left: 40px;
+
 }
 
 .timeline h3 {
@@ -97,11 +98,11 @@
 }
 
 #button_apply {
-    width: 300px;
+    width: 200px;
     background: var(--secondary-color);
     color: var(--primary-color);
-    margin-left: 20px;
     animation: zoom 2s infinite;
+    margin-left: 150px;
 }
 
 .inforrow {
@@ -164,10 +165,26 @@
 
     #button_apply {
         width: 100px;
+        margin-left: 0;
+
     }
 
     .overlay-image1,
     .overlay-image2 {
         display: none;
     }
+}
+
+.rightcol {
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.left_right_col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    text-align: center;
 }
