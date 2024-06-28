@@ -25,7 +25,7 @@ import trainingd22 from "./assets/active/trainingd22.jpg";
 import pchain from "./assets/active/pchain.jpg";
 import profile from "./assets/active/profile.jpg";
 import birthday2024 from "./assets/active/birthday2024.jpg";
-const logotext = "SO MEDIA";
+const logotext = "So Media";
 const meta = {
     title: "So Media",
     description: "We are a photography club at PTIT. At Media Book, you can further develop your media and design skills as well as many interesting and dynamic activities.",

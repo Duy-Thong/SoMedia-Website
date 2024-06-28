@@ -21,14 +21,13 @@ export const About = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className="backgroundvideo">
-          <img src="/home9.jpg" alt="background" />
-        </div>
+          <img src="/home9.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'brightness(80%)' }} />        </div>
         <Row className="mb-5 mt-3 pt-md-3" style={{ alignItems: 'baseline' }}>
           <Col lg="6">
             <h1 className="display-4 mb-4" style={{ textAlign: "left" }}>About us</h1>
           </Col>
           <Col lg="6" className="text-right"> {/* Maintain text-right for right alignment */}
-            <Link to="/tranditionroom" className="text_2">
+            <Link to="/traditionroom" className="text_2">
               <div id="button_b" className="ac_btn btn d-flex justify-content-end" >
                 <div className="ring one"></div>
                 <div className="ring two"></div>

@@ -21,9 +21,8 @@ export const Tradition = () => {
           <title> Traditional Room | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <div className="backgroundvideo">
-          <img src="/home9.jpg" alt="background" style={{ filter: 'blur(3px)' }} />
-        </div>
+        <div className=" backgroundvideo grain">
+          <img src="/home1.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'blur(2px) brightness(50%)' }} />        </div>
         <Row className="mb-0 mt-3 pt-md-3">
           <Col lg="12">
             <h1 className="display-4 mb-4 " style={{ textAlign: "left" }}>Traditional Room</h1>

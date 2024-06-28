@@ -1,5 +1,5 @@
 .site__header {
-    background-color: black;
+    background-color: var(--primary-color);
     top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -47,8 +47,7 @@
 .br-left {
     position: fixed;
     z-index: 999999;
-    background: black;
-    background-color: black;
+    background-color: var(--primary-color);
 }
 
 .br-top {
