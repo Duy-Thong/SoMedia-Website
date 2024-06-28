@@ -12,8 +12,7 @@ import {
 import { Carousel } from "../../components/imageslide/index";
 export const About = () => {
   return (
-    <HelmetProvider>
-
+    <HelmetProvider>-
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
@@ -28,7 +27,7 @@ export const About = () => {
             <h1 className="display-4 mb-4" style={{ textAlign: "left" }}>About us</h1>
           </Col>
           <Col lg="6" className="text-right"> {/* Maintain text-right for right alignment */}
-            <Link to="/tranditionroom" className="text_2">
+            <Link to="/traditionroom" className="text_2">
               <div id="button_b" className="ac_btn btn d-flex justify-content-end" >
                 <div className="ring one"></div>
                 <div className="ring two"></div>
