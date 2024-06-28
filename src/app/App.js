@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   BrowserRouter as Router,
@@ -10,6 +10,7 @@ import Headermain from "../header";
 import AnimatedCursor from "../hooks/AnimatedCursor";
 import "./App.css";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 function _ScrollToTop(props) {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function App() {
 
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      
+
       <div className="cursor__dot">
         <AnimatedCursor
           innerSize={15}
@@ -43,7 +44,7 @@ export default function App() {
           outerScale={5}
         />
       </div>
-    
+
       <ScrollToTop>
         <Headermain />
         <AppRoutes />
