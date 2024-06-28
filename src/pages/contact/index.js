@@ -73,7 +73,7 @@ export const ContactUs = () => {
           <title>Contact | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <div className="backgroundvideo">
+        <div className="backgroundvideo grain">
           <img src="/home6.jpg" alt="background" />
         </div>
         <Row className="mb-5 mt-3 pt-md-3">

@@ -36,10 +36,10 @@ function ControlledCarousel() {
                                 className='imageactive1'
                             />
                         </div>
-                        <div className="col-md-6" style={{marginLeft:'0px'}}>
+                        <div className="col-md-6" style={{ marginLeft: '0px' }}>
                             <div className="carousel-caption">
                                 <h3>{item.name}</h3>
-                                <p>{item.description}</p>
+                                <h4>{item.description}</h4>
                                 <p>{item.detail}</p>
                             </div>
                         </div>

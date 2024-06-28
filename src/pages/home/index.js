@@ -35,6 +35,9 @@ export const Home = () => {
             <source src="/backgroundvideo.mp4" type="video/mp4" />
           </video>
         </div>
+        <div className="backgroundvideo" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+
+        </div>
         <div className="introsec1">
           <div className="intro_sec d-block d-lg-flex align-items-center">
             <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center" style={{ marginTop: "170px" }}>
@@ -59,7 +62,7 @@ export const Home = () => {
                   </h1>
                   <p className="mb-1x">{introdata.description}</p>
                   <div className="intro_btn-action pb-5">
-                    
+
                     <Link to="/contact">
                       <div id="button_h" className="ac_btn btn">
                         Contact Us

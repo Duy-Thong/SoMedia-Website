@@ -47,7 +47,7 @@ export const Recruit = () => {
             <Row >
               <h3>Timeline</h3>
             </Row>
-            <Row>
+            <Row className="mb-0 mt-0">
               <img src="timeline.png" alt="Timeline" style={{ width: '100%' }} />
               {/* <Col lg="3" className="connecting-line">
                 <p>CV</p>
@@ -70,10 +70,10 @@ export const Recruit = () => {
                 <p>01/09-16/09</p>
               </Col> */}
             </Row>
-            <Row className="mt-0">
+            <Row className="mt-0" >
               <Col lg="6" className="left_right_col">
                 <a href={recruitmentpage.applylink} className="text_2" target="_blank" rel="noopener noreferrer">
-                  <div id="button_apply" className="ac_btn btn">
+                  <div id="button_apply" className="ac_btn btn" >
                     Apply Now!
                     <div className="ring one"></div>
                     <div className="ring two"></div>

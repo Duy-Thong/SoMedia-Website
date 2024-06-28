@@ -20,7 +20,7 @@ export const About = () => {
           <title> About | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <div className="backgroundvideo">
+        <div className="backgroundvideo grain">
           <img src="/home9.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'brightness(80%)' }} />        </div>
         <Row className="mb-5 mt-3 pt-md-3" style={{ alignItems: 'baseline' }}>
           <Col lg="6">

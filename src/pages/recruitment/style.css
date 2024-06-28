@@ -32,7 +32,6 @@
     width: 300px;
     background: var(--secondary-color);
     color: var(--primary-color);
-    margin-left: 20px;
 }
 
 @keyframes zoom {
@@ -102,7 +101,7 @@
     background: var(--secondary-color);
     color: var(--primary-color);
     animation: zoom 2s infinite;
-    margin-left: 150px;
+    /* margin-left: 150px; */
 }
 
 .inforrow {
@@ -165,7 +164,7 @@
 
     #button_apply {
         width: 100px;
-        margin-left: 0;
+        margin-right: 0px !important;
 
     }
 
@@ -178,7 +177,7 @@
 .rightcol {
     align-items: center;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .left_right_col {

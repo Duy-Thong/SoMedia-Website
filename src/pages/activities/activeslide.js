@@ -25,14 +25,13 @@ function ControlledCarousel() {
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} className='carouselactive' >
             {data.map((item, i) => (
-                <Carousel.Item key={i}>
+                <Carousel.Item key={i} >
                     <img className='imageactive'
                         src={item.src}
                         alt={item.alt || 'Image'}
                     />
-                    <Carousel.Caption>
+                    <Carousel.Caption className='caption'>
                         <h3 className='carouseltext'>{item.description}</h3>
-                        {/* <p>{item.description}</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>
             ))}

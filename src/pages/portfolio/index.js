@@ -13,7 +13,7 @@ export const Portfolio = () => {
           <title> Projects | {meta.title} </title>{" "}
           <meta name="description" content={meta.description} />
         </Helmet>
-        <div className="backgroundvideo" >
+        <div className="backgroundvideo grain" >
           <img src="/active2.png" alt="background" />
         </div>
         <Row className="mb-5 mt-3 pt-md-3">

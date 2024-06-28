@@ -1,8 +1,23 @@
 .carouselactive {
-  width: 80% !important;
+  width: 60% !important;
   height: auto;
   align-self: center;
   text-align: center;
+  align-items: center;
+}
+
+.caption {
+  text-align: center !important;
+  align-items: center !important;
+  justify-content: center !important;
+  display: flex;
+  left: 0 !important;
+  right: 0;
+  bottom: 0;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  margin-bottom: 0px !important;
+  margin-top: 0px;
 }
 
 .slide {
@@ -14,7 +29,9 @@
 
 .carouseltext {
   font-size: 30px;
-  margin-bottom: 0px;
+  text-align: center;
+  /* Centers text horizontally */
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -25,16 +42,21 @@
   .imageactive {
     width: 100%;
     height: auto;
-    max-height: 200px;
+    max-height: 200px !important;
   }
 
   .carouselactive {
     width: 100%;
+    height: auto;
   }
 
   .carouseltext {
     font-size: 20px;
     margin-bottom: 0px;
+  }
+
+  .textactive {
+    font-size: 15px !important;
   }
 }
 
@@ -54,7 +76,7 @@
   filter: contrast(1.2) grayscale(100%) !important;
 } */
 .textactive {
-  font-size: medium;
+  font-size: 25px;
   font-family: 'Raleway', sans-serif !important;
   text-wrap: wrap;
 }

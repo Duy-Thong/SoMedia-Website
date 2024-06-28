@@ -22,7 +22,7 @@ export const Activities = () => {
           <title> Activities | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <div className="backgroundvideo" >
+        <div className="backgroundvideo grain" >
           <img src="/active.png" alt="background" />
         </div>
         <Row className="mb-5 mt-3 pt-md-3" >
@@ -36,7 +36,7 @@ export const Activities = () => {
               <Slide></Slide>
             </Col>
         </Row>
-        <Row className="mb-5 mt-3 pt-md-3" style={{marginTop:"100px",paddingTop:"100px"}}>
+        <Row className="mb-5 mt-3 pt-md-3" >
           <Anual />
         </Row>
       </Container>

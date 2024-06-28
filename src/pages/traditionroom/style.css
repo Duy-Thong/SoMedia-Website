@@ -53,14 +53,15 @@
     white-space: pre-wrap !important;
     /* Maintains whitespace but allows wrapping */
     text-wrap: balance !important;
-    margin-right: 60px !important;
+    margin-right: 60px;
 }
 
 .carouselroom .carousel-caption h3,
-.carouselroom .carousel-caption p {
+.carouselroom .carousel-caption p,
+.carouselroom .carousel-caption h4 {
     color: #ffffff;
     /* display: flex; */
-    text-align: left;
+    text-align: left ;
     margin-left: 0px;
 }
 
