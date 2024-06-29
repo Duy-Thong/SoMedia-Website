@@ -18,9 +18,7 @@ import ImageSlider from "./Imageslider";
 export const Home = () => {
   const images1 = [home1, home2, home5];
   const images = [home4, home6, home7];
-
   const images2 = [home3, home8, home9];
-
 
   return (
     <HelmetProvider>
@@ -31,20 +29,19 @@ export const Home = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className="backgroundvideo">
-          <video autoPlay loop style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: '-1' }}>
+          <video autoPlay loop playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: '-1' }}>
             <source src="/backgroundvideo.mp4" type="video/mp4" />
           </video>
+          <div className="video-overlay" style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 1 }}></div>
         </div>
-        <div className="backgroundvideo" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-
-        </div>
+        <div className="backgroundvideo" style={{ backgroundColor: 'rgba(0,0,0,0.3)' }}></div>
         <div className="introsec1">
           <div className="intro_sec d-block d-lg-flex align-items-center">
             <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center" style={{ marginTop: "170px" }}>
-              <div className="align-self-center ">
+              <div className="align-self-center">
                 <div className="intro mx-auto">
-                  <h2 className="mb-1x">So Media </h2>
-                  <h1 className="fluidz-48 mb-1x" >
+                  <h2 className="mb-1x">So Media</h2>
+                  <h1 className="fluidz-48 mb-1x">
                     <Typewriter
                       options={{
                         strings: [
@@ -56,13 +53,11 @@ export const Home = () => {
                         autoStart: true,
                         loop: true,
                         deleteSpeed: 10,
-
                       }}
                     />
                   </h1>
                   <p className="mb-1x">{introdata.description}</p>
                   <div className="intro_btn-action pb-5">
-
                     <Link to="/contact">
                       <div id="button_h" className="ac_btn btn">
                         Contact Us
@@ -72,8 +67,8 @@ export const Home = () => {
                       </div>
                     </Link>
                     <Link to="/recruitment" className="text_2">
-                      <div id="button_p" className="ac_btn btn ">
-                        Apply Now !
+                      <div id="button_p" className="ac_btn btn">
+                        Apply Now!
                         <div className="ring one"></div>
                         <div className="ring two"></div>
                         <div className="ring three"></div>
