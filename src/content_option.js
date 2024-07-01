@@ -309,6 +309,7 @@ const chairman = [
         description: "Founder",
         detail: "With a strong passion for filming and photography, Vu Cong Tuyen is one of the two founding members of the club."
     },
+    
     {
         image: "/anhkhoa.jpg",
         name: "Nguyen Dang Khoa",

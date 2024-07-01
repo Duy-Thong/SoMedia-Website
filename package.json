@@ -5,8 +5,10 @@
     "dependencies": {
         "@vercel/analytics": "^1.2.2",
         "@vercel/speed-insights": "^1.0.12",
+        "axios": "^1.7.2",
         "bootstrap": "^5.2.3",
         "emailjs-com": "^3.2.0",
+        "openai": "^4.0.0",
         "react": "^18.2.0",
         "react-bootstrap": "^2.7.0",
         "react-dom": "^18.2.0",

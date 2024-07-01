@@ -14,7 +14,6 @@ import Slide from "./slide";
 export const Tradition = () => {
   return (
     <HelmetProvider>
-
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />

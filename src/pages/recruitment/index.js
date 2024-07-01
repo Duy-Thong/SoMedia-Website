@@ -83,7 +83,7 @@ export const Recruit = () => {
               </Col>
               <Col lg="6" style={{ textAlign: 'center' }}>
                 <p className="mt-3"> Save QR !</p>
-                <img src="/qr.png" alt="QR" style={{ width: '150px', alignSelf: 'center' }} />
+                <img className="qrcode" src="/qr.png" alt="QR" style={{ width: '150px', alignSelf: 'center' }} />
               </Col>
             </Row>
           </Col>

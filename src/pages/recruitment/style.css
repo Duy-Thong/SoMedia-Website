@@ -172,7 +172,12 @@
     .overlay-image2 {
         display: none;
     }
+
+    .qrcode {
+        max-width: 100px;
+    }
 }
+
 
 .rightcol {
     align-items: center;
