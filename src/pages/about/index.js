@@ -13,7 +13,6 @@ import { Carousel } from "../../components/imageslide/index";
 export const About = () => {
   return (
     <HelmetProvider>
-
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
