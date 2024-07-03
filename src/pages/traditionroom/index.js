@@ -22,7 +22,7 @@ export const Tradition = () => {
         </Helmet>
         <div className=" backgroundvideo grain">
           <img src="/home1.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'blur(2px) brightness(50%)' }} />        </div>
-        <Row className="mb-0 mt-3 pt-md-3">
+        <Row className="mb-0 mt-3 pt-md-3 " >
           <Col lg="12">
             <h1 className="display-4 mb-4 " style={{ textAlign: "left" }}>Traditional Room</h1>
             <hr className="t_border my-4 ml-0 text-left" />

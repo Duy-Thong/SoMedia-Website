@@ -27,6 +27,7 @@
   display: flex;
   width: 100%;
 }
+
 .carousel-control-next {
   right: -150px;
 }
@@ -34,6 +35,11 @@
 .carousel-control-prev {
   left: -150px;
 }
+
+.imageslide {
+  max-height: 400px !important;
+}
+
 .carouseltext {
   font-size: 30px;
   text-align: center;
@@ -49,11 +55,14 @@
   .imageactive {
     width: 100%;
     height: auto;
+  }
+
+  .imageslide {
     max-height: 200px !important;
   }
 
   .carouselactive {
-    width: 100%;
+    width: 100% !important;
     height: auto;
   }
 
@@ -65,13 +74,14 @@
   .textactive {
     font-size: 15px !important;
   }
-    .carousel-control-next {
-      right: -50px;
-    }
-  
-    .carousel-control-prev {
-      left: -50px;
-    }
+
+  .carousel-control-next {
+    right: -30px;
+  }
+
+  .carousel-control-prev {
+    left: -30px;
+  }
 }
 
 /* Adjust the image size to be responsive */
@@ -125,7 +135,6 @@
 
   }
 
-
   .activity .text {
     width: 100%;
     font-size: 30px;
@@ -144,4 +153,20 @@
   .activity:nth-child(even) img {
     order: 2;
   }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slideDown {
+  animation: slideDown 1s;
 }

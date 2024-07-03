@@ -11,7 +11,10 @@ export const AnualActivities = () => {
     useEffect(() => {
         setActivities(activitiesData);
     }, []);
-
+    const [isAnimated, setIsAnimated] = useState(false);
+    useEffect(() => {
+        setIsAnimated(true);
+    }, []);
     return (
         <div>
             <Container>
@@ -19,7 +22,7 @@ export const AnualActivities = () => {
                 <hr />
                 <Row style={{ width: "110%" }}>
                     {activities.map((activity, index) => (
-                        <div key={index} className="activity">
+                        <div key={index} className={`activity ${isAnimated ? "slide-in-left" : ""}`} >
                             <img src={activity.img} alt={`Activity ${index + 1}`} className="imageactive black-and-white" />
                             <div className="textactive">
                                 <strong>{activity.time}:</strong> {activity.description}

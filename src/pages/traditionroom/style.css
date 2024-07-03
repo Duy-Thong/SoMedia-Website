@@ -114,6 +114,7 @@
         margin-left: 20px;
     }
 
+    
 }
 
 .grain {
@@ -192,4 +193,8 @@
             transform: translate3d(-7rem, 0, 0)
         }
     }
+}
+
+.row {
+    margin: 0px;
 }

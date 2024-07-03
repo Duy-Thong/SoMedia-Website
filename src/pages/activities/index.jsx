@@ -27,8 +27,8 @@ export const Activities = () => {
         </div>
         <Row className="mb-5 mt-3 pt-md-3" >
           <Col lg="12">
-            <h1 className="display-4 mb-4 " style={{ textAlign: "left",marginTop:"-30px" }}>Our Activities</h1>
-            <hr className="t_border my-4 ml-0 text-left" />
+            <h1 className="display-4" style={{ textAlign: "left"}}>Our Activities</h1>
+            <hr  />
           </Col>
         </Row>
         <Row className="mb-5 mt-3 pt-md-3 " >

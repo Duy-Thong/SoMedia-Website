@@ -26,7 +26,7 @@ function ControlledCarousel() {
         <Carousel activeIndex={index} onSelect={handleSelect} className='carouselactive' >
             {data.map((item, i) => (
                 <Carousel.Item key={i} >
-                    <img className='imageactive'
+                    <img className='imageslide'
                         src={item.src}
                         alt={item.alt || 'Image'}
                     />
