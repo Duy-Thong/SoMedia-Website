@@ -10,7 +10,7 @@ function ControlledCarousel() {
     const fetchData = async () => {
         try {
             const response = await import('../../content_option'); // Import data
-            setData(response.chairman); // Set data from imported object
+            setData(response.humans); // Set data from imported object
         } catch (error) {
             console.error('Error fetching data:', error);
         }

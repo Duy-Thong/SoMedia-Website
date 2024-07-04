@@ -31,6 +31,28 @@ import anhkhoa from "./assets/humans/anhkhoa.jpg";
 import anhnam from "./assets/humans/anhnam.jpg";
 import anhchau from "./assets/humans/anhchau.jpg";
 import anhminh from "./assets/humans/anhminh.jpg";
+import tramy from "./assets/humans/tramy.jpg";
+import theloc from "./assets/humans/theloc.jpg";
+import thethuan from "./assets/humans/thethuan.jpg";
+import nhuquynh from "./assets/humans/nhuquynh.jpg";
+import thuphuong from "./assets/humans/thuphuong.jpg";
+import vanhieu from "./assets/humans/vanhieu.jpg";
+import bichvan from "./assets/humans/bichvan.jpg";
+import hamanhhoang from "./assets/humans/hamanhhoang.jpg";
+import vuminhtu from "./assets/humans/vuminhtu.jpg";
+import thanhthao from "./assets/humans/thanhthao.jpg";
+import thuytrang from "./assets/humans/thuytrang.jpg";
+import khanhvan from "./assets/humans/khanhvan.jpg";
+import vantruc from "./assets/humans/vantruc.jpg";
+import trongnghia from "./assets/humans/trongnghia.jpg";
+import quynhanh from "./assets/humans/quynhanh.jpg";
+import nguyenngoclan from "./assets/humans/nguyenngoclan.jpg";
+import nguyenvanchien from "./assets/humans/nguyenvanchien.jpg";
+import tongngockien from "./assets/humans/tongngockien.jpg";
+import nguyenthuyanh from "./assets/humans/nguyenthuyanh.jpg";
+import nguyenthithan from "./assets/humans/nguyenthithan.jpg";
+import ngothuha from "./assets/humans/ngothuha.jpg";
+import ngokimanh from "./assets/humans/ngokimanh.jpg";
 const logotext = "So Media";
 const meta = {
     title: "So Media",
@@ -308,13 +330,13 @@ const activitiesData = [
 
 
 ];
-const chairman = [
+const humans = [
     {
         image: anhtuyen,
         name: "Vu Cong Tuyen",
         description: "Founder",
-        detail: " The club founder and the first president of the club. With the desire to have a place to connect photography enthusiasts, Mr. Tuyen and two of his friends founded So Media club in 2016."
-    }, 
+        detail: "Founder, President 2017-2020"
+    },
     {
         image: anhchau,
         name: "Duong Quang Chau",
@@ -329,31 +351,161 @@ const chairman = [
         detail: ""
     },
     {
+        image: tramy,
+        name: "Le Thi Tra My",
+        description: "Gen 1",
+        detail: "Vice President 2018-2019 and 2019-2020"
+    },
+    {
+        image: theloc,
+        name: "Nguyen The Loc",
+        description: "Gen 1",
+        detail: "Vice President 2018-2019 and 2019-2020"
+    },
+    {
+        image: thethuan,
+        name: "Nguyen The Thuan",
+        description: "Gen 1",
+        detail: "Vice President 2018-2019 and 2019-2020"
+    },
+    {
         image: anhkhoa,
         name: "Nguyen Dang Khoa",
         description: "Gen 3",
-        detail: "The club president for the 2020-2021 and 2021-2022 terms."
+        detail: "President for the 2020-2021 and 2021-2022 terms."
+    },
+    {
+        image: nhuquynh,
+        name: "Nguyen Nhu Quynh",
+        description: "Gen 3",
+        detail: "Vice president for the 2020-2021 and 2021-2022 terms."
+    },
+    {
+        image: thuphuong,
+        name: "Bui Thi Thu Phuong",
+        description: "Gen 3",
+        detail: "Head of Internal Affairs Department for the 2020-2021 term and Vice President for the 2021-2022 term."
+    },
+    {
+        image: bichvan,
+        name: "Dao Thi Bich Van",
+        description: "Gen 3",
+        detail: "Head of External Affairs Department for the 2020-2021 term."
+    },
+    {
+        image: vanhieu,
+        name: "Nguyen Van Hieu",
+        description: "Gen 3",
+        detail: "Head of Design Department for the 2020-2021 term."
     },
     {
         image: anhnam,
         name: "Pham Khac Hoai Nam",
         description: "Gen 4",
-        detail: "The club president for the 2022-2023 term."
+        detail: "The club president for the 2022-2023 term, Head of Head of Communications Department for the 2021-2022 term."
+    },
+    {
+        image: khanhvan,
+        name: "Nguyen Khanh Van",
+        description: "Gen 4",
+        detail: "The vice president of the club for the 2022-2023 term, Head of External Affairs Department for the 2021-2022 term."
+    },
+    {
+        image: thuytrang,
+        name: "Nguyen Thi Thuy Trang",
+        description: "Gen 4",
+        detail: "The vice president of the club for the 2022-2023 term, Head of Design Department for the 2021-2022 term."
+    },
+    {
+        image: thanhthao,
+        name: "Nguyen Thi Thanh Thao",
+        description: "Gen 4",
+        detail: "Deputy Head of Foreign Affairs Department for the 2021-2022 term."
+    },
+    {
+        image: hamanhhoang,
+        name: "Ha Manh Hoang",
+        description: "Gen 3",
+        detail: "Head of Media Department for the 2021-2022 term."
+    },
+    {
+        image: vuminhtu,
+        name: "Vu Minh Tu",
+        description: "Gen 4",
+        detail: "Deputy Head of Media Department for the 2021-2022 term."
     },
     {
         image: duythong,
         name: "Dao Duy Thong",
         description: "Gen 5",
-        detail: "The club president for the 2022-2023 term."
+        detail: "The club president for the 2023-2024 term, Head of Media Department for the 2022-2023 term."
     },
     {
         image: trinhtrang,
         name: "Trinh Thuy Trang",
         description: "Gen 5",
-        detail: "The vice president of the club for the 2023-2024 term.",
+        detail: "The vice president of the club for the 2023-2024 term, Head of Human Resources Department for the 2022-2023 term.",
     },
-
-
+    {
+        image: vantruc,
+        name: "Nguyen Thi Van Truc",
+        description: "Gen 5",
+        detail: "Head of Communications Department for the 2022-2023 term.",
+    },
+    {
+        image: trongnghia,
+        name: "Nguyen Kim Trong Nghia",
+        description: "Gen 5",
+        detail: "Head of Design Department for the 2022-2023 term.",
+    },
+    {
+        image: quynhanh,
+        name: "Mai Thi Quynh Anh",
+        description: "Gen 5",
+        detail: "Deputy Head of Design Department for the 2022-2023 term.",
+    },
+    {
+        image: nguyenngoclan,
+        name: "Nguyen Ngoc Lan",
+        description: "Gen 6",
+        detail: "Head of Media Department for the 2023-2024 term.",
+    },
+    {
+        image: nguyenvanchien,
+        name: "Nguyen Van Chien",
+        description: "Gen 6",
+        detail: "Deputy Head of Media Department for the 2023-2024 term.",
+    },
+    {
+        image: tongngockien,
+        name: "Tong Ngoc Kien",
+        description: "Gen 6",
+        detail: "Head of Communications Department for the 2023-2024 term.",
+    },
+    {
+        image: nguyenthuyanh,
+        name: "Nguyen Thuy Anh",
+        description: "Gen 6",
+        detail: "Deputy Head of Communications Department for the 2023-2024 term.",
+    },
+    {
+        image: nguyenthithan,
+        name: "Nguyen Thi Than",
+        description: "Gen 6",
+        detail: "Head of Design Department for the 2023-2024 term.",
+    },
+    {
+        image: ngothuha,
+        name: "Nguyen Thu Ha",
+        description: "Gen 6",
+        detail: "Deputy Head of Design Department for the 2023-2024 term.",
+    },
+    {
+        image: ngokimanh,
+        name: "Nguyen Kim Anh",
+        description: "Gen 6",
+        detail: "Head of Human Resources Department for the 2023-2024 term.",
+    },
 ];
 export {
     meta,
@@ -369,5 +521,5 @@ export {
     activitiesData,
     departments,
     recruitmentpage,
-    chairman,
+    humans,
 };
