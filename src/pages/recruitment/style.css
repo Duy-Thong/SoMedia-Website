@@ -114,7 +114,7 @@
     white-space: pre-wrap !important;
     /* Maintains whitespace but allows wrapping */
     text-wrap: balance !important;
-    margin-top: 50px;
+    margin-top: 40px!important;
     background-color: rgba(0, 0, 0, 0.3);
     font-size: medium;
     text-align: left;
