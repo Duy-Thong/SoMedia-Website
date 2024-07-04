@@ -177,7 +177,9 @@
         max-width: 100px;
     }
 }
-
+.qrcode {
+    max-width: 120px;
+}
 
 .rightcol {
     align-items: center;

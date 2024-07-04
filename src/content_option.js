@@ -49,7 +49,7 @@ const introdata = {
 };
 
 const dataabout = {
-    title: "About the club",
+    title: "About",
     aboutme: "Established in 2016 with 3 founding members, So Media is a gathering place for students passionate about photography, videography, and design. Coming to So Media, you will join a dynamic club, always full of positive energy and enthusiasm. Currently So Media is one of the leading photography and videography units in PTIT, participating in almost all large and small activities not only inside but also outside the institute.",
     goals: "So Media's goal is to become a place to connect and develop the passion of students in the field of photography, videography and design. In So Media, the priority is the development of our members. We always strive to create a professional and creative working environment, where members can freely express their ideas and develop their skills.",
 
@@ -321,7 +321,7 @@ const chairman = [
         description: "Co-founder",
         detail: ""
     },
-    
+
     {
         image: anhminh,
         name: "Bui Quang Minh",

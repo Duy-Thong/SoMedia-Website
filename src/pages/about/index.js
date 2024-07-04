@@ -29,7 +29,7 @@ export const About = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className="backgroundvideo grain">
-          <img src="/home9.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'brightness(80%)' }} />
+          <img src="/home9.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'brightness(80%)', transform: 'translateY(-50px)' }} />
         </div>
         <Row className={`mb-5 mt-3 pt-md-3 ${isAnimated ? "slide-in-left" : ""}`} style={{ alignItems: 'baseline' }}>
           <Col lg="6">
