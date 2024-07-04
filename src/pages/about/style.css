@@ -13,7 +13,7 @@
 .backgroundvideo img {
     width: 100%;
     /* Corrected from auto% to 100% */
-    height: 100%;
+   
     /* This makes the image take the full height of its container */
 }
 

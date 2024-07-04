@@ -23,7 +23,7 @@ export const Activities = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className="backgroundvideo grain" >
-          <img src="/active.png" alt="background" />
+          <img src="/tvc.jpg" alt="background" />
         </div>
         <Row className="mb-5 mt-3 pt-md-3" >
           <Col lg="12">
