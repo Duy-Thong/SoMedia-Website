@@ -16,16 +16,13 @@ export const Portfolio = () => {
         <div className="backgroundvideo grain" >
           <img src="/active2.png" alt="background" />
         </div>
-        <Row className="mb-5 mt-3 pt-md-3">
+        <Row className="mb-1 mt-3 pt-md-3">
           <Col lg="8">
             <h1 className="display-4 mb-4"> Our Projects </h1>{" "}
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
-        <div>
-          <br></br><br>
-          </br></div>
-        <div className="mb-5 po_items_ho">
+        <div className="mb-5 po_items_ho slideUp">
           {dataportfolio.map((data, i) => {
             return (
               <div key={i} className="po_item">
@@ -38,6 +35,9 @@ export const Portfolio = () => {
             );
           })}
         </div>
+        <Row className="mb-1 mt-3 pt-md-3">
+
+        </Row>
       </Container>
     </HelmetProvider>
   );

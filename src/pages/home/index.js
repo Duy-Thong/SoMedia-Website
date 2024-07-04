@@ -15,7 +15,7 @@ export const Home = () => {
           <title> {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <div className="backgroundvideo">
+        <div className="backgroundvideo" id="backvideo">
           <video autoPlay loop playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: '-1' }}>
             <source src="/backgroundvideo.mp4" type="video/mp4" />
           </video>
@@ -70,6 +70,9 @@ export const Home = () => {
           </div>
         </div>
       </section>
+      <script>
+        document.getElementById('backvideo').play();
+      </script>
     </HelmetProvider>
   );
 };

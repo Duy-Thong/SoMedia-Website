@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import hoibao from "./assets/active/hoibao.jpg";
 import boyday1911 from "./assets/active/boyday1911.jpg";
 import birthday from "./assets/active/birthday.jpg";
@@ -25,6 +24,13 @@ import trainingd22 from "./assets/active/trainingd22.jpg";
 import pchain from "./assets/active/pchain.jpg";
 import profile from "./assets/active/profile.jpg";
 import birthday2024 from "./assets/active/birthday2024.jpg";
+import duythong from "./assets/humans/duythong.jpg";
+import trinhtrang from "./assets/humans/trinhtrang.jpg";
+import anhtuyen from "./assets/humans/anhtuyen.jpg";
+import anhkhoa from "./assets/humans/anhkhoa.jpg";
+import anhnam from "./assets/humans/anhnam.jpg";
+import anhchau from "./assets/humans/anhchau.jpg";
+import anhminh from "./assets/humans/anhminh.jpg";
 const logotext = "So Media";
 const meta = {
     title: "So Media",
@@ -304,35 +310,47 @@ const activitiesData = [
 ];
 const chairman = [
     {
-        image: "/anhtuyen.jpg",
+        image: anhtuyen,
         name: "Vu Cong Tuyen",
         description: "Founder",
-        detail: "With a strong passion for filming and photography, Vu Cong Tuyen is one of the two founding members of the club."
+        detail: " The club founder and the first president of the club. With the desire to have a place to connect photography enthusiasts, Mr. Tuyen and two of his friends founded So Media club in 2016."
+    }, 
+    {
+        image: anhchau,
+        name: "Duong Quang Chau",
+        description: "Co-founder",
+        detail: ""
     },
     
     {
-        image: "/anhkhoa.jpg",
+        image: anhminh,
+        name: "Bui Quang Minh",
+        description: "Co-founder",
+        detail: ""
+    },
+    {
+        image: anhkhoa,
         name: "Nguyen Dang Khoa",
         description: "Gen 3",
-        detail: "Dang Khoa is a D19 student majoring in Telecommunications, and became the club president when he was a second-year student. However, with his passion, enthusiasm and love for So, he has taken on the role well. of a leader, leading the club throughout the past year."
+        detail: "The club president for the 2020-2021 and 2021-2022 terms."
     },
     {
-        image: " /anhnam.jpg",
+        image: anhnam,
         name: "Pham Khac Hoai Nam",
         description: "Gen 4",
-        detail: "Hoai Nam is the Big Brother with cheerful, dynamic and responsible energy. During his journey with the So Media Family, he brought new directions for the Club to develop into what it is today."
+        detail: "The club president for the 2022-2023 term."
     },
     {
-        image: "/duythong.jpg",
+        image: duythong,
         name: "Dao Duy Thong",
         description: "Gen 5",
-        detail: "Originally a member of Gen 5, with his leadership talent and high expertise in photography, he became head of the Media department after only 1 year of operation. Now, with his meticulousness, carefulness and enthusiasm at work, he has been trusted by the So Media family for a greater responsibility and more challenges in the new term."
+        detail: "The club president for the 2022-2023 term."
     },
     {
-        image: "/trinhtrang.jpg",
+        image: trinhtrang,
         name: "Trinh Thuy Trang",
         description: "Gen 5",
-        detail: "Thuy Trang - started out as a member of Gen 5, with her existing management talent and valuable experience, she has received everyone's trust as the new Vice President.",
+        detail: "The vice president of the club for the 2023-2024 term.",
     },
 
 
