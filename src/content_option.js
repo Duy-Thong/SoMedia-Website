@@ -53,6 +53,7 @@ import nguyenthuyanh from "./assets/humans/nguyenthuyanh.jpg";
 import nguyenthithan from "./assets/humans/nguyenthithan.jpg";
 import ngothuha from "./assets/humans/ngothuha.jpg";
 import ngokimanh from "./assets/humans/ngokimanh.jpg";
+import phuongthao from "./assets/humans/thaothao.JPG";
 const logotext = "So Media";
 const meta = {
     title: "So Media",
@@ -451,6 +452,12 @@ const humans = [
         name: "Nguyen Thi Van Truc",
         description: "Gen 5",
         detail: "Head of Communications Department for the 2022-2023 term.",
+    },
+    {
+        image: phuongthao,
+        name: "Le Thi Phuong Thao",
+        description: "Gen 5",
+        detail: "Deputy Head of Human Resources Department for the 2022-2023 term.",
     },
     {
         image: trongnghia,
