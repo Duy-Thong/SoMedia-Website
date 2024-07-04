@@ -21,7 +21,7 @@ export const Tradition = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className=" backgroundvideo grain">
-          <img src="/home1.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'blur(2px) brightness(50%)' }} />        </div>
+          <img src="/home1.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'blur(2px) brightness(80%)' }} />        </div>
         <Row className="mb-0 mt-3 pt-md-3 " >
           <Col lg="12">
             <h1 className="display-4 mb-4 " style={{ textAlign: "left" }}>Traditional Room</h1>
@@ -49,6 +49,20 @@ export const Tradition = () => {
                 <p>{prize.date}</p>
               </Col>
             ))}
+          </Row>
+        </Row>
+        <Row className="mt-3 mb-3 " >
+          <hr></hr>
+          <Row>
+            <h2 className="text-center"> Why we name "Sổ Media" ? </h2>
+          </Row>
+          <Row>
+            <Col lg="6" xl="12">
+
+            </Col>
+            <Col lg="6" xl="12">
+            </Col>
+
           </Row>
         </Row>
       </Container>
