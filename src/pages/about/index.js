@@ -31,7 +31,7 @@ export const About = () => {
         <div className="backgroundvideo grain">
           <img src="/home9.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'brightness(80%)', transform: 'translateY(-50px)' }} />
         </div>
-        <Row className={`mb-5 mt-3 pt-md-3 ${isAnimated ? "slide-in-left" : ""}`} style={{ alignItems: 'baseline' }}>
+        <Row className={`mb-0 mt-3 pt-md-3 ${isAnimated ? "slide-in-left" : ""}`} style={{ alignItems: 'baseline' }}>
           <Col lg="6">
             <h1 className="display-4 mb-4" style={{ textAlign: "left" }}>About us</h1>
           </Col>
@@ -46,7 +46,7 @@ export const About = () => {
             </Link>
           </Col>
         </Row>
-
+        <hr className="mt-0"></hr>
         {/* Additional content sections with animations */}
         <Row className={`sec_sp ${isAnimated ? "slide-in-right" : ""}`}>
           <Col lg="4">

@@ -44,7 +44,7 @@ import thanhthao from "./assets/humans/thanhthao.jpg";
 import thuytrang from "./assets/humans/thuytrang.jpg";
 import khanhvan from "./assets/humans/khanhvan.jpg";
 import vantruc from "./assets/humans/vantruc.jpg";
-import trongnghia from "./assets/humans/trongnghia.jpg";
+import trongnghia from "./assets/humans/trongnghia.JPG";
 import quynhanh from "./assets/humans/quynhanh.jpg";
 import nguyenngoclan from "./assets/humans/nguyenngoclan.jpg";
 import nguyenvanchien from "./assets/humans/nguyenvanchien.jpg";
@@ -400,6 +400,12 @@ const humans = [
         detail: "Head of Design Department for the 2020-2021 term."
     },
     {
+        image: hamanhhoang,
+        name: "Ha Manh Hoang",
+        description: "Gen 3",
+        detail: "Head of Media Department for the 2021-2022 term."
+    },
+    {
         image: anhnam,
         name: "Pham Khac Hoai Nam",
         description: "Gen 4",
@@ -423,12 +429,7 @@ const humans = [
         description: "Gen 4",
         detail: "Deputy Head of Foreign Affairs Department for the 2021-2022 term."
     },
-    {
-        image: hamanhhoang,
-        name: "Ha Manh Hoang",
-        description: "Gen 3",
-        detail: "Head of Media Department for the 2021-2022 term."
-    },
+
     {
         image: vuminhtu,
         name: "Vu Minh Tu",

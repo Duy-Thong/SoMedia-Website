@@ -51,10 +51,10 @@ export const Tradition = () => {
             ))}
           </Row>
         </Row>
-        <Row className="mt-3 mb-3 " >
+        {/* <Row className="mt-3 mb-3 " >
           <hr></hr>
           <Row>
-            <h2 className="text-center"> Why we name "Sổ Media" ? </h2>
+            <h2 className="text-center"> Why we named "Sổ Media" ? </h2>
           </Row>
           <Row>
             <Col lg="6" xl="12">
@@ -64,7 +64,7 @@ export const Tradition = () => {
             </Col>
 
           </Row>
-        </Row>
+        </Row> */}
       </Container>
     </HelmetProvider >
   );
