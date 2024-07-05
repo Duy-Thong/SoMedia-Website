@@ -46,9 +46,9 @@ export const About = () => {
             </Link>
           </Col>
         </Row>
-        <hr className="mt-0"></hr>
+        <hr className="mt-3"></hr>
         {/* Additional content sections with animations */}
-        <Row className={`sec_sp ${isAnimated ? "slide-in-right" : ""}`}>
+        <Row className={`sec_sp ${isAnimated ? "slide-in-right" : ""}`} style={{ marginTop: '10px', marginBottom: '20px' }}>
           <Col lg="4">
             <h3 className="color_sec py-4">{dataabout.title}</h3>
           </Col>
@@ -58,7 +58,7 @@ export const About = () => {
             </div>
           </Col>
         </Row>
-        <Row className={`sec_sp ${isAnimated ? "slide-in-left" : ""}`}>
+        <Row className={`sec_sp ${isAnimated ? "slide-in-left" : ""}`} style={{ marginTop: '10px', marginBottom: '20px' }}>
           <Col lg="4">
             <h3 className="color_sec py-4">Goals</h3>
           </Col>
