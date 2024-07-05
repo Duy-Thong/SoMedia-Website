@@ -44,7 +44,7 @@ import thanhthao from "./assets/humans/thanhthao.jpg";
 import thuytrang from "./assets/humans/thuytrang.jpg";
 import khanhvan from "./assets/humans/khanhvan.jpg";
 import vantruc from "./assets/humans/vantruc.jpg";
-import trongnghia from "./assets/humans/trongnghia.JPG";
+import trongnghia from "./assets/humans/trongnghia.jpg";
 import quynhanh from "./assets/humans/quynhanh.jpg";
 import nguyenngoclan from "./assets/humans/nguyenngoclan.jpg";
 import nguyenvanchien from "./assets/humans/nguyenvanchien.jpg";
