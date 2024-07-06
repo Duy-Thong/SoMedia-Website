@@ -9,7 +9,7 @@ import { AiFillYoutube } from "react-icons/ai";
 
 import { socialprofils } from "../../content_option";
 
-export const Socialicons = (params) => {
+export const Socialicons = () => {
   return (
     <div className="stick_follow_icon">
       <ul>

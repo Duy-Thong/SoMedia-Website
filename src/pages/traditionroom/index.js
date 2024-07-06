@@ -3,11 +3,8 @@ import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import {
-  dataabout,
   meta,
   Prizes,
-  departments,
-  chairman,
 } from "../../content_option";
 import Slide from "./slide";
 
