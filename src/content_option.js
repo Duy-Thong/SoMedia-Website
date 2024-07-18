@@ -510,7 +510,7 @@ const humans = [
     },
     {
         image: ngokimanh,
-        name: "Nguyen Kim Anh",
+        name: "Ngo Kim Anh",
         description: "Gen 6",
         detail: "Head of Human Resources Department for the 2023-2024 term.",
     },
