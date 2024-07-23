@@ -1,29 +1,32 @@
-import hoibao from "./assets/active/hoibao.jpg";
-import boyday1911 from "./assets/active/boyday1911.jpg";
+//image for activities
 import birthday from "./assets/active/birthday.jpg";
+import birthday2024 from "./assets/active/birthday2024.jpg";
+import boyday1911 from "./assets/active/boyday1911.jpg";
+import breakimg from "./assets/active/break2.jpg";
+import chaotan from "./assets/active/chaotan.jpg";
+import contest from "./assets/active/contest.jpg";
+import hoibao from "./assets/active/hoibao.jpg";
+import hoibao2 from "./assets/active/hoibao2.jpg";
 import insideout from "./assets/active/insideout.jpg";
 import interview2023 from "./assets/active/interview2023.jpg";
 import outdoor from "./assets/active/outdoor.jpg";
-import training2023 from "./assets/active/training2023.jpg";
+import outdoor1 from "./assets/active/outdoor1.jpg";
+import neu from "./assets/active/neu.jpg";
+import pchain from "./assets/active/pchain.jpg";
+import teacherday from "./assets/active/teacherday.jpg";
+import picnic2024 from "./assets/active/picnic2024.jpg";
+import tvc from "./assets/active/tvc.jpg";
+import trainingd22 from "./assets/active/trainingd22.jpg";
+import trainingd23 from "./assets/active/trainingd23.jpg";
 import welcomed23 from "./assets/active/welcomed23.jpg";
 import womanday from "./assets/active/womanday.jpg";
-import womanday2 from "./assets/active/womanday2.jpg";
-import teacherday from "./assets/active/teacherday.jpg";
-import recruitment from "./assets/active/recruitment.jpg";
-import chaotan from "./assets/active/chaotan.jpg";
-import trainingd23 from "./assets/active/trainingd23.jpg";
-import hoibao2 from "./assets/active/hoibao2.jpg";
-import tedhanu from "./assets/active/tedhanu.jpg";
-import contest from "./assets/active/contest.jpg";
-import training20231 from "./assets/active/training20231.jpg";
-import neu from "./assets/active/neu.jpg";
-import breakimg from "./assets/active/break2.jpg";
-import tvc from "./assets/active/tvc.jpg";
-import outdoor1 from "./assets/active/outdoor1.jpg";
-import trainingd22 from "./assets/active/trainingd22.jpg";
-import pchain from "./assets/active/pchain.jpg";
+import womanday2 from "./assets/active/womanday.jpg";
 import profile from "./assets/active/profile.jpg";
-import birthday2024 from "./assets/active/birthday2024.jpg";
+import tedhanu from "./assets/active/tedhanu.jpg";
+import recruitment from "./assets/active/recruitment.jpg";
+import picnic20242 from "./assets/active/picnic20242.jpg";
+
+// images for humans of So Media
 import duythong from "./assets/humans/duythong.jpg";
 import trinhtrang from "./assets/humans/trinhtrang.jpg";
 import anhtuyen from "./assets/humans/anhtuyen.jpg";
@@ -55,10 +58,12 @@ import ngothuha from "./assets/humans/ngothuha.jpg";
 import ngokimanh from "./assets/humans/ngokimanh.jpg";
 import phuongthao from "./assets/humans/thaothao.JPG";
 const logotext = "So Media";
+// thông tin meta ( hiển thị khi gửi link )
 const meta = {
     title: "So Media",
-    description: "We are a photography club at PTIT. At Media Book, you can further develop your media and design skills as well as many interesting and dynamic activities.",
+    description: "We are a photography club at PTIT. At So Media, you can further develop your media and design skills as well as many interesting and dynamic activities.",
 };
+// thông tin giới thiệu ở page Home
 const introdata = {
     title: "We are So Media ",
     "animated": {
@@ -70,14 +75,13 @@ const introdata = {
     description: "We are a media club at PTIT. At So Media, you can further develop your media skills,expand your network as well as engage in many interesting and dynamic activities.",
     your_img_url: "https://assets.unlayer.com/stock-templates/1706451135609-homepic.png",
 };
-
+// thông tin giới thiệu ở page about
 const dataabout = {
     title: "About",
     aboutme: "Established in 2016 with 3 founding members, So Media is a gathering place for students passionate about photography, videography, and design. Coming to So Media, you will join a dynamic club, always full of positive energy and enthusiasm. Currently So Media is one of the leading photography and videography units in PTIT, participating in almost all large and small activities not only inside but also outside the institute.",
     goals: "So Media's goal is to become a place to connect and develop the passion of students in the field of photography, videography and design. In So Media, the priority is the development of our members. We always strive to create a professional and creative working environment, where members can freely express their ideas and develop their skills.",
-
 };
-
+// các giải thưởng
 const Prizes = [{
     jobtitle: "First prize of the contest 'Nét đẹp trường P' ",
     where: "PTIT",
@@ -93,10 +97,8 @@ const Prizes = [{
     where: "PTIT",
     date: "2022-2023",
 },
-
-
 ];
-
+// các ban trong CLB
 const departments = [
     {
         name: "Media",
@@ -116,6 +118,7 @@ const departments = [
         description: "The Human Resources department's activities, though often behind the scenes, are crucial. Their role involves managing member activities and actively participating in the logistics of club events."
     },
 ];
+// Thông tin giới thiệu về training
 const services = [
     {
         title: "About training",
@@ -134,8 +137,13 @@ const services = [
     },
 
 ];
+// các ảnh trong slide page activities
 const slides = [
-
+    {
+        "src": picnic2024,
+        "alt": "Picnic 2024",
+        "description": "Teambuilding 2024",
+    },
     {
         "src": birthday,
         "alt": "Image 1 for carousel",
@@ -147,49 +155,14 @@ const slides = [
         "description": "So Media 7th Birthday",
     },
     {
-        "src": hoibao,
-        "alt": "Image 2 for carousel",
-        "description": "National newspaper youth camp 2023",
-    },
-    {
-        "src": boyday1911,
-        "alt": "Image 3 for carousel",
-        "description": "Men's Day 19/11",
-    },
-    {
-        "src": insideout,
-        "alt": "Image 4 for carousel",
-        "description": "Inside Out photography contest",
-    },
-    {
         "src": tvc,
         "alt": "Image 4 for carousel",
         "description": "TVC 2023 - The Growth",
     },
     {
-        "src": interview2023,
-        "alt": "Image 5 for carousel",
-        "description": "So Media Interview 2023",
-    },
-    {
-        "src": outdoor,
-        "alt": "Image 6 for carousel",
-        "description": "Outdoor photography ",
-    },
-    {
-        "src": outdoor1,
-        "alt": "Image 6 for carousel",
-        "description": "Street photography ",
-    },
-    {
-        "src": trainingd22,
-        "alt": "Image 7 for carousel",
-        "description": "Training photography 2022",
-    },
-    {
-        "src": training2023,
-        "alt": "Image 7 for carousel",
-        "description": "Training photography 2023",
+        "src": profile,
+        "alt": "Image 10 for carousel",
+        "description": "Profile Shooting",
     },
     {
         "src": welcomed23,
@@ -207,6 +180,48 @@ const slides = [
         "description": "Welcome D23 PTIT - Break the Shell 2023",
     },
     {
+        "src": trainingd22,
+        "alt": "Image 7 for carousel",
+        "description": "Training photography 2022",
+    },
+    {
+        "src": trainingd23,
+        "alt": "Image 7 for carousel",
+        "description": "Training photography 2023",
+    },
+    {
+        "src": interview2023,
+        "alt": "Image 5 for carousel",
+        "description": "So Media Interview 2023",
+    },
+    {
+        "src": hoibao,
+        "alt": "Image 2 for carousel",
+        "description": "National newspaper youth camp 2023",
+    },
+
+    {
+        "src": insideout,
+        "alt": "Image 4 for carousel",
+        "description": "Inside Out photography contest",
+    },
+    {
+        "src": outdoor,
+        "alt": "Image 6 for carousel",
+        "description": "Outdoor photography ",
+    },
+    {
+        "src": outdoor1,
+        "alt": "Image 6 for carousel",
+        "description": "Street photography ",
+    },
+    {
+        "src": boyday1911,
+        "alt": "Image 3 for carousel",
+        "description": "Men's Day 19/11",
+    },
+
+    {
         "src": womanday,
         "alt": "Image 9 for carousel",
         "description": "Vietnamese Woman's Day",
@@ -216,17 +231,8 @@ const slides = [
         "alt": "Image 10 for carousel",
         "description": "International Women's Day",
     },
-    {
-        "src": profile,
-        "alt": "Image 10 for carousel",
-        "description": "Profile Shooting",
-    },
-
-
-
-
 ];
-
+// các project trong page projects
 const dataportfolio = [{
     img: "https://assets.unlayer.com/stock-templates/1706454526536-380272415_644128067824993_6241835109622914696_n.jpg",
     description: "So Media TVC 2023 - The Growth",
@@ -258,8 +264,6 @@ const dataportfolio = [{
     description: "MV Ngay dau tien PTIT Version ",
     link: "https://www.youtube.com/watch?v=y7Y7VtKb9rY",
 },
-
-
 {
     img: "https://assets.unlayer.com/stock-templates/1706518396742-387207800_652564120314721_4877621676947583441_n.jpg",
     description: "BREAK THE SHELL",
@@ -275,16 +279,8 @@ const dataportfolio = [{
     description: "AGRIUP 2023 - NEU",
     link: "https://www.facebook.com/agriup.NEU/videos/2103583136647621",
 },
-
-
-    // {
-    //     img: "https://assets.unlayer.com/stock-templates/1706518792689-345846649_261663956353151_7859952513778676032_n.jpg",
-    //     description: "INSIDE OUT",
-    //     link: "https://www.facebook.com/photo/?fbid=579806644257136&set=pcb.579806707590463",
-    // },
-
 ];
-
+//Thông tin liên hệ trong page contact , thông tin về EmailJS
 
 const contactConfig = {
     YOUR_EMAIL: "clbsomediaptit@gmail.com",
@@ -297,14 +293,14 @@ const contactConfig = {
     YOUR_TEMPLATE_ID: "template_34mz99q",
     YOUR_USER_ID: "uI2wlAs7frUBvbJkG",
 };
-
+// thông tin các mạng xã hội
 const socialprofils = {
     facebook: "https://www.facebook.com/somedia.vn.2016",
     instagram: "https://www.instagram.com/so_media_2016/",
     tiktok: "https://www.tiktok.com/@clbsomedia",
     youtube: "https://www.youtube.com/c/S%E1%BB%95Media2016"
 };
-
+// thông tin trong page truyển thành viên
 const recruitmentpage =
 {
     title1: "Being trained by seniors in skills in photography, videography, design, layout, thinking, color and software use. From there, you will gain the necessary skills for both study and future work.",
@@ -316,21 +312,19 @@ const recruitmentpage =
     passtime: "From 20/12/2023 to 25/12/2023",
     applylink: "https://www.facebook.com/somedia.vn.2016",
 };
-
+// thông tin về các hoạt động của CLB theo từng tháng
 const activitiesData = [
     { time: "September", description: "Recruit members ", img: recruitment },
     { time: "October", description: "School events", img: chaotan },
-    { time: "November", description: "Vietnamese Teacher's Day", img: teacherday },
-    { time: "November", description: "Event media sponsor", img: tedhanu },
-    { time: "December", description: "Training", img: trainingd23 },
+    { time: "November", description: "Vietnamese Teacher's Day and School events", img: teacherday },
+    { time: "November", description: "Sponsor for events", img: tedhanu },
+    { time: "December", description: "Training new Gen", img: trainingd23 },
     { time: "March", description: "Youth Month activities", img: hoibao2 },
     { time: "April", description: "Club Birthday", img: birthday },
     { time: "May", description: "Photo Contest", img: contest },
-
-
-
-
+    { time: "July", description: "Picnic", img: picnic20242 },
 ];
+// thông tin về các thành viên ban điều hành cách khóa của CLB
 const humans = [
     {
         image: anhtuyen,
@@ -344,7 +338,6 @@ const humans = [
         description: "Co-founder",
         detail: ""
     },
-
     {
         image: anhminh,
         name: "Bui Quang Minh",
@@ -516,18 +509,18 @@ const humans = [
     },
 ];
 export {
-    meta,
-    dataabout,
-    dataportfolio,
-    Prizes,
-    services,
-    introdata,
-    contactConfig,
-    socialprofils,
-    logotext,
-    slides,
-    activitiesData,
-    departments,
-    recruitmentpage,
-    humans,
+    meta,  // thông tin meta
+    dataabout, // thông tin giới thiệu ở page about
+    dataportfolio, // các project trong page projects
+    Prizes,// các giải thưởng
+    services,// thông tin giới thiệu về training
+    introdata,// thông tin giới thiệu ở page Home
+    contactConfig,// thông tin liên hệ trong page contact
+    socialprofils,// thông tin các mạng xã hội
+    logotext,// tên của CLB
+    slides,// các ảnh trong slide page activities
+    activitiesData,// thông tin về các hoạt động của CLB theo từng tháng
+    departments,// các ban trong CLB
+    recruitmentpage,// thông tin trong page truyển thành viên
+    humans,// thông tin về các thành viên ban điều hành cách khóa của CLB
 };
