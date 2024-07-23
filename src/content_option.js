@@ -322,7 +322,7 @@ const activitiesData = [
     { time: "March", description: "Youth Month activities", img: hoibao2 },
     { time: "April", description: "Club Birthday", img: birthday },
     { time: "May", description: "Photo Contest", img: contest },
-    { time: "July", description: "Picnic", img: picnic20242 },
+    { time: "July", description: "Picnic", img: picnic2024 },
 ];
 // thông tin về các thành viên ban điều hành cách khóa của CLB
 const humans = [

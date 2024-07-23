@@ -109,10 +109,7 @@
   margin-bottom: 20px;
 }
 
-.activity :hover {
-  transform: translateX(20px);
-  /* Move the text 20px to the right */
-}
+
 
 .activity img {
   width: 100%;
