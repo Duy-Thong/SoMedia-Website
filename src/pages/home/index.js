@@ -15,7 +15,7 @@ export const Home = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className="backgroundvideo" id="backvideo">
-          <video autoPlay muted loop playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: '-1' }}>
+          <video autoPlay  loop playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: '-1' }}>
             <source src="/backgroundvideo.mp4" type="video/mp4" />
           </video>
           <div className="video-overlay" style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 1 }}></div>

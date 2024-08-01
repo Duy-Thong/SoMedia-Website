@@ -12,6 +12,20 @@ import { dataabout, meta, departments } from "../../content_option";
 
 // Define the About component
 export const About = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const background = document.querySelector('.backgroundvideo img');
+      const blur = scrollPosition * 0.005; // Làm mờ ảnh
+      background.style.filter = `blur(${blur}px)`;
+
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // State to control when animations are added
   const [isAnimated, setIsAnimated] = useState(false);

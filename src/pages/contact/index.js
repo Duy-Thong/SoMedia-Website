@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as emailjs from "emailjs-com";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -7,6 +7,21 @@ import { Container, Row, Col, Alert } from "react-bootstrap";
 import { contactConfig } from "../../content_option";
 import Typewriter from "typewriter-effect";
 export const ContactUs = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const background = document.querySelector('.backgroundvideo img');
+      const blur = scrollPosition * 0.015; // Làm mờ ảnh
+      background.style.filter = `blur(${blur}px) brightness(90%)`;
+
+
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const [formData, setFormdata] = useState({
     email: "",

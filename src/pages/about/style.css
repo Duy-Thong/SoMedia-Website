@@ -41,11 +41,7 @@
     /* Cover the full area of the container without distortion */
 }
 
-@media (max-width: 768px) {
-    .backgroundvideo img {
-        display: none;
-    }
-}
+
 
 .table td,
 .table th {

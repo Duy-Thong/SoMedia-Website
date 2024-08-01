@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
@@ -9,6 +9,21 @@ import {
 import Slide from "./slide";
 
 export const Tradition = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const background = document.querySelector('.backgroundvideo img');
+      const blur = scrollPosition * 0.015; // Làm mờ ảnh
+      background.style.filter = `blur(${blur}px) brightness(80%)`;
+
+
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -17,8 +32,8 @@ export const Tradition = () => {
           <title> Traditional Room | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <div className=" backgroundvideo grain">
-          <img src="/home1.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'blur(2px) brightness(80%)' }} />        </div>
+        <div className=" backgroundvideo grain" >
+          <img src="/home1.jpg" alt="background" />        </div>
         <Row className="mb-0 mt-3 pt-md-3 " >
           <Col lg="12">
             <h1 className="display-4 mb-4 " style={{ textAlign: "left" }}>Traditional Room</h1>

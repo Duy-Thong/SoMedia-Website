@@ -81,9 +81,6 @@
 }
 
 @media (max-width: 768px) {
-    .backgroundvideo img {
-        display: none;
-    }
 
     .row {
         display: block;

@@ -14,7 +14,20 @@ import Slide from "./activeslide";
 import { Carousel } from "../../components/imageslide/index";
 import { AnualActivities as Anual} from "./anualactive"
 export const Activities = () => {
-  
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const background = document.querySelector('.backgroundvideo img');
+      const blur = scrollPosition * 0.005; // Làm mờ ảnh
+      background.style.filter = `blur(${blur}px)`;
+      
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -32,12 +45,12 @@ export const Activities = () => {
             <hr  />
           </Col>
         </Row>
-        <Row className="mb-5 mt-3 pt-md-3 " >
+        <Row className="mb-5 mt-3 pt-md-3 fade-in-top" >
             <Col lg="12" xl="12" className="slide">
               <Slide></Slide>
             </Col>
         </Row>
-        <Row className="mb-5 mt-3 pt-md-3" >
+        <Row className="mb-5 mt-3 pt-md-3 fade-in-top" >
           <Anual />
         </Row>
       </Container>
