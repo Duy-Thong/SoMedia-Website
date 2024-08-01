@@ -9,14 +9,14 @@ import { FaArrowCircleRight } from "react-icons/fa";
 
 // Import your data or any other components you need
 import { dataabout, meta, departments } from "../../content_option";
-
+import FocusRing from "../../components/focusring"; // Import the FocusRing component
 // Define the About component
 export const About = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const background = document.querySelector('.backgroundvideo img');
-      const blur = scrollPosition * 0.005; // Làm mờ ảnh
+      const blur = scrollPosition * 0.01; // Làm mờ ảnh
       background.style.filter = `blur(${blur}px)`;
 
     };
@@ -45,6 +45,7 @@ export const About = () => {
         </Helmet>
         <div className="backgroundvideo grain">
           <img src="/home9.jpg" alt="background" />
+          <FocusRing />
         </div>
         <Row className={`mb-0 mt-3 pt-md-3 ${isAnimated ? "slide-in-left" : ""}`} style={{ alignItems: 'baseline' }}>
           <Col lg="6">

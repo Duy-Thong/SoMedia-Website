@@ -7,6 +7,7 @@ import {
   Prizes,
 } from "../../content_option";
 import Slide from "./slide";
+import FocusRing from "../../components/focusring"; // Import the FocusRing component
 
 export const Tradition = () => {
   useEffect(() => {
@@ -33,7 +34,9 @@ export const Tradition = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className=" backgroundvideo grain" >
-          <img src="/home1.jpg" alt="background" />        </div>
+          <img src="/home1.jpg" alt="background" />
+          <FocusRing />
+        </div>
         <Row className="mb-0 mt-3 pt-md-3 " >
           <Col lg="12">
             <h1 className="display-4 mb-4 " style={{ textAlign: "left" }}>Traditional Room</h1>

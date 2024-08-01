@@ -12,7 +12,9 @@ import {
 } from "../../content_option";
 import Slide from "./activeslide";
 import { Carousel } from "../../components/imageslide/index";
-import { AnualActivities as Anual} from "./anualactive"
+import { AnualActivities as Anual } from "./anualactive";
+import FocusRing from "../../components/focusring"; // Import the FocusRing component
+
 export const Activities = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +40,7 @@ export const Activities = () => {
         </Helmet>
         <div className="backgroundvideo grain " >
           <img src="/tvc.jpg" alt="background" />
+          <FocusRing />
         </div>
         <Row className="mb-5 mt-3 pt-md-3" >
           <Col lg="12">

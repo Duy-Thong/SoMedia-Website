@@ -6,6 +6,8 @@ import { meta } from "../../content_option";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import { contactConfig } from "../../content_option";
 import Typewriter from "typewriter-effect";
+import FocusRing from "../../components/focusring"; // Import the FocusRing component
+
 export const ContactUs = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -13,8 +15,6 @@ export const ContactUs = () => {
       const background = document.querySelector('.backgroundvideo img');
       const blur = scrollPosition * 0.015; // Làm mờ ảnh
       background.style.filter = `blur(${blur}px) brightness(90%)`;
-
-
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -64,7 +64,7 @@ export const ContactUs = () => {
         (error) => {
           console.log(error.text);
           setFormdata({
-            alertmessage: `Faild to send!,${error.text}`,
+            alertmessage: `Failed to send!,${error.text}`,
             variant: "danger",
             show: true,
           });
@@ -90,6 +90,7 @@ export const ContactUs = () => {
         </Helmet>
         <div className="backgroundvideo grain">
           <img src="/home6.jpg" alt="background" />
+          <FocusRing /> {/* Add the FocusRing component here */}
         </div>
         <Row className="mb-5 mt-3 pt-md-3">
           <Col lg="8">
@@ -100,10 +101,8 @@ export const ContactUs = () => {
         <Row className="sec_sp">
           <Col lg="12">
             <Alert
-              //show={formData.show}
               variant={formData.variant}
-              className={`rounded-0 co_alert ${formData.show ? "d-block" : "d-none"
-                }`}
+              className={`rounded-0 co_alert ${formData.show ? "d-block" : "d-none"}`}
               onClose={() => setFormdata({ show: false })}
               dismissible
             >
@@ -126,7 +125,6 @@ export const ContactUs = () => {
               ) : (
                 ""
               )}
-
               <strong>Address:</strong> {contactConfig.YOUR_ADDRESS}
             </address>
             <Typewriter
@@ -134,16 +132,13 @@ export const ContactUs = () => {
                 strings: [
                   "#So Media",
                   "#Khoanh khac dau tien",
-
                 ],
                 autoStart: true,
                 loop: true,
                 deleteSpeed: 10,
                 cursor: "_",
               }}
-
             />
-
           </Col>
           <Col lg="7" className="d-flex align-items-center">
             <form onSubmit={handleSubmit} className="contact__form w-100">

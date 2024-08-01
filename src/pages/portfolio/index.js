@@ -4,6 +4,8 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { dataportfolio, meta } from "../../content_option";
 import backimg from "../../assets/images/home2.jpg";
+import FocusRing from "../../components/focusring"; // Import the FocusRing component
+
 export const Portfolio = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +33,7 @@ export const Portfolio = () => {
         </Helmet>
         <div className="backgroundvideo grain" >
           <img src={backimg} alt="background" />
+          <FocusRing />
         </div>
         <Row className="mb-1 mt-3 pt-md-3">
           <Col lg="8">
