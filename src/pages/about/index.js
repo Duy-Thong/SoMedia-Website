@@ -12,6 +12,7 @@ import { dataabout, meta, departments } from "../../content_option";
 
 // Define the About component
 export const About = () => {
+
   // State to control when animations are added
   const [isAnimated, setIsAnimated] = useState(false);
 
@@ -29,7 +30,7 @@ export const About = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className="backgroundvideo grain">
-          <img src="/home9.jpg" alt="background" style={{ width: '100%', height: 'auto', filter: 'brightness(80%)', transform: 'translateY(-50px)' }} />
+          <img src="/home9.jpg" alt="background" />
         </div>
         <Row className={`mb-0 mt-3 pt-md-3 ${isAnimated ? "slide-in-left" : ""}`} style={{ alignItems: 'baseline' }}>
           <Col lg="6">

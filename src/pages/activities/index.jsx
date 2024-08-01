@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
@@ -14,6 +14,7 @@ import Slide from "./activeslide";
 import { Carousel } from "../../components/imageslide/index";
 import { AnualActivities as Anual} from "./anualactive"
 export const Activities = () => {
+  
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -22,7 +23,7 @@ export const Activities = () => {
           <title> Activities | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <div className="backgroundvideo grain" >
+        <div className="backgroundvideo grain " >
           <img src="/tvc.jpg" alt="background" />
         </div>
         <Row className="mb-5 mt-3 pt-md-3" >

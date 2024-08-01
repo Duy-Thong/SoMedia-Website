@@ -13,7 +13,7 @@
 .backgroundvideo img {
     width: 100%;
     /* Corrected from auto% to 100% */
-   
+
     /* This makes the image take the full height of its container */
 }
 
@@ -33,9 +33,9 @@
 
 
 .backgroundvideo img {
-    width: 100%;
+    width: auto;
     /* Ensure the image covers the full width */
-    height: auto;
+    height: 100%;
     /* Maintain the image's aspect ratio */
     object-fit: cover;
     /* Cover the full area of the container without distortion */

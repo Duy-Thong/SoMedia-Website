@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { dataportfolio, meta } from "../../content_option";
 
 export const Portfolio = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const background = document.querySelector('.backgroundvideo img');
+
+      if (background) {
+        background.style.transform = `translateY(-${scrollPosition * 0.2}px)`;
+        background.style.filter = `blur(${scrollPosition * 0.01}px)`; // Áp dụng blur
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <HelmetProvider>
       <Container className="About-header">
