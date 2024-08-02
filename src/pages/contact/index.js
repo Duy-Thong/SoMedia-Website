@@ -90,7 +90,7 @@ export const ContactUs = () => {
         </Helmet>
         <div className="backgroundvideo grain">
           <img src="/home6.jpg" alt="background" />
-          <FocusRing /> {/* Add the FocusRing component here */}
+         
         </div>
         <Row className="mb-5 mt-3 pt-md-3">
           <Col lg="8">

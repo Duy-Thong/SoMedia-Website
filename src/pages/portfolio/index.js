@@ -33,7 +33,7 @@ export const Portfolio = () => {
         </Helmet>
         <div className="backgroundvideo grain" >
           <img src={backimg} alt="background" />
-          <FocusRing />
+          
         </div>
         <Row className="mb-1 mt-3 pt-md-3">
           <Col lg="8">

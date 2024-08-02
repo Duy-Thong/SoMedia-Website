@@ -15,11 +15,8 @@ export const Tradition = () => {
       const scrollPosition = window.scrollY;
       const background = document.querySelector('.backgroundvideo img');
       const blur = scrollPosition * 0.015; // Làm mờ ảnh
-      background.style.filter = `blur(${blur}px) brightness(80%)`;
-
-
+      background.style.filter = `blur(${blur}px) brightness(0.8)`; // Làm mờ ảnh
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -35,7 +32,7 @@ export const Tradition = () => {
         </Helmet>
         <div className=" backgroundvideo grain" >
           <img src="/home1.jpg" alt="background" />
-          <FocusRing />
+
         </div>
         <Row className="mb-0 mt-3 pt-md-3 " >
           <Col lg="12">
