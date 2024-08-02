@@ -25,6 +25,7 @@ export const Portfolio = () => {
 
   return (
     <HelmetProvider>
+      <FocusRing />
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
@@ -33,7 +34,7 @@ export const Portfolio = () => {
         </Helmet>
         <div className="backgroundvideo grain" >
           <img src={backimg} alt="background" />
-          
+
         </div>
         <Row className="mb-1 mt-3 pt-md-3">
           <Col lg="8">

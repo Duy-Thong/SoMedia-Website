@@ -10,7 +10,6 @@ import Headermain from "../header";
 import AnimatedCursor from "../hooks/AnimatedCursor";
 import "./App.css";
 import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import FocusRing from "../components/focusring";
 function _ScrollToTop(props) {
   const { pathname } = useLocation();
@@ -34,7 +33,7 @@ export default function App() {
 
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <FocusRing />
+      
       <div className="cursor__dot">
         <AnimatedCursor
           innerSize={15}

@@ -32,7 +32,9 @@ export const Activities = () => {
   }, []);
   return (
     <HelmetProvider>
+      <FocusRing />
       <Container className="About-header">
+        
         <Helmet>
           <meta charSet="utf-8" />
           <title> Activities | {meta.title}</title>

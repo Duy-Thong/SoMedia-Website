@@ -37,6 +37,7 @@ export const About = () => {
 
   return (
     <HelmetProvider>
+      <FocusRing />
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
