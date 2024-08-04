@@ -23,7 +23,7 @@ export const Home = () => {
         <div className="backgroundvideo" style={{ backgroundColor: 'rgba(0,0,0,0.3)' }}></div>
         <div className="introsec1">
           <div className="intro_sec d-block d-lg-flex align-items-center">
-            <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center" style={{ marginTop: "170px" }}>
+            <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center" style={{ marginTop: "100px" }}>
               <div className="align-self-center">
                 <div className="intro mx-auto">
                   <h2 className="mb-1x">So Media</h2>
