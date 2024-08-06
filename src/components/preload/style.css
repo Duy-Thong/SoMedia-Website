@@ -9,9 +9,15 @@
     background-image: url(../../assets/preload.gif);
     background-repeat: no-repeat;
     background-position: center;
-    
+
 }
 
 #preloader-none {
     opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+    #preloader {
+        background-image: url(../../assets/spinner.svg);
+    }
 }
