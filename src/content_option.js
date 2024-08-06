@@ -24,7 +24,6 @@ import womanday2 from "./assets/active/womanday.jpg";
 import profile from "./assets/active/profile.jpg";
 import tedhanu from "./assets/active/tedhanu.jpg";
 import recruitment from "./assets/active/recruitment.jpg";
-import picnic20242 from "./assets/active/picnic20242.jpg";
 
 // images for humans of So Media
 import duythong from "./assets/humans/duythong.jpg";

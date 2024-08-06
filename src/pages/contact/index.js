@@ -7,6 +7,7 @@ import { Container, Row, Col, Alert } from "react-bootstrap";
 import { contactConfig } from "../../content_option";
 import Typewriter from "typewriter-effect";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
+import Preloader from "../../components/preload/Pre";
 
 export const ContactUs = () => {
   useEffect(() => {
@@ -89,6 +90,7 @@ export const ContactUs = () => {
           <title>Contact | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
+        <Preloader/>
         <div className="backgroundvideo grain">
           <img src="/home6.jpg" alt="background" />
 

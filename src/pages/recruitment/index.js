@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import * as emailjs from "emailjs-com";
+import React from "react";
+
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { meta } from "../../content_option";
-import { Container, Row, Col, Alert, Button } from "react-bootstrap";
-import { contactConfig, recruitmentpage } from "../../content_option";
-import Typewriter from "typewriter-effect";
-import { FaDotCircle } from "react-icons/fa";
+import { Container, Row, Col } from "react-bootstrap";
+import {  recruitmentpage } from "../../content_option";
+
+
 export const Recruit = () => {
   return (
     <HelmetProvider >

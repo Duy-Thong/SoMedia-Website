@@ -5,7 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { dataportfolio, meta } from "../../content_option";
 import backimg from "../../assets/images/home2.jpg";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
-
+import Preloader from "../../components/preload/Pre";
 export const Portfolio = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -21,8 +21,6 @@ export const Portfolio = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-
   return (
     <HelmetProvider>
       <FocusRing />
@@ -32,9 +30,9 @@ export const Portfolio = () => {
           <title> Projects | {meta.title} </title>{" "}
           <meta name="description" content={meta.description} />
         </Helmet>
+        <Preloader />
         <div className="backgroundvideo grain" >
           <img src={backimg} alt="background" />
-
         </div>
         <Row className="mb-1 mt-3 pt-md-3">
           <Col lg="8">

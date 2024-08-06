@@ -8,6 +8,7 @@ import {
 } from "../../content_option";
 import Slide from "./slide";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
+import Preloader from "../../components/preload/Pre";
 
 export const Tradition = () => {
   useEffect(() => {
@@ -31,9 +32,9 @@ export const Tradition = () => {
           <title> Traditional Room | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
+        <Preloader />
         <div className=" backgroundvideo grain" >
           <img src="/home1.jpg" alt="background" />
-
         </div>
         <Row className="mb-0 mt-3 pt-md-3 " >
           <Col lg="12">
