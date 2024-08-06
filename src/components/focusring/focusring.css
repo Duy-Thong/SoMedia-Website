@@ -19,6 +19,10 @@
 
 @media screen and (max-width: 768px) {
     .focus-ring {
-        width: 8%;
+        display: none;
+    }
+
+    .focus-ring-container {
+        display: none;
     }
 }
