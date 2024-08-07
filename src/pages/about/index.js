@@ -10,6 +10,7 @@ import { FaArrowCircleRight } from "react-icons/fa";
 // Import your data or any other components you need
 import { dataabout, meta, departments } from "../../content_option";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
+import Preloader from "../../components/preload/Pre";
 // Define the About component
 export const About = () => {
   useEffect(() => {
@@ -44,6 +45,7 @@ export const About = () => {
           <title>About | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
+        <Preloader />
         <div className="backgroundvideo grain">
           <img src="/home9.jpg" alt="background" />
          
