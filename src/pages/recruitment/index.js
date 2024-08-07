@@ -4,8 +4,8 @@ import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { meta } from "../../content_option";
 import { Container, Row, Col } from "react-bootstrap";
-import {  recruitmentpage } from "../../content_option";
-
+import { recruitmentpage } from "../../content_option";
+import Preloader from "../../components/preload/Pre";
 
 export const Recruit = () => {
   return (
@@ -16,6 +16,8 @@ export const Recruit = () => {
           <title>Recruitment | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
+        <Preloader />
+        <div className="backgroundvideo" style={{ backgroundColor: 'rgba(0,0,0,1)' }}></div>
         <div className="backgroundvideo" id="backvideo" >
           <video autoPlay loop style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: '-1', bottom: '20px' }}>
             <source src="/TVC.mp4" type="video/mp4" />

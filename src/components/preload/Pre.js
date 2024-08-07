@@ -7,7 +7,7 @@ function Pre() {
   useEffect(() => {
     const timer = setTimeout(() => {
       updateLoad(false);
-    }, 2500);
+    }, 2300);
 
     // Cleanup the timer if the component unmounts before the timeout
     return () => clearTimeout(timer);
