@@ -39,16 +39,17 @@ export const About = () => {
   return (
     <HelmetProvider>
       <FocusRing />
+
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
           <title>About | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <Preloader />
+
         <div className="backgroundvideo grain">
           <img src="/home9.jpg" alt="background" />
-         
+
         </div>
         <Row className={`mb-0 mt-3 pt-md-3 ${isAnimated ? "slide-in-left" : ""}`} style={{ alignItems: 'baseline' }}>
           <Col lg="6">

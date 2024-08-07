@@ -9,8 +9,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
 
 #preloader-none {
@@ -18,17 +16,29 @@
     opacity: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 .text-line {
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
-    animation: dash 1.5s linear forwards, filling 1s ease-in forwards;
+    animation: dash 2s linear forwards, filling 2s ease-in forwards;
     font-size: 80px;
 }
 
 .text-line text {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: normal;
     font-style: normal;
+}
+
+.line1 {
+    font-size: 60px;
+    stroke-width: 1;
+}
+
+.line2 {
+    font-size: 40px;
+    stroke-width: 0.5;
 }
 
 @keyframes dash {
@@ -52,8 +62,12 @@
 }
 
 @media screen and (max-width: 768px) {
-    .text-line {
-        font-size: 40px;
+    .line1 {
+        font-size: 30px;
+    }
+
+    .line2 {
+        font-size: 15px;
     }
 
 }
