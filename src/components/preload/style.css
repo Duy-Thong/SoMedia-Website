@@ -19,11 +19,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 .text-line {
-    stroke-dasharray: 500;
-    stroke-dashoffset: 500;
+    stroke-dasharray: 250;
+    /* Increase the dash array to slow down the effect */
+    stroke-dashoffset: 250;
+    /* Increase the dash offset to match */
     animation: dash 2s linear forwards, filling 2s linear forwards, glow 2s ease-in 1s;
     font-size: 80px;
 }
+
 
 
 .text-line text {

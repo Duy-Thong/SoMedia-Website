@@ -11,14 +11,9 @@ import Preloader from "../../components/preload/Pre";
 import tvc from "../../assets/images/tvc.jpg";
 
 export const Activities = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
-    // Simulate a loading delay
-    const preloadTimeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 2500); // Adjust this time to match your preload duration
-
     // Scroll event for the blur effect
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -33,7 +28,7 @@ export const Activities = () => {
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      clearTimeout(preloadTimeout); // Clear timeout if the component unmounts
+     
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
@@ -48,10 +43,9 @@ export const Activities = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
 
-        {isLoading && <Preloader />} {/* Show Preloader if loading */}
+         <Preloader />
         
-        {!isLoading && ( /* Hide Preloader and show content when loading is complete */
-          <>
+       
             <div className="backgroundvideo grain">
               <img src={tvc} alt="background" />
             </div>
@@ -71,8 +65,8 @@ export const Activities = () => {
             <Row className="mb-5 mt-3 pt-md-3">
               <Anual />
             </Row>
-          </>
-        )}
+          
+        
       </Container>
     </HelmetProvider>
   );

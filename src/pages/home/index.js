@@ -1,23 +1,16 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React from "react";
+import { lazyWithPreload } from "react-lazy-with-preload";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
 import { introdata, meta } from "../../content_option";
 import { Link } from "react-router-dom";
 
-// Lazy load the Activities component
-const Activities = lazy(() => import("../activities/index"));
+// Lazy load and preload the Activities component
+const Activities = lazyWithPreload(() => import("../activities/activeslide"));
+Activities.preload(); // Start preloading the component
 
 export const Home = () => {
-  useEffect(() => {
-    // Preload the Activities component when the homepage loads
-    const preloadActivities = import("../activities/index").then(() => {
-      console.log("Activities component preloaded");
-    }).catch(err => {
-      console.error("Error preloading Activities component", err);
-    });
-  }, []);
-
   return (
     <HelmetProvider>
       <section id="home" className="home">
@@ -81,7 +74,6 @@ export const Home = () => {
           </div>
         </div>
       </section>
-      
     </HelmetProvider>
   );
 };
