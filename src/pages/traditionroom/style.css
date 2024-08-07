@@ -70,7 +70,7 @@
 /* CSS */
 .backgroundvideo img {
     width: 100%;
-   
+
     filter: brightness(80%);
     /* Corrected from auto% to 100% */
     /* This makes the image take the full height of its container */
@@ -97,9 +97,7 @@
 
 
 
-    .carousel-caption h3 {
-        font-size: 20px;
-    }
+
 
     .carousel-caption h4 {
         font-size: 15px;

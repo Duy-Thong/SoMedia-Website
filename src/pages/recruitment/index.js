@@ -6,7 +6,8 @@ import { meta } from "../../content_option";
 import { Container, Row, Col } from "react-bootstrap";
 import { recruitmentpage } from "../../content_option";
 import Preloader from "../../components/preload/Pre";
-
+import Camera from "../../assets/cam.png";
+import SoftSkillicon from "../../assets/soft.png";
 export const Recruit = () => {
   return (
     <HelmetProvider >
@@ -35,13 +36,13 @@ export const Recruit = () => {
               <div className="text-container">
                 <p>{recruitmentpage.title1}</p>
                 <br></br>
-                <img src="cam.png" alt="Overlay 1" className="overlay-image1" />
+                <img src={Camera} alt="Overlay 1" className="overlay-image1" />
               </div>
             </Row>
             <Row className="inforrow">
               <div className="text-container">
                 <p>{recruitmentpage.title2}</p>
-                <img src="soft.png" alt="Overlay 2" className="overlay-image2" />
+                <img src={SoftSkillicon} alt="Overlay 2" className="overlay-image2" />
               </div>
             </Row>
           </Col>

@@ -8,7 +8,7 @@ import { contactConfig } from "../../content_option";
 import Typewriter from "typewriter-effect";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
 import Preloader from "../../components/preload/Pre";
-
+import home6 from "../../assets/images/home6.jpg";
 export const ContactUs = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -90,9 +90,9 @@ export const ContactUs = () => {
           <title>Contact | {meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
-        <Preloader/>
+        <Preloader />
         <div className="backgroundvideo grain">
-          <img src="/home6.jpg" alt="background" />
+          <img src={home6} alt="background" />
 
         </div>
         <Row className="mb-5 mt-3 pt-md-3">

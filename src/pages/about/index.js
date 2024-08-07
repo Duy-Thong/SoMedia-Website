@@ -6,11 +6,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./style.css"; // Make sure this includes the CSS for animations
 import { FaArrowCircleRight } from "react-icons/fa";
-
+import home9 from "../../assets/images/home9.jpg";
 // Import your data or any other components you need
 import { dataabout, meta, departments } from "../../content_option";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
-import Preloader from "../../components/preload/Pre";
 // Define the About component
 export const About = () => {
   useEffect(() => {
@@ -48,7 +47,7 @@ export const About = () => {
         </Helmet>
 
         <div className="backgroundvideo grain">
-          <img src="/home9.jpg" alt="background" />
+          <img src={home9} alt="background" />
 
         </div>
         <Row className={`mb-0 mt-3 pt-md-3 ${isAnimated ? "slide-in-left" : ""}`} style={{ alignItems: 'baseline' }}>

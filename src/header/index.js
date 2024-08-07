@@ -3,7 +3,7 @@ import "./style.css";
 import { VscGrabber, VscClose } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { logotext, socialprofils } from "../content_option";
-import clublogo from "../assets/images/clblogo1.png";
+import clublogo_transparent from "../assets/images/clublogo_transparent.png";
 const Headermain = () => {
   const [isActive, setActive] = useState("false");
 
@@ -18,10 +18,9 @@ const Headermain = () => {
         <div className="d-flex align-items-center justify-content-between">
           {/* <img src={clublogo} alt="logo" style={{width:"5%"}} /> */}
           <Link className="navbar-brand nav_ac" to="/" >
-            <img src={clublogo} alt="Club Logo" style={{ width: '2.5rem' }} />
+            <img src={clublogo_transparent} alt="Club Logo" style={{ width: '2.5rem' }} />
             {/* {logotext} */}
           </Link>
-
           <div className="d-flex align-items-center" >
             <button className="menu__button  nav_ac" onClick={handleToggle}>
               {!isActive ? <VscClose /> : <VscGrabber />}

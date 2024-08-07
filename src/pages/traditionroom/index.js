@@ -9,7 +9,7 @@ import {
 import Slide from "./slide";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
 import Preloader from "../../components/preload/Pre";
-
+import home1 from "../../assets/images/home1.jpg";
 export const Tradition = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +34,7 @@ export const Tradition = () => {
         </Helmet>
         <Preloader />
         <div className=" backgroundvideo grain" >
-          <img src="/home1.jpg" alt="background" />
+          <img src={home1} alt="background" />
         </div>
         <Row className="mb-0 mt-3 pt-md-3 " >
           <Col lg="12">

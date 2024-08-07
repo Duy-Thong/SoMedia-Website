@@ -1,17 +1,29 @@
-import React from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
 import { introdata, meta } from "../../content_option";
 import { Link } from "react-router-dom";
 
+// Lazy load the Activities component
+const Activities = lazy(() => import("../activities/index"));
+
 export const Home = () => {
+  useEffect(() => {
+    // Preload the Activities component when the homepage loads
+    const preloadActivities = import("../activities/index").then(() => {
+      console.log("Activities component preloaded");
+    }).catch(err => {
+      console.error("Error preloading Activities component", err);
+    });
+  }, []);
+
   return (
     <HelmetProvider>
       <section id="home" className="home">
         <Helmet>
           <meta charSet="utf-8" />
-          <title> {meta.title}</title>
+          <title>{meta.title}</title>
           <meta name="description" content={meta.description} />
         </Helmet>
         <div className="backgroundvideo" id="backvideo">
@@ -69,9 +81,7 @@ export const Home = () => {
           </div>
         </div>
       </section>
-      <script>
-        document.getElementById('backvideo').play();
-      </script>
+      
     </HelmetProvider>
   );
 };
