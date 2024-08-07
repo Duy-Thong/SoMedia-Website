@@ -23,7 +23,7 @@ export const AnualActivities = () => {
                 <Row>
                     {activities.map((activity, index) => (
                         <div key={index} className={`activity ${isAnimated ? "slide-in-left" : ""}`} >
-                            <img src={activity.img} alt={`Activity ${index + 1}`} className="imageactive black-and-white" />
+                            <img loading="lazy"src={activity.img} alt={`Activity ${index + 1}`} className="imageactive black-and-white" />
                             <div className="textactive">
                                 <strong>{activity.time}:</strong> {activity.description}
                             </div>

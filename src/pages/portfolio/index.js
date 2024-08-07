@@ -32,7 +32,7 @@ export const Portfolio = () => {
         </Helmet>
         <Preloader />
         <div className="backgroundvideo grain" >
-          <img src={backimg} alt="background" />
+          <img loading="lazy"src={backimg} alt="background" />
         </div>
         <Row className="mb-1 mt-3 pt-md-3">
           <Col lg="8">
@@ -44,7 +44,7 @@ export const Portfolio = () => {
           {dataportfolio.map((data, i) => {
             return (
               <div key={i} className="po_item">
-                <img src={data.img} alt="" />
+                <img loading="lazy"src={data.img} alt="" />
                 <div className="content">
                   <p>{data.description}</p>
                   <a href={data.link} target="_blank" rel="noreferrer">View Project</a>

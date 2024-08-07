@@ -47,7 +47,7 @@ export const About = () => {
         </Helmet>
 
         <div className="backgroundvideo grain">
-          <img src={home9} alt="background" />
+          <img loading="lazy" src={home9} alt="background" />
 
         </div>
         <Row className={`mb-0 mt-3 pt-md-3 ${isAnimated ? "slide-in-left" : ""}`} style={{ alignItems: 'baseline' }}>

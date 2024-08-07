@@ -20,7 +20,7 @@ const FocusRing = () => {
   return (
       <div className="focus-ring-container">
          
-      <img src={focusring} alt="Focus Ring" className="focus-ring" />
+      <img loading="lazy"src={focusring} alt="Focus Ring" className="focus-ring" />
     </div>
   );
 };

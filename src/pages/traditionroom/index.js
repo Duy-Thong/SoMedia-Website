@@ -34,7 +34,7 @@ export const Tradition = () => {
         </Helmet>
         <Preloader />
         <div className=" backgroundvideo grain" >
-          <img src={home1} alt="background" />
+          <img loading="lazy"src={home1} alt="background" />
         </div>
         <Row className="mb-0 mt-3 pt-md-3 " >
           <Col lg="12">

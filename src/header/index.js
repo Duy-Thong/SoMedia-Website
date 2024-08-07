@@ -16,9 +16,9 @@ const Headermain = () => {
     <>
       <header className="fixed-top site__header">
         <div className="d-flex align-items-center justify-content-between">
-          {/* <img src={clublogo} alt="logo" style={{width:"5%"}} /> */}
+          {/* <img loading="lazy"src={clublogo} alt="logo" style={{width:"5%"}} /> */}
           <Link className="navbar-brand nav_ac" to="/" >
-            <img src={clublogo_transparent} alt="Club Logo" style={{ width: '2.5rem' }} />
+            <img loading="lazy"src={clublogo_transparent} alt="Club Logo" style={{ width: '2.5rem' }} />
             {/* {logotext} */}
           </Link>
           <div className="d-flex align-items-center" >

@@ -36,13 +36,13 @@ export const Recruit = () => {
               <div className="text-container">
                 <p>{recruitmentpage.title1}</p>
                 <br></br>
-                <img src={Camera} alt="Overlay 1" className="overlay-image1" />
+                <img loading="lazy"src={Camera} alt="Overlay 1" className="overlay-image1" />
               </div>
             </Row>
             <Row className="inforrow">
               <div className="text-container">
                 <p>{recruitmentpage.title2}</p>
-                <img src={SoftSkillicon} alt="Overlay 2" className="overlay-image2" />
+                <img loading="lazy"src={SoftSkillicon} alt="Overlay 2" className="overlay-image2" />
               </div>
             </Row>
           </Col>
@@ -51,7 +51,7 @@ export const Recruit = () => {
               <h3>Timeline</h3>
             </Row>
             <Row className="mb-0 mt-0">
-              <img src="timeline.png" alt="Timeline" style={{ width: '100%' }} />
+              <img loading="lazy"src="timeline.png" alt="Timeline" style={{ width: '100%' }} />
               {/* <Col lg="3" className="connecting-line">
                 <p>CV</p>
                 <FaDotCircle></FaDotCircle>
@@ -86,7 +86,7 @@ export const Recruit = () => {
               </Col>
               <Col lg="6" style={{ textAlign: 'center' }}>
                 <p className="mt-3"> Save QR !</p>
-                <img className="qrcode" src="/qr.png" alt="QR" style={{ width: '150px', alignSelf: 'center' }} />
+                <img loading="lazy"className="qrcode" src="/qr.png" alt="QR" style={{ width: '150px', alignSelf: 'center' }} />
               </Col>
             </Row>
           </Col>

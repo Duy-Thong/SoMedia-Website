@@ -47,7 +47,7 @@ export const Activities = () => {
         
        
             <div className="backgroundvideo grain">
-              <img src={tvc} alt="background" />
+              <img loading="lazy"src={tvc} alt="background" />
             </div>
             <Row className="mb-5 mt-3 pt-md-3">
               <Col lg="12">
