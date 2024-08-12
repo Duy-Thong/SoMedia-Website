@@ -33,6 +33,7 @@ import ngaydautienptit from "./assets/projects/ngaydautienptit.png";
 import breakthesheell from "./assets/projects/breaktheshell.jpg";
 import pchain2022 from "./assets/projects/pchain.png";
 import agriup from "./assets/projects/agriup.jpg";
+import tvc2023 from "./assets/projects/tvc.jpg";
 // images for humans of So Media
 import duythong from "./assets/humans/duythong.jpg";
 import trinhtrang from "./assets/humans/trinhtrang.jpg";
@@ -241,7 +242,7 @@ const slides = [
 ];
 // các project trong page projects
 const dataportfolio = [{
-    img: tvc,
+    img: tvc2023,
     description: "So Media TVC 2023 - The Growth",
     link: "https://www.youtube.com/watch?v=ZrfJXRTsrEo",
 },
