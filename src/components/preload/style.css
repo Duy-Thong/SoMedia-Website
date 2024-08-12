@@ -23,7 +23,7 @@
     /* Increase the dash array to slow down the effect */
     stroke-dashoffset: 250;
     /* Increase the dash offset to match */
-    animation: dash 2s linear forwards, filling 2s linear forwards, glow 2s ease-in 1s;
+    animation: dash 1.5s linear forwards, filling 1s linear forwards, glow 2s ease-in-out;
     font-size: 80px;
 }
 
