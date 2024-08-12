@@ -16,7 +16,7 @@ export const Tradition = () => {
       const scrollPosition = window.scrollY;
       const background = document.querySelector('.backgroundvideo img');
       const blur = scrollPosition * 0.015; // Làm mờ ảnh
-      background.style.filter = `blur(${blur}px) brightness(0.8)`; // Làm mờ ảnh
+      background.style.filter = `blur(${blur}px) brightness(0.6)`; // Làm mờ ảnh
     };
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -33,8 +33,9 @@ export const Tradition = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <Preloader />
+        
         <div className=" backgroundvideo grain" >
-          <img loading="lazy"src={home1} alt="background" />
+          <img loading="lazy" src={home1} alt="background" />
         </div>
         <Row className="mb-0 mt-3 pt-md-3 " >
           <Col lg="12">
