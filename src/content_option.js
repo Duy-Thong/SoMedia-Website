@@ -24,7 +24,15 @@ import womanday2 from "./assets/active/womanday.jpg";
 import profile from "./assets/active/profile.jpg";
 import tedhanu from "./assets/active/tedhanu.jpg";
 import recruitment from "./assets/active/recruitment.jpg";
-
+//img for projects
+import profileshooting from "./assets/projects/profileshooting.png";
+import dongphucptit from "./assets/projects/dongphucptit.png";
+import tedxhanu from "./assets/projects/tedxhanu.jpg";
+import kachofugetsu from "./assets/projects/kachofugetsu.jpg";
+import ngaydautienptit from "./assets/projects/ngaydautienptit.png";
+import breakthesheell from "./assets/projects/breaktheshell.jpg";
+import pchain2022 from "./assets/projects/pchain.png";
+import agriup from "./assets/projects/agriup.jpg";
 // images for humans of So Media
 import duythong from "./assets/humans/duythong.jpg";
 import trinhtrang from "./assets/humans/trinhtrang.jpg";
@@ -233,48 +241,48 @@ const slides = [
 ];
 // các project trong page projects
 const dataportfolio = [{
-    img: "https://assets.unlayer.com/stock-templates/1706454526536-380272415_644128067824993_6241835109622914696_n.jpg",
+    img: tvc,
     description: "So Media TVC 2023 - The Growth",
     link: "https://www.youtube.com/watch?v=ZrfJXRTsrEo",
 },
 
 {
-    img: "https://assets.unlayer.com/stock-templates/1706517867378-Screenshot%202024-01-29%20154244.png",
+    img: profileshooting,
     description: "Profile Shooting 2023",
     link: "https://www.facebook.com/somedia.vn.2016/videos/198116229592288/",
 },
 {
-    img: "https://assets.unlayer.com/stock-templates/1706518644364-Screenshot%202024-01-29%20155655.png",
+    img: dongphucptit,
     description: "DONG PHUC PTIT 2023",
     link: "https://www.facebook.com/somedia.vn.2016/videos/305607272023242",
 },
 {
-    img: "https://assets.unlayer.com/stock-templates/1706518095715-399828778_669829441921522_1834242137200868664_n.jpg",
+    img: tedxhanu,
     description: "TEDxHANU 2023",
     link: "https://www.facebook.com/tedxhanu/videos/1365086274436809",
 },
 {
-    img: "https://assets.unlayer.com/stock-templates/1706518226945-397551449_664880412416425_6495822736177543714_n.jpg",
+    img: kachofugetsu,
     description: "KACHOUFUUGETSU HANU",
     link: "https://www.facebook.com/100063582549627/videos/1459914988185464",
 },
 {
-    img: "https://assets.unlayer.com/stock-templates/1706454838255-Screenshot%202024-01-28%20221342.png",
+    img: ngaydautienptit,
     description: "MV Ngay dau tien PTIT Version ",
     link: "https://www.youtube.com/watch?v=y7Y7VtKb9rY",
 },
 {
-    img: "https://assets.unlayer.com/stock-templates/1706518396742-387207800_652564120314721_4877621676947583441_n.jpg",
+    img: breakthesheell,
     description: "BREAK THE SHELL",
     link: "https://www.facebook.com/share/v/cuTCEFhncdc92YCf/",
 },
 {
-    img: "https://assets.unlayer.com/stock-templates/1706615636704-Screenshot%202024-01-30%20184640.png",
+    img: pchain2022,
     description: "THE P-CHAIN 2022",
     link: "https://www.facebook.com/somedia.vn.2016/videos/941481530159388",
 },
 {
-    img: neu,
+    img: agriup,
     description: "AGRIUP 2023 - NEU",
     link: "https://www.facebook.com/agriup.NEU/videos/2103583136647621",
 },
