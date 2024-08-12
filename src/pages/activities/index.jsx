@@ -21,7 +21,7 @@ export const Activities = () => {
 
       if (background) {
         const blur = scrollPosition * 0.005; // Làm mờ ảnh
-        background.style.filter = `blur(${blur}px)`;
+        background.style.filter = `blur(${blur}px) brightness(0.6)`; // Làm mờ ảnh
       }
     };
 

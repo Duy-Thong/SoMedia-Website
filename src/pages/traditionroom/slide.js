@@ -30,7 +30,7 @@ function ControlledCarousel() {
                 <Carousel.Item key={i} className='carousel-item'>
                     <div className="row">
                         <div className="col-md-6">
-                            <img
+                            <img loading='lazy'
                                 src={item.image}
                                 alt={item.name || 'Image'}
                                 className='imageactive1'

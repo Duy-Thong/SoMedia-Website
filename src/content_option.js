@@ -96,15 +96,16 @@ const Prizes = [{
     date: "2022",
 },
 {
-    jobtitle: "Third prize of the contest 'Đồng phục PTIT' ",
-    where: "PTIT",
-    date: "2023",
-},
-{
     jobtitle: "Club has excellent achievements in union activities and youth movements",
     where: "PTIT",
     date: "2022-2023",
 },
+{
+    jobtitle: "Third prize of the contest 'Đồng phục PTIT' ",
+    where: "PTIT",
+    date: "2023",
+},
+
 ];
 // các ban trong CLB
 const departments = [

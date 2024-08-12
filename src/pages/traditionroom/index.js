@@ -33,7 +33,7 @@ export const Tradition = () => {
           <meta name="description" content={meta.description} />
         </Helmet>
         <Preloader />
-        
+
         <div className=" backgroundvideo grain" >
           <img loading="lazy" src={home1} alt="background" />
         </div>
@@ -60,26 +60,13 @@ export const Tradition = () => {
             {Prizes.map((prize, index) => (
               <Col lg="4" xl="4" className="prize" key={index}>
                 <h4>{prize.jobtitle}</h4>
-                <p>{prize.where}</p>
+
                 <p>{prize.date}</p>
               </Col>
             ))}
           </Row>
         </Row>
-        {/* <Row className="mt-3 mb-3 " >
-          <hr></hr>
-          <Row>
-            <h2 className="text-center"> Why we named "Sổ Media" ? </h2>
-          </Row>
-          <Row>
-            <Col lg="6" xl="12">
 
-            </Col>
-            <Col lg="6" xl="12">
-            </Col>
-
-          </Row>
-        </Row> */}
       </Container>
     </HelmetProvider >
   );

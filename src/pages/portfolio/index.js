@@ -11,8 +11,8 @@ export const Portfolio = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const background = document.querySelector('.backgroundvideo img');
-      const blur = scrollPosition * 0.01; // Làm mờ ảnh
-      background.style.filter = `blur(${blur}px)`;
+      const blur = scrollPosition * 0.015; // Làm  mờ ảnh
+      background.style.filter = `blur(${blur}px) brightness(0.6)`; // Làm mờ ảnh
 
     };
 

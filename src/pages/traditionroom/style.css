@@ -68,7 +68,7 @@
 .backgroundvideo img {
     width: 100%;
 
-    filter: brightness(50%);
+    filter: brightness(60%);
     /* Corrected from auto% to 100% */
     /* This makes the image take the full height of its container */
 }

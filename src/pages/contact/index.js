@@ -15,7 +15,7 @@ export const ContactUs = () => {
       const scrollPosition = window.scrollY;
       const background = document.querySelector('.backgroundvideo img');
       const blur = scrollPosition * 0.015; // Làm mờ ảnh
-      background.style.filter = `blur(${blur}px) brightness(90%)`;
+      background.style.filter = `blur(${blur}px) brightness(60%)`;
     };
 
     window.addEventListener('scroll', handleScroll);
