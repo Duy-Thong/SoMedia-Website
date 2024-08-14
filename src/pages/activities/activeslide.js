@@ -5,7 +5,6 @@ function ControlledCarousel() {
     const [index, setIndex] = useState(0);
     const [data, setData] = useState([]); // State to hold carousel data
 
-    // Assuming `chairman` data is directly imported from a local file named `content_option.js`
     const fetchData = async () => {
         try {
             const response = await import('../../content_option'); // Import data
