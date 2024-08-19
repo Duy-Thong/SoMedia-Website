@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './focusring.css';
 import focusring from "../../assets/focusring.png";
 const FocusRing = () => {
-  useEffect(() => {
+  useEffect(() => {  
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const focusRing = document.querySelector('.focus-ring');
