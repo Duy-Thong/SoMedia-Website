@@ -28,7 +28,7 @@ export const Portfolio = () => {
   useEffect( function loadingData() {
     async function fetchData() {
       try {
-        const response = await axios.get('http://somediabackend.com/api/project') // Import data
+        const response = await axios.get('http://somediabackend.infinityfreeapp.com/api/project') // Import data
         setData(response.data); // Set data from imported object
     } catch (error) {
         console.error('Error fetching data:', error);
