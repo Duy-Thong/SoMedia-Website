@@ -1,0 +1,198 @@
+.sec_sp {
+    margin-top: 10px;
+}
+
+
+
+.prize {
+    margin-top: 10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.prize p {
+    font-size: 20px;
+}
+
+.carouselroom {
+    width: 80%;
+    height: 80%;
+}
+
+.slideroom {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex;
+}
+
+/* Adjust the image size to be responsive */
+.imageactive1 {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    border: 5px var(--secondary-color) solid;
+    border-bottom: 30px var(--secondary-color) solid;
+    box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+
+}
+
+.carousel-indicators {
+    display: none;
+
+}
+
+.carousel-caption {
+    left: -20px;
+    position: relative;
+    max-width: 100%;
+    padding: 20px;
+    margin-top: 40px;
+    text-align: center;
+    word-wrap: break-word !important;
+    /* Correct property for breaking long words */
+    overflow-wrap: break-word !important;
+    /* Ensures words break to prevent overflow */
+    white-space: pre-wrap !important;
+    /* Maintains whitespace but allows wrapping */
+    text-wrap: balance !important;
+    margin-right: 60px;
+}
+
+.carouselroom .carousel-caption h3,
+.carouselroom .carousel-caption p,
+.carouselroom .carousel-caption h4 {
+    color: #ffffff;
+    text-align: left;
+    margin-left: 0px;
+}
+
+/* CSS */
+.backgroundvideo img {
+    width: 100%;
+
+    filter: brightness(80%);
+    /* Corrected from auto% to 100% */
+    /* This makes the image take the full height of its container */
+}
+
+@media (max-width: 986px) {
+    .carousel-caption p {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .row {
+        display: block;
+    }
+
+    .carousel-caption {
+        margin-top: 30px;
+        padding: 0px;
+        margin-right: 0px;
+    }
+
+
+
+
+
+
+    .carousel-caption h4 {
+        font-size: 15px;
+    }
+
+
+    .carouselroom .carousel-caption h3,
+    .carouselroom .carousel-caption p,
+    .carouselroom .carousel-caption h4 {
+        color: #ffffff;
+        text-align: center;
+        margin-left: 20px;
+    }
+
+
+}
+
+.grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-event: none;
+    z-index: -1;
+    transform: translateZ(0);
+
+    &:before {
+        content: "";
+        top: -10rem;
+        left: -10rem;
+        width: calc(100% + 20rem);
+        height: calc(100% + 20rem);
+        z-index: 9999;
+        position: fixed;
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png);
+        opacity: 0.15;
+        pointer-events: none;
+        -webkit-animation: noise 1s steps(2) infinite;
+        animation: noise 1s steps(2) infinite;
+    }
+
+    @-webkit-keyframes noise {
+        to {
+            transform: translate3d(-7rem, 0, 0)
+        }
+    }
+
+    @keyframes noise {
+        0% {
+            transform: translate3d(0, 9rem, 0)
+        }
+
+        10% {
+            transform: translate3d(-1rem, -4rem, 0)
+        }
+
+        20% {
+            transform: translate3d(-8rem, 2rem, 0)
+        }
+
+        30% {
+            transform: translate3d(9rem, -9rem, 0)
+        }
+
+        40% {
+            transform: translate3d(-2rem, 7rem, 0)
+        }
+
+        50% {
+            transform: translate3d(-9rem, -4rem, 0)
+        }
+
+        60% {
+            transform: translate3d(2rem, 6rem, 0)
+        }
+
+        70% {
+            transform: translate3d(7rem, -8rem, 0)
+        }
+
+        80% {
+            transform: translate3d(-9rem, 1rem, 0)
+        }
+
+        90% {
+            transform: translate3d(6rem, -5rem, 0)
+        }
+
+        to {
+            transform: translate3d(-7rem, 0, 0)
+        }
+    }
+}
+
+.row {
+    margin: 0px;
+}

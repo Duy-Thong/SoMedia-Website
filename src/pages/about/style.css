@@ -1,0 +1,172 @@
+.sec_sp {
+    margin-top: 10px;
+}
+
+#button_b .buttontext {
+    /* Add ID selector to target specific element */
+    font-size: medium;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none !important;
+}
+
+/* CSS */
+.backgroundvideo img {
+    width: 100%;
+    /* Corrected from auto% to 100% */
+
+    /* This makes the image take the full height of its container */
+}
+
+@media (max-width: 768px) {
+    .backgroundvideo img {
+        height: 100vh;
+        /* This makes the image take the full height of the viewport */
+        object-fit: cover;
+        /* Ensures the image covers the area without distortion */
+    }
+
+    .grain {
+        display: block;
+    }
+}
+
+
+
+.backgroundvideo img {
+    width: auto;
+    /* Ensure the image covers the full width */
+    height: 100%;
+    /* Maintain the image's aspect ratio */
+    object-fit: cover;
+    /* Cover the full area of the container without distortion */
+}
+
+
+
+.table td,
+.table th {
+    color: var(--text-color);
+}
+
+.t_border {
+    border-color: var(--text-color) !important;
+}
+
+.progress-title {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Raleway';
+}
+
+.progress {
+    height: 5px;
+    background: var(--secondary);
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 30px;
+    overflow: visible;
+}
+
+.progress .progress-bar {
+    position: relative;
+    background: var(--text-color);
+    animation: animate-positive 2s;
+    overflow: visible;
+    opacity: 0.9;
+}
+
+.progress .progress-value {
+    position: absolute;
+    right: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+@-webkit-keyframes animate-positive {
+    0% {
+        width: 0%;
+    }
+}
+
+@keyframes animate-positive {
+    0% {
+        width: 0%;
+    }
+}
+
+.section-title {
+    font-size: 45px;
+}
+
+.service__title {
+
+    border-bottom: solid 2px var(--secondary-color);
+}
+
+.service-section .service-category-title {}
+
+
+/*! CSS Used keyframes */
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* CSS: style.css */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 2s ease-out forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 2s ease-out forwards;
+}

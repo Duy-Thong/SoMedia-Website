@@ -1,0 +1,28 @@
+.focus-ring-container {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.focus-ring {
+    width: 4%;
+    height: auto;
+    transform-origin: center;
+    transform: rotate(0deg);
+    transition: transform 0.1s linear;
+}
+
+@media screen and (max-width: 768px) {
+    .focus-ring {
+        display: none;
+    }
+
+    .focus-ring-container {
+        display: none;
+    }
+}

@@ -1,0 +1,196 @@
+.timeline {
+    margin-top: 0px;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+    align-items: center !important;
+    text-align: center !important;
+    margin-left: 40px;
+
+}
+
+.timeline h3 {
+    font-size: 30px;
+}
+
+.timeline img {
+    width: 100%;
+    height: auto;
+    /* Adjusted to maintain aspect ratio */
+    display: flex;
+    object-fit: cover;
+}
+
+.timeline a {
+    color: #000;
+    text-decoration: none;
+    margin-top: 50px;
+}
+
+#button_apply {
+    width: 300px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.overlay-image1 {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    width: 50px;
+    height: 40px;
+    object-fit: cover;
+    animation: move-right 5s infinite;
+}
+
+.overlay-image2 {
+    position: absolute;
+    bottom: -15px;
+    left: -50px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    animation: move-left 5s infinite;
+}
+
+@keyframes move-right {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes move-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#button_apply {
+    width: 200px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    animation: zoom 2s infinite;
+    /* margin-left: 150px; */
+}
+
+.inforrow {
+    /* display: flex; */
+    justify-content: space-between !important;
+    word-wrap: break-word !important;
+    /* Correct property for breaking long words */
+    overflow-wrap: break-word !important;
+    /* Ensures words break to prevent overflow */
+    white-space: pre-wrap !important;
+    /* Maintains whitespace but allows wrapping */
+    text-wrap: balance !important;
+    margin-top: 40px!important;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: medium;
+    text-align: left;
+}
+
+.learninfor {
+    /* margin-top: 50px; */
+    justify-content: center;
+}
+
+.text-container {
+    position: relative;
+    padding: 10px;
+}
+
+.overlay-image1 {
+    position: absolute;
+    bottom: -15px;
+    right: 0px;
+    width: 70px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.overlay-image2 {
+    position: absolute;
+    bottom: -15px;
+    left: -50px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .learninfor {
+        display: none;
+    }
+
+    .timeline {
+        margin-left: 0;
+    }
+
+    .inforrow {
+        margin-top: 30px;
+    }
+
+    #button_apply {
+        width: 100px;
+        margin-right: 0px !important;
+
+    }
+
+    .overlay-image1,
+    .overlay-image2 {
+        display: none;
+    }
+
+    .qrcode {
+        max-width: 100px;
+    }
+}
+.qrcode {
+    max-width: 120px;
+}
+
+.rightcol {
+    align-items: center;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.left_right_col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    text-align: center;
+}
