@@ -67,7 +67,7 @@ import ngokimanh from "./assets/humans/ngokimanh.jpg";
 import phuongthao from "./assets/humans/thaothao.JPG";
 const logotext = "So Media";
 // thông tin meta ( hiển thị khi gửi link )
-const meta = {
+const meta = {  
     title: "So Media",
     description: "We are a photography club at PTIT. At So Media, you can further develop your media and design skills as well as many interesting and dynamic activities.",
 };
