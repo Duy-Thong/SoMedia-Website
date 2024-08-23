@@ -30,8 +30,9 @@ export const Portfolio = () => {
       try {
         const response = await axios.get('https://somediabackend.infinityfreeapp.com/api/project', {
           headers: {
-            'Access-Control-Allow-Origin': '*', // or other content type you expect
-             // if authentication is required
+            'Access-Control-Allow-Origin': 'https://somedia-five.vercel.app/', // or other content type you expect
+            'Access-Control-Allow-Methods': 'GET, POST, PUSH, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
             // Add other headers as needed
           },
           withCredentials: true, // If your request needs to send credentials (e.g., cookies)
