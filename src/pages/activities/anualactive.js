@@ -10,7 +10,9 @@ export const AnualActivities = () => {
     useEffect( function loadData(){
         async function fetchData() {
             try {
-                const response = await axios.get('http://somediabackend.infinityfreeapp.com/api/annual');
+                const response = await axios.get('https://somediabackend.infinityfreeapp.com/api/annual', {
+                    withCredentials: true,
+                });
                 setData(response.data);
             } catch(error) {
                 console.error('Error fetching data:', error);
