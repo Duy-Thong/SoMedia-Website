@@ -25,17 +25,24 @@ export const Portfolio = () => {
     };
   }, []);
   const [data,setData]=useState([]);
-  useEffect( function loadingData() {
+  useEffect(function loadingData() {
     async function fetchData() {
       try {
-        const response = await axios.get('https://somediabackend.infinityfreeapp.com/api/project') // Import data
-        setData(response.data); // Set data from imported object
-    } catch (error) {
+        const response = await axios.get('https://somediabackend.infinityfreeapp.com/api/project', {
+          headers: {
+            'Access-Control-Allow-Origin': '*', // or other content type you expect
+             // if authentication is required
+            // Add other headers as needed
+          },
+          withCredentials: true, // If your request needs to send credentials (e.g., cookies)
+        });
+        setData(response.data);
+      } catch (error) {
         console.error('Error fetching data:', error);
-    }
+      }
     }
     fetchData();
-  },[]);
+  }, []);
   return (
     <HelmetProvider>
       <FocusRing />
