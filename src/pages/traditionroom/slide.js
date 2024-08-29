@@ -10,7 +10,7 @@ function ControlledCarousel() {
     // Assuming `chairman` data is directly imported from a local file named `content_option.js`
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://somediabackend.infinityfreeapp.com/api/humans') // Import data
+            const response = await axios.get('https://sobackend.vercel.app/api/humans') // Import data
             setData(response.data); // Set data from imported object
         } catch (error) {
             console.error('Error fetching data:', error);

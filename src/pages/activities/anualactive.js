@@ -10,7 +10,7 @@ export const AnualActivities = () => {
     useEffect( function loadData(){
         async function fetchData() {
             try {
-                const response = await axios.get('https://somediabackend.infinityfreeapp.com/api/annual', {
+                const response = await axios.get('https://sobackend.vercel.app/api/annual', {
                     withCredentials: true,
                 });
                 setData(response.data);

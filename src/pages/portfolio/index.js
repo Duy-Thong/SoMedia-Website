@@ -28,7 +28,7 @@ export const Portfolio = () => {
   useEffect(function loadingData() {
     async function fetchData() {
       try {
-        const response = await axios.get('https://somediabackend.infinityfreeapp.com/api/project', {
+        const response = await axios.get('https://sobackend.vercel.app/api/project', {
           withCredentials: true, // If your request needs to send credentials (e.g., cookies)
         });
         setData(response.data);

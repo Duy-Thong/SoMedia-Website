@@ -27,7 +27,7 @@ export const Tradition = () => {
   const [data,setData]=useState([]);
   useEffect(function lodData(){
     async function fetchData() {
-      const response = await axios.get('https://somediabackend.infinityfreeapp.com/api/prizes');
+      const response = await axios.get('https://sobackend.vercel.app/api/prizes');
       setData(response.data);
     };
     fetchData();
