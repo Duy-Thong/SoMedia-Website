@@ -5,7 +5,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
 import { introdata, meta } from "../../content_option";
 import { Link } from "react-router-dom";
-import FocusRing from "../../components/focusring"; // Import the FocusRing component
+
 // Lazy load and preload the Activities component
 const Activities = lazyWithPreload(() => import("../activities/activeslide"));
 Activities.preload(); // Start preloading the component
@@ -13,7 +13,7 @@ Activities.preload(); // Start preloading the component
 export const Home = () => {
   return (
     <HelmetProvider>
-      <FocusRing/>
+
       <section id="home" className="home">
         <Helmet>
           <meta charSet="utf-8" />
