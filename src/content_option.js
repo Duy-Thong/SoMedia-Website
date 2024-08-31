@@ -72,7 +72,7 @@ const meta = {
     description: "We are a photography club at PTIT. At So Media, you can further develop your media and design skills as well as many interesting and dynamic activities.",
 };
 // thông tin giới thiệu ở page Home
-const introdata =   {  
+const introdata = {  
     title: "We are So Media ",
     "animated": {
         "first": "Photography",
@@ -293,7 +293,7 @@ const dataportfolio = [{
 
 const contactConfig = {
     YOUR_EMAIL: "clbsomediaptit@gmail.com",
-    YOUR_FONE: "(+84) 39 7403 808",
+    YOUR_FONE: "(+84) 91 8165 458",
     YOUR_ADDRESS: "Posts and Telecommunications Institute of Technology, Km 10 Nguyen Trai, Hanoi, Vietnam",
     description: "Let's do something interesting together!",
     // creat an emailjs.com account 
