@@ -80,7 +80,7 @@ const introdata =   {
         "third": "Design",
         "fourth": "Content creation",
     },
-    description: "We are a media club at PTIT. At So Media, you can further develop your media skills,expand your network as well as engage in many interesting and dynamic activities.",
+    description: "We are a media club at PTIT. At So Media, you can further develop your media skills, expand your network as well as engage in many interesting and dynamic activities.",
     your_img_url: "https://assets.unlayer.com/stock-templates/1706451135609-homepic.png",
 };
 // thông tin giới thiệu ở page about
@@ -295,7 +295,7 @@ const dataportfolio = [
 
 const contactConfig = {
     YOUR_EMAIL: "clbsomediaptit@gmail.com",
-    YOUR_FONE: "(+84) 39 7403 808",
+    YOUR_FONE: "(+84) 0918165458",
     YOUR_ADDRESS: "Posts and Telecommunications Institute of Technology, Km 10 Nguyen Trai, Hanoi, Vietnam",
     description: "Let's do something interesting together!",
     // creat an emailjs.com account 
