@@ -52,26 +52,7 @@ export const Recruit = () => {
             </Row>
             <Row className="mb-0 mt-0">
               <img loading="lazy"src="timeline.png" alt="Timeline" style={{ width: '100%' }} />
-              {/* <Col lg="3" className="connecting-line">
-                <p>CV</p>
-                <FaDotCircle></FaDotCircle>
-                <p>01/09-16/09</p>
-              </Col>
-              <Col lg="3" className="connecting-line">
-                <p>CV</p>
-                <FaDotCircle></FaDotCircle>
-                <p>01/09-16/09</p>
-              </Col>
-              <Col lg="3" className="connecting-line">
-                <p>CV</p>
-                <FaDotCircle></FaDotCircle>
-                <p>01/09-16/09</p>
-              </Col>
-              <Col lg="3" className="connecting-line">
-                <p>CV</p>
-                <FaDotCircle></FaDotCircle>
-                <p>01/09-16/09</p>
-              </Col> */}
+              
             </Row>
             <Row className="mt-0" >
               <Col lg="6" className="left_right_col">

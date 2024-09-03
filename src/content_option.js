@@ -95,6 +95,7 @@ const Prizes = [{
     where: "PTIT",
     date: "2022",
 },
+
 {
     jobtitle: "Club has excellent achievements in union activities and youth movements",
     where: "PTIT",
@@ -242,52 +243,53 @@ const slides = [
     },
 ];
 // các project trong page projects
-const dataportfolio = [{
-    img: tvc2023,
-    description: "So Media TVC 2023 - The Growth",
-    link: "https://www.youtube.com/watch?v=ZrfJXRTsrEo",
-},
+const dataportfolio = [
+    {
+        img: tvc2023,
+        description: "So Media TVC 2023 - The Growth",
+        link: "https://www.youtube.com/watch?v=ZrfJXRTsrEo",
+    },
 
-{
-    img: profileshooting,
-    description: "Profile Shooting 2023",
-    link: "https://www.facebook.com/somedia.vn.2016/videos/198116229592288/",
-},
-{
-    img: dongphucptit,
-    description: "DONG PHUC PTIT 2023",
-    link: "https://www.facebook.com/somedia.vn.2016/videos/305607272023242",
-},
-{
-    img: tedxhanu,
-    description: "TEDxHANU 2023",
-    link: "https://www.facebook.com/tedxhanu/videos/1365086274436809",
-},
-{
-    img: kachofugetsu,
-    description: "KACHOUFUUGETSU HANU",
-    link: "https://www.facebook.com/100063582549627/videos/1459914988185464",
-},
-{
-    img: ngaydautienptit,
-    description: "MV Ngay dau tien PTIT Version ",
-    link: "https://www.youtube.com/watch?v=y7Y7VtKb9rY",
-},
-{
-    img: breakthesheell,
-    description: "BREAK THE SHELL",
-    link: "https://www.facebook.com/share/v/cuTCEFhncdc92YCf/",
-},
-{
-    img: pchain2022,
-    description: "THE P-CHAIN 2022",
-    link: "https://www.facebook.com/somedia.vn.2016/videos/941481530159388",
-},
-{
-    img: agriup,
-    description: "AGRIUP 2023 - NEU",
-    link: "https://www.facebook.com/agriup.NEU/videos/2103583136647621",
-},
+    {
+        img: profileshooting,
+        description: "Profile Shooting 2023",
+        link: "https://www.facebook.com/somedia.vn.2016/videos/198116229592288/",
+    },
+    {
+        img: dongphucptit,
+        description: "DONG PHUC PTIT 2023",
+        link: "https://www.facebook.com/somedia.vn.2016/videos/305607272023242",
+    },
+    {
+        img: tedxhanu,
+        description: "TEDxHANU 2023",
+        link: "https://www.facebook.com/tedxhanu/videos/1365086274436809",
+    },
+    {
+        img: kachofugetsu,
+        description: "KACHOUFUUGETSU HANU",
+        link: "https://www.facebook.com/100063582549627/videos/1459914988185464",
+    },
+    {
+        img: ngaydautienptit,
+        description: "MV Ngay dau tien PTIT Version ",
+        link: "https://www.youtube.com/watch?v=y7Y7VtKb9rY",
+    },
+    {
+        img: breakthesheell,
+        description: "BREAK THE SHELL",
+        link: "https://www.facebook.com/share/v/cuTCEFhncdc92YCf/",
+    },
+    {
+        img: pchain2022,
+        description: "THE P-CHAIN 2022",
+        link: "https://www.facebook.com/somedia.vn.2016/videos/941481530159388",
+    },
+    {
+        img: agriup,
+        description: "AGRIUP 2023 - NEU",
+        link: "https://www.facebook.com/agriup.NEU/videos/2103583136647621",
+    },
 ];
 //Thông tin liên hệ trong page contact , thông tin về EmailJS
 
@@ -315,10 +317,7 @@ const recruitmentpage =
     title1: "Being trained by seniors in skills in photography, videography, design, layout, thinking, color and software use. From there, you will gain the necessary skills for both study and future work.",
     title2: "Not only will you learn knowledge, you will also learn soft skills such as event organization, team management, teamwork,... through many events that the club organizes.",
     button: "Apply Now !",
-    cvtime: "From 15/10/2023 to 15/11/2023",
-    interviewtime: "From 20/11/2023 to 25/11/2023",
-    trainingtime: "From 01/12/2023 to 15/12/2023",
-    passtime: "From 20/12/2023 to 25/12/2023",
+    
     applylink: "https://www.facebook.com/somedia.vn.2016",
 };
 // thông tin về các hoạt động của CLB theo từng tháng
@@ -335,6 +334,7 @@ const activitiesData = [
 ];
 // thông tin về các thành viên ban điều hành cách khóa của CLB
 const humans = [
+
     {
         image: anhtuyen,
         name: "Vu Cong Tuyen",
@@ -517,6 +517,25 @@ const humans = [
         detail: "Head of Human Resources Department for the 2023-2024 term.",
     },
 ];
+const topserver = [
+    {
+        image: thanhthao,
+        name: "Nguyen Thai Thanh",
+        description: "Thành viên tiêu biểu quý 1",
+    },
+    {
+        image: thanhthao,
+        name: "Nguyen Thai Thanh",
+        description: "Thành viên tiêu biểu quý 1",
+    },
+    {
+        image: hamanhhoang,
+        name: "Nguyen Thai Thanh",
+        description: "Thành viên tiêu biểu quý 1",
+    },
+
+
+];
 export {
     meta,  // thông tin meta
     dataabout, // thông tin giới thiệu ở page about
@@ -532,4 +551,5 @@ export {
     departments,// các ban trong CLB
     recruitmentpage,// thông tin trong page truyển thành viên
     humans,// thông tin về các thành viên ban điều hành cách khóa của CLB
+    topserver
 };
