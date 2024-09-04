@@ -51,10 +51,10 @@ export const Recruit = () => {
               <h3>Timeline</h3>
             </Row>
             <Row className="mb-0 mt-0">
-              <img loading="lazy"src="timeline.png" alt="Timeline" style={{ width: '100%' }} />
+              <img loading="lazy"src="timeline.png" alt="Timeline"  />
               
             </Row>
-            <Row className="mt-0" >
+            <Row className="mt-3" >
               <Col lg="6" className="left_right_col">
                 <a href={recruitmentpage.applylink} className="text_2" target="_blank" rel="noopener noreferrer">
                   <div id="button_apply" className="ac_btn btn" >
@@ -66,7 +66,7 @@ export const Recruit = () => {
                 </a>
               </Col>
               <Col lg="6" style={{ textAlign: 'center' }}>
-                <p className="mt-3"> Save QR !</p>
+                <p className="mt-3 mb-3"> Save QR !</p>
                 <img loading="lazy"className="qrcode" src="/qr.png" alt="QR" style={{ width: '150px', alignSelf: 'center' }} />
               </Col>
             </Row>
