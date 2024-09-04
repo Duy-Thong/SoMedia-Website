@@ -54,7 +54,7 @@ export const About = () => {
             <h1 className="display-4 mb-4" style={{ textAlign: "left" }}>About us</h1>
           </Col>
           <Col lg="6" className="text-right">
-            <Link to="/traditionroom" className="text_2">
+            <Link to="/traditionalroom" className="text_2">
               <div id="button_p" className="ac_btn btn d-flex justify-content-end">
                 <div className="ring one"></div>
                 <div className="ring two"></div>
