@@ -72,7 +72,7 @@ const meta = {
     description: "We are a photography club at PTIT. At So Media, you can further develop your media and design skills as well as many interesting and dynamic activities.",
 };
 // thông tin giới thiệu ở page Home
-const introdata =   {  
+const introdata = {
     title: "We are So Media ",
     "animated": {
         "first": "Photography",
