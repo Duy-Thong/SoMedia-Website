@@ -105,7 +105,7 @@
 }
 
 .inforrow {
-    /* display: flex; */
+    display: inline-block;
     justify-content: space-between !important;
     word-wrap: break-word !important;
     /* Correct property for breaking long words */

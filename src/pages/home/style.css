@@ -94,6 +94,7 @@ section {
 }
 
 .breakword {
+    display: inline-block;
     word-wrap: break-word !important;
     /* Correct property for breaking long words */
     overflow-wrap: break-word !important;

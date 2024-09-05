@@ -74,6 +74,7 @@ import haiduong from "./assets/humans/haiduong.JPG";
 import huumanh from "./assets/humans/huumanh.JPG";
 import tuanthanh from "./assets/humans/tuanthanh.JPG";
 import ngothuyanh from "./assets/humans/ngothuyanh.JPG";
+import anhduc from "./assets/humans/anhduc.jpg";
 
 const logotext = "So Media";
 // thông tin meta ( hiển thị khi gửi link )
@@ -409,6 +410,12 @@ const humans = [
         name: "Ha Manh Hoang",
         description: "Gen 3",
         detail: "Head of Media Department for the 2021-2022 term."
+    },
+    {
+        image: anhduc,
+        name: "Nguyen Minh Duc",
+        description: "Gen 3",
+        detail: "Member has actively contributed to the club's activities."
     },
     {
         image: anhnam,
