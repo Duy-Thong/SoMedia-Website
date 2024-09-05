@@ -301,7 +301,7 @@ const recruitmentpage =
     title1: "Through training by experienced professionals in photography, videography, design, layout, critical thinking, color theory, and software applications, you'll develop essential skills that will benefit both your studies and future career.",
     title2: "Not only will you gain knowledge, but you'll also develop soft skills like event organization, team management, and teamwork through the various events the club organizes.",
     button: "Apply Now !",
-    applylink: "https://www.facebook.com/somedia.vn.2016",
+    applylink: "https://docs.google.com/forms/d/e/1FAIpQLSdHWX3QwroaEbd-e-8ewjn4tb1Q7jDH3v_WeUM_p5_qbWo8XQ/viewform",
 };
 
 //-----------------------------------------------------------------------------------
