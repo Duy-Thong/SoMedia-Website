@@ -67,7 +67,7 @@ import ngokimanh from "./assets/humans/ngokimanh.jpg";
 import phuongthao from "./assets/humans/thaothao.JPG";
 import vietphong from "./assets/humans/vietphong.jpeg";
 import phucuong from "./assets/humans/phucuong.PNG";
-import uyennhi from "./assets/humans/uyennhi.jpg" ;
+import uyennhi from "./assets/humans/UYENNHI.jpg" ;
 import chuthao from "./assets/humans/chuthao.JPG";
 import nguyenhaphuong from "./assets/humans/nguyenhaphuong.JPG";
 import haiduong from "./assets/humans/haiduong.JPG";
