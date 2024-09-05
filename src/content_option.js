@@ -57,16 +57,24 @@ import khanhvan from "./assets/humans/khanhvan.jpg";
 import vantruc from "./assets/humans/vantruc.jpg";
 import trongnghia from "./assets/humans/trongnghia.jpg";
 import quynhanh from "./assets/humans/quynhanh.jpg";
-import nguyenngoclan from "./assets/humans/nguyenngoclan.jpg";
+import nguyenngoclan from "./assets/humans/nguyenngoclan1.jpeg";
 import nguyenvanchien from "./assets/humans/nguyenvanchien.jpg";
 import tongngockien from "./assets/humans/tongngockien.jpg";
 import nguyenthuyanh from "./assets/humans/nguyenthuyanh.jpg";
-import nguyenthithan from "./assets/humans/nguyenthithan.jpg";
+import nguyenthithan from "./assets/humans/nguyenthithan1.jpg";
 import ngothuha from "./assets/humans/ngothuha.jpg";
 import ngokimanh from "./assets/humans/ngokimanh.jpg";
 import phuongthao from "./assets/humans/thaothao.JPG";
+import vietphong from "./assets/humans/vietphong.jpeg";
+import phucuong from "./assets/humans/phucuong.PNG";
+import uyennhi from "./assets/humans/UYENNHI.jpg";
+import chuthao from "./assets/humans/chuthao.JPG";
+import nguyenhaphuong from "./assets/humans/nguyenhaphuong.JPG";
+import haiduong from "./assets/humans/haiduong.JPG";
+import huumanh from "./assets/humans/huumanh.JPG";
+import tuanthanh from "./assets/humans/tuanthanh.JPG";
+import ngothuyanh from "./assets/humans/ngothuyanh.JPG";
 
-//thông tin chung
 const logotext = "So Media";
 // thông tin meta ( hiển thị khi gửi link )
 const meta = {
@@ -231,6 +239,8 @@ const slides = [
         "description": "International Women's Day",
     },
 ];
+// các project trong page projects
+
 // thông tin về các hoạt động của CLB theo từng tháng
 const activitiesData = [
     { time: "September", description: "Recruit members ", img: recruitment },
@@ -471,7 +481,7 @@ const humans = [
         image: nguyenngoclan,
         name: "Nguyen Ngoc Lan",
         description: "Gen 6",
-        detail: "Head of Media Department for the 2023-2024 term.",
+        detail: "The club president for the 2024-2025 term, Head of Media Department for the 2023-2024 term.",
     },
     {
         image: nguyenvanchien,
@@ -495,7 +505,13 @@ const humans = [
         image: nguyenthithan,
         name: "Nguyen Thi Than",
         description: "Gen 6",
-        detail: "Head of Design Department for the 2023-2024 term.",
+        detail: "The vice president of the club for the 2024-2025 term, Head of Design Department for the 2023-2024 term.",
+    },
+    {
+        image: ngothuyanh,
+        name: "Ngo Thuy Anh",
+        description: "Gen 6",
+        detail: "The vice president of the club for the 2024-2025 term.",
     },
     {
         image: ngothuha,
@@ -508,6 +524,54 @@ const humans = [
         name: "Ngo Kim Anh",
         description: "Gen 6",
         detail: "Head of Human Resources Department for the 2023-2024 term.",
+    },
+    {
+        image: vietphong,
+        name: "Dinh Viet Phong",
+        description: "Gen 7",
+        detail: "Head of Design Department for the 2024-2025 term.",
+    },
+    {
+        image: phucuong,
+        name: "Dinh Chinh Phu Cuong",
+        description: "Gen 7",
+        detail: "Deputy Head of Design Department for the 2024-2025 term.",
+    },
+    {
+        image: uyennhi,
+        name: "Pham Uyen Nhi",
+        description: "Gen 7",
+        detail: "Head of Human Resources Department for the 2024-2025 term.",
+    },
+    {
+        image: chuthao,
+        name: "Chu Minh Thao",
+        description: "Gen 7",
+        detail: "Deputy Head of Human Resources Department for the 2024-2025 term.",
+    },
+    {
+        image: huumanh,
+        name: "Dang Huu Manh",
+        description: "Gen 7",
+        detail: "Head of Media Department for the 2024-2025 term.",
+    },
+    {
+        image: tuanthanh,
+        name: "Nguyen Tuan Thanh",
+        description: "Gen 6",
+        detail: "Deputy Head of Media Department for the 2024-2025 term.",
+    },
+    {
+        image: nguyenhaphuong,
+        name: "Nguyen Ha Phuong",
+        description: "Gen 7",
+        detail: "Head of Communications Department for the 2024-2025 term.",
+    },
+    {
+        image: haiduong,
+        name: "Hoang Hai Duong",
+        description: "Gen 7",
+        detail: "Deputy Head of Communications Department for the 2024-2025 term.",
     },
 ];
 export {
