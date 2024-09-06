@@ -33,7 +33,7 @@ export const Contributors = () => {
         <Helmet>
           <meta charSet="utf-8" />
           <title>Contributors | {meta.title} </title>{" "}
-          <meta name="description" content={meta.description} />
+          <meta name="description" content="Page sieu cap vjp pro" />
         </Helmet>
         <Preloader />
         <div className="backgroundvideo" >
