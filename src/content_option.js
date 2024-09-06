@@ -75,7 +75,8 @@ import huumanh from "./assets/humans/huumanh.JPG";
 import tuanthanh from "./assets/humans/tuanthanh.JPG";
 import ngothuyanh from "./assets/humans/ngothuyanh.JPG";
 import anhduc from "./assets/humans/anhduc.jpg";
-
+//image for contributors page
+import tiendat from "./assets/contributors/tiendat.jpg";
 const logotext = "So Media";
 // thông tin meta ( hiển thị khi gửi link )
 const meta = {
@@ -581,6 +582,34 @@ const humans = [
         detail: "Deputy Head of Communications Department for the 2024-2025 term.",
     },
 ];
+//-----------------------------------------------------------------------------------
+//page contribution
+const contributors = [
+    {
+        image: duythong,
+        name: "Dao Duy Thong",
+        description: "Frontend Developer",
+        github: "https://github.com/Duy-Thong",
+    },
+    {
+        image: anhnam,
+        name: "Pham Khac Hoai Nam",
+        description: "Backend Developer",
+        github: "https://github.com/hncs28",
+    },
+    {
+        image: nguyenthithan,
+        name: "Nguyen Thi Than",
+        description: "Frontend Contributor",
+        github: "https://github.com/Thanholadeptrai",
+    },
+    {
+        image: tiendat,
+        name: "Nguyen Tien Dat",
+        description: "Frontend Contributor",
+        github: "https://github.com/tiendatngn"
+    }
+];
 export {
     meta,  // thông tin meta
     dataabout, // thông tin giới thiệu ở page about
@@ -595,4 +624,5 @@ export {
     departments,// các ban trong CLB
     recruitmentpage,// thông tin trong page truyển thành viên
     humans,// thông tin về các thành viên ban điều hành cách khóa của CLB
+    contributors, // thông tin về các contributor
 };
