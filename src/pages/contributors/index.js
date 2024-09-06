@@ -7,6 +7,10 @@ import backimg from "../../assets/images/home2.jpg";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
 import Preloader from "../../components/preload/Pre";
 import { BsGithub } from "react-icons/bs";
+import { IoLogoReact } from "react-icons/io5";
+import { FaPhp } from "react-icons/fa";
+import { IoLogoVercel } from "react-icons/io5";
+import scroll from "../../assets/scroll.jpg";
 export const Contributors = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +45,7 @@ export const Contributors = () => {
         </div>
         <Row className="mb-1 mt-3 pt-md-3">
           <Col lg="8">
-            <h1 className="display-4 mb-4 text-center" > Creators and contributors </h1>{" "}
+            <h1 className="display-4 mb-4 text-left" > Special thanks to </h1>{" "}
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
@@ -59,7 +63,24 @@ export const Contributors = () => {
             );
           })}
         </div>
-  
+        <Row className="mb-1 mt-3 pt-md-3">
+          <h2 className="display-4 mb-4 text-center" >Technology used </h2>
+          <Row >
+            <Col lg="4" className="text-center">
+              <IoLogoReact style={{ fontSize: '100px' }} />
+            </Col>
+
+            <Col lg="4" className="text-center">
+              <FaPhp style={{ fontSize: '100px' }} />
+            </Col>
+            <Col lg="4" className="text-center">
+              <IoLogoVercel style={{ fontSize: '100px' }} />
+            </Col>
+          </Row>
+        </Row>
+        <div className="scroll">
+          <img src={scroll} alt="scroll" />
+        </div>
       </Container>
     </HelmetProvider>
   );

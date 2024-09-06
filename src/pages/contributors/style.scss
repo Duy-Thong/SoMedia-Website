@@ -18,7 +18,7 @@
     border: 1px solid var(--secondary-color);
     transition: 0.3s ease;
     font-size: 0;
-    min-height: 300px;
+    min-height: 250px;
 }
 
 .po_item img {
@@ -175,8 +175,6 @@
   -o-transform: rotate3d(-1, 1, 0, 0deg);
   transform: rotate3d(-1, 1, 0, 0deg);
 }
-
-
 @mixin rotateRight
 {
   -webkit-transform: rotate3d(-1, 1, 0, 30deg);
@@ -217,8 +215,8 @@ body
 
 #stars-container
 {
-  height: 150vh;
-  width: 200%;
+  height: 300vh;
+  width: 100%;
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #191F24 100%);
   overflow: hidden;
   @include translate50;
@@ -351,4 +349,16 @@ body
     .contributorcard {
         width: 80%; /* Điều chỉnh cho điện thoại di động */
     }
+}
+
+.scroll 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80vh;
+    margin-bottom: 20px;
+}
+.scroll img {
+   width: 30%;
 }
