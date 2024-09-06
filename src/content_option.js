@@ -57,16 +57,26 @@ import khanhvan from "./assets/humans/khanhvan.jpg";
 import vantruc from "./assets/humans/vantruc.jpg";
 import trongnghia from "./assets/humans/trongnghia.jpg";
 import quynhanh from "./assets/humans/quynhanh.jpg";
-import nguyenngoclan from "./assets/humans/nguyenngoclan.jpg";
+import nguyenngoclan from "./assets/humans/nguyenngoclan1.jpeg";
 import nguyenvanchien from "./assets/humans/nguyenvanchien.jpg";
 import tongngockien from "./assets/humans/tongngockien.jpg";
 import nguyenthuyanh from "./assets/humans/nguyenthuyanh.jpg";
-import nguyenthithan from "./assets/humans/nguyenthithan.jpg";
+import nguyenthithan from "./assets/humans/nguyenthithan1.jpg";
 import ngothuha from "./assets/humans/ngothuha.jpg";
 import ngokimanh from "./assets/humans/ngokimanh.jpg";
 import phuongthao from "./assets/humans/thaothao.JPG";
-
-//thông tin chung
+import vietphong from "./assets/humans/vietphong.jpeg";
+import phucuong from "./assets/humans/phucuong.PNG";
+import uyennhi from "./assets/humans/UYENNHI.jpg";
+import chuthao from "./assets/humans/chuthao.JPG";
+import nguyenhaphuong from "./assets/humans/nguyenhaphuong.JPG";
+import haiduong from "./assets/humans/haiduong.JPG";
+import huumanh from "./assets/humans/huumanh.JPG";
+import tuanthanh from "./assets/humans/tuanthanh.JPG";
+import ngothuyanh from "./assets/humans/ngothuyanh.JPG";
+import anhduc from "./assets/humans/anhduc.jpg";
+//image for contributors page
+import tiendat from "./assets/contributors/tiendat.jpg";
 const logotext = "So Media";
 // thông tin meta ( hiển thị khi gửi link )
 const meta = {
@@ -231,6 +241,8 @@ const slides = [
         "description": "International Women's Day",
     },
 ];
+// các project trong page projects
+
 // thông tin về các hoạt động của CLB theo từng tháng
 const activitiesData = [
     { time: "September", description: "Recruit members ", img: recruitment },
@@ -301,7 +313,7 @@ const recruitmentpage =
     title1: "Through training by experienced professionals in photography, videography, design, layout, critical thinking, color theory, and software applications, you'll develop essential skills that will benefit both your studies and future career.",
     title2: "Not only will you gain knowledge, but you'll also develop soft skills like event organization, team management, and teamwork through the various events the club organizes.",
     button: "Apply Now !",
-    applylink: "https://www.facebook.com/somedia.vn.2016",
+    applylink: "https://docs.google.com/forms/d/e/1FAIpQLSdHWX3QwroaEbd-e-8ewjn4tb1Q7jDH3v_WeUM_p5_qbWo8XQ/viewform",
 };
 
 //-----------------------------------------------------------------------------------
@@ -401,6 +413,12 @@ const humans = [
         detail: "Head of Media Department for the 2021-2022 term."
     },
     {
+        image: anhduc,
+        name: "Nguyen Minh Duc",
+        description: "Gen 3",
+        detail: "Member has actively contributed to the club's activities."
+    },
+    {
         image: anhnam,
         name: "Pham Khac Hoai Nam",
         description: "Gen 4",
@@ -471,7 +489,7 @@ const humans = [
         image: nguyenngoclan,
         name: "Nguyen Ngoc Lan",
         description: "Gen 6",
-        detail: "Head of Media Department for the 2023-2024 term.",
+        detail: "The club president for the 2024-2025 term, Head of Media Department for the 2023-2024 term.",
     },
     {
         image: nguyenvanchien,
@@ -495,7 +513,13 @@ const humans = [
         image: nguyenthithan,
         name: "Nguyen Thi Than",
         description: "Gen 6",
-        detail: "Head of Design Department for the 2023-2024 term.",
+        detail: "The vice president of the club for the 2024-2025 term, Head of Design Department for the 2023-2024 term.",
+    },
+    {
+        image: ngothuyanh,
+        name: "Ngo Thuy Anh",
+        description: "Gen 6",
+        detail: "The vice president of the club for the 2024-2025 term.",
     },
     {
         image: ngothuha,
@@ -509,6 +533,82 @@ const humans = [
         description: "Gen 6",
         detail: "Head of Human Resources Department for the 2023-2024 term.",
     },
+    {
+        image: vietphong,
+        name: "Dinh Viet Phong",
+        description: "Gen 7",
+        detail: "Head of Design Department for the 2024-2025 term.",
+    },
+    {
+        image: phucuong,
+        name: "Dinh Chinh Phu Cuong",
+        description: "Gen 7",
+        detail: "Deputy Head of Design Department for the 2024-2025 term.",
+    },
+    {
+        image: uyennhi,
+        name: "Pham Uyen Nhi",
+        description: "Gen 7",
+        detail: "Head of Human Resources Department for the 2024-2025 term.",
+    },
+    {
+        image: chuthao,
+        name: "Chu Minh Thao",
+        description: "Gen 7",
+        detail: "Deputy Head of Human Resources Department for the 2024-2025 term.",
+    },
+    {
+        image: huumanh,
+        name: "Dang Huu Manh",
+        description: "Gen 7",
+        detail: "Head of Media Department for the 2024-2025 term.",
+    },
+    {
+        image: tuanthanh,
+        name: "Nguyen Tuan Thanh",
+        description: "Gen 6",
+        detail: "Deputy Head of Media Department for the 2024-2025 term.",
+    },
+    {
+        image: nguyenhaphuong,
+        name: "Nguyen Ha Phuong",
+        description: "Gen 7",
+        detail: "Head of Communications Department for the 2024-2025 term.",
+    },
+    {
+        image: haiduong,
+        name: "Hoang Hai Duong",
+        description: "Gen 7",
+        detail: "Deputy Head of Communications Department for the 2024-2025 term.",
+    },
+];
+//-----------------------------------------------------------------------------------
+//page contribution
+const contributors = [
+    {
+        image: duythong,
+        name: "Dao Duy Thong",
+        description: "Frontend Developer",
+        github: "https://github.com/Duy-Thong",
+    },
+    {
+        image: anhnam,
+        name: "Pham Khac Hoai Nam",
+        description: "Backend Developer",
+        github: "https://github.com/hncs28",
+    },
+    {
+        image: nguyenthithan,
+        name: "Nguyen Thi Than",
+        description: "Frontend Contributor",
+        github: "https://github.com/Thanholadeptrai",
+    },
+    {
+        image: tiendat,
+        name: "Nguyen Tien Dat",
+        description: "Frontend Contributor",
+        github: "https://github.com/tiendatngn"
+    }
 ];
 export {
     meta,  // thông tin meta
@@ -524,4 +624,5 @@ export {
     departments,// các ban trong CLB
     recruitmentpage,// thông tin trong page truyển thành viên
     humans,// thông tin về các thành viên ban điều hành cách khóa của CLB
+    contributors, // thông tin về các contributor
 };

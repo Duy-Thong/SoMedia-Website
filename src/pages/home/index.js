@@ -13,7 +13,7 @@ Activities.preload(); // Start preloading the component
 export const Home = () => {
   return (
     <HelmetProvider>
-
+      
       <section id="home" className="home">
         <Helmet>
           <meta charSet="utf-8" />
@@ -48,7 +48,7 @@ export const Home = () => {
                       }}
                     />
                   </h1>
-                  <p className="mb-1x">{introdata.description}</p>
+                  <p className="mb-1x breakword">{introdata.description}</p>
                   <div className="intro_btn-action pb-5">
                     <Link to="/contact">
                       <div id="button_h" className="ac_btn btn">

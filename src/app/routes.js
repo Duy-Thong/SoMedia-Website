@@ -10,6 +10,7 @@ import { Recruit } from "../pages/recruitment";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Activities } from "../pages/activities";
 import { Tradition } from "../pages/traditionroom";
+import { Contributors } from "../pages/contributors";
 import FocusRing from "../components/focusring";
 
 const AnimatedRoutes = withRouter(({ location }) => (
@@ -33,6 +34,7 @@ const AnimatedRoutes = withRouter(({ location }) => (
         <Route path="*" element={<Home />} />
         <Route path="/recruitment" element={<Recruit />} />
         <Route path="/traditionalroom" element={<Tradition />} />
+        <Route path="/contributors" element={<Contributors />} />
       </Routes>
     </CSSTransition>
   </TransitionGroup>
@@ -40,7 +42,7 @@ const AnimatedRoutes = withRouter(({ location }) => (
 
 function AppRoutes() {
   return (
-    
+
     <div className="s_c">
       <AnimatedRoutes />
       <Socialicons />

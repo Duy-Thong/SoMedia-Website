@@ -55,6 +55,9 @@ export const Tradition = () => {
           <hr className="t_border my-4 ml-0 text-left" />
         </Row>
         <Row className="mb-5 mt-3 pt-md-3">
+
+        </Row>
+        <Row className="mb-5 mt-3 pt-md-3">
           <h2 className="text-center"> Prizes </h2>
           <Row className="mt-3">
             {Prizes.map((prize, index) => (
@@ -65,6 +68,9 @@ export const Tradition = () => {
               </Col>
             ))}
           </Row>
+        </Row>
+        <Row className="mb-5 mt-3 pt-md-3"> 
+
         </Row>
 
       </Container>
