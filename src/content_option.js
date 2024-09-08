@@ -590,24 +590,28 @@ const contributors = [
         image: duythong,
         name: "Dao Duy Thong",
         description: "Frontend Developer",
+        detail: " ",
         github: "https://github.com/Duy-Thong",
     },
     {
         image: anhnam,
         name: "Pham Khac Hoai Nam",
         description: "Backend Developer",
+        detail: " ",
         github: "https://github.com/hncs28",
     },
     {
         image: nguyenthithan,
         name: "Nguyen Thi Than",
         description: "Frontend Contributor",
+        detail: " ",
         github: "https://github.com/Thanholadeptrai",
     },
     {
         image: tiendat,
         name: "Nguyen Tien Dat",
         description: "Frontend Contributor",
+        detail: " ",
         github: "https://github.com/tiendatngn"
     }
 ];

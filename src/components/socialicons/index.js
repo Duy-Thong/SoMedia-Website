@@ -24,7 +24,14 @@ export const Socialicons = () => {
         {socialprofils.instagram && (
           <li>
             <a href={socialprofils.instagram}>
-              <FaInstagram/>
+              <FaInstagram />
+            </a>
+          </li>
+        )}
+        {socialprofils.threads && (
+          <li>
+            <a href={socialprofils.threads}>
+              <FaThreads />
             </a>
           </li>
         )}
@@ -43,16 +50,10 @@ export const Socialicons = () => {
             </a>
           </li>
         )}
-        
-        {socialprofils.threads && (
-          <li>
-            <a href={socialprofils.threads}>
-              <FaThreads />
-            </a>
-          </li>
-        )}
+
+
       </ul>
-      <p style={{fontSize:"15px"}}>Follow Us</p>
+      <p style={{ fontSize: "15px" }}>Follow Us</p>
     </div>
   );
 };
