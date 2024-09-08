@@ -215,7 +215,10 @@ then set the desired styles for .card-img. */
     background-color: #228b22;
     background-image: linear-gradient(to top, transparent 10px, rgba(0, 0, 0, 0.3) 10px, rgba(0, 0, 0, 0.3) 13px, transparent 13px);
 }
-
+.card-img .img:hover{
+    transform:scale(1.1) ;
+    transition:ease-in 1s;
+}
 
 .card-title {
     font-size: 25px;
@@ -243,7 +246,7 @@ then set the desired styles for .card-img. */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     margin-top: auto;
     background-color: #ffffff00;
     
