@@ -173,6 +173,7 @@
 "card-img" class, remove css styles 
 .card-img .img::before and .card-img .img::after,
 then set the desired styles for .card-img. */
+/* General card styles */
 .card {
     --font-color: #ffffff;
     --font-color-sub: #666;
@@ -180,7 +181,6 @@ then set the desired styles for .card-img. */
     --main-color: #ffffff;
     --main-focus: #2d8cf0;
     color: white;
-    height: 330px;
     background: var(--bg-color);
     border: 2px solid var(--main-color);
     box-shadow: 4px 4px var(--main-color);
@@ -188,74 +188,96 @@ then set the desired styles for .card-img. */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     padding: 20px;
     gap: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 100%;
+    /* Ensure cards take full height */
+    font-family: 'Raleway', sans-serif;
 }
 
+/* Ensure the card image is centered */
 .card-img {
-    /* clear and add new css */
-    transition: all 0.5s;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.card-img .img {
-    /* delete */
-    transform: scale(1);
-    position: relative;
-    box-sizing: border-box;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+.card-img img {
     border-top-left-radius: 80px 50px;
     border-top-right-radius: 80px 50px;
-    border: 2px solid black;
-    background-color: #228b22;
-    background-image: linear-gradient(to top, transparent 10px, rgba(0, 0, 0, 0.3) 10px, rgba(0, 0, 0, 0.3) 13px, transparent 13px);
-}
-.card-img .img:hover{
-    transform:scale(1.1) ;
-    transition:ease-in 1s;
+    width: 100px;
+    height: 100px;
+
+    object-fit: cover;
 }
 
+/* Card title and subtitle */
 .card-title {
-    font-size: 25px;
+    font-size: 1.25rem;
     font-weight: 500;
     text-align: center;
     color: var(--font-color);
 }
 
 .card-subtitle {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
     color: var(--font-color);
 }
 
-.card-divider {
-    width: 100%;
-    border: 1px solid var(--main-color);
-    border-radius: 50px;
-    margin: 0;
-}
-
+/* Footer styles */
 .card-footer {
-    position: relative;
-    bottom: 0;
     display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
-    margin-top: auto;
     background-color: #ffffff00;
-    
-    
 }
 
-.icon {
+/* Ensure icons are properly spaced */
+.card-footer .icon {
+    display: flex;
+    justify-content: center;
     font-size: 20px;
-    margin-right: 20px;
-    
+    margin-right: 10px;
 }
 
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+        /* Adjust padding for mobile */
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .card-footer .icon {
+        font-size: 18px;
+        /* Slightly reduce icon size on mobile */
+    }
+}
+
+/* Responsive Design for Extra Small Devices */
+@media (max-width: 576px) {
+    .card {
+        padding: 10px;
+        /* Further adjust padding for very small screens */
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .card-footer .icon {
+        font-size: 16px;
+    }
+}
