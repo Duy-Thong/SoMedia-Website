@@ -64,7 +64,9 @@ const Headermain = () => {
               <a href={socialprofils.tiktok}>Tiktok</a>
               <a href={socialprofils.youtube}>Youtube</a>
             </div>
-            <p className="copyright m-0">Dev by Duy Thong - So Media</p>
+            < p className="copyright m-0">
+              Dev by Duy Thong &copy; {new Date().getFullYear()}
+              <p>Supported by <a href="/contributors">contributors</a></p></p>
           </div>
         </div>
       </header>
