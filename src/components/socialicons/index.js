@@ -52,14 +52,14 @@ export const Socialicons = () => {
             </a>
           </li>
         )}
-         
-         {socialprofils.threads && (
+
+        {socialprofils.threads && (
           <li>
             <a href={socialprofils.threads}>
               <BsFillThreadsFill />
             </a>
           </li>
-        )} 
+        )}
       </ul>
       <p style={{ fontSize: "15px" }}>Follow Us</p>
     </div>
