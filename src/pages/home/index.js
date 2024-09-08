@@ -13,7 +13,7 @@ Activities.preload(); // Start preloading the component
 export const Home = () => {
   return (
     <HelmetProvider>
-      <FocusRing/>
+      
       <section id="home" className="home">
         <Helmet>
           <meta charSet="utf-8" />
