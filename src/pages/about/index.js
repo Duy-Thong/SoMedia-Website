@@ -6,10 +6,16 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./style.css"; // Make sure this includes the CSS for animations
 import { FaArrowCircleRight } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+import { TbMessageCircle } from "react-icons/tb";
+import { PiPaperPlaneTilt } from "react-icons/pi";
+import { PiHeartStraightFill } from "react-icons/pi";
+
 import home9 from "../../assets/images/home9.jpg";
 // Import your data or any other components you need
 import { dataabout, meta, departments } from "../../content_option";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
+
 // Define the About component
 export const About = () => {
   useEffect(() => {
@@ -86,20 +92,31 @@ export const About = () => {
         </Row>
         <Row className={`sec_sp ${isAnimated ? "slide-in-right" : ""}`}>
           <Row>
-            <h3 className="color_sec py-4">4 Department</h3>
+            <h3 className="color_sec py-4">4 Departments</h3>
           </Row>
-          <Row>
-            <Col lg="6">
-              <Card>
-                <Card.Img variant="top" src={departments[0].image} />
-                <Card.Body>
-                  <Card.Title>{departments[0].title}</Card.Title>
-                  <Card.Text>{departments[0].description}</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+          <Row className="cards">
+            {departments.map((department, index) => (
+              <Col xs="12" sm="6" md="6" lg="6" xl="6" key={index} className="mb-4">
+                <div class="card">
+                  <div class="card-img"><img className="img" src={department.image} ></img></div>
+                  <div class="card-title">{department.name}</div>
+                  <div class="card-subtitle">{department.description}</div>
+
+                  <div class="card-footer">
+                    <PiHeartStraightFill color="red" className="icon"></PiHeartStraightFill>
+                    <TbMessageCircle className="icon" />
+                    <PiPaperPlaneTilt className="icon"></PiPaperPlaneTilt>
+                  </div>
+                </div>
+              </Col>
+            ))}
           </Row>
         </Row>
+        <Row className="mt-3 mb-3" >
+
+        </Row>
+
+
       </Container>
     </HelmetProvider>
   );
