@@ -18,7 +18,7 @@ const Headermain = () => {
         <div className="d-flex align-items-center justify-content-between">
           {/* <img loading="lazy"src={clublogo} alt="logo" style={{width:"5%"}} /> */}
           <Link className="navbar-brand nav_ac" to="/" >
-            <img loading="lazy"src={clublogo_transparent} alt="Club Logo" style={{ width: '2.5rem' }} />
+            <img loading="lazy" src={clublogo_transparent} alt="Club Logo" style={{ width: '2.5rem' }} />
             {/* {logotext} */}
           </Link>
           <div className="d-flex align-items-center" >
@@ -59,11 +59,14 @@ const Headermain = () => {
           <div className="menu_footer d-flex flex-column flex-md-row justify-content-between align-items-md-center position-absolute w-100 p-3">
             <div className="d-flex">
               <a href={socialprofils.facebook}>Facebook</a>
-              <a href={socialprofils.youtube}>Youtube</a>
+              <a href={socialprofils.threads}>Threads</a>
               <a href={socialprofils.instagram}>Instagram</a>
               <a href={socialprofils.tiktok}>Tiktok</a>
+              <a href={socialprofils.youtube}>Youtube</a>
             </div>
-            <p className="copyright m-0">Dev by Duy Thong - So Media</p>
+            < p className="copyright m-0">
+              Dev by Duy Thong &copy; {new Date().getFullYear()}
+              <p>Supported by <a href="/contributors" style={{ color: '#cc0000' }}>@contributors</a></p></p>
           </div>
         </div>
       </header>

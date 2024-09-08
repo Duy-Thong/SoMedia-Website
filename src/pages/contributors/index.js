@@ -33,7 +33,7 @@ export const Contributors = () => {
         <Helmet>
           <meta charSet="utf-8" />
           <title>Contributors | {meta.title} </title>{" "}
-          <meta name="description" content={meta.description} />
+          <meta name="description" content="Page sieu cap vjp pro" />
         </Helmet>
         <Preloader />
         <div className="backgroundvideo" >
@@ -63,24 +63,8 @@ export const Contributors = () => {
             );
           })}
         </div>
-        <Row className="mb-1 mt-3 pt-md-3">
-          <h2 className="display-4 mb-4 text-center" >Technology used </h2>
-          <Row >
-            <Col lg="4" className="text-center">
-              <IoLogoReact style={{ fontSize: '100px' }} />
-            </Col>
+        <hr></hr>
 
-            <Col lg="4" className="text-center">
-              <FaPhp style={{ fontSize: '100px' }} />
-            </Col>
-            <Col lg="4" className="text-center">
-              <IoLogoVercel style={{ fontSize: '100px' }} />
-            </Col>
-          </Row>
-        </Row>
-        <div className="scroll">
-          <img src={scroll} alt="scroll" />
-        </div>
       </Container>
     </HelmetProvider>
   );

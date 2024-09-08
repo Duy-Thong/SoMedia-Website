@@ -215,7 +215,9 @@ body
 
 #stars-container
 {
-  height: 300vh;
+    position: fixed;
+    z-index: -1;
+  height: 100vh;
   width: 100%;
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #191F24 100%);
   overflow: hidden;
@@ -360,5 +362,5 @@ body
     margin-bottom: 20px;
 }
 .scroll img {
-   width: 30%;
+   width: 70%;
 }
