@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 // Import necessary components and styles
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./style.css"; // Make sure this includes the CSS for animations
 import { FaArrowCircleRight } from "react-icons/fa";
@@ -85,17 +85,20 @@ export const About = () => {
           </Col>
         </Row>
         <Row className={`sec_sp ${isAnimated ? "slide-in-right" : ""}`}>
-          <Col lg="4">
+          <Row>
             <h3 className="color_sec py-4">4 Department</h3>
-          </Col>
-          <Col lg="8">
-            {departments.map((data, i) => (
-              <div className="service_ py-4" key={i}>
-                <h5 className="service__title">{data.name}</h5>
-                <p className="service_desc breakword">{data.description}</p>
-              </div>
-            ))}
-          </Col>
+          </Row>
+          <Row>
+            <Col lg="6">
+              <Card>
+                <Card.Img variant="top" src={departments[0].image} />
+                <Card.Body>
+                  <Card.Title>{departments[0].title}</Card.Title>
+                  <Card.Text>{departments[0].description}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
         </Row>
       </Container>
     </HelmetProvider>
