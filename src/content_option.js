@@ -67,20 +67,45 @@ import ngokimanh from "./assets/humans/ngokimanh.jpg";
 import phuongthao from "./assets/humans/thaothao.JPG";
 import vietphong from "./assets/humans/vietphong.jpeg";
 import phucuong from "./assets/humans/phucuong.PNG";
-import uyennhi from "./assets/humans/UYENNHI.jpg" ;
+import uyennhi from "./assets/humans/UYENNHI.jpg";
 import chuthao from "./assets/humans/chuthao.JPG";
 import nguyenhaphuong from "./assets/humans/nguyenhaphuong.JPG";
 import haiduong from "./assets/humans/haiduong.JPG";
 import huumanh from "./assets/humans/huumanh.JPG";
 import tuanthanh from "./assets/humans/tuanthanh.JPG";
 import ngothuyanh from "./assets/humans/ngothuyanh.JPG";
-
+import anhduc from "./assets/humans/anhduc.jpg";
+//image for contributors page
+import tiendat from "./assets/contributors/tiendat.jpg";
 const logotext = "So Media";
 // thông tin meta ( hiển thị khi gửi link )
 const meta = {
     title: "So Media",
-    description: "We are a photography club at PTIT. At So Media, you can further develop your media and design skills as well as many interesting and dynamic activities.",
+    description: "We are the So Media Club at PTIT. Here, you'll have the opportunity to sharpen your media skills, expand your network, and participate in a wide range of exciting and dynamic activities.",
 };
+//Thông tin liên hệ trong page contact , thông tin về EmailJS
+
+const contactConfig = {
+    YOUR_EMAIL: "clbsomediaptit@gmail.com",
+    YOUR_FONE: "(+84) 0918165458",
+    YOUR_ADDRESS: "Posts and Telecommunications Institute of Technology, Km 10 Nguyen Trai, Hanoi, Vietnam",
+    description: "Let's do something interesting together!",
+    // creat an emailjs.com account 
+    // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
+    YOUR_SERVICE_ID: "service_u6zo9qt",
+    YOUR_TEMPLATE_ID: "template_34mz99q",
+    YOUR_USER_ID: "uI2wlAs7frUBvbJkG",
+};
+// thông tin các mạng xã hội
+const socialprofils = {
+    facebook: "https://www.facebook.com/somedia.vn.2016",
+    instagram: "https://www.instagram.com/so_media_2016/",
+    tiktok: "https://www.tiktok.com/@clbsomedia",
+    youtube: "https://www.youtube.com/c/S%E1%BB%95Media2016",
+    threads: "https://www.threads.net/@so_media_2016"
+};
+// -----------------------------------------------------------------------------------
+//page home
 // thông tin giới thiệu ở page Home
 const introdata = {
     title: "We are So Media ",
@@ -90,72 +115,38 @@ const introdata = {
         "third": "Design",
         "fourth": "Content creation",
     },
-    description: "We are a media club at PTIT. At So Media, you can further develop your media skills,expand your network as well as engage in many interesting and dynamic activities.",
-    your_img_url: "https://assets.unlayer.com/stock-templates/1706451135609-homepic.png",
+    description: "We are the So Media Club at PTIT. Here, you'll have the opportunity to sharpen your media skills, expand your network, and participate in a wide range of exciting and dynamic activities.",
+
 };
+//-----------------------------------------------------------------------------------
+//page about
 // thông tin giới thiệu ở page about
 const dataabout = {
     title: "About",
-    aboutme: "Established in 2016 with 3 founding members, So Media is a gathering place for students passionate about photography, videography, and design. Coming to So Media, you will join a dynamic club, always full of positive energy and enthusiasm. Currently So Media is one of the leading photography and videography units in PTIT, participating in almost all large and small activities not only inside but also outside the institute.",
-    goals: "So Media's goal is to become a place to connect and develop the passion of students in the field of photography, videography and design. In So Media, the priority is the development of our members. We always strive to create a professional and creative working environment, where members can freely express their ideas and develop their skills.",
+    aboutme: "Founded in 2016 by three passionate individuals, So Media is the hub for students at PTIT who are enthusiastic about photography, videography, and design. Joining So Media means becoming part of a vibrant, energetic, and enthusiastic community. Today, So Media stands as one of the premier photography and videography groups at PTIT, playing a key role in both internal and external events.",
+    goals: "So Media aims to be the ultimate platform for students to connect and nurture their passion in photography, videography, and design. Our top priority is the growth of our members. We are committed to fostering a professional and creative environment where members can freely express their ideas and hone their skills."
 };
-// các giải thưởng
-const Prizes = [{
-    jobtitle: "First prize of the contest 'Nét đẹp trường P' ",
-    where: "PTIT",
-    date: "2022",
-},
-{
-    jobtitle: "Club has excellent achievements in union activities and youth movements",
-    where: "PTIT",
-    date: "2022-2023",
-},
-{
-    jobtitle: "Third prize of the contest 'Đồng phục PTIT' ",
-    where: "PTIT",
-    date: "2023",
-},
-
-];
 // các ban trong CLB
 const departments = [
     {
         name: "Media",
-        description: "As the club's largest membership, its main activity is filming, taking photos at events, and creating products such as photos and videos for club communication.",
-
+        description: "As the club's largest department, Media is at the forefront of capturing moments through photography and videography at various events. They also produce content like photos and videos that drive the club's communication efforts.",
     },
     {
         name: "Communication",
-        description: "The task of the Communication Department is to create content, write posts on fanpages to spread positive and useful information.Sometimes the Communication Department also plans club events."
+        description: "The Communication Department crafts engaging content and manages the club’s social media presence, spreading positive and informative messages. They also play a key role in planning and organizing club events.",
     },
     {
         name: "Design",
-        description: "As a committee with many personality and creative members, the Design Department is the place to produce publications such as logos, posters, banners ... The members of the Design Department are proficient in design software such as Photoshop, Illustrator, ..."
+        description: "The Design Department is where creativity thrives. Known for its vibrant and imaginative members, this team produces visual assets such as logos, posters, and banners, using design software like Photoshop and Illustrator.",
     },
     {
-        name: "Human Resource",
-        description: "The Human Resources department's activities, though often behind the scenes, are crucial. Their role involves managing member activities and actively participating in the logistics of club events."
+        name: "Human Resources",
+        description: "Though often working behind the scenes, the Human Resources department is vital to the club's operations. They manage member activities and handle the logistics that ensure the smooth running of club events.",
     },
 ];
-// Thông tin giới thiệu về training
-const services = [
-    {
-        title: "About training",
-        description: "When you apply for the club, you will be trained in some media skills as below",
-    }, {
-        title: "Photography",
-        description: "You will be taught how to use the camera, use editing software, composition and color from basic to advanced.",
-    },
-    {
-        title: "Videography",
-        description: "You will learn how to film, how to edit a video, and use tools like Adobe Premere.",
-    },
-    {
-        title: "Design",
-        description: "You will learn how to use professional design software such as Photoshop, Ilustrator, Canva, along with layout and color in design to create your own design thinking and creative publications.",
-    },
-
-];
+//-----------------------------------------------------------------------------------
+//page activities
 // các ảnh trong slide page activities
 const slides = [
     {
@@ -252,86 +243,7 @@ const slides = [
     },
 ];
 // các project trong page projects
-const dataportfolio = [{
-    img: tvc2023,
-    description: "So Media TVC 2023 - The Growth",
-    link: "https://www.youtube.com/watch?v=ZrfJXRTsrEo",
-},
 
-{
-    img: profileshooting,
-    description: "Profile Shooting 2023",
-    link: "https://www.facebook.com/somedia.vn.2016/videos/198116229592288/",
-},
-{
-    img: dongphucptit,
-    description: "DONG PHUC PTIT 2023",
-    link: "https://www.facebook.com/somedia.vn.2016/videos/305607272023242",
-},
-{
-    img: tedxhanu,
-    description: "TEDxHANU 2023",
-    link: "https://www.facebook.com/tedxhanu/videos/1365086274436809",
-},
-{
-    img: kachofugetsu,
-    description: "KACHOUFUUGETSU HANU",
-    link: "https://www.facebook.com/100063582549627/videos/1459914988185464",
-},
-{
-    img: ngaydautienptit,
-    description: "MV Ngay dau tien PTIT Version ",
-    link: "https://www.youtube.com/watch?v=y7Y7VtKb9rY",
-},
-{
-    img: breakthesheell,
-    description: "BREAK THE SHELL",
-    link: "https://www.facebook.com/share/v/cuTCEFhncdc92YCf/",
-},
-{
-    img: pchain2022,
-    description: "THE P-CHAIN 2022",
-    link: "https://www.facebook.com/somedia.vn.2016/videos/941481530159388",
-},
-{
-    img: agriup,
-    description: "AGRIUP 2023 - NEU",
-    link: "https://www.facebook.com/agriup.NEU/videos/2103583136647621",
-},
-];
-//Thông tin liên hệ trong page contact , thông tin về EmailJS
-
-const contactConfig = {
-    YOUR_EMAIL: "clbsomediaptit@gmail.com",
-    YOUR_FONE: "(+84) 91 8165 458",
-    YOUR_ADDRESS: "Posts and Telecommunications Institute of Technology, Km 10 Nguyen Trai, Hanoi, Vietnam",
-    description: "Let's do something interesting together!",
-    // creat an emailjs.com account 
-    // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
-    YOUR_SERVICE_ID: "service_u6zo9qt",
-    YOUR_TEMPLATE_ID: "template_34mz99q",
-    YOUR_USER_ID: "uI2wlAs7frUBvbJkG",
-};
-// thông tin các mạng xã hội
-const socialprofils = {
-    facebook: "https://www.facebook.com/somedia.vn.2016",
-    instagram: "https://www.instagram.com/so_media_2016/",
-    tiktok: "https://www.tiktok.com/@clbsomedia",
-    youtube: "https://www.youtube.com/c/S%E1%BB%95Media2016",
-    threads: "https://www.threads.net/@so_media_2016",
-};
-// thông tin trong page truyển thành viên
-const recruitmentpage =
-{
-    title1: "Being trained by seniors in skills in photography, videography, design, layout, thinking, color and software use. From there, you will gain the necessary skills for both study and future work.",
-    title2: "Not only will you learn knowledge, you will also learn soft skills such as event organization, team management, teamwork,... through many events that the club organizes.",
-    button: "Apply Now !",
-    cvtime: "From 15/10/2023 to 15/11/2023",
-    interviewtime: "From 20/11/2023 to 25/11/2023",
-    trainingtime: "From 01/12/2023 to 15/12/2023",
-    passtime: "From 20/12/2023 to 25/12/2023",
-    applylink: "https://www.facebook.com/somedia.vn.2016",
-};
 // thông tin về các hoạt động của CLB theo từng tháng
 const activitiesData = [
     { time: "September", description: "Recruit members ", img: recruitment },
@@ -344,8 +256,91 @@ const activitiesData = [
     { time: "May", description: "Photo Contest", img: contest },
     { time: "July", description: "Picnic", img: picnic2024 },
 ];
+//-----------------------------------------------------------------------------------
+//page projects
+// các project trong page projects
+const dataportfolio = [
+    {
+        img: tvc2023,
+        description: "So Media TVC 2023 - The Growth",
+        link: "https://www.youtube.com/watch?v=ZrfJXRTsrEo",
+    },
+
+    {
+        img: profileshooting,
+        description: "Profile Shooting 2023",
+        link: "https://www.facebook.com/somedia.vn.2016/videos/198116229592288/",
+    },
+    {
+        img: dongphucptit,
+        description: "Dong phuc PTIT 2023",
+        link: "https://www.facebook.com/somedia.vn.2016/videos/305607272023242",
+    },
+    {
+        img: tedxhanu,
+        description: "TEDxHANU 2023",
+        link: "https://www.facebook.com/tedxhanu/videos/1365086274436809",
+    },
+    {
+        img: kachofugetsu,
+        description: "KACHOUFUUGETSU HANU",
+        link: "https://www.facebook.com/100063582549627/videos/1459914988185464",
+    },
+    {
+        img: ngaydautienptit,
+        description: "MV Ngay dau tien PTIT Version ",
+        link: "https://www.youtube.com/watch?v=y7Y7VtKb9rY",
+    },
+    {
+        img: breakthesheell,
+        description: "BREAK THE SHELL",
+        link: "https://www.facebook.com/share/v/cuTCEFhncdc92YCf/",
+    },
+    {
+        img: pchain2022,
+        description: "THE P-CHAIN 2022",
+        link: "https://www.facebook.com/somedia.vn.2016/videos/941481530159388",
+    },
+    {
+        img: agriup,
+        description: "AGRIUP 2023 - NEU",
+        link: "https://www.facebook.com/agriup.NEU/videos/2103583136647621",
+    },
+];
+
+// thông tin trong page truyển thành viên
+const recruitmentpage =
+{
+    title1: "Through training by experienced professionals in photography, videography, design, layout, critical thinking, color theory, and software applications, you'll develop essential skills that will benefit both your studies and future career.",
+    title2: "Not only will you gain knowledge, but you'll also develop soft skills like event organization, team management, and teamwork through the various events the club organizes.",
+    button: "Apply Now !",
+    applylink: "https://docs.google.com/forms/d/e/1FAIpQLSdHWX3QwroaEbd-e-8ewjn4tb1Q7jDH3v_WeUM_p5_qbWo8XQ/viewform",
+};
+
+//-----------------------------------------------------------------------------------
+//page traditionalroom
+// các giải thưởng
+const Prizes = [{
+    jobtitle: "First prize of the contest 'Nét đẹp trường P' ",
+    where: "PTIT",
+    date: "2022",
+},
+
+{
+    jobtitle: "Club has excellent achievements in union activities and youth movements",
+    where: "PTIT",
+    date: "2022-2023",
+},
+{
+    jobtitle: "Third prize of the contest 'Đồng phục PTIT' ",
+    where: "PTIT",
+    date: "2023",
+},
+
+];
 // thông tin về các thành viên ban điều hành cách khóa của CLB
 const humans = [
+
     {
         image: anhtuyen,
         name: "Vu Cong Tuyen",
@@ -417,6 +412,12 @@ const humans = [
         name: "Ha Manh Hoang",
         description: "Gen 3",
         detail: "Head of Media Department for the 2021-2022 term."
+    },
+    {
+        image: anhduc,
+        name: "Nguyen Minh Duc",
+        description: "Gen 3",
+        detail: "Member has actively contributed to the club's activities."
     },
     {
         image: anhnam,
@@ -582,12 +583,43 @@ const humans = [
         detail: "Deputy Head of Communications Department for the 2024-2025 term.",
     },
 ];
+//-----------------------------------------------------------------------------------
+//page contribution
+const contributors = [
+    {
+        image: duythong,
+        name: "Dao Duy Thong",
+        description: "Frontend Developer",
+        detail: " ",
+        github: "https://github.com/Duy-Thong",
+    },
+    {
+        image: anhnam,
+        name: "Pham Khac Hoai Nam",
+        description: "Backend Developer",
+        detail: " ",
+        github: "https://github.com/hncs28",
+    },
+    {
+        image: nguyenthithan,
+        name: "Nguyen Thi Than",
+        description: "Frontend Contributor",
+        detail: " ",
+        github: "https://github.com/Thanholadeptrai",
+    },
+    {
+        image: tiendat,
+        name: "Nguyen Tien Dat",
+        description: "Frontend Contributor",
+        detail: " ",
+        github: "https://github.com/tiendatngn"
+    }
+];
 export {
     meta,  // thông tin meta
     dataabout, // thông tin giới thiệu ở page about
     dataportfolio, // các project trong page projects
     Prizes,// các giải thưởng
-    services,// thông tin giới thiệu về training
     introdata,// thông tin giới thiệu ở page Home
     contactConfig,// thông tin liên hệ trong page contact
     socialprofils,// thông tin các mạng xã hội
@@ -597,4 +629,5 @@ export {
     departments,// các ban trong CLB
     recruitmentpage,// thông tin trong page truyển thành viên
     humans,// thông tin về các thành viên ban điều hành cách khóa của CLB
+    contributors, // thông tin về các contributor
 };

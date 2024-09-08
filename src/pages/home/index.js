@@ -5,7 +5,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
 import { introdata, meta } from "../../content_option";
 import { Link } from "react-router-dom";
-import FocusRing from "../../components/focusring"; // Import the FocusRing component
+
 // Lazy load and preload the Activities component
 const Activities = lazyWithPreload(() => import("../activities/activeslide"));
 Activities.preload(); // Start preloading the component
@@ -48,7 +48,7 @@ export const Home = () => {
                       }}
                     />
                   </h1>
-                  <p className="mb-1x">{introdata.description}</p>
+                  <p className="mb-1x breakword">{introdata.description}</p>
                   <div className="intro_btn-action pb-5">
                     <Link to="/contact">
                       <div id="button_h" className="ac_btn btn">

@@ -105,7 +105,7 @@
 }
 
 .inforrow {
-    /* display: flex; */
+    display: inline-block;
     justify-content: space-between !important;
     word-wrap: break-word !important;
     /* Correct property for breaking long words */
@@ -117,7 +117,7 @@
     margin-top: 40px!important;
     background-color: rgba(0, 0, 0, 0.3);
     font-size: medium;
-    text-align: left;
+    text-align: left; 
 }
 
 .learninfor {

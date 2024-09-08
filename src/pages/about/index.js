@@ -54,7 +54,7 @@ export const About = () => {
             <h1 className="display-4 mb-4" style={{ textAlign: "left" }}>About us</h1>
           </Col>
           <Col lg="6" className="text-right">
-            <Link to="/traditionroom" className="text_2">
+            <Link to="/traditionalroom" className="text_2">
               <div id="button_p" className="ac_btn btn d-flex justify-content-end">
                 <div className="ring one"></div>
                 <div className="ring two"></div>
@@ -72,7 +72,7 @@ export const About = () => {
           </Col>
           <Col lg="8" className="d-flex align-items-center">
             <div>
-              <p>{dataabout.aboutme}</p>
+              <p className="breakword">{dataabout.aboutme}</p>
             </div>
           </Col>
         </Row>
@@ -81,11 +81,9 @@ export const About = () => {
             <h3 className="color_sec py-4">Goals</h3>
           </Col>
           <Col lg="8">
-            <p>{dataabout.goals}</p>
+            <p className="breakword">{dataabout.goals}</p>
           </Col>
         </Row>
-
-
         <Row className={`sec_sp ${isAnimated ? "slide-in-right" : ""}`}>
           <Col lg="4">
             <h3 className="color_sec py-4">4 Department</h3>
@@ -94,7 +92,7 @@ export const About = () => {
             {departments.map((data, i) => (
               <div className="service_ py-4" key={i}>
                 <h5 className="service__title">{data.name}</h5>
-                <p className="service_desc">{data.description}</p>
+                <p className="service_desc breakword">{data.description}</p>
               </div>
             ))}
           </Col>
