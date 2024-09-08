@@ -9,6 +9,8 @@ import { AiFillYoutube } from "react-icons/ai";
 
 import { socialprofils } from "../../content_option";
 
+import { BsFillThreadsFill } from "react-icons/bs";
+
 export const Socialicons = () => {
   return (
     <div className="stick_follow_icon">
@@ -42,7 +44,14 @@ export const Socialicons = () => {
             </a>
           </li>
         )}
-        
+         
+         {socialprofils.threads && (
+          <li>
+            <a href={socialprofils.threads}>
+              <BsFillThreadsFill />
+            </a>
+          </li>
+        )} 
       </ul>
       <p style={{fontSize:"15px"}}>Follow Us</p>
     </div>
