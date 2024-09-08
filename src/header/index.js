@@ -66,7 +66,7 @@ const Headermain = () => {
             </div>
             < p className="copyright m-0">
               Dev by Duy Thong &copy; {new Date().getFullYear()}
-              <p>Supported by <a href="/contributors">contributors</a></p></p>
+              <p>Supported by <a href="/contributors" style={{ color: '#cc0000' }}>@contributors</a></p></p>
           </div>
         </div>
       </header>
