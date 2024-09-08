@@ -101,7 +101,8 @@ const socialprofils = {
     facebook: "https://www.facebook.com/somedia.vn.2016",
     instagram: "https://www.instagram.com/so_media_2016/",
     tiktok: "https://www.tiktok.com/@clbsomedia",
-    youtube: "https://www.youtube.com/c/S%E1%BB%95Media2016"
+    youtube: "https://www.youtube.com/c/S%E1%BB%95Media2016",
+    threads: "https://www.threads.net/@so_media_2016"
 };
 // -----------------------------------------------------------------------------------
 //page home
