@@ -215,6 +215,8 @@ body
 
 #stars-container
 {
+    position: fixed;
+    z-index: -1;
   height: 100vh;
   width: 100%;
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #191F24 100%);
