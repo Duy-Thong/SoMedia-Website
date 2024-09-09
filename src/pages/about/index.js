@@ -108,7 +108,7 @@ export const About = () => {
                   <div className="card-footer">
                     <HeartIcon />
                     <TbMessageCircle className="icon" />
-                    <a href="https://www.facebook.com/share/p/49mLmbCondm6XyvK/"><PiPaperPlaneTilt className="icon" /></a>
+                    <PiPaperPlaneTilt className="icon" />
                   </div>
                 </div>
               </Col>
