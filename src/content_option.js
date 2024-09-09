@@ -75,6 +75,13 @@ import huumanh from "./assets/humans/huumanh.JPG";
 import tuanthanh from "./assets/humans/tuanthanh.JPG";
 import ngothuyanh from "./assets/humans/ngothuyanh.JPG";
 import anhduc from "./assets/humans/anhduc.jpg";
+
+
+//image for 4 departments
+import media from "./assets/departments/media.jpg";
+import communication from "./assets/departments/communication.png";
+import design from "./assets/departments/design.jpg";
+import humanresources from "./assets/departments/hr.jpg";
 //image for contributors page
 import tiendat from "./assets/contributors/tiendat.jpg";
 const logotext = "So Media";
@@ -131,18 +138,26 @@ const departments = [
     {
         name: "Media",
         description: "As the club's largest department, Media is at the forefront of capturing moments through photography and videography at various events. They also produce content like photos and videos that drive the club's communication efforts.",
+        image: media,
+        second_img: "https://img.icons8.com/ios/50/000000/camera.png",
     },
     {
         name: "Communication",
         description: "The Communication Department crafts engaging content and manages the club’s social media presence, spreading positive and informative messages. They also play a key role in planning and organizing club events.",
+        image: communication,
+        second_img: "https://img.icons8.com/ios/50/000000/camera.png",
     },
     {
         name: "Design",
         description: "The Design Department is where creativity thrives. Known for its vibrant and imaginative members, this team produces visual assets such as logos, posters, and banners, using design software like Photoshop and Illustrator.",
+        image: design,
+        second_img: "https://img.icons8.com/ios/50/000000/camera.png",
     },
     {
         name: "Human Resources",
         description: "Though often working behind the scenes, the Human Resources department is vital to the club's operations. They manage member activities and handle the logistics that ensure the smooth running of club events.",
+        image: humanresources,
+        second_img: "https://img.icons8.com/ios/50/000000/camera.png",
     },
 ];
 //-----------------------------------------------------------------------------------

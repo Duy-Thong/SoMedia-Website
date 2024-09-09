@@ -167,3 +167,117 @@
 .slide-in-right {
     animation: slideInRight 2s ease-out forwards;
 }
+
+/* From Uiverse.io by andrew-demchenk0 */
+/* before adding the img to the div with the 
+"card-img" class, remove css styles 
+.card-img .img::before and .card-img .img::after,
+then set the desired styles for .card-img. */
+/* General card styles */
+.card {
+    --font-color: #ffffff;
+    --font-color-sub: #666;
+    --bg-color: #ffffff46;
+    --main-color: #ffffff;
+    --main-focus: #2d8cf0;
+    color: white;
+    background: var(--bg-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 10px;
+    height: 100%;
+    /* Ensure cards take full height */
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Ensure the card image is centered */
+.card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img img {
+    border-top-left-radius: 80px 50px;
+    border-top-right-radius: 80px 50px;
+    width: 100px;
+    height: 100px;
+
+    object-fit: cover;
+}
+
+/* Card title and subtitle */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--font-color);
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--font-color);
+}
+
+/* Footer styles */
+.card-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background-color: #ffffff00;
+}
+
+/* Ensure icons are properly spaced */
+.card-footer .icon {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+        /* Adjust padding for mobile */
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .card-footer .icon {
+        font-size: 18px;
+        /* Slightly reduce icon size on mobile */
+    }
+}
+
+/* Responsive Design for Extra Small Devices */
+@media (max-width: 576px) {
+    .card {
+        padding: 10px;
+        /* Further adjust padding for very small screens */
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .card-footer .icon {
+        font-size: 16px;
+    }
+}
