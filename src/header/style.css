@@ -191,11 +191,7 @@
     color: var(--text-color-3);
 }
 
-@media (min-width: 768px) {
-    .the_menu .menu_item>a {
-        font-size: 4vw;
-    }
-}
+
 
 .menu_footer {
     bottom: 0;
