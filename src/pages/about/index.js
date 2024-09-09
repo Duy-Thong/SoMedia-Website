@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 import "./style.css"; // Make sure this includes the CSS for animations
 import { FaArrowCircleRight, FaRegHeart } from "react-icons/fa";
 import { TbMessageCircle } from "react-icons/tb";
-import { PiPaperPlaneTilt, PiHeartStraightFill } from "react-icons/pi";
-
 import home9 from "../../assets/images/home9.jpg";
 // Import your data or any other components you need
 import { dataabout, meta, departments } from "../../content_option";
@@ -108,7 +106,7 @@ export const About = () => {
                   <div className="card-footer">
                     <HeartIcon />
                     <TbMessageCircle className="icon" />
-                    <PiPaperPlaneTilt className="icon" />
+                  
                   </div>
                 </div>
               </Col>

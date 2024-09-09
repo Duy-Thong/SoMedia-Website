@@ -10,7 +10,6 @@ import { FaThreads } from "react-icons/fa6";
 
 import { socialprofils } from "../../content_option";
 
-import { BsFillThreadsFill } from "react-icons/bs";
 
 export const Socialicons = () => {
   return (
@@ -53,13 +52,6 @@ export const Socialicons = () => {
           </li>
         )}
 
-        {socialprofils.threads && (
-          <li>
-            <a href={socialprofils.threads}>
-              <BsFillThreadsFill />
-            </a>
-          </li>
-        )}
       </ul>
       <p style={{ fontSize: "15px" }}>Follow Us</p>
     </div>
