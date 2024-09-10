@@ -20,7 +20,7 @@ export const Recruit = () => {
         <Preloader />
         <div className="backgroundvideo" style={{ backgroundColor: 'rgba(0,0,0,1)' }}></div>
         <div className="backgroundvideo" id="backvideo" >
-          <video autoPlay loop style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: '-1', bottom: '20px' }}>
+          <video autoPlay loop muted style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', zIndex: '-1', bottom: '20px' }}>
             <source src="/TVC.mp4" type="video/mp4" />
           </video>
         </div>
