@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Container, Row, Col } from 'react-bootstrap';
-import { activitiesData } from '../../content_option';
+import axios from 'axios';
+
 
 export const AnualActivities = () => {
-    const [activities, setActivities] = useState([]);
+    const [data, setData] = useState([]);
+    useEffect( function loadData(){
+        async function fetchData() {
+            try {
+                const response = await axios.get('https://sobackend.vercel.app/api/annual', {
+                    withCredentials: true,
+                });
+                setData(response.data);
+            } catch(error) {
+                console.error('Error fetching data:', error);
+            }
+            
+        }
+        fetchData();
 
+    },[]);
     // useEffect to set initial state
-    useEffect(() => {
-        setActivities(activitiesData);
-    }, []);
     const [isAnimated, setIsAnimated] = useState(false);
     useEffect(() => {
         setIsAnimated(true);
@@ -21,11 +32,11 @@ export const AnualActivities = () => {
                 <h2 className="text-center">Annual Activities</h2>
                 <hr />
                 <Row>
-                    {activities.map((activity, index) => (
+                    {data.map((data, index) => (
                         <div key={index} className={`activity ${isAnimated ? "slide-in-left" : ""}`} >
-                            <img loading="lazy"src={activity.img} alt={`Activity ${index + 1}`} className="imageactive black-and-white" />
+                            <img loading="lazy"src={data.annualImg} alt={`Activity ${index + 1}`} className="imageactive black-and-white" />
                             <div className="textactive">
-                                <strong>{activity.time}:</strong> {activity.description}
+                                <strong>{data.annualTime}:</strong> {data.annualName}
                             </div>
                         </div>
                     ))}
