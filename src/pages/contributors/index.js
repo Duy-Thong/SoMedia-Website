@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
-import "./style.css";
+import "./style.scss";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
-import { dataportfolio, meta } from "../../content_option";
+import { contributors, meta } from "../../content_option";
 import backimg from "../../assets/images/home2.jpg";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
 import Preloader from "../../components/preload/Pre";
-export const Portfolio = () => {
+import { BsGithub } from "react-icons/bs";
+import { IoLogoReact } from "react-icons/io5";
+import { FaPhp } from "react-icons/fa";
+import { IoLogoVercel } from "react-icons/io5";
+import scroll from "../../assets/scroll.jpg";
+export const Contributors = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -27,35 +32,39 @@ export const Portfolio = () => {
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
-          <title> Projects | {meta.title} </title>{" "}
-          <meta name="description" content={meta.description} />
+          <title>Contributors | {meta.title} </title>{" "}
+          <meta name="description" content="Page sieu cap vjp pro" />
         </Helmet>
         <Preloader />
-        <div className="backgroundvideo grain" >
-          <img loading="lazy" src={backimg} alt="background" />
+        <div className="backgroundvideo" >
+          <div id="stars-container">
+            <div id='stars'></div>
+            <div id='stars2'></div>
+            <div id='stars3'></div>
+          </div>
         </div>
         <Row className="mb-1 mt-3 pt-md-3">
           <Col lg="8">
-            <h1 className="display-4 mb-4"> Our Projects </h1>{" "}
+            <h1 className="display-4 mb-4 text-left" > Special thanks to </h1>{" "}
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
-        <div className="mb-5 po_items_ho fade-in-top">
-          {dataportfolio.map((data, i) => {
+        <div className="mb-5 contributors fade-in-top">
+          {contributors.map((data, i) => {
             return (
-              <div key={i} className="po_item">
-                <img loading="lazy" src={data.img} alt="" />
+              <div key={i} className="po_item contributorcard">
+                <img loading="lazy" src={data.image} alt="" />
                 <div className="content">
-                  <p>{data.description}</p>
-                  <a href={data.link} target="_blank" rel="noreferrer">View Project</a>
+                  <h3 style={{ fontSize: '20px' }}>{data.name}</h3>
+                  <p style={{ fontSize: '15px' }}>{data.description}</p>
+                  <a className="githublink" href={data.github}><BsGithub /></a>
                 </div>
               </div>
             );
           })}
         </div>
-        <Row className="mb-1 mt-3 pt-md-3">
+        <hr></hr>
 
-        </Row>
       </Container>
     </HelmetProvider>
   );
