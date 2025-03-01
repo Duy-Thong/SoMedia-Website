@@ -1,0 +1,545 @@
+{
+  "logotext": "So Media",
+  "meta": {
+    "title": "So Media",
+    "description": "We are the So Media Club at PTIT. Here, you'll have the opportunity to sharpen your media skills, expand your network, and participate in a wide range of exciting and dynamic activities."
+  },
+  "contactConfig": {
+    "YOUR_EMAIL": "clbsomediaptit@gmail.com",
+    "YOUR_FONE": "(+84) 0918165458",
+    "YOUR_ADDRESS": "Posts and Telecommunications Institute of Technology, Km 10 Nguyen Trai, Hanoi, Vietnam",
+    "description": "Let's do something interesting together!",
+    "YOUR_SERVICE_ID": "service_u6zo9qt",
+    "YOUR_TEMPLATE_ID": "template_34mz99q",
+    "YOUR_USER_ID": "uI2wlAs7frUBvbJkG"
+  },
+  "socialprofils": {
+    "facebook": "https://www.facebook.com/somedia.vn.2016",
+    "instagram": "https://www.instagram.com/so_media_2016/",
+    "tiktok": "https://www.tiktok.com/@clbsomedia",
+    "youtube": "https://www.youtube.com/c/S%E1%BB%95Media2016",
+    "threads": "https://www.threads.net/@so_media_2016"
+  },
+  "introdata": {
+    "title": "We are So Media ",
+    "animated": {
+      "first": "Photography",
+      "second": "Videography",
+      "third": "Design",
+      "fourth": "Content creation"
+    },
+    "description": "We are the So Media Club at PTIT. Here, you'll have the opportunity to sharpen your media skills, expand your network, and participate in a wide range of exciting and dynamic activities."
+  },
+  "dataabout": {
+    "title": "About",
+    "aboutme": "Founded in 2016 by three passionate individuals, So Media is the hub for students at PTIT who are enthusiastic about photography, videography, and design. Joining So Media means becoming part of a vibrant, energetic, and enthusiastic community. Today, So Media stands as one of the premier photography and videography groups at PTIT, playing a key role in both internal and external events.",
+    "goals": "So Media aims to be the ultimate platform for students to connect and nurture their passion in photography, videography, and design. Our top priority is the growth of our members. We are committed to fostering a professional and creative environment where members can freely express their ideas and hone their skills."
+  },
+  "departments": [
+    {
+      "name": "Media",
+      "description": "As the club's largest department, Media is at the forefront of capturing moments through photography and videography at various events. They also produce content like photos and videos that drive the club's communication efforts.",
+      "image": "./assets/departments/media.jpg",
+      "second_img": "https://img.icons8.com/ios/50/000000/camera.png"
+    },
+    {
+      "name": "Communication",
+      "description": "The Communication Department crafts engaging content and manages the club's social media presence, spreading positive and informative messages. They also play a key role in planning and organizing club events.",
+      "image": "./assets/departments/communication.png",
+      "second_img": "https://img.icons8.com/ios/50/000000/camera.png"
+    },
+    {
+      "name": "Design",
+      "description": "The Design Department is where creativity thrives. Known for its vibrant and imaginative members, this team produces visual assets such as logos, posters, and banners, using design software like Photoshop and Illustrator.",
+      "image": "./assets/departments/design.jpg",
+      "second_img": "https://img.icons8.com/ios/50/000000/camera.png"
+    },
+    {
+      "name": "Human Resources",
+      "description": "Though often working behind the scenes, the Human Resources department is vital to the club's operations. They manage member activities and handle the logistics that ensure the smooth running of club events.",
+      "image": "./assets/departments/hr.jpg",
+      "second_img": "https://img.icons8.com/ios/50/000000/camera.png"
+    }
+  ],
+  "slides": [
+    {
+      "src": "./assets/active/picnic2024.jpg",
+      "alt": "Picnic 2024",
+      "description": "Teambuilding 2024"
+    },
+    {
+      "src": "./assets/active/birthday.jpg",
+      "alt": "Image 1 for carousel",
+      "description": "So Media 6th Birthday"
+    },
+    {
+      "src": "./assets/active/birthday2024.jpg",
+      "alt": "Image 10 for carousel",
+      "description": "So Media 7th Birthday"
+    },
+    {
+      "src": "./assets/active/tvc.jpg",
+      "alt": "Image 4 for carousel",
+      "description": "TVC 2023 - The Growth"
+    },
+    {
+      "src": "./assets/active/profile.jpg",
+      "alt": "Image 10 for carousel",
+      "description": "Profile Shooting"
+    },
+    {
+      "src": "./assets/active/welcomed23.jpg",
+      "alt": "Image 8 for carousel",
+      "description": "Welcome D23 PTIT"
+    },
+    {
+      "src": "./assets/active/pchain.jpg",
+      "alt": "Image 8 for carousel",
+      "description": "Welcome D22 PTIT - The P-chain"
+    },
+    {
+      "src": "./assets/active/break2.jpg",
+      "alt": "Image 10 for carousel",
+      "description": "Welcome D23 PTIT - Break the Shell 2023"
+    },
+    {
+      "src": "./assets/active/trainingd22.jpg",
+      "alt": "Image 7 for carousel",
+      "description": "Training photography 2022"
+    },
+    {
+      "src": "./assets/active/trainingd23.jpg",
+      "alt": "Image 7 for carousel",
+      "description": "Training photography 2023"
+    },
+    {
+      "src": "./assets/active/interview2023.jpg",
+      "alt": "Image 5 for carousel",
+      "description": "So Media Interview 2023"
+    },
+    {
+      "src": "./assets/active/hoibao.jpg",
+      "alt": "Image 2 for carousel",
+      "description": "National newspaper youth camp 2023"
+    },
+    {
+      "src": "./assets/active/insideout.jpg",
+      "alt": "Image 4 for carousel",
+      "description": "Inside Out photography contest"
+    },
+    {
+      "src": "./assets/active/outdoor.jpg",
+      "alt": "Image 6 for carousel",
+      "description": "Outdoor photography "
+    },
+    {
+      "src": "./assets/active/outdoor1.jpg",
+      "alt": "Image 6 for carousel",
+      "description": "Street photography "
+    },
+    {
+      "src": "./assets/active/boyday1911.jpg",
+      "alt": "Image 3 for carousel",
+      "description": "Men's Day 19/11"
+    },
+    {
+      "src": "./assets/active/womanday.jpg",
+      "alt": "Image 9 for carousel",
+      "description": "Vietnamese Woman's Day"
+    },
+    {
+      "src": "./assets/active/womanday.jpg",
+      "alt": "Image 10 for carousel",
+      "description": "International Women's Day"
+    }
+  ],
+  "activitiesData": [
+    {
+      "time": "September",
+      "description": "Recruit members ",
+      "img": "./assets/active/recruitment.jpg"
+    },
+    {
+      "time": "October",
+      "description": "School events",
+      "img": "./assets/active/chaotan.jpg"
+    },
+    {
+      "time": "November",
+      "description": "Vietnamese Teacher's Day and School events",
+      "img": "./assets/active/teacherday.jpg"
+    },
+    {
+      "time": "November",
+      "description": "Sponsor for events",
+      "img": "./assets/active/tedhanu.jpg"
+    },
+    {
+      "time": "December",
+      "description": "Training new Gen",
+      "img": "./assets/active/trainingd23.jpg"
+    },
+    {
+      "time": "March",
+      "description": "Youth Month activities",
+      "img": "./assets/active/hoibao2.jpg"
+    },
+    {
+      "time": "April",
+      "description": "Club Birthday",
+      "img": "./assets/active/birthday.jpg"
+    },
+    {
+      "time": "May",
+      "description": "Photo Contest",
+      "img": "./assets/active/contest.jpg"
+    },
+    {
+      "time": "July",
+      "description": "Picnic",
+      "img": "./assets/active/picnic2024.jpg"
+    }
+  ],
+  "dataportfolio": [
+    {
+      "img": "./assets/projects/tvc.jpg",
+      "description": "So Media TVC 2023 - The Growth",
+      "link": "https://www.youtube.com/watch?v=ZrfJXRTsrEo"
+    },
+    {
+      "img": "./assets/projects/profileshooting.png",
+      "description": "Profile Shooting 2023",
+      "link": "https://www.facebook.com/somedia.vn.2016/videos/198116229592288/"
+    },
+    {
+      "img": "./assets/projects/dongphucptit.png",
+      "description": "Dong phuc PTIT 2023",
+      "link": "https://www.facebook.com/somedia.vn.2016/videos/305607272023242"
+    },
+    {
+      "img": "./assets/projects/tedxhanu.jpg",
+      "description": "TEDxHANU 2023",
+      "link": "https://www.facebook.com/tedxhanu/videos/1365086274436809"
+    },
+    {
+      "img": "./assets/projects/kachofugetsu.jpg",
+      "description": "KACHOUFUUGETSU HANU",
+      "link": "https://www.facebook.com/100063582549627/videos/1459914988185464"
+    },
+    {
+      "img": "./assets/projects/ngaydautienptit.png",
+      "description": "MV Ngay dau tien PTIT Version ",
+      "link": "https://www.youtube.com/watch?v=y7Y7VtKb9rY"
+    },
+    {
+      "img": "./assets/projects/breaktheshell.jpg",
+      "description": "BREAK THE SHELL",
+      "link": "https://www.facebook.com/share/v/cuTCEFhncdc92YCf/"
+    },
+    {
+      "img": "./assets/projects/pchain.png",
+      "description": "THE P-CHAIN 2022",
+      "link": "https://www.facebook.com/somedia.vn.2016/videos/941481530159388"
+    },
+    {
+      "img": "./assets/projects/agriup.jpg",
+      "description": "AGRIUP 2023 - NEU",
+      "link": "https://www.facebook.com/agriup.NEU/videos/2103583136647621"
+    }
+  ],
+  "recruitmentpage": {
+    "title1": "Through training by experienced professionals in photography, videography, design, layout, critical thinking, color theory, and software applications, you'll develop essential skills that will benefit both your studies and future career.",
+    "title2": "Not only will you gain knowledge, but you'll also develop soft skills like event organization, team management, and teamwork through the various events the club organizes.",
+    "button": "Apply Now !",
+    "applylink": "https://docs.google.com/forms/d/e/1FAIpQLSdHWX3QwroaEbd-e-8ewjn4tb1Q7jDH3v_WeUM_p5_qbWo8XQ/viewform"
+  },
+  "Prizes": [
+    {
+      "jobtitle": "First prize of the contest 'Nét đẹp trường P' ",
+      "where": "PTIT",
+      "date": "2022"
+    },
+    {
+      "jobtitle": "Club has excellent achievements in union activities and youth movements",
+      "where": "PTIT",
+      "date": "2022-2023"
+    },
+    {
+      "jobtitle": "Third prize of the contest 'Đồng phục PTIT' ",
+      "where": "PTIT",
+      "date": "2023"
+    }
+  ],
+  "humans": [
+    {
+      "image": "./assets/humans/anhtuyen.jpg",
+      "name": "Vu Cong Tuyen",
+      "description": "Founder",
+      "detail": "Founder, President 2017-2020"
+    },
+    {
+      "image": "./assets/humans/anhchau.jpg",
+      "name": "Duong Quang Chau",
+      "description": "Co-founder",
+      "detail": ""
+    },
+    {
+      "image": "./assets/humans/anhminh.jpg",
+      "name": "Bui Quang Minh",
+      "description": "Co-founder",
+      "detail": ""
+    },
+    {
+      "image": "./assets/humans/tramy.jpg",
+      "name": "Le Thi Tra My",
+      "description": "Gen 1",
+      "detail": "Vice President 2018-2019 and 2019-2020"
+    },
+    {
+      "image": "./assets/humans/theloc.jpg",
+      "name": "Nguyen The Loc",
+      "description": "Gen 1",
+      "detail": "Vice President 2018-2019 and 2019-2020"
+    },
+    {
+      "image": "./assets/humans/thethuan.jpg",
+      "name": "Nguyen The Thuan",
+      "description": "Gen 1",
+      "detail": "Vice President 2018-2019 and 2019-2020"
+    },
+    {
+      "image": "./assets/humans/anhkhoa.jpg",
+      "name": "Nguyen Dang Khoa",
+      "description": "Gen 3",
+      "detail": "President for the 2020-2021 and 2021-2022 terms."
+    },
+    {
+      "image": "./assets/humans/nhuquynh.jpg",
+      "name": "Nguyen Nhu Quynh",
+      "description": "Gen 3",
+      "detail": "Vice president for the 2020-2021 and 2021-2022 terms."
+    },
+    {
+      "image": "./assets/humans/thuphuong.jpg",
+      "name": "Bui Thi Thu Phuong",
+      "description": "Gen 3",
+      "detail": "Head of Internal Affairs Department for the 2020-2021 term and Vice President for the 2021-2022 term."
+    },
+    {
+      "image": "./assets/humans/bichvan.jpg",
+      "name": "Dao Thi Bich Van",
+      "description": "Gen 3",
+      "detail": "Head of External Affairs Department for the 2020-2021 term."
+    },
+    {
+      "image": "./assets/humans/vanhieu.jpg",
+      "name": "Nguyen Van Hieu",
+      "description": "Gen 3",
+      "detail": "Head of Design Department for the 2020-2021 term."
+    },
+    {
+      "image": "./assets/humans/hamanhhoang.jpg",
+      "name": "Ha Manh Hoang",
+      "description": "Gen 3",
+      "detail": "Head of Media Department for the 2021-2022 term."
+    },
+    {
+      "image": "./assets/humans/anhduc.jpg",
+      "name": "Nguyen Minh Duc",
+      "description": "Gen 3",
+      "detail": "Member has actively contributed to the club's activities."
+    },
+    {
+      "image": "./assets/humans/anhnam.jpg",
+      "name": "Pham Khac Hoai Nam",
+      "description": "Gen 4",
+      "detail": "The club president for the 2022-2023 term, Head of Head of Communications Department for the 2021-2022 term."
+    },
+    {
+      "image": "./assets/humans/khanhvan.jpg",
+      "name": "Nguyen Khanh Van",
+      "description": "Gen 4",
+      "detail": "The vice president of the club for the 2022-2023 term, Head of External Affairs Department for the 2021-2022 term."
+    },
+    {
+      "image": "./assets/humans/thuytrang.jpg",
+      "name": "Nguyen Thi Thuy Trang",
+      "description": "Gen 4",
+      "detail": "The vice president of the club for the 2022-2023 term, Head of Design Department for the 2021-2022 term."
+    },
+    {
+      "image": "./assets/humans/thanhthao.jpg",
+      "name": "Nguyen Thi Thanh Thao",
+      "description": "Gen 4",
+      "detail": "Deputy Head of Foreign Affairs Department for the 2021-2022 term."
+    },
+    {
+      "image": "./assets/humans/vuminhtu.jpg",
+      "name": "Vu Minh Tu",
+      "description": "Gen 4",
+      "detail": "Deputy Head of Media Department for the 2021-2022 term."
+    },
+    {
+      "image": "./assets/humans/duythong.jpg",
+      "name": "Dao Duy Thong",
+      "description": "Gen 5",
+      "detail": "The club president for the 2023-2024 term, Head of Media Department for the 2022-2023 term."
+    },
+    {
+      "image": "./assets/humans/trinhtrang.jpg",
+      "name": "Trinh Thuy Trang",
+      "description": "Gen 5",
+      "detail": "The vice president of the club for the 2023-2024 term, Head of Human Resources Department for the 2022-2023 term."
+    },
+    {
+      "image": "./assets/humans/vantruc.jpg",
+      "name": "Nguyen Thi Van Truc",
+      "description": "Gen 5",
+      "detail": "Head of Communications Department for the 2022-2023 term."
+    },
+    {
+      "image": "./assets/humans/thaothao.JPG",
+      "name": "Le Thi Phuong Thao",
+      "description": "Gen 5",
+      "detail": "Deputy Head of Human Resources Department for the 2022-2023 term."
+    },
+    {
+      "image": "./assets/humans/trongnghia.jpg",
+      "name": "Nguyen Kim Trong Nghia",
+      "description": "Gen 5",
+      "detail": "Head of Design Department for the 2022-2023 term."
+    },
+    {
+      "image": "./assets/humans/quynhanh.jpg",
+      "name": "Mai Thi Quynh Anh",
+      "description": "Gen 5",
+      "detail": "Deputy Head of Design Department for the 2022-2023 term."
+    },
+    {
+      "image": "./assets/humans/nguyenngoclan1.jpeg",
+      "name": "Nguyen Ngoc Lan",
+      "description": "Gen 6",
+      "detail": "The club president for the 2024-2025 term, Head of Media Department for the 2023-2024 term."
+    },
+    {
+      "image": "./assets/humans/nguyenvanchien.jpg",
+      "name": "Nguyen Van Chien",
+      "description": "Gen 6",
+      "detail": "Deputy Head of Media Department for the 2023-2024 term."
+    },
+    {
+      "image": "./assets/humans/tongngockien.jpg",
+      "name": "Tong Ngoc Kien",
+      "description": "Gen 6",
+      "detail": "Head of Communications Department for the 2023-2024 term."
+    },
+    {
+      "image": "./assets/humans/nguyenthuyanh.jpg",
+      "name": "Nguyen Thuy Anh",
+      "description": "Gen 6",
+      "detail": "Deputy Head of Communications Department for the 2023-2024 term."
+    },
+    {
+      "image": "./assets/humans/nguyenthithan1.jpg",
+      "name": "Nguyen Thi Than",
+      "description": "Gen 6",
+      "detail": "The vice president of the club for the 2024-2025 term, Head of Design Department for the 2023-2024 term."
+    },
+    {
+      "image": "./assets/humans/ngothuyanh.JPG",
+      "name": "Ngo Thuy Anh",
+      "description": "Gen 6",
+      "detail": "The vice president of the club for the 2024-2025 term."
+    },
+    {
+      "image": "./assets/humans/ngothuha.jpg",
+      "name": "Nguyen Thu Ha",
+      "description": "Gen 6",
+      "detail": "Deputy Head of Design Department for the 2023-2024 term."
+    },
+    {
+      "image": "./assets/humans/ngokimanh.jpg",
+      "name": "Ngo Kim Anh",
+      "description": "Gen 6",
+      "detail": "Head of Human Resources Department for the 2023-2024 term."
+    },
+    {
+      "image": "./assets/humans/vietphong.jpeg",
+      "name": "Dinh Viet Phong",
+      "description": "Gen 7",
+      "detail": "Head of Design Department for the 2024-2025 term."
+    },
+    {
+      "image": "./assets/humans/phucuong.PNG",
+      "name": "Dinh Chinh Phu Cuong",
+      "description": "Gen 7",
+      "detail": "Deputy Head of Design Department for the 2024-2025 term."
+    },
+    {
+      "image": "./assets/humans/UYENNHI.jpg",
+      "name": "Pham Uyen Nhi",
+      "description": "Gen 7",
+      "detail": "Head of Human Resources Department for the 2024-2025 term."
+    },
+    {
+      "image": "./assets/humans/chuthao.JPG",
+      "name": "Chu Minh Thao",
+      "description": "Gen 7",
+      "detail": "Deputy Head of Human Resources Department for the 2024-2025 term."
+    },
+    {
+      "image": "./assets/humans/huumanh.JPG",
+      "name": "Dang Huu Manh",
+      "description": "Gen 7",
+      "detail": "Head of Media Department for the 2024-2025 term."
+    },
+    {
+      "image": "./assets/humans/tuanthanh.JPG",
+      "name": "Nguyen Tuan Thanh",
+      "description": "Gen 6",
+      "detail": "Deputy Head of Media Department for the 2024-2025 term."
+    },
+    {
+      "image": "./assets/humans/nguyenhaphuong.JPG",
+      "name": "Nguyen Ha Phuong",
+      "description": "Gen 7",
+      "detail": "Head of Communications Department for the 2024-2025 term."
+    },
+    {
+      "image": "./assets/humans/haiduong.JPG",
+      "name": "Hoang Hai Duong",
+      "description": "Gen 7",
+      "detail": "Deputy Head of Communications Department for the 2024-2025 term."
+    }
+  ],
+  "contributors": [
+    {
+      "image": "./assets/humans/duythong.jpg",
+      "name": "Dao Duy Thong",
+      "description": "Frontend Developer",
+      "detail": " ",
+      "github": "https://github.com/Duy-Thong"
+    },
+    {
+      "image": "./assets/humans/anhnam.jpg",
+      "name": "Pham Khac Hoai Nam",
+      "description": "Backend Developer",
+      "detail": " ",
+      "github": "https://github.com/hncs28"
+    },
+    {
+      "image": "./assets/humans/nguyenthithan1.jpg",
+      "name": "Nguyen Thi Than",
+      "description": "Frontend Contributor",
+      "detail": " ",
+      "github": "https://github.com/Thanholadeptrai"
+    },
+    {
+      "image": "./assets/contributors/tiendat.jpg",
+      "name": "Nguyen Tien Dat",
+      "description": "Frontend Contributor",
+      "detail": " ",
+      "github": "https://github.com/tiendatngn"
+    }
+  ]
+}
