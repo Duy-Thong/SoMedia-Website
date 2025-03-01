@@ -3,7 +3,7 @@ import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
     databaseURL: 'https://somedia-dbede-default-rtdb.asia-southeast1.firebasedatabase.app',
-    // Add other Firebase config options if needed
+    // Add other Firebase config properties as needed
 };
 
 // Initialize Firebase
