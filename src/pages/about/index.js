@@ -10,18 +10,71 @@ import { TbMessageCircle } from "react-icons/tb";
 import { PiPaperPlaneTilt, PiHeartStraightFill } from "react-icons/pi";
 
 import home9 from "../../assets/images/home9.jpg";
-// Import your data or any other components you need
-import { dataabout, meta, departments } from "../../content_option";
+// Import Firebase database
+import { database } from "../../firebase/config";
+import { ref, get } from "firebase/database";
+// Import fallback data
+import { dataabout as fallbackDataAbout, meta as fallbackMeta, departments as fallbackDepartments } from "../../content_option";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
+import Preloader from "../../components/preload/Pre";
 
 // Define the About component
 export const About = () => {
+  // State for data
+  const [dataabout, setDataabout] = useState(fallbackDataAbout);
+  const [meta, setMeta] = useState(fallbackMeta);
+  const [departments, setDepartments] = useState(fallbackDepartments);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch data from Firebase
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch dataabout
+        const dataaboutRef = ref(database, 'dataabout');
+        const dataaboutSnapshot = await get(dataaboutRef);
+
+        if (dataaboutSnapshot.exists()) {
+          setDataabout(dataaboutSnapshot.val());
+        }
+
+        // Fetch meta
+        const metaRef = ref(database, 'meta');
+        const metaSnapshot = await get(metaRef);
+
+        if (metaSnapshot.exists()) {
+          setMeta(metaSnapshot.val());
+        }
+
+        // Fetch departments
+        const departmentsRef = ref(database, 'departments');
+        const departmentsSnapshot = await get(departmentsRef);
+
+        if (departmentsSnapshot.exists()) {
+          const departmentsData = [];
+          departmentsSnapshot.forEach((childSnapshot) => {
+            departmentsData.push(childSnapshot.val());
+          });
+          setDepartments(departmentsData);
+        }
+      } catch (error) {
+        console.error("Error fetching data from Firebase:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const background = document.querySelector('.backgroundvideo img');
-      const blur = scrollPosition * 0.015; // Làm mờ ảnh
-      background.style.filter = `blur(${blur}px) brightness(0.6)`; // Làm mờ ảnh
+      if (background) {
+        const blur = scrollPosition * 0.015; // Làm mờ ảnh
+        background.style.filter = `blur(${blur}px) brightness(0.6)`; // Làm mờ ảnh
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -37,6 +90,10 @@ export const About = () => {
   useEffect(() => {
     setIsAnimated(true);
   }, []);
+
+  if (loading) {
+    return <Preloader />;
+  }
 
   return (
     <HelmetProvider>

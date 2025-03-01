@@ -22,7 +22,7 @@ export const ContactUs = () => {
       try {
         const contactConfigRef = ref(database, 'contactConfig');
         const snapshot = await get(contactConfigRef);
-        
+
         if (snapshot.exists()) {
           setContactConfig(snapshot.val());
         }
@@ -32,7 +32,7 @@ export const ContactUs = () => {
         setLoading(false);
       }
     };
-    
+
     fetchContactConfig();
   }, []);
 
@@ -124,7 +124,7 @@ export const ContactUs = () => {
         </Helmet>
         <Preloader />
         <div className="backgroundvideo grain">
-          <img loading="lazy"src={home6} alt="background" />
+          <img loading="lazy" src={home6} alt="background" />
 
         </div>
         <Row className="mb-5 mt-3 pt-md-3">
