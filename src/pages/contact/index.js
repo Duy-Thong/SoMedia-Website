@@ -4,12 +4,38 @@ import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { meta } from "../../content_option";
 import { Container, Row, Col, Alert } from "react-bootstrap";
-import { contactConfig } from "../../content_option";
+import { contactConfig as localContactConfig } from "../../content_option";
 import Typewriter from "typewriter-effect";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
 import Preloader from "../../components/preload/Pre";
 import home6 from "../../assets/images/home6.jpg";
+import { database } from "../../firebase/config";
+import { ref, get } from "firebase/database";
+
 export const ContactUs = () => {
+  const [contactConfig, setContactConfig] = useState(localContactConfig);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch contact config from Firebase
+  useEffect(() => {
+    const fetchContactConfig = async () => {
+      try {
+        const contactConfigRef = ref(database, 'contactConfig');
+        const snapshot = await get(contactConfigRef);
+        
+        if (snapshot.exists()) {
+          setContactConfig(snapshot.val());
+        }
+      } catch (error) {
+        console.error("Error fetching contact config:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchContactConfig();
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -36,7 +62,7 @@ export const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormdata({ loading: true });
+    setFormdata({ ...formData, loading: true });
 
     const templateParams = {
       email: formData.email,
@@ -56,6 +82,7 @@ export const ContactUs = () => {
         (result) => {
           console.log(result.text);
           setFormdata({
+            ...formData,
             loading: false,
             alertmessage: "SUCCESS! ,Thankyou for your messege",
             variant: "success",
@@ -65,6 +92,7 @@ export const ContactUs = () => {
         (error) => {
           console.log(error.text);
           setFormdata({
+            ...formData,
             alertmessage: `Failed to send!,${error.text}`,
             variant: "danger",
             show: true,
@@ -80,6 +108,10 @@ export const ContactUs = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  if (loading) {
+    return <Preloader />;
+  }
 
   return (
     <HelmetProvider>
@@ -106,7 +138,7 @@ export const ContactUs = () => {
             <Alert
               variant={formData.variant}
               className={`rounded-0 co_alert ${formData.show ? "d-block" : "d-none"}`}
-              onClose={() => setFormdata({ show: false })}
+              onClose={() => setFormdata({ ...formData, show: false })}
               dismissible
             >
               <p className="my-0">{formData.alertmessage}</p>
