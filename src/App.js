@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'antd/dist/reset.css'; // Add this import for Ant Design styles
 import AdminLogin from './pages/admin/login/AdminLogin';
 import AdminDashboard from './pages/admin/dashboard/AdminDashboard';
 // Import placeholder components for management pages
@@ -23,6 +26,7 @@ function App() {
                 <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
                 <Route path="/" element={<Navigate to="/admin/login" replace />} />
             </Routes>
+            <ToastContainer position="top-right" autoClose={3000} />
         </Router>
     );
 }

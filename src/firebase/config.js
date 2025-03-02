@@ -1,11 +1,11 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set, get } from 'firebase/database';
-import { 
-    getAuth, 
-    signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword, 
+import { getDatabase, ref, set, get, remove, update, query, orderByChild } from 'firebase/database';
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
     signOut,
-    onAuthStateChanged 
+    onAuthStateChanged
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -25,5 +25,14 @@ export const auth = getAuth(app);
 export const dbRef = ref;
 export const dbSet = set;
 export const dbGet = get;
+export const dbRemove = remove;
+export const dbUpdate = update;
+export const dbQuery = query;
+export const dbOrderByChild = orderByChild;
 export const db = database;
-export { onAuthStateChanged, signOut };
+export {
+    onAuthStateChanged,
+    signOut,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
+};
