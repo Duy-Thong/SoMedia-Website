@@ -36,3 +36,5 @@ export {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword
 };
+
+export default database;
