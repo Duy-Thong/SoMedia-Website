@@ -1,19 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { lazyWithPreload } from "react-lazy-with-preload";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
-import { introdata, meta } from "../../content_option";
 import { Link } from "react-router-dom";
+import { database } from "../../firebase/config";
+import { ref, get } from "firebase/database";
 
 // Lazy load and preload the Activities component
 const Activities = lazyWithPreload(() => import("../activities/activeslide"));
-Activities.preload(); // Start preloading the component
+Activities.preload();
 
 export const Home = () => {
+  const [meta, setMeta] = useState({});
+  const [introdata, setIntrodata] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const metaRef = ref(database, 'meta');
+      const introdataRef = ref(database, 'introdata');
+
+      try {
+        const [metaSnapshot, introdataSnapshot] = await Promise.all([
+          get(metaRef),
+          get(introdataRef)
+        ]);
+
+        if (metaSnapshot.exists()) {
+          setMeta(metaSnapshot.val());
+        }
+        if (introdataSnapshot.exists()) {
+          setIntrodata(introdataSnapshot.val());
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <HelmetProvider>
-      
       <section id="home" className="home">
         <Helmet>
           <meta charSet="utf-8" />
@@ -36,12 +64,12 @@ export const Home = () => {
                   <h1 className="fluidz-48 mb-1x">
                     <Typewriter
                       options={{
-                        strings: [
+                        strings: introdata.animated ? [
                           introdata.animated.first,
                           introdata.animated.second,
                           introdata.animated.third,
                           introdata.animated.fourth,
-                        ],
+                        ] : [],
                         autoStart: true,
                         loop: true,
                         deleteSpeed: 10,
