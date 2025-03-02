@@ -54,7 +54,6 @@ export const Portfolio = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  const BASE_URL = "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com";
   return (
     <HelmetProvider>
       <FocusRing />
@@ -85,7 +84,7 @@ export const Portfolio = () => {
               <div key={i} className="po_item">
                 <img
                   loading="lazy"
-                  src={`${BASE_URL}${data.img}`}
+                  src={data.img}
                   alt=""
                   onError={(e) => {
                     console.error(`Failed to load image: ${data.img}`);

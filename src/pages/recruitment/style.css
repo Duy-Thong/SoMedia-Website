@@ -114,10 +114,10 @@
     white-space: pre-wrap !important;
     /* Maintains whitespace but allows wrapping */
     text-wrap: balance !important;
-    margin-top: 40px!important;
+    margin-top: 10px !important;
     background-color: rgba(0, 0, 0, 0.3);
     font-size: medium;
-    text-align: left; 
+    text-align: left;
 }
 
 .learninfor {
@@ -159,7 +159,7 @@
     }
 
     .inforrow {
-        margin-top: 30px;
+        margin-top: 10px;
     }
 
     #button_apply {
@@ -176,7 +176,18 @@
     .qrcode {
         max-width: 100px;
     }
+
+    /* Hide timeline on mobile */
+    .ant-steps {
+        display: none !important;
+    }
+
+    /* Hide timeline title on mobile */
+    .rightcol h3:first-child {
+        display: none !important;
+    }
 }
+
 .qrcode {
     max-width: 120px;
 }
@@ -193,4 +204,191 @@
     align-items: center;
     /* Căn giữa theo chiều dọc */
     text-align: center;
+}
+
+.ant-timeline {
+    color: white !important;
+}
+
+.ant-timeline-item-content {
+    color: white !important;
+}
+
+/* Horizontal Timeline Styles */
+.ant-timeline {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 20px 0;
+}
+
+.ant-timeline-item {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 40px !important;
+    position: relative;
+    /* Added for line positioning */
+}
+
+/* Add connecting lines */
+.ant-timeline-item-tail {
+    display: block !important;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    height: 2px !important;
+    /* Line thickness */
+    width: calc(100% - 10px) !important;
+    border-top: 2px solid #1890ff !important;
+    /* Line color */
+}
+
+/* Ensure dots are visible */
+.ant-timeline-item-head {
+    background: #1890ff !important;
+    width: 10px !important;
+    height: 10px !important;
+    border: 0 !important;
+}
+
+.ant-timeline-item-content {
+    white-space: normal;
+    text-align: left;
+    min-width: 200px;
+    margin-left: 20px !important;
+    /* Space between dot and content */
+}
+
+/* Hide scrollbar but keep functionality */
+.ant-timeline::-webkit-scrollbar {
+    height: 6px;
+}
+
+.ant-timeline::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.ant-timeline::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .ant-timeline-item {
+        padding-right: 20px !important;
+    }
+
+    .ant-timeline-item-content {
+        min-width: 150px;
+    }
+}
+
+/* Steps styling */
+.ant-steps {
+    background: transparent !important;
+}
+
+/* White dots */
+.ant-steps-icon-dot {
+    background: white !important;
+}
+
+.ant-steps-item-process .ant-steps-icon-dot {
+    background: white !important;
+}
+
+.ant-steps-item-finish .ant-steps-icon-dot {
+    background: white !important;
+}
+
+/* White connecting lines */
+.ant-steps-item-tail::after {
+    background-color: white !important;
+    width: 100% !important;
+}
+
+.ant-steps-item-finish .ant-steps-item-tail::after {
+    background-color: white !important;
+    width: 100% !important;
+}
+
+/* Adjust title spacing */
+.ant-steps-item-title {
+    padding-right: 15px !important;
+}
+
+.ant-steps-item-title small {
+    display: block;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.ant-steps-item-tail {
+    border-color: #1890ff !important;
+}
+
+.ant-steps-item-icon {
+    background: #1890ff !important;
+    border-color: #1890ff !important;
+}
+
+.ant-steps-item-content {
+    text-align: left;
+}
+
+.ant-steps-item-title,
+.ant-steps-item-description {
+    color: white !important;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon {
+    background: white !important;
+}
+
+.ant-steps-item-finish .ant-steps-item-tail::after {
+    background-color: #1890ff !important;
+}
+
+.ant-steps-item-finish .ant-steps-item-tail::after {
+    background-color: #1890ff !important;
+    width: 100% !important;
+}
+
+.ant-steps-item-finish .ant-steps-icon-dot {
+    background: #1890ff !important;
+}
+
+.ant-steps-item-process .ant-steps-icon-dot {
+    background: #1890ff !important;
+}
+
+.ant-steps-icon-dot {
+    background: #1890ff !important;
+}
+
+/* Make steps responsive */
+@media screen and (max-width: 768px) {
+    .ant-steps {
+        padding: 0 10px;
+    }
+
+    .ant-steps-item-content {
+        min-width: auto;
+    }
+}
+
+/* Tooltip styling */
+.ant-tooltip {
+    max-width: 300px;
+}
+
+.ant-tooltip-inner {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    padding: 10px 15px !important;
+}
+
+.ant-tooltip-inner p {
+    margin: 5px 0;
+    color: white !important;
 }
