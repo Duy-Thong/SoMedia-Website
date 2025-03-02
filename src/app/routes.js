@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import withRouter from "../hooks/withRouter"
 import { Home } from "../pages/home";
 import { Portfolio } from "../pages/portfolio";
@@ -11,41 +11,120 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Activities } from "../pages/activities";
 import { Tradition } from "../pages/traditionroom";
 import { Contributors } from "../pages/contributors";
+import AdminLogin from '../pages/admin/login/AdminLogin';
+import AdminDashboard from '../pages/admin/dashboard/AdminDashboard';
+import UserManagement from '../pages/admin/users/UserManagement';
+import HomeManagement from '../pages/admin/home/HomeManagement';
+import AboutManagement from '../pages/admin/about/AboutManagement';
+import ContactManagement from '../pages/admin/contact/ContactManagement';
+import SystemSettings from '../pages/admin/settings/SystemSettings';
+import PrivateRoute from "../components/PrivateRoute";
 import FocusRing from "../components/focusring";
 
-const AnimatedRoutes = withRouter(({ location }) => (
-  <TransitionGroup>
-    <CSSTransition
-      key={location.key}
-      timeout={{
-        enter: 400,
-        exit: 400,
-      }}
-      classNames="page"
-      unmountOnExit
-    >
+const AnimatedRoutes = withRouter(({ location }) => {
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  // Use animation only for non-admin routes
+  if (isAdminRoute) {
+    return (
       <Routes location={location}>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/activities" element={<Activities />} />
-        <Route path="/projects" element={<Portfolio />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/activities" element={<Activities />} />
-        <Route path="*" element={<Home />} />
-        <Route path="/recruitment" element={<Recruit />} />
-        <Route path="/traditionalroom" element={<Tradition />} />
-        <Route path="/contributors" element={<Contributors />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        {/* Protected admin routes */}
+        <Route
+          path="/admin/dashboard"
+          element={
+            <PrivateRoute>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/admin/users"
+          element={
+            <PrivateRoute>
+              <UserManagement />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/admin/home-management"
+          element={
+            <PrivateRoute>
+              <HomeManagement />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/admin/about-management"
+          element={
+            <PrivateRoute>
+              <AboutManagement />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/admin/contact-management"
+          element={
+            <PrivateRoute>
+              <ContactManagement />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/admin/settings"
+          element={
+            <PrivateRoute>
+              <SystemSettings />
+            </PrivateRoute>
+          }
+        />
       </Routes>
-    </CSSTransition>
-  </TransitionGroup>
-));
+    );
+  }
+
+  // Original animated routes for main website
+  return (
+    <TransitionGroup>
+      <CSSTransition
+        key={location.key}
+        timeout={{
+          enter: 400,
+          exit: 400,
+        }}
+        classNames="page"
+        unmountOnExit
+      >
+        <Routes location={location}>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/projects" element={<Portfolio />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="*" element={<Home />} />
+          <Route path="/recruitment" element={<Recruit />} />
+          <Route path="/traditionalroom" element={<Tradition />} />
+          <Route path="/contributors" element={<Contributors />} />
+        </Routes>
+      </CSSTransition>
+    </TransitionGroup>
+  );
+});
 
 function AppRoutes() {
-  return (
+  const { pathname } = useLocation();
+  const isAdminRoute = pathname.startsWith('/admin');
 
+  return (
     <div className="s_c">
       <AnimatedRoutes />
-      <Socialicons />
+      {!isAdminRoute && <Socialicons />}
     </div>
   );
 }
