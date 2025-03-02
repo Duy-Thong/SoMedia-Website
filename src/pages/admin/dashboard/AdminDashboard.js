@@ -10,6 +10,9 @@ import {
     MenuFoldOutlined,
     DashboardOutlined,
     LogoutOutlined,
+    ProfileOutlined,
+    ProjectOutlined,
+    TeamOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../firebase/config';
@@ -60,6 +63,24 @@ const AdminDashboard = () => {
             icon: <InfoCircleOutlined />,
             label: 'Quản lý trang giới thiệu',
             onClick: () => navigateTo('/admin/about-management'),
+        },
+        {
+            key: 'activities',
+            icon: <ProfileOutlined />,
+            label: 'Quản lý hoạt động',
+            onClick: () => navigateTo('/admin/activities'),
+        },
+        {
+            key: 'projects',
+            icon: <ProjectOutlined />,
+            label: 'Quản lý dự án',
+            onClick: () => navigateTo('/admin/projects'),
+        },
+        {
+            key: 'recruitment',
+            icon: <TeamOutlined />,
+            label: 'Quản lý tuyển thành viên',
+            onClick: () => navigateTo('/admin/recruitment'),
         },
         {
             key: 'contact',
@@ -132,6 +153,36 @@ const AdminDashboard = () => {
                                 <Title level={4}>Quản lý trang giới thiệu</Title>
                                 <p>Cập nhật nội dung trang giới thiệu</p>
                                 <Button type="primary" onClick={() => navigateTo('/admin/about-management')}>
+                                    Truy cập
+                                </Button>
+                            </Card>
+                        </Col>
+                        <Col xs={24} sm={12} lg={8}>
+                            <Card className="management-card" hoverable>
+                                <ProfileOutlined className="card-icon" />
+                                <Title level={4}>Quản lý hoạt động</Title>
+                                <p>Quản lý danh sách hoạt động của câu lạc bộ</p>
+                                <Button type="primary" onClick={() => navigateTo('/admin/activities')}>
+                                    Truy cập
+                                </Button>
+                            </Card>
+                        </Col>
+                        <Col xs={24} sm={12} lg={8}>
+                            <Card className="management-card" hoverable>
+                                <ProjectOutlined className="card-icon" />
+                                <Title level={4}>Quản lý dự án</Title>
+                                <p>Quản lý các dự án của câu lạc bộ</p>
+                                <Button type="primary" onClick={() => navigateTo('/admin/projects')}>
+                                    Truy cập
+                                </Button>
+                            </Card>
+                        </Col>
+                        <Col xs={24} sm={12} lg={8}>
+                            <Card className="management-card" hoverable>
+                                <TeamOutlined className="card-icon" />
+                                <Title level={4}>Quản lý tuyển thành viên</Title>
+                                <p>Quản lý thông tin tuyển thành viên mới</p>
+                                <Button type="primary" onClick={() => navigateTo('/admin/recruitment')}>
                                     Truy cập
                                 </Button>
                             </Card>

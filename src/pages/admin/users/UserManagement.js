@@ -3,11 +3,9 @@ import {
     database, dbRef, dbGet, dbSet, dbRemove, dbUpdate,
     auth, createUserWithEmailAndPassword
 } from '../../../firebase/config';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import {
     Table, Input, Button, Space, Modal, Form,
-    Select, Card, Tag, Typography, Popconfirm, ConfigProvider, theme
+    Select, Card, Tag, Typography, Popconfirm, ConfigProvider, theme, message
 } from 'antd';
 import {
     SearchOutlined, EditOutlined, DeleteOutlined,
@@ -136,7 +134,7 @@ const UserManagement = () => {
             }
         } catch (error) {
             console.error("Error fetching users:", error);
-            toast.error("Không thể tải danh sách người dùng");
+            message.error("Không thể tải danh sách người dùng");
         } finally {
             setLoading(false);
         }
@@ -145,11 +143,11 @@ const UserManagement = () => {
     const handleDeleteUser = async (userId) => {
         try {
             await dbRemove(dbRef(database, `users/${userId}`));
-            toast.success("Xóa người dùng thành công");
+            message.success("Xóa người dùng thành công");
             setUsers(users.filter(user => user.id !== userId));
         } catch (error) {
             console.error("Error deleting user:", error);
-            toast.error("Không thể xóa người dùng");
+            message.error("Không thể xóa người dùng");
         }
     };
 
@@ -182,12 +180,12 @@ const UserManagement = () => {
                 user.id === editingUser.id ? { ...user, ...updates } : user
             ));
 
-            toast.success("Cập nhật người dùng thành công");
+            message.success("Cập nhật người dùng thành công");
             setIsModalVisible(false);
             setEditingUser(null);
         } catch (error) {
             console.error("Error updating user:", error);
-            toast.error("Không thể cập nhật người dùng");
+            message.error("Không thể cập nhật người dùng");
         }
     };
 
@@ -226,12 +224,12 @@ const UserManagement = () => {
             const newUser = { key: userId, id: userId, ...userData };
             setUsers([...users, newUser]);
 
-            toast.success("Thêm người dùng thành công");
+            message.success("Thêm người dùng thành công");
             setIsAddUserModalVisible(false);
             addUserForm.resetFields();
         } catch (error) {
             console.error("Error adding user:", error);
-            toast.error(error.message || "Không thể thêm người dùng");
+            message.error(error.message || "Không thể thêm người dùng");
         }
     };
 
@@ -326,12 +324,6 @@ const UserManagement = () => {
     return (
         <ConfigProvider theme={darkTheme}>
             <div style={styles.pageContainer}>
-                <ToastContainer
-                    position="top-right"
-                    autoClose={3000}
-                    theme="dark"
-                />
-
                 <Card
                     style={{ ...styles.cardStyle, ...styles.tableCard }}
                     bordered={false}
