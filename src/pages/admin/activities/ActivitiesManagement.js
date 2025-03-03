@@ -86,6 +86,11 @@ const ActivitiesManagement = () => {
         setCurrentItem(null);
     };
 
+    // Thêm hàm tạo ID ngẫu nhiên
+    const generateId = () => {
+        return 'id_' + Math.random().toString(36).substr(2, 9);
+    };
+
     const handleActivitySubmit = async (values) => {
         try {
             setLoading(true);
@@ -96,17 +101,29 @@ const ActivitiesManagement = () => {
                 values.img = imageUrl;
             }
 
-            const newActivities = [...activitiesData];
             if (modalMode === 'add') {
-                newActivities.push(values);
+                // Thêm ID mới cho activity
+                const newActivity = {
+                    ...values,
+                    id: generateId()
+                };
+                // Cập nhật Firebase
+                await set(ref(database, `activitiesData/${newActivity.id}`), newActivity);
+                // Cập nhật state trực tiếp
+                setActivitiesData(prev => [...prev, newActivity]);
             } else {
-                const index = activitiesData.findIndex(item => item.id === currentItem.id);
-                if (index !== -1) {
-                    newActivities[index] = { ...currentItem, ...values };
-                }
+                // Cập nhật activity hiện tại
+                const updatedActivity = {
+                    ...currentItem,
+                    ...values
+                };
+                // Cập nhật Firebase
+                await set(ref(database, `activitiesData/${currentItem.id}`), updatedActivity);
+                // Cập nhật state trực tiếp
+                setActivitiesData(prev =>
+                    prev.map(item => item.id === currentItem.id ? updatedActivity : item)
+                );
             }
-            await set(ref(database, 'activitiesData'), newActivities);
-            setActivitiesData(newActivities);
             handleModalCancel();
         } catch (error) {
             setError(error.message);
@@ -125,17 +142,29 @@ const ActivitiesManagement = () => {
                 values.src = imageUrl;
             }
 
-            const newSlides = [...slidesData];
             if (modalMode === 'add') {
-                newSlides.push(values);
+                // Thêm ID mới cho slide
+                const newSlide = {
+                    ...values,
+                    id: generateId()
+                };
+                // Cập nhật Firebase
+                await set(ref(database, `slides/${newSlide.id}`), newSlide);
+                // Cập nhật state trực tiếp
+                setSlidesData(prev => [...prev, newSlide]);
             } else {
-                const index = slidesData.findIndex(item => item.id === currentItem.id);
-                if (index !== -1) {
-                    newSlides[index] = { ...currentItem, ...values };
-                }
+                // Cập nhật slide hiện tại
+                const updatedSlide = {
+                    ...currentItem,
+                    ...values
+                };
+                // Cập nhật Firebase
+                await set(ref(database, `slides/${currentItem.id}`), updatedSlide);
+                // Cập nhật state trực tiếp
+                setSlidesData(prev =>
+                    prev.map(item => item.id === currentItem.id ? updatedSlide : item)
+                );
             }
-            await set(ref(database, 'slides'), newSlides);
-            setSlidesData(newSlides);
             handleModalCancel();
         } catch (error) {
             setError(error.message);
@@ -147,13 +176,15 @@ const ActivitiesManagement = () => {
     const handleDelete = async (type, id) => {
         try {
             if (type === 'activity') {
-                const newActivities = activitiesData.filter(item => item.id !== id);
-                await set(ref(database, 'activitiesData'), newActivities);
-                setActivitiesData(newActivities);
+                // Xóa từ Firebase
+                await remove(ref(database, `activitiesData/${id}`));
+                // Cập nhật state trực tiếp
+                setActivitiesData(prev => prev.filter(item => item.id !== id));
             } else {
-                const newSlides = slidesData.filter(item => item.id !== id);
-                await set(ref(database, 'slides'), newSlides);
-                setSlidesData(newSlides);
+                // Xóa từ Firebase
+                await remove(ref(database, `slides/${id}`));
+                // Cập nhật state trực tiếp
+                setSlidesData(prev => prev.filter(item => item.id !== id));
             }
         } catch (error) {
             setError(error.message);
