@@ -135,8 +135,15 @@ const ActivitiesForm = ({ initialData = [], initialSlides = [] }) => {
     return (
         <div style={{ background: '#141414', padding: '20px', borderRadius: '8px' }}>
             <Form form={form} layout="vertical">
-                <Tabs defaultActiveKey="activities" style={{ color: '#fff' }}>
-                    <TabPane tab="Hoạt động" key="activities">
+                <Tabs
+                    defaultActiveKey="activities"
+                    style={{ color: '#fff' }}
+                    className="custom-tabs"
+                >
+                    <TabPane
+                        tab={<span style={{ color: '#fff' }}>Hoạt động</span>}
+                        key="activities"
+                    >
                         <Card
                             title={<Text style={{ color: '#fff' }}>Danh sách hoạt động</Text>}
                             className="activities-card"
@@ -176,7 +183,10 @@ const ActivitiesForm = ({ initialData = [], initialSlides = [] }) => {
                             </Space>
                         </Card>
                     </TabPane>
-                    <TabPane tab="Slides" key="slides">
+                    <TabPane
+                        tab={<span style={{ color: '#fff' }}>Slides</span>}
+                        key="slides"
+                    >
                         <Card
                             title={<Text style={{ color: '#fff' }}>Danh sách slides</Text>}
                             className="slides-card"
@@ -228,7 +238,7 @@ const ActivitiesForm = ({ initialData = [], initialSlides = [] }) => {
                             icon={<DashboardOutlined />}
                             size="large"
                         >
-                            Quay về Dashboard
+                            Quay về Trang chủ
                         </Button>
                     </Col>
                     <Col span={12} style={{ textAlign: 'right' }}>

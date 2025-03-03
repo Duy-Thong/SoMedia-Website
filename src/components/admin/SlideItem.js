@@ -28,17 +28,17 @@ const SlideItem = ({ slide, index, updateSlide, removeSlide }) => {
         >
             <Row gutter={16}>
                 <Col span={24}>
-                    <Form.Item label={<Text style={{ color: '#fff' }}>Alt Text</Text>}>
+                    <Form.Item label={<Text style={{ color: '#fff' }}>Tiêu đề thay thế</Text>}>
                         <Input
                             value={slide.alt}
                             onChange={(e) => handleChange('alt', e.target.value)}
-                            placeholder="Nhập alt text"
+                            placeholder="Nhập tiêu đề thay thế"
                             style={{ background: '#1f1f1f', color: '#fff', borderColor: '#303030' }}
                         />
                     </Form.Item>
                 </Col>
                 <Col span={24}>
-                    <Form.Item label={<Text style={{ color: '#fff' }}>Description</Text>}>
+                    <Form.Item label={<Text style={{ color: '#fff' }}>Mô tả</Text>}>
                         <Input
                             value={slide.description}
                             onChange={(e) => handleChange('description', e.target.value)}
@@ -48,7 +48,7 @@ const SlideItem = ({ slide, index, updateSlide, removeSlide }) => {
                     </Form.Item>
                 </Col>
                 <Col span={24}>
-                    <Form.Item label={<Text style={{ color: '#fff' }}>Image URL</Text>}>
+                    <Form.Item label={<Text style={{ color: '#fff' }}>Đường dẫn hình ảnh</Text>}>
                         <Input
                             value={slide.src}
                             onChange={(e) => handleChange('src', e.target.value)}
@@ -62,7 +62,7 @@ const SlideItem = ({ slide, index, updateSlide, removeSlide }) => {
                 <div style={{ marginTop: '10px', textAlign: 'center' }}>
                     <img
                         src={slide.src}
-                        alt={slide.alt || "Preview"}
+                        alt={slide.alt || "Xem trước"}
                         style={{ maxWidth: '100%', maxHeight: '200px', objectFit: 'contain' }}
                     />
                 </div>
