@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Typography, Form, Input, Button, Card, message, Spin, Tabs, Table, Space, Modal, Upload } from 'antd';
-import { EditOutlined, DeleteOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined, PlusOutlined, UploadOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { getAboutData, updateAboutData, getDepartments, updateDepartment, addDepartment, deleteDepartment } from '../../../services/aboutService';
+import { useNavigate } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -18,6 +19,7 @@ const AboutManagement = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [editingDepartment, setEditingDepartment] = useState(null);
     const [imageUrl, setImageUrl] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         loadAboutData();
@@ -168,7 +170,16 @@ const AboutManagement = () => {
 
     return (
         <Content style={{ padding: '24px', backgroundColor: '#1f1f1f', minHeight: '100vh' }}>
-            <Title level={2} style={{ color: '#fff' }}>Quản lý trang giới thiệu</Title>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <Title level={2} style={{ color: '#fff', margin: 0 }}>Quản lý trang giới thiệu</Title>
+                <Button
+                    type="primary"
+                    icon={<ArrowLeftOutlined />}
+                    onClick={() => navigate('/admin/dashboard')}
+                >
+                    Quay về Dashboard
+                </Button>
+            </div>
 
             <Tabs
                 defaultActiveKey="1"

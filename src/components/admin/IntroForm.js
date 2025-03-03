@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, Card, message, Space, Divider, Tooltip } from 'antd';
-import { PlusOutlined, DeleteOutlined, SaveOutlined } from '@ant-design/icons';
+import { PlusOutlined, DeleteOutlined, SaveOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import database from '../../firebase/config';
 import { ref, set } from 'firebase/database';
+import { useNavigate } from 'react-router-dom';
 
 const IntroForm = ({ initialData }) => {
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
     const [animatedItems, setAnimatedItems] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (initialData) {
@@ -89,31 +91,47 @@ const IntroForm = ({ initialData }) => {
     };
 
     return (
-        <Card title="Edit Introduction Section" bordered={false}>
+        <Card
+            title="Edit Introduction Section"
+            bordered={false}
+            className="dark-card"
+            style={{ background: '#1f1f1f', color: '#e6e6e6' }}
+            headStyle={{
+                background: '#141414',
+                color: '#e6e6e6',
+                borderBottom: '1px solid #303030'
+            }}
+        >
             <Form
                 form={form}
                 layout="vertical"
                 onFinish={handleSubmit}
+                style={{ color: '#e6e6e6' }}
             >
                 <Form.Item
                     name="title"
-                    label="Title"
+                    label={<span style={{ color: '#e6e6e6' }}>Title</span>}
                     rules={[{ required: true, message: 'Please enter the title!' }]}
                 >
-                    <Input placeholder="Enter title" />
+                    <Input placeholder="Enter title" style={{ background: '#141414', color: '#e6e6e6', borderColor: '#303030' }} />
                 </Form.Item>
 
                 <Form.Item
                     name="description"
-                    label="Description"
+                    label={<span style={{ color: '#e6e6e6' }}>Description</span>}
                     rules={[{ required: true, message: 'Please enter a description!' }]}
                 >
-                    <Input.TextArea rows={4} placeholder="Enter description" />
+                    <Input.TextArea
+                        rows={4}
+                        placeholder="Enter description"
+                        style={{ background: '#141414', color: '#e6e6e6', borderColor: '#303030' }}
+                    />
                 </Form.Item>
 
                 <Card
-                    title="Animated Text"
-                    style={{ marginBottom: 16 }}
+                    title={<span style={{ color: '#e6e6e6' }}>Animated Text</span>}
+                    style={{ marginBottom: 16, background: '#141414', borderColor: '#303030' }}
+                    headStyle={{ background: '#0d0d0d', borderBottom: '1px solid #303030' }}
                     extra={
                         <Button
                             type="primary"
@@ -125,36 +143,38 @@ const IntroForm = ({ initialData }) => {
                     }
                 >
                     {animatedItems.length === 0 && (
-                        <div style={{ textAlign: 'center', padding: '20px' }}>
+                        <div style={{ textAlign: 'center', padding: '20px', color: '#bfbfbf' }}>
                             No animated text items. Click "Add Item" to create one.
                         </div>
                     )}
 
                     {animatedItems.map((item, index) => (
                         <div key={index}>
-                            {index > 0 && <Divider />}
+                            {index > 0 && <Divider style={{ borderColor: '#303030' }} />}
                             <Space direction="vertical" style={{ width: '100%' }}>
                                 <Space>
                                     <Input
-                                        addonBefore="Key"
+                                        addonBefore={<span style={{ background: '#0a0a0a', color: '#bfbfbf' }}>Key</span>}
                                         placeholder="Key name"
                                         value={item.key}
                                         onChange={(e) => handleKeyChange(item.key, e.target.value)}
-                                        style={{ width: 200 }}
+                                        style={{ width: 200, background: '#141414', color: '#e6e6e6', borderColor: '#303030' }}
                                     />
                                     <Tooltip title="Remove this item">
                                         <Button
                                             danger
                                             icon={<DeleteOutlined />}
                                             onClick={() => handleRemoveAnimatedItem(item.key)}
+                                            style={{ borderColor: '#303030' }}
                                         />
                                     </Tooltip>
                                 </Space>
                                 <Input
-                                    addonBefore="Text"
+                                    addonBefore={<span style={{ background: '#0a0a0a', color: '#bfbfbf' }}>Text</span>}
                                     placeholder="Animation text value"
                                     value={item.value}
                                     onChange={(e) => handleAnimatedItemChange(item.key, e.target.value)}
+                                    style={{ background: '#141414', color: '#e6e6e6', borderColor: '#303030' }}
                                 />
                             </Space>
                         </div>
@@ -162,14 +182,17 @@ const IntroForm = ({ initialData }) => {
                 </Card>
 
                 <Form.Item>
-                    <Button
-                        type="primary"
-                        htmlType="submit"
-                        loading={loading}
-                        icon={<SaveOutlined />}
-                    >
-                        Save Changes
-                    </Button>
+                    <Space>
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            loading={loading}
+                            icon={<SaveOutlined />}
+                        >
+                            Save Changes
+                        </Button>
+                        
+                    </Space>
                 </Form.Item>
             </Form>
         </Card>
