@@ -14,6 +14,7 @@ import {
     ProjectOutlined,
     TeamOutlined,
     PhoneFilled,
+    TrophyOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../firebase/config';
@@ -96,7 +97,12 @@ const AdminDashboard = () => {
             label: 'Quản lý liên hệ',
             onClick: () => navigateTo('/admin/contact-management'),
         },
-
+        {
+            key: 'awards',
+            icon: <TrophyOutlined />,
+            label: 'Quản lý giải thưởng',
+            onClick: () => navigateTo('/admin/awards'),
+        },
         {
             key: 'logout',
             icon: <LogoutOutlined />,
@@ -123,7 +129,7 @@ const AdminDashboard = () => {
                     <div className="header-title">
                         <Title level={4} style={{ color: 'white', margin: 0 }}>Quản trị website Sổ Media</Title>
                     </div>
-                    
+
                 </Header>
                 <Content className="admin-content" style={{ background: '#141414' }}>
                     <Title level={3} style={{ color: 'white' }}>Tổng quan hệ thống</Title>
@@ -209,7 +215,16 @@ const AdminDashboard = () => {
                                 </Button>
                             </Card>
                         </Col>
-
+                        <Col xs={24} sm={12} lg={8}>
+                            <Card className="management-card" hoverable style={{ background: '#1f1f1f' }}>
+                                <TrophyOutlined className="card-icon" style={{ color: '#1890ff' }} />
+                                <Title level={4} style={{ color: 'white' }}>Quản lý giải thưởng</Title>
+                                <p style={{ color: 'white' }}>Quản lý danh sách giải thưởng của câu lạc bộ</p>
+                                <Button type="primary" onClick={() => navigateTo('/admin/awards')}>
+                                    Truy cập
+                                </Button>
+                            </Card>
+                        </Col>
                     </Row>
                 </Content>
             </Layout>
