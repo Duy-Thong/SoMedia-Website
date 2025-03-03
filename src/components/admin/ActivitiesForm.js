@@ -73,7 +73,7 @@ const ActivitiesForm = ({ initialData = [], initialSlides = [] }) => {
                 borderColor: '#303030'
             },
             okButtonProps: {
-                style: { background: '#ff4d4f', borderColor: '#ff4d4f' }
+                style: { background: '#ff4d4f', borderColor: '#ff4d4f', color: '#fff' }
             },
             onOk() {
                 const updatedActivities = activities.filter((_, i) => i !== index);
@@ -217,8 +217,9 @@ const ActivitiesForm = ({ initialData = [], initialSlides = [] }) => {
                                     icon={<PlusOutlined />}
                                     style={{
                                         marginTop: '12px',
-                                        borderColor: '#177ddc',
-                                        color: '#177ddc'
+                                        background: '#000',
+                                        borderColor: '#444',
+                                        color: '#fff'
                                     }}
                                 >
                                     Thêm slide
