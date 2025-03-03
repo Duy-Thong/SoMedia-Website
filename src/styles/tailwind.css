@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom dark theme styles for Ant Design components */
+.ant-table {
+    @apply bg-gray-800 text-gray-200;
+}
+
+.ant-table-thead>tr>th {
+    @apply bg-gray-700 text-gray-200 border-gray-600;
+}
+
+.ant-table-tbody>tr>td {
+    @apply border-gray-600 text-gray-300;
+}
+
+.ant-table-tbody>tr:hover>td {
+    @apply bg-gray-700;
+}
+
+.ant-form-item-label>label {
+    @apply text-gray-200;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    @apply bg-gray-700 border-gray-600 text-gray-200;
+}
+
+.ant-input,
+.ant-input-number {
+    @apply bg-gray-700 border-gray-600 text-gray-200;
+}
+
+.ant-input::placeholder {
+    @apply text-gray-400;
+}
+
+.ant-modal-content,
+.ant-modal-header {
+    @apply bg-gray-800 border-gray-700;
+}
+
+.ant-modal-title {
+    @apply text-gray-200;
+}
+
+/* Override Ant Design Button styles */
+.ant-btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 border-transparent;
+}

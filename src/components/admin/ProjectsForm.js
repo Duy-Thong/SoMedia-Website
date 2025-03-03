@@ -95,13 +95,7 @@ const ProjectsForm = ({ initialData = [] }) => {
 
     return (
         <div>
-            <Button
-                type="primary"
-                onClick={handleAddNew}
-                style={{ marginBottom: 16 }}
-            >
-                Thêm dự án mới
-            </Button>
+            
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
                 {projects && projects.length > 0 ? (
@@ -110,14 +104,18 @@ const ProjectsForm = ({ initialData = [] }) => {
                             key={index}
                             title={project.description || 'Dự án không tên'}
                             style={{ width: 300 }}
-                            cover={project.img && <img alt={project.description} src={project.img} style={{ height: 150, objectFit: 'cover' }} />}
+                            cover={project.img && <img alt={project.description} src={project.img} style={{ height: 120, objectFit: 'cover' }} />}
                             actions={[
-                                <Button type="link" onClick={() => handleEdit(project, index)}>Sửa</Button>,
-                                <Button type="link" danger onClick={() => handleDelete(index)}>Xóa</Button>
+                                <div style={{ height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <Button type="link" onClick={() => handleEdit(project, index)}>Sửa</Button>
+                                </div>,
+                                <div style={{ height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <Button type="link" danger onClick={() => handleDelete(index)}>Xóa</Button>
+                                </div>
                             ]}
                         >
                             <p><strong>Mô tả:</strong> {project.description || 'Không có mô tả'}</p>
-                            <p><strong>Liên kết:</strong> <a href={project.link} target="_blank" rel="noopener noreferrer">{project.link || 'Không có liên kết'}</a></p>
+                            <p><strong>Liên kết:</strong> <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ color: '#1890ff' }}>{project.link || 'Không có liên kết'}</a></p>
                         </Card>
                     ))
                 ) : (
