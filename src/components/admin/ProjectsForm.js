@@ -95,6 +95,10 @@ const ProjectsForm = ({ initialData = [] }) => {
 
     return (
         <div>
+            <Button type="primary" onClick={handleAddNew} icon={<PlusOutlined />}>
+                Thêm dự án mới
+            </Button>
+            <Divider orientation="left"><span className='text-white'>Danh sách dự án</span></Divider>
             
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>

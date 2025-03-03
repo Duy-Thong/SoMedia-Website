@@ -79,19 +79,13 @@ const ProjectsManagement = () => {
     }
 
     return (
-        <Content className="bg-gray-900 p-6 min-h-screen">
+        <Content className="bg-gray-900 !p-20 !pt-12">
             <Row className="mb-6 mt-6" align="middle">
                 <Col span={8}>
                     <Title level={2} className="text-white m-0">Quản lý dự án</Title>
                 </Col>
-                <Col span={16} className="text-right">
-                    <Button
-                        type="primary"
-                        className="bg-blue-600 hover:bg-blue-700 mr-4"
-                        onClick={() => console.log("Add new project clicked")}
-                    >
-                        Thêm dự án mới
-                    </Button>
+                <Col span={8} className="text-right">
+                    
                     <Link to="/admin/dashboard">
                         <Button type="primary" className="bg-gray-700 hover:bg-gray-600">
                             Quay về Dashboard
