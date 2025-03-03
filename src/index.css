@@ -94,3 +94,82 @@ code {
 .color_sec {
     color: var(--secondary-color);
 }
+
+/* Add these dark theme styles to your existing CSS file */
+
+/* Dark theme table */
+.dark-table .ant-table {
+    background-color: #242424;
+    color: #fff;
+}
+
+.dark-table .ant-table-thead>tr>th {
+    background-color: #1f1f1f !important;
+    color: #fff !important;
+    border-bottom: 1px solid #303030;
+}
+
+.dark-table .ant-table-tbody>tr>td {
+    border-bottom: 1px solid #303030;
+    color: #fff;
+}
+
+.dark-table .ant-table-tbody>tr:hover>td {
+    background-color: #303030 !important;
+}
+
+.dark-table .ant-empty-description {
+    color: #fff;
+}
+
+.dark-table .ant-pagination-item-link,
+.dark-table .ant-pagination-item a {
+    color: #fff !important;
+    background-color: #1f1f1f !important;
+}
+
+.dark-table .ant-pagination-item-active {
+    border-color: #1890ff;
+}
+
+/* Dark theme tabs */
+.dark-tabs .ant-tabs-nav .ant-tabs-tab {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.dark-tabs .ant-tabs-nav .ant-tabs-tab-active {
+    color: #fff;
+}
+
+.dark-tabs .ant-tabs-ink-bar {
+    background-color: #1890ff;
+}
+
+/* Dark upload */
+.dark-upload .ant-upload.ant-upload-select-picture-card {
+    background-color: #303030;
+    border-color: #434343;
+}
+
+/* Dark modal */
+.ant-modal-content {
+    background-color: #242424;
+}
+
+.ant-modal-header {
+    background-color: #242424;
+    border-bottom: 1px solid #303030;
+}
+
+.ant-modal-footer {
+    border-top: 1px solid #303030;
+    background-color: #242424;
+}
+
+.ant-modal-title {
+    color: #fff;
+}
+
+.ant-modal-close-icon {
+    color: #fff;
+}
