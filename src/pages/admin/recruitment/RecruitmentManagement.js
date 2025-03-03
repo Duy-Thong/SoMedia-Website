@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { database } from '../../../firebase/config';
 import { ref, get, set } from 'firebase/database';
 import { Input, Button, Form, message, Card, Divider, Space, Image } from 'antd';
-import { LinkOutlined, QrcodeOutlined, FileTextOutlined, ClockCircleOutlined, DeleteOutlined, PlusOutlined, SaveOutlined } from '@ant-design/icons';
+import { LinkOutlined, QrcodeOutlined, FileTextOutlined, ClockCircleOutlined, DeleteOutlined, PlusOutlined, SaveOutlined, UploadOutlined } from '@ant-design/icons';
 import { theme } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { uploadToBlob } from '../../../utils/uploadHelpers';
+
 const RecruitmentManagement = () => {
     const { useToken } = theme;
     const { token } = useToken();
@@ -46,6 +48,19 @@ const RecruitmentManagement = () => {
             message.success('Recruitment data updated successfully');
         } catch (error) {
             message.error('Failed to update recruitment data');
+        }
+    };
+
+    const handleQrUpload = async (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            try {
+                const url = await uploadToBlob(file, 'qr');
+                form.setFieldValue('qr', url);
+                message.success('Upload QR thành công');
+            } catch (error) {
+                message.error('Upload QR thất bại');
+            }
         }
     };
 
@@ -101,20 +116,50 @@ const RecruitmentManagement = () => {
                                 <Input prefix={<FileTextOutlined />} placeholder="Nhập nội dung nút" />
                             </Form.Item>
                             <Form.Item label="Đường Dẫn Mã QR" name="qr">
-                                <Input.Group compact>
-                                    <Input
-                                        prefix={<QrcodeOutlined />}
-                                        placeholder="Nhập đường dẫn mã QR"
-                                        value={recruitmentData.qr}
-                                        style={{ width: 'calc(100% - 64px)' }}
-                                    />
-                                    <Button
-                                        onClick={() => recruitmentData.qr && window.open(recruitmentData.qr)}
-                                        disabled={!recruitmentData.qr}
-                                    >
-                                        Xem
-                                    </Button>
-                                </Input.Group>
+                                <Space direction="vertical" style={{ width: '100%' }}>
+                                    <Input.Group compact>
+                                        <Form.Item
+                                            name="qr"
+                                            noStyle
+                                        >
+                                            <Input
+                                                prefix={<QrcodeOutlined />}
+                                                placeholder="Nhập đường dẫn mã QR"
+                                                style={{ width: 'calc(100% - 128px)' }}
+                                            />
+                                        </Form.Item>
+                                        <Button
+                                            onClick={() => form.getFieldValue('qr') && window.open(form.getFieldValue('qr'))}
+                                            disabled={!form.getFieldValue('qr')}
+                                        >
+                                            Xem
+                                        </Button>
+                                        <Button style={{ position: 'relative' }}>
+                                            <UploadOutlined /> Upload
+                                            <input
+                                                type="file"
+                                                onChange={handleQrUpload}
+                                                accept="image/*"
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    left: 0,
+                                                    right: 0,
+                                                    bottom: 0,
+                                                    opacity: 0,
+                                                    cursor: 'pointer'
+                                                }}
+                                            />
+                                        </Button>
+                                    </Input.Group>
+                                    {form.getFieldValue('qr') && (
+                                        <Image
+                                            src={form.getFieldValue('qr')}
+                                            alt="QR Preview"
+                                            style={{ maxWidth: '200px', maxHeight: '200px' }}
+                                        />
+                                    )}
+                                </Space>
                             </Form.Item>
                         </Card>
 

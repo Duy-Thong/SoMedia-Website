@@ -93,7 +93,7 @@ export const Recruit = () => {
               <Col lg="6" className="left_right_col">
                 <a href={recruitmentData.applylink} className="text_2" target="_blank" rel="noopener noreferrer">
                   <div id="button_apply" className="ac_btn btn" >
-                    Apply Now!
+                    {recruitmentData.button}
                     <div className="ring one"></div>
                     <div className="ring two"></div>
                     <div className="ring three"></div>

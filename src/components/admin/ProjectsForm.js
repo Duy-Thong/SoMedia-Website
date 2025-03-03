@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, message, Space, Modal, Row, Col } from 'antd';
-import { PlusOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { Form, Input, Button, message, Space, Modal, Row, Col, Upload } from 'antd';
+import { PlusOutlined, ArrowLeftOutlined, UploadOutlined } from '@ant-design/icons';
 import { ref, set, push, remove, update } from 'firebase/database';
 import database from '../../firebase/config';
 import { useNavigate } from 'react-router-dom';
 import ProjectsGrid from './ProjectsGrid';
+import { uploadToBlob } from '../../utils/uploadHelpers';
 
 const ProjectsForm = ({ initialData = [] }) => {
     const [form] = Form.useForm();
@@ -12,6 +13,8 @@ const ProjectsForm = ({ initialData = [] }) => {
     const [editingIndex, setEditingIndex] = useState(-1);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const navigate = useNavigate();
+    const [imageUrl, setImageUrl] = useState('');
+    const [uploading, setUploading] = useState(false);
 
     useEffect(() => {
         // Transform initialData to include IDs
@@ -72,14 +75,53 @@ const ProjectsForm = ({ initialData = [] }) => {
         const projectToDelete = projects[index];
 
         Modal.confirm({
-            title: 'Bạn có chắc chắn muốn xóa dự án này?',
-            content: 'Hành động này không thể hoàn tác',
+            title: <span style={{ color: '#fff' }}>Xác nhận xóa</span>,
+            content: <span style={{ color: '#fff' }}>Bạn có chắc chắn muốn xóa dự án này?</span>,
             okText: 'Xóa',
             okType: 'danger',
             cancelText: 'Hủy',
+            centered: true,
+            maskClosable: true,
+            className: 'confirm-delete-modal',
+            okButtonProps: {
+                danger: true,
+            },
+            cancelButtonProps: {
+                style: {
+                    background: '#141414',
+                    borderColor: '#303030',
+                    color: '#fff'
+                }
+            },
+            styles: {
+                mask: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.65)'
+                },
+                content: {
+                    backgroundColor: '#1f1f1f',
+                    borderRadius: '8px',
+                    padding: '32px',
+                    width: '400px'
+                },
+                header: {
+                    color: '#fff',
+                    marginBottom: '24px',
+                    fontSize: '18px'
+                },
+                body: {
+                    backgroundColor: '#1f1f1f',
+                    color: '#fff',
+                    padding: '24px 12px',
+                    fontSize: '16px'
+                },
+                footer: {
+                    marginTop: '32px',
+                    padding: '0 12px'
+                }
+            },
             onOk() {
                 const projectRef = ref(database, `dataportfolio/${projectToDelete.id}`);
-                remove(projectRef)
+                return remove(projectRef)
                     .then(() => {
                         const updatedProjects = projects.filter((_, i) => i !== index);
                         setProjects(updatedProjects);
@@ -95,6 +137,7 @@ const ProjectsForm = ({ initialData = [] }) => {
 
     const handleEdit = (project, index) => {
         setEditingIndex(index);
+        setImageUrl(project.img); // Set the existing image URL
         form.setFieldsValue({
             description: project.description,
             img: project.img,
@@ -105,8 +148,25 @@ const ProjectsForm = ({ initialData = [] }) => {
 
     const handleAddNew = () => {
         setEditingIndex(-1);
+        setImageUrl(''); // Clear the image URL
         form.resetFields();
         setIsModalVisible(true);
+    };
+
+    const handleImageUpload = async (file) => {
+        try {
+            setUploading(true);
+            const url = await uploadToBlob(file, 'projects');
+            setImageUrl(url);
+            form.setFieldsValue({ img: url });
+            message.success('Tải ảnh lên thành công');
+            return false; // Prevent default upload behavior
+        } catch (error) {
+            message.error('Tải ảnh lên thất bại');
+            console.error('Upload error:', error);
+        } finally {
+            setUploading(false);
+        }
     };
 
     return (
@@ -154,42 +214,15 @@ const ProjectsForm = ({ initialData = [] }) => {
                 footer={null}
                 width={500}
                 centered
-                style={{
-                    maxHeight: '90vh'
-                }}
+                style={{ maxHeight: '90vh' }}
                 modalRender={(modal) => (
-                    <div style={{
-                        background: '#1f1f1f',
-                        borderRadius: '8px',
-                        overflow: 'hidden'
-                    }}>
+                    <div style={{ overflow: 'hidden', background: '#1f1f1f', borderRadius: '8px' }}>
                         {modal}
                     </div>
                 )}
-                styles={{
-                    header: {
-                        background: '#141414',
-                        padding: '12px 16px',
-                        borderBottom: '1px solid #303030'
-                    },
-                    content: {
-                        background: '#1f1f1f',
-                        padding: '16px'
-                    },
-                    body: {
-                        padding: '16px 0',
-                        maxHeight: 'calc(90vh - 120px)',
-                        overflowY: 'auto'
-                    },
-                    mask: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.65)'
-                    },
-                    title: {
-                        color: '#fff',
-                        fontSize: '16px',
-                        fontWeight: 500
-                    }
-                }}
+                bodyStyle={{ padding: '16px 0', maxHeight: 'calc(90vh - 120px)', overflowY: 'auto' }}
+                maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.65)' }}
+                titleStyle={{ fontWeight: 500, color: '#fff', fontSize: '16px' }}
             >
                 <Form
                     form={form}
@@ -217,17 +250,36 @@ const ProjectsForm = ({ initialData = [] }) => {
 
                     <Form.Item
                         name="img"
-                        label={<span style={{ color: '#fff' }}>Đường dẫn hình ảnh</span>}
-                        rules={[{ required: true, message: 'Vui lòng nhập URL hình ảnh' }]}
+                        label={<span style={{ color: '#fff' }}>Hình ảnh dự án</span>}
+                        rules={[{ required: true, message: 'Vui lòng tải lên hình ảnh dự án' }]}
                         style={{ marginBottom: '16px' }}
                     >
-                        <Input
-                            style={{
-                                background: '#141414',
-                                borderColor: '#303030',
-                                color: '#fff'
-                            }}
-                        />
+                        <Input hidden />
+                        <Upload
+                            beforeUpload={handleImageUpload}
+                            showUploadList={false}
+                        >
+                            <Button
+                                icon={<UploadOutlined />}
+                                loading={uploading}
+                                style={{
+                                    background: '#141414',
+                                    borderColor: '#303030',
+                                    color: '#fff'
+                                }}
+                            >
+                                Tải ảnh lên
+                            </Button>
+                        </Upload>
+                        {(imageUrl || form.getFieldValue('img')) && (
+                            <div style={{ marginTop: '10px' }}>
+                                <img
+                                    style={{ maxWidth: '100%', maxHeight: '200px' }}
+                                    src={imageUrl || form.getFieldValue('img')}
+                                    alt="Preview"
+                                />
+                            </div>
+                        )}
                     </Form.Item>
 
                     <Form.Item
@@ -257,7 +309,7 @@ const ProjectsForm = ({ initialData = [] }) => {
                     </Form.Item>
                 </Form>
             </Modal>
-        </div >
+        </div>
     );
 };
 
