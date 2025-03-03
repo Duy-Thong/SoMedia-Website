@@ -1,17 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  meta,
-  Prizes,
-} from "../../content_option";
+import { meta } from "../../content_option";
+import { database } from "../../firebase/config";
+import { ref, get } from "firebase/database";
 import Slide from "./slide";
 import FocusRing from "../../components/focusring"; // Import the FocusRing component
 import Preloader from "../../components/preload/Pre";
 import home1 from "../../assets/images/home1.jpg";
+
 export const Tradition = () => {
+  const [prizes, setPrizes] = useState([]);
+
   useEffect(() => {
+    const fetchPrizes = async () => {
+      try {
+        const prizesRef = ref(database, 'Prizes');
+        const snapshot = await get(prizesRef);
+        if (snapshot.exists()) {
+          const prizesData = snapshot.val();
+          setPrizes(Object.values(prizesData));
+        }
+      } catch (error) {
+        console.error('Error fetching prizes:', error);
+      }
+    };
+    fetchPrizes();
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const background = document.querySelector('.backgroundvideo img');
@@ -23,6 +39,7 @@ export const Tradition = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
   return (
     <HelmetProvider>
       <FocusRing />
@@ -60,16 +77,15 @@ export const Tradition = () => {
         <Row className="mb-5 mt-3 pt-md-3">
           <h2 className="text-center"> Prizes </h2>
           <Row className="mt-3">
-            {Prizes.map((prize, index) => (
+            {prizes.map((prize, index) => (
               <Col lg="4" xl="4" className="prize" key={index}>
                 <h4>{prize.jobtitle}</h4>
-
                 <p>{prize.date}</p>
               </Col>
             ))}
           </Row>
         </Row>
-        <Row className="mb-5 mt-3 pt-md-3"> 
+        <Row className="mb-5 mt-3 pt-md-3">
 
         </Row>
 

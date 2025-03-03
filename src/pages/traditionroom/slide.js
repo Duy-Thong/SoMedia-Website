@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import { database } from '../../firebase/config';
+import { ref, get } from 'firebase/database';
 import './style.css'; // Import custom CSS
 
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
     const [data, setData] = useState([]); // State to hold carousel data
 
-    // Assuming `chairman` data is directly imported from a local file named `content_option.js`
     const fetchData = async () => {
         try {
-            const response = await import('../../content_option'); // Import data
-            setData(response.humans); // Set data from imported object
+            const humansRef = ref(database, 'humans');
+            const snapshot = await get(humansRef);
+            if (snapshot.exists()) {
+                const humansData = snapshot.val();
+                setData(Object.values(humansData));
+            }
         } catch (error) {
             console.error('Error fetching data:', error);
         }
