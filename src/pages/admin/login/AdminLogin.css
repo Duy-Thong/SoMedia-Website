@@ -9,6 +9,7 @@
 .admin-login-box {
     width: 100%;
     max-width: 400px;
+    padding: 20px;
 }
 
 .admin-login-box .ant-card-head-title {
@@ -25,6 +26,31 @@
 
 .admin-login-box .ant-card-body {
     padding: 24px 24px 0;
+}
+
+/* Tùy chỉnh màu nền cho input fields */
+.admin-login-box .ant-input,
+.admin-login-box .ant-input-password {
+    background-color: #ffffff !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Tùy chỉnh màu của icon prefix */
+.admin-login-box .ant-input-prefix {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+/* Đảm bảo màu nền trắng khi focus */
+.admin-login-box .ant-input:focus,
+.admin-login-box .ant-input-password:focus,
+.admin-login-box .ant-input-affix-wrapper:focus,
+.admin-login-box .ant-input-affix-wrapper-focused {
+    background-color: #ffffff !important;
+}
+
+/* Tùy chỉnh màu nền cho input password */
+.admin-login-box .ant-input-affix-wrapper {
+    background-color: #ffffff !important;
 }
 
 .admin-tabs .ant-tabs-nav {
