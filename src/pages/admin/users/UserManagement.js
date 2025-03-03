@@ -473,7 +473,6 @@ const UserManagement = () => {
                             icon={<UserAddOutlined />}
                             onClick={showAddUserModal}
                             style={styles.addButton}
-                            size="large"
                         >
                             Thêm Người Dùng Mới
                         </Button>

@@ -47,25 +47,12 @@ const IntroForm = ({ initialData }) => {
             };
 
             await set(introRef, formattedData);
-            message.success('Data saved successfully!');
+            message.success('Lưu dữ liệu thành công!');
         } catch (error) {
-            message.error('Failed to save data: ' + error.message);
+            message.error('Lưu dữ liệu thất bại: ' + error.message);
         } finally {
             setLoading(false);
         }
-    };
-
-    const handleAddAnimatedItem = () => {
-        // Find a new key that doesn't exist yet
-        let newKey = 'item' + (animatedItems.length + 1);
-        let counter = animatedItems.length + 1;
-
-        while (animatedItems.some(item => item.key === newKey)) {
-            counter++;
-            newKey = 'item' + counter;
-        }
-
-        setAnimatedItems([...animatedItems, { key: newKey, value: '' }]);
     };
 
     const handleRemoveAnimatedItem = (keyToRemove) => {
@@ -78,21 +65,9 @@ const IntroForm = ({ initialData }) => {
         ));
     };
 
-    const handleKeyChange = (oldKey, newKey) => {
-        // Don't allow duplicate keys
-        if (animatedItems.some(item => item.key === newKey && item.key !== oldKey)) {
-            message.error('This key already exists!');
-            return;
-        }
-
-        setAnimatedItems(animatedItems.map(item =>
-            item.key === oldKey ? { ...item, key: newKey } : item
-        ));
-    };
-
     return (
         <Card
-            title="Edit Introduction Section"
+            title="Chỉnh sửa phần Giới thiệu"
             bordered={false}
             className="dark-card"
             style={{ background: '#1f1f1f', color: '#e6e6e6' }}
@@ -110,41 +85,32 @@ const IntroForm = ({ initialData }) => {
             >
                 <Form.Item
                     name="title"
-                    label={<span style={{ color: '#e6e6e6' }}>Title</span>}
-                    rules={[{ required: true, message: 'Please enter the title!' }]}
+                    label={<span style={{ color: '#e6e6e6' }}>Tiêu đề</span>}
+                    rules={[{ required: true, message: 'Vui lòng nhập tiêu đề!' }]}
                 >
-                    <Input placeholder="Enter title" style={{ background: '#141414', color: '#e6e6e6', borderColor: '#303030' }} />
+                    <Input placeholder="Nhập tiêu đề" style={{ background: '#141414', color: '#e6e6e6', borderColor: '#303030' }} />
                 </Form.Item>
 
                 <Form.Item
                     name="description"
-                    label={<span style={{ color: '#e6e6e6' }}>Description</span>}
-                    rules={[{ required: true, message: 'Please enter a description!' }]}
+                    label={<span style={{ color: '#e6e6e6' }}>Mô tả</span>}
+                    rules={[{ required: true, message: 'Vui lòng nhập mô tả!' }]}
                 >
                     <Input.TextArea
                         rows={4}
-                        placeholder="Enter description"
+                        placeholder="Nhập mô tả"
                         style={{ background: '#141414', color: '#e6e6e6', borderColor: '#303030' }}
                     />
                 </Form.Item>
 
                 <Card
-                    title={<span style={{ color: '#e6e6e6' }}>Animated Text</span>}
+                    title={<span style={{ color: '#e6e6e6' }}>Văn bản động</span>}
                     style={{ marginBottom: 16, background: '#141414', borderColor: '#303030' }}
                     headStyle={{ background: '#0d0d0d', borderBottom: '1px solid #303030' }}
-                    extra={
-                        <Button
-                            type="primary"
-                            icon={<PlusOutlined />}
-                            onClick={handleAddAnimatedItem}
-                        >
-                            Add Item
-                        </Button>
-                    }
                 >
                     {animatedItems.length === 0 && (
                         <div style={{ textAlign: 'center', padding: '20px', color: '#bfbfbf' }}>
-                            No animated text items. Click "Add Item" to create one.
+                            Không có văn bản động.
                         </div>
                     )}
 
@@ -155,12 +121,11 @@ const IntroForm = ({ initialData }) => {
                                 <Space>
                                     <Input
                                         addonBefore={<span style={{ background: '#0a0a0a', color: '#bfbfbf' }}>Key</span>}
-                                        placeholder="Key name"
                                         value={item.key}
-                                        onChange={(e) => handleKeyChange(item.key, e.target.value)}
+                                        disabled
                                         style={{ width: 200, background: '#141414', color: '#e6e6e6', borderColor: '#303030' }}
                                     />
-                                    <Tooltip title="Remove this item">
+                                    <Tooltip title="Xóa mục này">
                                         <Button
                                             danger
                                             icon={<DeleteOutlined />}
@@ -171,7 +136,7 @@ const IntroForm = ({ initialData }) => {
                                 </Space>
                                 <Input
                                     addonBefore={<span style={{ background: '#0a0a0a', color: '#bfbfbf' }}>Text</span>}
-                                    placeholder="Animation text value"
+                                    placeholder="Nhập nội dung văn bản động"
                                     value={item.value}
                                     onChange={(e) => handleAnimatedItemChange(item.key, e.target.value)}
                                     style={{ background: '#141414', color: '#e6e6e6', borderColor: '#303030' }}
@@ -189,9 +154,9 @@ const IntroForm = ({ initialData }) => {
                             loading={loading}
                             icon={<SaveOutlined />}
                         >
-                            Save Changes
+                            Lưu thay đổi
                         </Button>
-                        
+
                     </Space>
                 </Form.Item>
             </Form>
