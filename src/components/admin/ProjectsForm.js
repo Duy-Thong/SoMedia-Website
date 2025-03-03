@@ -110,7 +110,7 @@ const ProjectsForm = ({ initialData = [] }) => {
                             key={index}
                             title={project.description || 'Dự án không tên'}
                             style={{ width: 300 }}
-                            cover={project.img && <img alt={project.description} src={project.img} style={{ height: 200, objectFit: 'cover' }} />}
+                            cover={project.img && <img alt={project.description} src={project.img} style={{ height: 150, objectFit: 'cover' }} />}
                             actions={[
                                 <Button type="link" onClick={() => handleEdit(project, index)}>Sửa</Button>,
                                 <Button type="link" danger onClick={() => handleDelete(index)}>Xóa</Button>
