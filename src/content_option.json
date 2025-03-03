@@ -39,116 +39,116 @@
     {
       "name": "Media",
       "description": "As the club's largest department, Media is at the forefront of capturing moments through photography and videography at various events. They also produce content like photos and videos that drive the club's communication efforts.",
-      "image": "./assets/departments/media.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/departments/media.jpg",
       "second_img": "https://img.icons8.com/ios/50/000000/camera.png"
     },
     {
       "name": "Communication",
       "description": "The Communication Department crafts engaging content and manages the club's social media presence, spreading positive and informative messages. They also play a key role in planning and organizing club events.",
-      "image": "./assets/departments/communication.png",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/departments/communication.png",
       "second_img": "https://img.icons8.com/ios/50/000000/camera.png"
     },
     {
       "name": "Design",
       "description": "The Design Department is where creativity thrives. Known for its vibrant and imaginative members, this team produces visual assets such as logos, posters, and banners, using design software like Photoshop and Illustrator.",
-      "image": "./assets/departments/design.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/departments/design.jpg",
       "second_img": "https://img.icons8.com/ios/50/000000/camera.png"
     },
     {
       "name": "Human Resources",
       "description": "Though often working behind the scenes, the Human Resources department is vital to the club's operations. They manage member activities and handle the logistics that ensure the smooth running of club events.",
-      "image": "./assets/departments/hr.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/departments/hr.jpg",
       "second_img": "https://img.icons8.com/ios/50/000000/camera.png"
     }
   ],
   "slides": [
     {
-      "src": "./assets/active/picnic2024.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/picnic2024.jpg",
       "alt": "Picnic 2024",
       "description": "Teambuilding 2024"
     },
     {
-      "src": "./assets/active/birthday.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/birthday.jpg",
       "alt": "Image 1 for carousel",
       "description": "So Media 6th Birthday"
     },
     {
-      "src": "./assets/active/birthday2024.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/birthday2024.jpg",
       "alt": "Image 10 for carousel",
       "description": "So Media 7th Birthday"
     },
     {
-      "src": "./assets/active/tvc.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/tvc.jpg",
       "alt": "Image 4 for carousel",
       "description": "TVC 2023 - The Growth"
     },
     {
-      "src": "./assets/active/profile.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/profile.jpg",
       "alt": "Image 10 for carousel",
       "description": "Profile Shooting"
     },
     {
-      "src": "./assets/active/welcomed23.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/welcomed23.jpg",
       "alt": "Image 8 for carousel",
       "description": "Welcome D23 PTIT"
     },
     {
-      "src": "./assets/active/pchain.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/pchain.jpg",
       "alt": "Image 8 for carousel",
       "description": "Welcome D22 PTIT - The P-chain"
     },
     {
-      "src": "./assets/active/break2.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/break2.jpg",
       "alt": "Image 10 for carousel",
       "description": "Welcome D23 PTIT - Break the Shell 2023"
     },
     {
-      "src": "./assets/active/trainingd22.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/trainingd22.jpg",
       "alt": "Image 7 for carousel",
       "description": "Training photography 2022"
     },
     {
-      "src": "./assets/active/trainingd23.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/trainingd23.jpg",
       "alt": "Image 7 for carousel",
       "description": "Training photography 2023"
     },
     {
-      "src": "./assets/active/interview2023.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/interview2023.jpg",
       "alt": "Image 5 for carousel",
       "description": "So Media Interview 2023"
     },
     {
-      "src": "./assets/active/hoibao.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/hoibao.jpg",
       "alt": "Image 2 for carousel",
       "description": "National newspaper youth camp 2023"
     },
     {
-      "src": "./assets/active/insideout.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/insideout.jpg",
       "alt": "Image 4 for carousel",
       "description": "Inside Out photography contest"
     },
     {
-      "src": "./assets/active/outdoor.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/outdoor.jpg",
       "alt": "Image 6 for carousel",
       "description": "Outdoor photography "
     },
     {
-      "src": "./assets/active/outdoor1.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/outdoor1.jpg",
       "alt": "Image 6 for carousel",
       "description": "Street photography "
     },
     {
-      "src": "./assets/active/boyday1911.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/boyday1911.jpg",
       "alt": "Image 3 for carousel",
       "description": "Men's Day 19/11"
     },
     {
-      "src": "./assets/active/womanday.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/womanday.jpg",
       "alt": "Image 9 for carousel",
       "description": "Vietnamese Woman's Day"
     },
     {
-      "src": "./assets/active/womanday.jpg",
+      "src": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/womanday.jpg",
       "alt": "Image 10 for carousel",
       "description": "International Women's Day"
     }
@@ -157,92 +157,92 @@
     {
       "time": "September",
       "description": "Recruit members ",
-      "img": "./assets/active/recruitment.jpg"
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/recruitment.jpg"
     },
     {
       "time": "October",
       "description": "School events",
-      "img": "./assets/active/chaotan.jpg"
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/chaotan.jpg"
     },
     {
       "time": "November",
       "description": "Vietnamese Teacher's Day and School events",
-      "img": "./assets/active/teacherday.jpg"
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/teacherday.jpg"
     },
     {
       "time": "November",
       "description": "Sponsor for events",
-      "img": "./assets/active/tedhanu.jpg"
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/tedhanu.jpg"
     },
     {
       "time": "December",
       "description": "Training new Gen",
-      "img": "./assets/active/trainingd23.jpg"
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/trainingd23.jpg"
     },
     {
       "time": "March",
       "description": "Youth Month activities",
-      "img": "./assets/active/hoibao2.jpg"
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/hoibao2.jpg"
     },
     {
       "time": "April",
       "description": "Club Birthday",
-      "img": "./assets/active/birthday.jpg"
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/birthday.jpg"
     },
     {
       "time": "May",
       "description": "Photo Contest",
-      "img": "./assets/active/contest.jpg"
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/contest.jpg"
     },
     {
       "time": "July",
       "description": "Picnic",
-      "img": "./assets/active/picnic2024.jpg"
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/picnic2024.jpg"
     }
   ],
   "dataportfolio": [
     {
-      "img": "./assets/projects/tvc.jpg",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/projects/tvc.jpg",
       "description": "So Media TVC 2023 - The Growth",
       "link": "https://www.youtube.com/watch?v=ZrfJXRTsrEo"
     },
     {
-      "img": "./assets/projects/profileshooting.png",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/projects/profileshooting.png",
       "description": "Profile Shooting 2023",
       "link": "https://www.facebook.com/somedia.vn.2016/videos/198116229592288/"
     },
     {
-      "img": "./assets/projects/dongphucptit.png",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/projects/dongphucptit.png",
       "description": "Dong phuc PTIT 2023",
       "link": "https://www.facebook.com/somedia.vn.2016/videos/305607272023242"
     },
     {
-      "img": "./assets/projects/tedxhanu.jpg",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/projects/tedxhanu.jpg",
       "description": "TEDxHANU 2023",
       "link": "https://www.facebook.com/tedxhanu/videos/1365086274436809"
     },
     {
-      "img": "./assets/projects/kachofugetsu.jpg",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/projects/kachofugetsu.jpg",
       "description": "KACHOUFUUGETSU HANU",
       "link": "https://www.facebook.com/100063582549627/videos/1459914988185464"
     },
     {
-      "img": "./assets/projects/ngaydautienptit.png",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/projects/ngaydautienptit.png",
       "description": "MV Ngay dau tien PTIT Version ",
       "link": "https://www.youtube.com/watch?v=y7Y7VtKb9rY"
     },
     {
-      "img": "./assets/projects/breaktheshell.jpg",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/projects/breaktheshell.jpg",
       "description": "BREAK THE SHELL",
       "link": "https://www.facebook.com/share/v/cuTCEFhncdc92YCf/"
     },
     {
-      "img": "./assets/projects/pchain.png",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/projects/pchain.png",
       "description": "THE P-CHAIN 2022",
       "link": "https://www.facebook.com/somedia.vn.2016/videos/941481530159388"
     },
     {
-      "img": "./assets/projects/agriup.jpg",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/projects/agriup.jpg",
       "description": "AGRIUP 2023 - NEU",
       "link": "https://www.facebook.com/agriup.NEU/videos/2103583136647621"
     }
@@ -272,115 +272,115 @@
   ],
   "humans": [
     {
-      "image": "./assets/humans/anhtuyen.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/anhtuyen.jpg",
       "name": "Vu Cong Tuyen",
       "description": "Founder",
       "detail": "Founder, President 2017-2020"
     },
     {
-      "image": "./assets/humans/anhchau.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/anhchau.jpg",
       "name": "Duong Quang Chau",
       "description": "Co-founder",
       "detail": ""
     },
     {
-      "image": "./assets/humans/anhminh.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/anhminh.jpg",
       "name": "Bui Quang Minh",
       "description": "Co-founder",
       "detail": ""
     },
     {
-      "image": "./assets/humans/tramy.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/tramy.jpg",
       "name": "Le Thi Tra My",
       "description": "Gen 1",
       "detail": "Vice President 2018-2019 and 2019-2020"
     },
     {
-      "image": "./assets/humans/theloc.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/theloc.jpg",
       "name": "Nguyen The Loc",
       "description": "Gen 1",
       "detail": "Vice President 2018-2019 and 2019-2020"
     },
     {
-      "image": "./assets/humans/thethuan.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/thethuan.jpg",
       "name": "Nguyen The Thuan",
       "description": "Gen 1",
       "detail": "Vice President 2018-2019 and 2019-2020"
     },
     {
-      "image": "./assets/humans/anhkhoa.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/anhkhoa.jpg",
       "name": "Nguyen Dang Khoa",
       "description": "Gen 3",
       "detail": "President for the 2020-2021 and 2021-2022 terms."
     },
     {
-      "image": "./assets/humans/nhuquynh.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/nhuquynh.jpg",
       "name": "Nguyen Nhu Quynh",
       "description": "Gen 3",
       "detail": "Vice president for the 2020-2021 and 2021-2022 terms."
     },
     {
-      "image": "./assets/humans/thuphuong.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/thuphuong.jpg",
       "name": "Bui Thi Thu Phuong",
       "description": "Gen 3",
       "detail": "Head of Internal Affairs Department for the 2020-2021 term and Vice President for the 2021-2022 term."
     },
     {
-      "image": "./assets/humans/bichvan.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/bichvan.jpg",
       "name": "Dao Thi Bich Van",
       "description": "Gen 3",
       "detail": "Head of External Affairs Department for the 2020-2021 term."
     },
     {
-      "image": "./assets/humans/vanhieu.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/vanhieu.jpg",
       "name": "Nguyen Van Hieu",
       "description": "Gen 3",
       "detail": "Head of Design Department for the 2020-2021 term."
     },
     {
-      "image": "./assets/humans/hamanhhoang.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/hamanhhoang.jpg",
       "name": "Ha Manh Hoang",
       "description": "Gen 3",
       "detail": "Head of Media Department for the 2021-2022 term."
     },
     {
-      "image": "./assets/humans/anhduc.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/anhduc.jpg",
       "name": "Nguyen Minh Duc",
       "description": "Gen 3",
       "detail": "Member has actively contributed to the club's activities."
     },
     {
-      "image": "./assets/humans/anhnam.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/anhnam.jpg",
       "name": "Pham Khac Hoai Nam",
       "description": "Gen 4",
       "detail": "The club president for the 2022-2023 term, Head of Head of Communications Department for the 2021-2022 term."
     },
     {
-      "image": "./assets/humans/khanhvan.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/khanhvan.jpg",
       "name": "Nguyen Khanh Van",
       "description": "Gen 4",
       "detail": "The vice president of the club for the 2022-2023 term, Head of External Affairs Department for the 2021-2022 term."
     },
     {
-      "image": "./assets/humans/thuytrang.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/thuytrang.jpg",
       "name": "Nguyen Thi Thuy Trang",
       "description": "Gen 4",
       "detail": "The vice president of the club for the 2022-2023 term, Head of Design Department for the 2021-2022 term."
     },
     {
-      "image": "./assets/humans/thanhthao.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/thanhthao.jpg",
       "name": "Nguyen Thi Thanh Thao",
       "description": "Gen 4",
       "detail": "Deputy Head of Foreign Affairs Department for the 2021-2022 term."
     },
     {
-      "image": "./assets/humans/vuminhtu.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/vuminhtu.jpg",
       "name": "Vu Minh Tu",
       "description": "Gen 4",
       "detail": "Deputy Head of Media Department for the 2021-2022 term."
     },
     {
-      "image": "./assets/humans/duythong.jpg",
+      "image": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/humans/duythong.jpg",
       "name": "Dao Duy Thong",
       "description": "Gen 5",
       "detail": "The club president for the 2023-2024 term, Head of Media Department for the 2022-2023 term."

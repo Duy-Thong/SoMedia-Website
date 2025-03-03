@@ -1,72 +1,58 @@
 import React from 'react';
-import { Form, Input, Card, Button, Row, Col, Typography } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
-
-const { Text } = Typography;
+import { Card, Input, Upload, Button, Space, message } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { uploadToBlob } from '../../utils/uploadHelpers';
 
 const SlideItem = ({ slide, index, updateSlide, removeSlide }) => {
-    const handleChange = (field, value) => {
-        updateSlide(index, { ...slide, [field]: value });
+    const handleImageUpload = async (file) => {
+        try {
+            const url = await uploadToBlob(file, 'active');
+            updateSlide(index, { ...slide, image: url });
+            message.success('Tải ảnh lên thành công!');
+            return url;
+        } catch (error) {
+            message.error('Lỗi khi tải ảnh lên!');
+            console.error('Error uploading image:', error);
+            return null;
+        }
     };
 
     return (
         <Card
-            size="small"
-            title={<Text style={{ color: '#fff' }}>Slide {index + 1}</Text>}
-            style={{ background: '#141414', borderColor: '#303030' }}
-            headStyle={{ borderColor: '#303030' }}
-            extra={
-                <Button
-                    danger
-                    icon={<DeleteOutlined />}
-                    onClick={() => removeSlide(index)}
-                    style={{ border: 'none' }}
-                >
-                    Xóa
-                </Button>
-            }
+            style={{ background: '#1f1f1f', borderColor: '#303030' }}
+            className="slide-item"
         >
-            <Row gutter={16}>
-                <Col span={24}>
-                    <Form.Item label={<Text style={{ color: '#fff' }}>Tiêu đề thay thế</Text>}>
-                        <Input
-                            value={slide.alt}
-                            onChange={(e) => handleChange('alt', e.target.value)}
-                            placeholder="Nhập tiêu đề thay thế"
-                            style={{ background: '#1f1f1f', color: '#fff', borderColor: '#303030' }}
-                        />
-                    </Form.Item>
-                </Col>
-                <Col span={24}>
-                    <Form.Item label={<Text style={{ color: '#fff' }}>Mô tả</Text>}>
-                        <Input
-                            value={slide.description}
-                            onChange={(e) => handleChange('description', e.target.value)}
-                            placeholder="Nhập mô tả"
-                            style={{ background: '#1f1f1f', color: '#fff', borderColor: '#303030' }}
-                        />
-                    </Form.Item>
-                </Col>
-                <Col span={24}>
-                    <Form.Item label={<Text style={{ color: '#fff' }}>Đường dẫn hình ảnh</Text>}>
-                        <Input
-                            value={slide.src}
-                            onChange={(e) => handleChange('src', e.target.value)}
-                            placeholder="Nhập đường dẫn hình ảnh"
-                            style={{ background: '#1f1f1f', color: '#fff', borderColor: '#303030' }}
-                        />
-                    </Form.Item>
-                </Col>
-            </Row>
-            {slide.src && (
-                <div style={{ marginTop: '10px', textAlign: 'center' }}>
+            <Space direction="vertical" style={{ width: '100%' }}>
+                <Input
+                    placeholder="Tiêu đề"
+                    value={slide.title}
+                    onChange={(e) => updateSlide(index, { ...slide, title: e.target.value })}
+                    style={{ background: '#141414', borderColor: '#303030', color: '#fff' }}
+                />
+                <Input.TextArea
+                    placeholder="Mô tả"
+                    value={slide.description}
+                    onChange={(e) => updateSlide(index, { ...slide, description: e.target.value })}
+                    style={{ background: '#141414', borderColor: '#303030', color: '#fff' }}
+                />
+                <Upload
+                    accept="image/*"
+                    beforeUpload={async (file) => {
+                        await handleImageUpload(file);
+                        return false;
+                    }}
+                    showUploadList={false}
+                >
+                    <Button icon={<UploadOutlined />}>Tải ảnh lên</Button>
+                </Upload>
+                {slide.image && (
                     <img
-                        src={slide.src}
-                        alt={slide.alt || "Xem trước"}
-                        style={{ maxWidth: '100%', maxHeight: '200px', objectFit: 'contain' }}
+                        src={slide.image}
+                        alt={slide.title}
+                        style={{ width: '100%', marginTop: 8 }}
                     />
-                </div>
-            )}
+                )}
+            </Space>
         </Card>
     );
 };

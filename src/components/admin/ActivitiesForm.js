@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Form, Button, Card, message, Modal, Space, Typography, Divider, Row, Col, Tabs } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Form, Input, Button, Upload, message, Card, Modal, Space, Typography, Divider, Row, Col, Tabs } from 'antd';
 import { PlusOutlined, SaveOutlined, ExclamationCircleOutlined, DashboardOutlined } from '@ant-design/icons';
 import ActivityItem from './ActivityItem';
 import SlideItem from './SlideItem';
@@ -17,6 +17,11 @@ const ActivitiesForm = ({ initialData = [], initialSlides = [] }) => {
     const [saving, setSaving] = useState(false);
     const [form] = Form.useForm();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        setActivities(initialData);
+        setSlides(initialSlides);
+    }, [initialData, initialSlides]);
 
     const handleSave = async () => {
         try {
@@ -134,7 +139,7 @@ const ActivitiesForm = ({ initialData = [], initialSlides = [] }) => {
 
     return (
         <div style={{ background: '#141414', padding: '20px', borderRadius: '8px' }}>
-            <Form form={form} layout="vertical">
+            <div>
                 <Tabs
                     defaultActiveKey="activities"
                     style={{ color: '#fff' }}
@@ -254,7 +259,7 @@ const ActivitiesForm = ({ initialData = [], initialSlides = [] }) => {
                         </Button>
                     </Col>
                 </Row>
-            </Form>
+            </div>
         </div>
     );
 };
