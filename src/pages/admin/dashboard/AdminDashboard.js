@@ -113,14 +113,24 @@ const AdminDashboard = () => {
 
     return (
         <Layout className="admin-dashboard">
-            <Sider trigger={null} collapsible collapsed={collapsed} theme="dark">
+            <Sider
+                trigger={null}
+                collapsible
+                collapsed={collapsed}
+                theme="dark"
+                breakpoint="lg"
+                collapsedWidth="0"
+                onBreakpoint={(broken) => {
+                    setCollapsed(broken);
+                }}
+            >
                 <div className="logo">
                     {!collapsed ? <h2 style={{ color: 'white' }}>SoMedia Admin</h2> : <h2 style={{ color: 'white' }}>SM</h2>}
                 </div>
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['dashboard']} items={menuItems} />
             </Sider>
             <Layout style={{ background: '#141414' }}>
-                <Header className="admin-header" style={{ background: '#1f1f1f', color: 'white' }}>
+                <Header className="admin-header" style={{ background: '#1f1f1f', color: 'white', padding: '0 12px' }}>
                     {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
                         className: 'trigger',
                         onClick: () => setCollapsed(!collapsed),
@@ -134,7 +144,7 @@ const AdminDashboard = () => {
                 <Content className="admin-content" style={{ background: '#141414' }}>
                     <Title level={3} style={{ color: 'white' }}>Tổng quan hệ thống</Title>
 
-                    <Row gutter={[16, 16]} className="management-row">
+                    <Row gutter={[{ xs: 8, sm: 16, md: 24 }, { xs: 8, sm: 16, md: 24 }]} className="management-row">
                         <Col xs={24} sm={12} lg={8}>
                             <Card className="management-card" hoverable style={{ background: '#1f1f1f' }}>
                                 <UserOutlined className="card-icon" style={{ color: '#1890ff' }} />

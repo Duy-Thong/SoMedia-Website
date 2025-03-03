@@ -58,98 +58,20 @@ const darkTheme = {
     },
 };
 
-// Tùy chỉnh style chung
+// Remove or simplify the styles object to only keep what's necessary
 const styles = {
-    pageContainer: {
-        padding: '32px',
-        backgroundColor: '#121212',
-        minHeight: '100vh',
-        color: '#ffffff'
-    },
-    cardStyle: {
-        borderRadius: '12px',
-        boxShadow: '0 6px 16px rgba(0, 0, 0, 0.2)',
-        marginBottom: '24px',
-    },
-    tableCard: {
-        backgroundColor: '#1f1f1f',
-        border: '1px solid #303030',
-        borderRadius: '12px',
-        overflow: 'hidden',
-    },
-    headerTitle: {
-        color: '#ffffff',
-        fontSize: '28px',
-        fontWeight: 'bold',
-        margin: '0'
-    },
-    searchInput: {
-        width: '100%',
-        maxWidth: '400px',
-        backgroundColor: '#2a2a2a',
-        borderColor: '#303030',
-        borderRadius: '8px',
-    },
-    addButton: {
-        background: '#177ddc',
-        borderColor: '#177ddc',
-        boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
-        height: '40px',
-        borderRadius: '8px',
-        display: 'flex',
-        alignItems: 'center',
-    },
-    backButton: {
-        background: '#177ddc',
-        borderColor: '#177ddc',
-        height: '40px',
-        borderRadius: '8px',
-        display: 'flex',
-        alignItems: 'center',
-    },
-    editButton: {
-        backgroundColor: '#177ddc',
-        borderColor: '#177ddc',
-        borderRadius: '6px',
-    },
     deleteButton: {
         backgroundColor: '#ff4d4f',
         borderColor: '#ff4d4f',
         color: '#ffffff',
         borderRadius: '6px',
     },
-    formLabel: {
-        color: '#ffffff'
+    editButton: {
+        backgroundColor: '#177ddc',
+        borderColor: '#177ddc',
+        borderRadius: '6px',
     },
-    tableContainer: {
-        borderRadius: '10px',
-        overflow: 'hidden'
-    },
-    headerContainer: {
-        marginBottom: '28px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '16px'
-    },
-    headerLeft: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '20px',
-        flexWrap: 'wrap'
-    },
-    modalFooter: {
-        marginTop: '12px'
-    },
-    tableWrapper: {
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
-        borderRadius: '12px',
-        overflow: 'hidden'
-    },
-    formItem: {
-        marginBottom: '18px'
-    }
+    // Keep other button styles if needed
 };
 
 const UserManagement = () => {
@@ -401,7 +323,7 @@ const UserManagement = () => {
                 if (role === 'admin') {
                     color = '#ff4d4f'; // red for admin
                     displayText = 'Quản trị viên';
-                } 
+                }
 
                 return <Tag color={color} style={{ borderRadius: '12px', padding: '4px 12px' }}>{displayText}</Tag>;
             },
@@ -448,23 +370,23 @@ const UserManagement = () => {
 
     return (
         <ConfigProvider theme={darkTheme}>
-            <div style={styles.pageContainer}>
+            <div className="min-h-screen bg-[#121212] p-4 md:p-8">
                 <Card
-                    style={{ ...styles.cardStyle, ...styles.tableCard }}
+                    className="rounded-xl shadow-lg mb-6 overflow-hidden border border-[#303030] bg-[#1f1f1f]"
                     bordered={false}
-                    bodyStyle={{ padding: '24px' }}
+                    bodyStyle={{ padding: '16px md:24px' }}
                 >
-                    <div style={styles.headerContainer}>
-                        <div style={styles.headerLeft}>
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                             <Button
                                 type="primary"
                                 icon={<LeftOutlined />}
                                 onClick={() => navigate('/admin/dashboard')}
-                                style={styles.backButton}
+                                className="h-10 rounded-lg flex items-center bg-[#177ddc] border-[#177ddc]"
                             >
                                 Quay lại Dashboard
                             </Button>
-                            <Title level={2} style={styles.headerTitle}>
+                            <Title level={2} className="!text-white !text-2xl md:text-3xl !my-0">
                                 Quản lý Người Dùng
                             </Title>
                         </div>
@@ -472,13 +394,13 @@ const UserManagement = () => {
                             type="primary"
                             icon={<UserAddOutlined />}
                             onClick={showAddUserModal}
-                            style={styles.addButton}
+                            className="h-10 rounded-lg flex items-center bg-[#177ddc] border-[#177ddc] w-full md:w-auto"
                         >
                             Thêm Người Dùng Mới
                         </Button>
                     </div>
 
-                    <div style={styles.tableWrapper}>
+                    <div className="overflow-x-auto rounded-lg shadow-md">
                         <Table
                             columns={columns}
                             dataSource={users}
@@ -487,150 +409,146 @@ const UserManagement = () => {
                                 pageSize: 10,
                                 showSizeChanger: true,
                                 showTotal: (total) => `Tổng cộng ${total} người dùng`,
-                                position: ['bottomCenter']
+                                position: ['bottomCenter'],
+                                className: 'my-4'
                             }}
                             rowKey="id"
-                            style={{ backgroundColor: '#1f1f1f' }}
+                            className="bg-[#1f1f1f]"
+                            scroll={{ x: 'max-content' }}
                         />
                     </div>
                 </Card>
 
                 {/* Edit User Modal */}
                 <Modal
-                    title={<span style={{ color: '#ffffff', fontSize: '18px' }}>Chỉnh Sửa Người Dùng</span>}
+                    title={<span className="text-white text-lg">Chỉnh Sửa Người Dùng</span>}
                     open={isModalVisible}
                     onCancel={handleEditCancel}
                     footer={null}
                     bodyStyle={{ paddingTop: '20px' }}
                     width={500}
                     centered
+                    className="responsive-modal"
                 >
                     <Form
                         form={form}
                         layout="vertical"
+                        className="w-full"
                     >
                         <Form.Item
                             name="username"
-                            label={<span style={styles.formLabel}>Tên người dùng</span>}
+                            label={<span className="text-white">Tên người dùng</span>}
                             rules={[{ required: true, message: 'Vui lòng nhập tên người dùng' }]}
-                            style={styles.formItem}
+                            className="mb-4"
                         >
-                            <Input prefix={<UserOutlined />} style={{ borderRadius: '6px' }} />
+                            <Input prefix={<UserOutlined />} className="rounded-lg" />
                         </Form.Item>
                         {
                             editingUser && (
-                                <Form.Item label={<span style={styles.formLabel}>Email</span>} style={styles.formItem}>
-                                    <Input value={editingUser.email} disabled style={{ borderRadius: '6px' }} />
+                                <Form.Item label={<span className="text-white">Email</span>} className="mb-4">
+                                    <Input value={editingUser.email} disabled className="rounded-lg" />
                                 </Form.Item>
                             )
                         }
                         <Form.Item
                             name="role"
-                            label={<span style={styles.formLabel}>Vai trò</span>}
+                            label={<span className="text-white">Vai trò</span>}
                             rules={[{ required: true, message: 'Vui lòng chọn vai trò' }]}
-                            style={styles.formItem}
+                            className="mb-4"
                         >
-                            <Select style={{ borderRadius: '6px' }}>
+                            <Select className="rounded-lg">
                                 <Option value="user">Thành viên</Option>
                                 <Option value="admin">Quản trị viên</Option>
                             </Select>
                         </Form.Item>
 
-                        <Row justify="end" gutter={12} style={styles.modalFooter}>
-                            <Col>
-                                <Button key="cancel" onClick={handleEditCancel} style={{ borderRadius: '6px' }}>
-                                    Hủy
-                                </Button>
-                            </Col>
-                            <Col>
-                                <Button
-                                    key="submit"
-                                    type="primary"
-                                    icon={<SaveOutlined />}
-                                    onClick={handleEditOk}
-                                    style={{ ...styles.editButton, marginLeft: '8px' }}
-                                >
-                                    Lưu Thay Đổi
-                                </Button>
-                            </Col>
-                        </Row>
+                        <div className="flex justify-end gap-3 mt-6">
+                            <Button onClick={handleEditCancel} className="rounded-lg">
+                                Hủy
+                            </Button>
+                            <Button
+                                type="primary"
+                                icon={<SaveOutlined />}
+                                onClick={handleEditOk}
+                                className="rounded-lg bg-[#177ddc] border-[#177ddc]"
+                            >
+                                Lưu Thay Đổi
+                            </Button>
+                        </div>
                     </Form>
                 </Modal>
 
                 {/* Add User Modal */}
                 <Modal
-                    title={<span style={{ color: '#ffffff', fontSize: '18px' }}>Thêm Người Dùng Mới</span>}
+                    title={<span className="text-white text-lg">Thêm Người Dùng Mới</span>}
                     open={isAddUserModalVisible}
                     onCancel={handleAddUserCancel}
                     footer={null}
                     bodyStyle={{ paddingTop: '20px' }}
                     width={500}
                     centered
+                    className="responsive-modal"
                 >
                     <Form
                         form={addUserForm}
                         layout="vertical"
+                        className="w-full"
                     >
                         <Form.Item
                             name="username"
-                            label={<span style={styles.formLabel}>Tên người dùng</span>}
+                            label={<span className="text-white">Tên người dùng</span>}
                             rules={[{ required: true, message: 'Vui lòng nhập tên người dùng' }]}
-                            style={styles.formItem}
+                            className="mb-4"
                         >
-                            <Input prefix={<UserOutlined />} style={{ borderRadius: '6px' }} />
+                            <Input prefix={<UserOutlined />} className="rounded-lg" />
                         </Form.Item>
                         <Form.Item
                             name="email"
-                            label={<span style={styles.formLabel}>Email</span>}
+                            label={<span className="text-white">Email</span>}
                             rules={[
                                 { required: true, message: 'Vui lòng nhập email' },
                                 { type: 'email', message: 'Vui lòng nhập email hợp lệ' }
                             ]}
-                            style={styles.formItem}
+                            className="mb-4"
                         >
-                            <Input style={{ borderRadius: '6px' }} />
+                            <Input className="rounded-lg" />
                         </Form.Item>
                         <Form.Item
                             name="password"
-                            label={<span style={styles.formLabel}>Mật khẩu</span>}
+                            label={<span className="text-white">Mật khẩu</span>}
                             rules={[
                                 { required: true, message: 'Vui lòng nhập mật khẩu' },
                                 { min: 6, message: 'Mật khẩu phải có ít nhất 6 ký tự' }
                             ]}
-                            style={styles.formItem}
+                            className="mb-4"
                         >
-                            <Input.Password style={{ borderRadius: '6px' }} />
+                            <Input.Password className="rounded-lg" />
                         </Form.Item>
                         <Form.Item
                             name="role"
-                            label={<span style={styles.formLabel}>Vai trò</span>}
+                            label={<span className="text-white">Vai trò</span>}
                             initialValue="user"
-                            style={styles.formItem}
+                            className="mb-4"
                         >
-                            <Select style={{ borderRadius: '6px' }}>
+                            <Select className="rounded-lg">
                                 <Option value="user">Thành viên</Option>
                                 <Option value="admin">Quản trị viên</Option>
                             </Select>
                         </Form.Item>
 
-                        <Row justify="end" gutter={12} style={styles.modalFooter}>
-                            <Col>
-                                <Button key="cancel" onClick={handleAddUserCancel} style={{ borderRadius: '6px' }}>
-                                    Hủy
-                                </Button>
-                            </Col>
-                            <Col>
-                                <Button
-                                    key="submit"
-                                    type="primary"
-                                    icon={<UserAddOutlined />}
-                                    onClick={handleAddUserOk}
-                                    style={{ ...styles.addButton, marginLeft: '8px' }}
-                                >
-                                    Thêm Người Dùng
-                                </Button>
-                            </Col>
-                        </Row>
+                        <div className="flex justify-end gap-3 mt-6">
+                            <Button onClick={handleAddUserCancel} className="rounded-lg">
+                                Hủy
+                            </Button>
+                            <Button
+                                type="primary"
+                                icon={<UserAddOutlined />}
+                                onClick={handleAddUserOk}
+                                className="rounded-lg bg-[#177ddc] border-[#177ddc]"
+                            >
+                                Thêm Người Dùng
+                            </Button>
+                        </div>
                     </Form>
                 </Modal>
             </div>

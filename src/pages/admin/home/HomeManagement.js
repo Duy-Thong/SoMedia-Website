@@ -39,40 +39,16 @@ const HomeManagement = () => {
 
     if (loading) {
         return (
-            <Content
-                style={{
-                    padding: '32px',
-                    textAlign: 'center',
-                    backgroundColor: '#141414',
-                    minHeight: 'calc(100vh - 64px)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}
-            >
-                <Spin size="large" tip={<Text style={{ color: '#fff', marginTop: '15px' }}>Loading intro data...</Text>} />
+            <Content className="p-4 md:p-8 text-center bg-[#141414] min-h-[calc(100vh-64px)] flex flex-col justify-center items-center">
+                <Spin size="large" tip={<Text className="text-white mt-4">Loading intro data...</Text>} />
             </Content>
         );
     }
 
     if (error) {
         return (
-            <Content
-                style={{
-                    padding: '32px',
-                    backgroundColor: '#141414',
-                    minHeight: 'calc(100vh - 64px)'
-                }}
-            >
-                <Card
-                    style={{
-                        backgroundColor: '#1f1f1f',
-                        borderRadius: '10px',
-                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)',
-                        borderColor: '#303030'
-                    }}
-                >
+            <Content className="p-4 md:p-8 bg-[#141414] min-h-[calc(100vh-64px)]">
+                <Card className="bg-[#1f1f1f] rounded-lg shadow-lg border-[#303030]">
                     <Alert
                         message="Error"
                         description={`Failed to load intro data: ${error}`}
@@ -85,60 +61,45 @@ const HomeManagement = () => {
     }
 
     return (
-        <Content
-            style={{
-                padding: '32px',
-                backgroundColor: '#141414',
-                minHeight: 'calc(100vh - 64px)'
-            }}
-        >
+        <Content className="p-4 md:p-8 bg-[#141414] min-h-[calc(100vh-64px)]">
             <Row gutter={[24, 24]}>
-                <Col span={24} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Space>
-                        <HomeOutlined style={{ fontSize: '28px', color: '#1890ff', marginRight: '12px' }} />
-                        <Title level={2} style={{ color: '#fff', margin: 0, fontWeight: 600 }}>
-                            Quản lý trang chủ
-                        </Title>
-                    </Space>
+                <Col span={24} className="flex flex-col sm:flex-row justify-between items-center sm:items-center gap-4">
                     <Button
                         icon={<ArrowLeftOutlined />}
                         onClick={() => navigate('/admin/dashboard')}
-                        style={{
-                            backgroundColor: '#1f1f1f',
-                            borderColor: '#303030',
-                            color: '#fff'
-                        }}
+                        className="bf-blue-200"
                     >
                         Quay về Dashboard
                     </Button>
+                    <Space>
+                        <HomeOutlined className="text-2xl text-[#1890ff] mr-3" />
+                        <Title level={2} className="m-0 text-white font-semibold">
+                            Quản lý trang chủ
+                        </Title>
+                    </Space>
+                    
                 </Col>
 
                 <Col span={24}>
-                    <Divider style={{ borderColor: '#303030', margin: '12px 0 24px' }} />
+                    <Divider className="border-[#303030] my-3 md:my-6" />
                 </Col>
 
                 <Col span={24}>
                     <Card
                         bordered={false}
-                        style={{
-                            backgroundColor: '#1f1f1f',
-                            borderRadius: '12px',
-                            overflow: 'hidden',
-                            boxShadow: '0 6px 16px rgba(0, 0, 0, 0.6)',
-                            borderColor: '#303030'
-                        }}
+                        className="bg-[#1f1f1f] rounded-xl overflow-hidden shadow-xl border-[#303030]"
                         title={
-                            <Text strong style={{ color: '#fff', fontSize: '18px' }}>
+                            <Text strong className="text-white text-base md:text-lg">
                                 Thông tin giới thiệu
                             </Text>
                         }
                         headStyle={{
                             backgroundColor: '#1f1f1f',
                             borderBottom: '1px solid #303030',
-                            padding: '16px 24px'
+                            padding: '12px 16px md:16px 24px'
                         }}
                         bodyStyle={{
-                            padding: '24px',
+                            padding: '16px md:24px',
                             backgroundColor: '#1f1f1f'
                         }}
                     >

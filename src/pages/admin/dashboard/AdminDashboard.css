@@ -21,7 +21,7 @@
 }
 
 .admin-header {
-    padding: 0 24px;
+    padding: 0;
     background: #fff;
     display: flex;
     align-items: center;
@@ -43,6 +43,7 @@
 
 .admin-header .header-title {
     flex: 1;
+    margin-left: 16px;
 }
 
 .admin-header .header-title h4 {
@@ -112,5 +113,47 @@
     .admin-content {
         margin: 12px;
         padding: 16px;
+    }
+
+    .header-title h4 {
+        font-size: 16px !important;
+    }
+
+    .management-card {
+        .ant-card-body {
+            padding: 16px;
+        }
+
+        h4 {
+            font-size: 16px !important;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .logo h2 {
+        font-size: 18px;
+    }
+
+    .header-title h4 {
+        font-size: 14px !important;
+    }
+
+    .management-card {
+        .ant-card-body {
+            padding: 12px;
+        }
+
+        h4 {
+            font-size: 14px !important;
+        }
+
+        p {
+            font-size: 12px;
+        }
     }
 }
