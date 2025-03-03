@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "@vercel/analytics": "^1.2.2",
+        "@vercel/blob": "^0.27.2",
         "@vercel/speed-insights": "^1.0.12",
         "antd": "^5.24.2",
         "axios": "^1.7.2",
@@ -28,7 +29,7 @@
         "web-vitals": "^3.1.1"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "BLOB_READ_WRITE_TOKEN=vercel_blob_rw_vuBTDxs1Af4OyipF_7ktfANNunJPJCY1OsqLo4fevvrPM6A react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",

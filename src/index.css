@@ -221,3 +221,25 @@ code {
 .ant-card-bordered {
     border-color: #303030 !important;
 }
+
+/* Dark theme modal overrides */
+.ant-modal-content {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.ant-modal-header {
+    background-color: #242424 !important;
+    border-bottom: 1px solid #303030 !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.ant-modal-footer {
+    background-color: #242424 !important;
+    border-top: 1px solid #303030 !important;
+    border-radius: 0 0 8px 8px !important;
+}
+
+.dark-modal .ant-modal-wrap {
+    background-color: transparent !important;
+}

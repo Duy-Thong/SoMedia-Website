@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Typography, Form, Input, Button, Card, message, Spin, Tabs, Table, Space, Modal, Upload } from 'antd';
 import { EditOutlined, DeleteOutlined, PlusOutlined, UploadOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { getAboutData, updateAboutData, getDepartments, updateDepartment, addDepartment, deleteDepartment } from '../../../services/aboutService';
+import { uploadToBlob } from '../../../services/uploadService';
 import { useNavigate } from 'react-router-dom';
 
 const { Content } = Layout;
@@ -19,6 +20,8 @@ const AboutManagement = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [editingDepartment, setEditingDepartment] = useState(null);
     const [imageUrl, setImageUrl] = useState('');
+    const [fileList, setFileList] = useState([]);
+    const [uploading, setUploading] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -50,10 +53,9 @@ const AboutManagement = () => {
             setDepartmentsLoading(true);
             const data = await getDepartments();
             if (data) {
-                // Add key property for table
-                const departmentsWithKeys = data.map((dept, index) => ({
+                const departmentsWithKeys = data.map(dept => ({
                     ...dept,
-                    key: index.toString()
+                    key: dept.id // Use Firebase ID as key
                 }));
                 setDepartments(departmentsWithKeys);
             }
@@ -82,6 +84,39 @@ const AboutManagement = () => {
         setImageUrl(e.target.value);
     };
 
+    const handleUpload = async (file) => {
+        try {
+            setUploading(true);
+            const url = await uploadToBlob(file);
+            setImageUrl(url);
+            message.success('Upload thành công!');
+            return url;
+        } catch (error) {
+            message.error('Upload thất bại.');
+            console.error(error);
+        } finally {
+            setUploading(false);
+        }
+    };
+
+    const uploadProps = {
+        beforeUpload: (file) => {
+            const isImage = file.type.startsWith('image/');
+            if (!isImage) {
+                message.error('Chỉ có thể tải lên file hình ảnh!');
+                return false;
+            }
+            handleUpload(file);
+            return false;
+        },
+        maxCount: 1,
+        listType: "picture-card",
+        fileList: fileList,
+        onChange: ({ fileList: newFileList }) => {
+            setFileList(newFileList);
+        },
+    };
+
     const showAddDepartmentModal = () => {
         setEditingDepartment(null);
         setImageUrl('');
@@ -102,7 +137,7 @@ const AboutManagement = () => {
 
     const handleDepartmentDelete = async (department) => {
         try {
-            await deleteDepartment(department.key);
+            await deleteDepartment(department.id); // Use id instead of key
             message.success('Department deleted successfully');
             loadDepartments();
         } catch (error) {
@@ -117,7 +152,7 @@ const AboutManagement = () => {
             values.image = imageUrl || values.image;
 
             if (editingDepartment) {
-                await updateDepartment(editingDepartment.key, values);
+                await updateDepartment(editingDepartment.id, values); // Use id instead of key
                 message.success('Department updated successfully');
             } else {
                 await addDepartment(values);
@@ -278,24 +313,54 @@ const AboutManagement = () => {
                     </Card>
 
                     <Modal
-                        title={<Text style={{ color: '#fff' }}>{editingDepartment ? "Sửa phòng ban" : "Thêm phòng ban"}</Text>}
-                        visible={isModalVisible}
+
+                        open={isModalVisible}
                         onCancel={() => setIsModalVisible(false)}
                         footer={[
-                            <Button key="back" style={{ background: '#1f1f1f', borderColor: '#434343', color: '#fff' }} onClick={() => setIsModalVisible(false)}>
-                                Cancel
+                            <Button
+                                key="back"
+                                style={{
+                                    background: '#1f1f1f',
+                                    borderColor: '#434343',
+                                    color: '#fff',
+                                    padding: '0 20px'
+                                }}
+                                onClick={() => setIsModalVisible(false)}
+                            >
+                                Hủy
                             </Button>,
-                            <Button key="submit" type="primary" onClick={handleDepartmentSave}>
-                                Save
+                            <Button
+                                key="submit"
+                                type="primary"
+                                onClick={handleDepartmentSave}
+                                style={{
+                                    padding: '0 20px'
+                                }}
+                            >
+                                {editingDepartment ? "Cập nhật" : "Thêm mới"}
                             </Button>,
                         ]}
-                        bodyStyle={{ backgroundColor: '#242424', borderColor: '#303030' }}
-                        style={{ backgroundColor: '#242424' }}
+                        bodyStyle={{
+                            backgroundColor: '#242424',
+                            borderColor: '#303030',
+                            padding: '24px',
+                            maxHeight: 'calc(90vh - 130px)',  // Account for header and footer
+                            overflowY: 'auto'  // Enable scrolling for modal content
+                        }}
+                        style={{
+                            top: 50,  // Increased from 20 to 50 to show more content above
+                            maxHeight: '90vh',  // Limit modal height
+                            overflow: 'hidden'  // Prevent modal overflow
+                        }}
                         className="dark-modal"
-                        width={600}
+                        width={700}
                         maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
                         modalRender={modal => (
-                            <div style={{ backgroundColor: '#242424', borderRadius: '8px' }}>
+                            <div style={{
+                                backgroundColor: '#242424',
+                                borderRadius: '8px',
+                                maxHeight: '90vh'  // Consistent with modal max height
+                            }}>
                                 {modal}
                             </div>
                         )}
@@ -303,34 +368,106 @@ const AboutManagement = () => {
                         <Form
                             form={departmentForm}
                             layout="vertical"
+                            style={{
+                                overflow: 'visible',  // Allow form content to be fully visible
+                                padding: '4px'  // Add slight padding to prevent content touching edges
+                            }}
                         >
                             <Form.Item
                                 name="name"
-                                label={<Text style={{ color: '#fff' }}>Tên phòng ban</Text>}
+                                label={<Text style={{ color: '#fff', fontSize: '15px' }}>Tên phòng ban</Text>}
                                 rules={[{ required: true, message: 'Vui lòng nhập tên phòng ban' }]}
                             >
-                                <Input placeholder="Nhập tên phòng ban" style={{ backgroundColor: '#303030', color: '#fff', borderColor: '#434343' }} />
+                                <Input
+                                    placeholder="Nhập tên phòng ban"
+                                    style={{
+                                        backgroundColor: '#303030',
+                                        color: '#fff',
+                                        borderColor: '#434343',
+                                        padding: '8px 12px',
+                                        height: '40px'
+                                    }}
+                                />
                             </Form.Item>
 
                             <Form.Item
                                 name="description"
-                                label={<Text style={{ color: '#fff' }}>Mô tả</Text>}
+                                label={<Text style={{ color: '#fff', fontSize: '15px' }}>Mô tả</Text>}
                                 rules={[{ required: true, message: 'Vui lòng nhập mô tả' }]}
                             >
-                                <TextArea rows={4} placeholder="Nhập mô tả phòng ban" style={{ backgroundColor: '#303030', color: '#fff', borderColor: '#434343' }} />
+                                <TextArea
+                                    rows={4}
+                                    placeholder="Nhập mô tả phòng ban"
+                                    style={{
+                                        backgroundColor: '#303030',
+                                        color: '#fff',
+                                        borderColor: '#434343',
+                                        padding: '8px 12px'
+                                    }}
+                                />
                             </Form.Item>
 
                             <Form.Item
                                 name="image"
-                                label={<Text style={{ color: '#fff' }}>URL Hình ảnh</Text>}
-                                rules={[{ required: true, message: 'Vui lòng nhập URL hình ảnh' }]}
+                                label={<Text style={{ color: '#fff', fontSize: '15px' }}>Hình ảnh</Text>}
+                                rules={[{ required: true, message: 'Vui lòng tải lên hình ảnh' }]}
                             >
-                                <Input
-                                    placeholder="Nhập URL hình ảnh"
-                                    style={{ backgroundColor: '#303030', color: '#fff', borderColor: '#434343' }}
-                                    value={imageUrl}
-                                    onChange={handleMainImageChange}
-                                />
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '16px',
+                                    backgroundColor: '#303030',
+                                    padding: '20px',
+                                    borderRadius: '6px',
+                                    border: '1px dashed #434343'
+                                }}>
+                                    <Upload {...uploadProps}>
+                                        <Button
+                                            icon={<UploadOutlined />}
+                                            loading={uploading}
+                                            style={{
+                                                width: '100%',
+                                                height: '40px',
+                                                backgroundColor: '#1f1f1f',
+                                                borderColor: '#434343',
+                                                color: '#fff'
+                                            }}
+                                        >
+                                            Tải lên hình ảnh
+                                        </Button>
+                                    </Upload>
+                                    {imageUrl && (
+                                        <div style={{
+                                            marginTop: '10px',
+                                            textAlign: 'center',
+                                            padding: '10px',
+                                            backgroundColor: '#1f1f1f',
+                                            borderRadius: '4px'
+                                        }}>
+                                            <img
+                                                src={imageUrl}
+                                                alt="Preview"
+                                                style={{
+                                                    maxWidth: '100%',
+                                                    maxHeight: '200px',
+                                                    objectFit: 'contain'
+                                                }}
+                                            />
+                                        </div>
+                                    )}
+                                    <Input
+                                        placeholder="URL hình ảnh"
+                                        value={imageUrl}
+                                        onChange={(e) => setImageUrl(e.target.value)}
+                                        style={{
+                                            backgroundColor: '#1f1f1f',
+                                            color: '#fff',
+                                            borderColor: '#434343',
+                                            height: '40px',
+                                            padding: '8px 12px'
+                                        }}
+                                    />
+                                </div>
                             </Form.Item>
                         </Form>
                     </Modal>
