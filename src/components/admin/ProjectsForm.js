@@ -164,16 +164,25 @@ const ProjectsForm = ({ initialData = [] }) => {
                 open={isModalVisible}
                 onCancel={() => setIsModalVisible(false)}
                 footer={null}
+                // Thêm styles mới cho Modal
+                className="custom-dark-modal"
+                style={{
+                    color: '#fff'
+                }}
             >
                 <Form
                     form={form}
                     layout="vertical"
                     onFinish={handleSubmit}
                     initialValues={editingIndex >= 0 ? projects[editingIndex] : {}}
+                    // Thêm styles cho Form
+                    style={{
+                        color: '#fff'
+                    }}
                 >
                     <Form.Item
                         name="description"
-                        label="Mô tả dự án"
+                        label={<span style={{ color: '#fff' }}>Mô tả dự án</span>}
                         rules={[{ required: true, message: 'Vui lòng nhập mô tả dự án' }]}
                     >
                         <Input.TextArea rows={4} />
@@ -181,7 +190,7 @@ const ProjectsForm = ({ initialData = [] }) => {
 
                     <Form.Item
                         name="img"
-                        label="Đường dẫn hình ảnh"
+                        label={<span style={{ color: '#fff' }}>Đường dẫn hình ảnh</span>}
                         rules={[{ required: true, message: 'Vui lòng nhập URL hình ảnh' }]}
                     >
                         <Input />
@@ -189,7 +198,7 @@ const ProjectsForm = ({ initialData = [] }) => {
 
                     <Form.Item
                         name="link"
-                        label="Liên kết dự án"
+                        label={<span style={{ color: '#fff' }}>Liên kết dự án</span>}
                         rules={[{ required: true, message: 'Vui lòng nhập liên kết dự án' }]}
                     >
                         <Input />
