@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Card, Divider, message, Space, Upload, Modal,Row,Col} from 'antd';
-import { DeleteOutlined, PlusOutlined, UploadOutlined ,ArrowLeftOutlined} from '@ant-design/icons';
+import { Form, Input, Button, Card, Divider, message, Space, Upload, Modal, Row, Col } from 'antd';
+import { DeleteOutlined, PlusOutlined, UploadOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { ref, set, push, remove, update } from 'firebase/database';
 import database from '../../firebase/config';
 import { useNavigate } from 'react-router-dom';
+
 const ProjectsForm = ({ initialData = [] }) => {
     const [form] = Form.useForm();
-    const [projects, setProjects] = useState(initialData || []);
+    const [projects, setProjects] = useState([]);  // Will store objects with id and data
     const [editingIndex, setEditingIndex] = useState(-1);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("ProjectsForm received data:", initialData);
-        setProjects(initialData || []);
+        // Transform initialData to include IDs
+        const formattedProjects = Object.entries(initialData || {}).map(([id, data]) => ({
+            id,
+            ...data
+        }));
+        setProjects(formattedProjects);
     }, [initialData]);
 
     const handleSubmit = (values) => {
@@ -21,13 +26,14 @@ const ProjectsForm = ({ initialData = [] }) => {
 
         // If editing an existing project
         if (editingIndex >= 0) {
-            const updatedProjects = [...projects];
-            updatedProjects[editingIndex] = values;
+            const projectToUpdate = projects[editingIndex];
+            const projectRef = ref(database, `dataportfolio/${projectToUpdate.id}`);
 
-            // Update project in Firebase
-            const projectRef = ref(database, `dataportfolio/${editingIndex}`);
             update(projectRef, values)
                 .then(() => {
+                    const updatedProjects = projects.map((project, index) =>
+                        index === editingIndex ? { ...project, ...values } : project
+                    );
                     setProjects(updatedProjects);
                     message.success('Dự án đã được cập nhật thành công');
                     setEditingIndex(-1);
@@ -38,16 +44,18 @@ const ProjectsForm = ({ initialData = [] }) => {
                     console.error("Error updating project:", error);
                     message.error('Không thể cập nhật dự án');
                 });
-        }
-        // Adding a new project
-        else {
-            // Add project to Firebase
+        } else {
+            // Adding a new project
             const projectsRef = ref(database, 'dataportfolio');
             const newProjectRef = push(projectsRef);
 
             set(newProjectRef, values)
                 .then(() => {
-                    setProjects([...projects, values]);
+                    const newProject = {
+                        id: newProjectRef.key,
+                        ...values
+                    };
+                    setProjects([...projects, newProject]);
                     message.success('Dự án đã được thêm thành công');
                     form.resetFields();
                     setIsModalVisible(false);
@@ -60,6 +68,8 @@ const ProjectsForm = ({ initialData = [] }) => {
     };
 
     const handleDelete = (index) => {
+        const projectToDelete = projects[index];
+
         Modal.confirm({
             title: 'Bạn có chắc chắn muốn xóa dự án này?',
             content: 'Hành động này không thể hoàn tác',
@@ -67,7 +77,7 @@ const ProjectsForm = ({ initialData = [] }) => {
             okType: 'danger',
             cancelText: 'Hủy',
             onOk() {
-                const projectRef = ref(database, `dataportfolio/${index}`);
+                const projectRef = ref(database, `dataportfolio/${projectToDelete.id}`);
                 remove(projectRef)
                     .then(() => {
                         const updatedProjects = projects.filter((_, i) => i !== index);
@@ -84,7 +94,11 @@ const ProjectsForm = ({ initialData = [] }) => {
 
     const handleEdit = (project, index) => {
         setEditingIndex(index);
-        form.setFieldsValue(project);
+        form.setFieldsValue({
+            description: project.description,
+            img: project.img,
+            link: project.link
+        });
         setIsModalVisible(true);
     };
 
