@@ -1,0 +1,43 @@
+ [
+    {
+      "description": "Teambuilding",
+      "id": "1741019561136",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/picnic2024.jpg",
+      "time": "July"
+    },
+    {
+      "description": "School events",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/chaotan.jpg",
+      "time": "October"
+    },
+    {
+      "description": "Vietnamese Teacher's Day and School events",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/teacherday.jpg",
+      "time": "November"
+    },
+    {
+      "description": "Sponsor for events",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/tedhanu.jpg",
+      "time": "November"
+    },
+    {
+      "description": "Training new Gen",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/trainingd23.jpg",
+      "time": "December"
+    },
+    {
+      "description": "Youth Month activities",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/hoibao2.jpg",
+      "time": "March"
+    },
+    {
+      "description": "Club Birthday",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/birthday.jpg",
+      "time": "April"
+    },
+    {
+      "description": "Photo Contest",
+      "img": "https://vubtdxs1af4oyipf.public.blob.vercel-storage.com/SoMedia/assets/active/contest.jpg",
+      "time": "May"
+    }
+  ]

@@ -136,14 +136,25 @@ const AboutManagement = () => {
     };
 
     const handleDepartmentDelete = async (department) => {
-        try {
-            await deleteDepartment(department.id); // Use id instead of key
-            message.success('Department deleted successfully');
-            loadDepartments();
-        } catch (error) {
-            message.error('Failed to delete department');
-            console.error(error);
-        }
+        Modal.confirm({
+            title: 'Xác nhận xóa',
+            content: `Bạn có chắc chắn muốn xóa phòng ban "${department.name}"?`,
+            okText: 'Xóa',
+            cancelText: 'Hủy',
+            okType: 'danger',
+            onOk: async () => {
+                try {
+                    await deleteDepartment(department.id);
+                    message.success('Xóa phòng ban thành công');
+                    // Refresh list after successful deletion
+                    const updatedDepartments = departments.filter(dept => dept.id !== department.id);
+                    setDepartments(updatedDepartments);
+                } catch (error) {
+                    console.error('Error deleting department:', error);
+                    message.error('Không thể xóa phòng ban. Vui lòng thử lại.');
+                }
+            }
+        });
     };
 
     const handleDepartmentSave = async () => {

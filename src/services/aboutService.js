@@ -68,6 +68,12 @@ export const updateDepartment = async (id, departmentData) => {
 
 // Delete a department from Firebase
 export const deleteDepartment = async (id) => {
-    const departmentRef = ref(database, `departments/${id}`);
-    await remove(departmentRef);
+    try {
+        const departmentRef = ref(database, `departments/${id}`);
+        await remove(departmentRef);
+        return true;
+    } catch (error) {
+        console.error("Error deleting department:", error);
+        throw error;
+    }
 };

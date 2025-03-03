@@ -163,25 +163,29 @@ const ActivitiesManagement = () => {
     const modalStyles = {
         content: {
             background: '#141414',
-            padding: '24px',
+            padding: '16px',
             borderRadius: '8px',
+            maxHeight: '90vh',
         },
         header: {
             background: '#1f1f1f',
             borderBottom: '1px solid #303030',
-            padding: '16px 24px',
-        },
-        title: {
-            color: '#fff',
-            margin: 0,
+            padding: '12px 16px',
+            marginBottom: 0,
         },
         body: {
             background: '#141414',
-            padding: '24px',
+            padding: '16px',
+            maxHeight: 'calc(90vh - 110px)', // Account for header and padding
+            overflowY: 'auto',
         },
         mask: {
             backgroundColor: 'rgba(0, 0, 0, 0.75)',
         },
+        footer: {
+            padding: '12px 16px',
+            marginTop: 0,
+        }
     };
 
     if (loading) {
@@ -207,8 +211,17 @@ const ActivitiesManagement = () => {
     }
 
     return (
-        <Layout style={{ padding: '24px', background: '#0a0a0a', minHeight: 'calc(100vh - 64px)' }}>
-            <Card style={{ background: '#141414', borderColor: '#303030', marginBottom: '24px' }}>
+        <Layout style={{
+            padding: { xs: '12px', sm: '24px' },
+            background: '#0a0a0a',
+            minHeight: 'calc(100vh - 64px)'
+        }}>
+            <Card style={{
+                background: '#141414',
+                borderColor: '#303030',
+                marginBottom: '24px',
+                padding: { xs: '12px', sm: '24px' }
+            }}>
                 <Space direction="vertical" size="small" style={{ width: '100%' }}>
                     <Title level={2} style={{ color: '#fff', margin: '0 0 16px 0' }}>
                         Quản lý hoạt động và Slides
@@ -232,27 +245,31 @@ const ActivitiesManagement = () => {
                 </Space>
             </Card>
 
-            <Row gutter={[16, 16]}>
+            <Row gutter={[{ xs: 8, sm: 16 }, { xs: 8, sm: 16 }]}>
                 <Col span={24}>
                     <Card
-                        title="Hoạt động"
+                        title={<span style={{ color: '#fff' }}>Hoạt động</span>}
                         extra={
                             <Button
                                 type="primary"
                                 icon={<PlusOutlined />}
                                 onClick={() => showActivityModal('add')}
+                                size={window.innerWidth < 576 ? 'small' : 'middle'}
                             >
                                 Thêm hoạt động
                             </Button>
                         }
                         style={{ background: '#141414', borderColor: '#303030' }}
                     >
-                        <Row gutter={[16, 16]}>
+                        <Row gutter={[{ xs: 8, sm: 16 }, { xs: 8, sm: 16 }]}>
                             {activitiesData.map(activity => (
                                 <Col xs={24} sm={12} md={8} lg={6} key={activity.id}>
                                     <Card
                                         hoverable
-                                        cover={<img alt={activity.time} src={activity.img} style={{ height: '200px', objectFit: 'cover' }} />}
+                                        cover={<img alt={activity.time} src={activity.img} style={{
+                                            height: { xs: '150px', sm: '200px' },
+                                            objectFit: 'cover'
+                                        }} />}
                                         actions={[
                                             <EditOutlined key="edit" onClick={() => showActivityModal('edit', activity)} />,
                                             <DeleteOutlined key="delete" onClick={() => handleDelete('activity', activity.id)} />
@@ -260,22 +277,24 @@ const ActivitiesManagement = () => {
                                         style={{
                                             background: '#1f1f1f',
                                             borderColor: '#303030',
-                                            height: '380px'
+                                            height: { xs: '300px', sm: '380px' }
                                         }}
                                     >
                                         <Meta
-                                            title={<Text style={{ color: '#fff' }}>{activity.description}</Text>}
+                                            title={<Text style={{
+                                                color: '#fff',
+                                                fontSize: { xs: '14px', sm: '16px' }
+                                            }}>{activity.description}</Text>}
                                             description={
-                                                <Text
-                                                    style={{
-                                                        color: '#999',
-                                                        display: '-webkit-box',
-                                                        WebkitLineClamp: 3,
-                                                        WebkitBoxOrient: 'vertical',
-                                                        overflow: 'hidden',
-                                                        textOverflow: 'ellipsis'
-                                                    }}
-                                                >
+                                                <Text style={{
+                                                    color: '#999',
+                                                    fontSize: { xs: '12px', sm: '14px' },
+                                                    display: '-webkit-box',
+                                                    WebkitLineClamp: 3,
+                                                    WebkitBoxOrient: 'vertical',
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis'
+                                                }}>
                                                     {activity.time}
                                                 </Text>
                                             }
@@ -289,24 +308,29 @@ const ActivitiesManagement = () => {
 
                 <Col span={24}>
                     <Card
-                        title="Slides"
+                        title={<span style={{ color: '#fff' }}>Slides</span>}
                         extra={
                             <Button
                                 type="primary"
                                 icon={<PlusOutlined />}
                                 onClick={() => showSlideModal('add')}
+                                size={window.innerWidth < 576 ? 'small' : 'middle'}
                             >
                                 Thêm slide
                             </Button>
                         }
                         style={{ background: '#141414', borderColor: '#303030' }}
                     >
-                        <Row gutter={[16, 16]}>
+                        <Row gutter={[{ xs: 8, sm: 16 }, { xs: 8, sm: 16 }]}>
                             {slidesData.map(slide => (
                                 <Col xs={24} sm={12} md={8} lg={6} key={slide.id}>
                                     <Card
                                         hoverable
-                                        cover={<img alt={slide.alt} src={slide.src} style={{ height: '200px', objectFit: 'cover' }} />}
+                                        cover={<img alt={slide.alt} src={slide.src} style={{
+                                            height: '200px',
+                                            width: '100%',
+                                            objectFit: 'cover'
+                                        }} />}
                                         actions={[
                                             <EditOutlined key="edit" onClick={() => showSlideModal('edit', slide)} />,
                                             <DeleteOutlined key="delete" onClick={() => handleDelete('slide', slide.id)} />
@@ -314,22 +338,31 @@ const ActivitiesManagement = () => {
                                         style={{
                                             background: '#1f1f1f',
                                             borderColor: '#303030',
-                                            height: '380px'
+                                            height: '380px',
+                                            width: '100%'
+                                        }}
+                                        bodyStyle={{
+                                            height: '130px',
+                                            overflow: 'hidden'
                                         }}
                                     >
                                         <Meta
-                                            title={<Text style={{ color: '#fff' }}>{slide.description}</Text>}
+                                            title={<Text style={{
+                                                color: '#fff',
+                                                fontSize: '16px',
+                                                marginBottom: '8px',
+                                                display: 'block'
+                                            }}>{slide.description}</Text>}
                                             description={
-                                                <Text
-                                                    style={{
-                                                        color: '#999',
-                                                        display: '-webkit-box',
-                                                        WebkitLineClamp: 3,
-                                                        WebkitBoxOrient: 'vertical',
-                                                        overflow: 'hidden',
-                                                        textOverflow: 'ellipsis'
-                                                    }}
-                                                >
+                                                <Text style={{
+                                                    color: '#999',
+                                                    fontSize: '14px',
+                                                    display: '-webkit-box',
+                                                    WebkitLineClamp: 3,
+                                                    WebkitBoxOrient: 'vertical',
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis'
+                                                }}>
                                                     {slide.alt}
                                                 </Text>
                                             }
@@ -343,13 +376,15 @@ const ActivitiesManagement = () => {
             </Row>
 
             <Modal
-                title={`${modalMode === 'add' ? 'Thêm' : 'Sửa'} hoạt động`}
+                title={<span style={{ color: '#fff' }}>{`${modalMode === 'add' ? 'Thêm' : 'Sửa'} hoạt động`}</span>}
                 open={isActivityModalVisible}
                 onCancel={handleModalCancel}
                 footer={null}
                 styles={modalStyles}
                 maskStyle={modalStyles.mask}
+                bodyStyle={{ maxHeight: 'calc(90vh - 110px)', overflowY: 'auto' }}
                 centered
+                destroyOnClose
             >
                 <ActivityModalForm
                     initialData={currentItem}
@@ -359,13 +394,15 @@ const ActivitiesManagement = () => {
             </Modal>
 
             <Modal
-                title={`${modalMode === 'add' ? 'Thêm' : 'Sửa'} slide`}
+                title={<span style={{ color: '#fff' }}>{`${modalMode === 'add' ? 'Thêm' : 'Sửa'} slide`}</span>}
                 open={isSlideModalVisible}
                 onCancel={handleModalCancel}
                 footer={null}
                 styles={modalStyles}
                 maskStyle={modalStyles.mask}
+                bodyStyle={{ maxHeight: 'calc(90vh - 110px)', overflowY: 'auto' }}
                 centered
+                destroyOnClose
             >
                 <SlideModalForm
                     initialData={currentItem}

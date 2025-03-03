@@ -58,6 +58,15 @@ const ActivityModalForm = ({ initialData, onSubmit, mode }) => {
                 label="Hình ảnh"
                 rules={[{ required: true, message: 'Vui lòng tải lên hình ảnh!' }]}
             >
+                <Input
+                    placeholder="Nhập link ảnh hoặc tải lên"
+                    value={imageUrl}
+                    onChange={(e) => {
+                        setImageUrl(e.target.value);
+                        form.setFieldsValue({ img: e.target.value });
+                    }}
+                    style={{ marginBottom: 8 }}
+                />
                 <Upload
                     accept="image/*"
                     beforeUpload={(file) => {
@@ -74,7 +83,7 @@ const ActivityModalForm = ({ initialData, onSubmit, mode }) => {
                     <img
                         src={imageUrl}
                         alt="Preview"
-                        style={{ width: '100%', marginTop: 8 }}
+                        style={{ width: '200px', height: '150px', objectFit: 'cover', marginTop: 8 }}
                     />
                 )}
             </Form.Item>
