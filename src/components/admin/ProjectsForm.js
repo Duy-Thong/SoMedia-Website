@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Card, Divider, message, Space, Upload, Modal } from 'antd';
-import { DeleteOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Card, Divider, message, Space, Upload, Modal,Row,Col} from 'antd';
+import { DeleteOutlined, PlusOutlined, UploadOutlined ,ArrowLeftOutlined} from '@ant-design/icons';
 import { ref, set, push, remove, update } from 'firebase/database';
 import database from '../../firebase/config';
-
+import { useNavigate } from 'react-router-dom';
 const ProjectsForm = ({ initialData = [] }) => {
     const [form] = Form.useForm();
     const [projects, setProjects] = useState(initialData || []);
     const [editingIndex, setEditingIndex] = useState(-1);
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log("ProjectsForm received data:", initialData);
@@ -94,12 +95,29 @@ const ProjectsForm = ({ initialData = [] }) => {
     };
 
     return (
-        <div>
-            <Button type="primary" onClick={handleAddNew} icon={<PlusOutlined />}>
-                Thêm dự án mới
-            </Button>
-            <Divider orientation="left"><span className='text-white'>Danh sách dự án</span></Divider>
-            
+        <div className="p-4">
+            <Row justify="space-between mt-6 mb-4">
+                <Col>
+                    <h1 className="text-2xl font-semibold text-white">Quản lý dự án</h1>
+                </Col>
+                <Col>
+                    <Button type="primary" icon={<PlusOutlined />} onClick={handleAddNew}>Thêm dự án mới</Button>
+                </Col>
+                <Col>
+                    <Button
+                        icon={<ArrowLeftOutlined />}
+                        onClick={() => navigate('/admin/dashboard')}
+                        style={{
+                            background: '#141414',
+                            borderColor: '#303030',
+                            color: '#e6e6e6'
+                        }}
+                    >
+                        Quay về Dashboard
+                    </Button>
+                </Col>
+
+            </Row>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
                 {projects && projects.length > 0 ? (
