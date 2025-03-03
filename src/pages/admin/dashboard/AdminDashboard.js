@@ -88,12 +88,7 @@ const AdminDashboard = () => {
             label: 'Quản lý liên hệ',
             onClick: () => navigateTo('/admin/contact-management'),
         },
-        {
-            key: 'settings',
-            icon: <SettingOutlined />,
-            label: 'Cài đặt hệ thống',
-            onClick: () => navigateTo('/admin/settings'),
-        },
+        
         {
             key: 'logout',
             icon: <LogoutOutlined />,
@@ -197,16 +192,7 @@ const AdminDashboard = () => {
                                 </Button>
                             </Card>
                         </Col>
-                        <Col xs={24} sm={12} lg={8}>
-                            <Card className="management-card" hoverable>
-                                <SettingOutlined className="card-icon" />
-                                <Title level={4}>Cài đặt hệ thống</Title>
-                                <p>Cấu hình và tùy chỉnh hệ thống</p>
-                                <Button type="primary" onClick={() => navigateTo('/admin/settings')}>
-                                    Truy cập
-                                </Button>
-                            </Card>
-                        </Col>
+                        
                     </Row>
                 </Content>
             </Layout>
