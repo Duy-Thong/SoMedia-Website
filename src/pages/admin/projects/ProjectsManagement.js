@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Typography, Spin, Alert, Button } from 'antd';
+import { Layout, Typography, Spin, Alert, Button, Empty } from 'antd';
 import ProjectsForm from '../../../components/admin/ProjectsForm';
 import database from '../../../firebase/config';
 import { ref, get } from 'firebase/database';
@@ -15,21 +15,31 @@ const ProjectsManagement = () => {
     useEffect(() => {
         const fetchProjectsData = async () => {
             try {
-                const projectsRef = ref(database, 'projectsData');
+                console.log("Attempting to fetch projects data...");
+                const projectsRef = ref(database, 'dataportfolio');
                 const snapshot = await get(projectsRef);
 
                 if (snapshot.exists()) {
                     // Convert Firebase object to array if needed
                     const data = snapshot.val();
-                    const projectsArray = Array.isArray(data) ? data : Object.values(data);
+                    console.log("Raw data from Firebase:", data);
+                    
+                    let projectsArray = [];
+                    if (Array.isArray(data)) {
+                        projectsArray = data;
+                    } else if (typeof data === 'object' && data !== null) {
+                        projectsArray = Object.values(data);
+                    }
+                    
+                    console.log("Processed projects array:", projectsArray);
                     setProjectsData(projectsArray);
                 } else {
-                    console.log("No projects data available");
+                    console.log("No projects data available in database");
                     setProjectsData([]);
                 }
             } catch (error) {
                 console.error("Error fetching projects data:", error);
-                setError(error.message);
+                setError(`${error.name}: ${error.message}`);
             } finally {
                 setLoading(false);
             }
@@ -56,6 +66,13 @@ const ProjectsManagement = () => {
                     type="error"
                     showIcon
                 />
+                <Button 
+                    type="primary" 
+                    onClick={() => window.location.reload()}
+                    style={{ marginTop: '16px' }}
+                >
+                    Thử lại
+                </Button>
             </Content>
         );
     }
@@ -63,7 +80,21 @@ const ProjectsManagement = () => {
     return (
         <Content style={{ padding: '24px' }}>
             <Title level={2}>Quản lý dự án</Title>
-            <ProjectsForm initialData={projectsData} />
+            
+            {projectsData.length > 0 ? (
+                <ProjectsForm initialData={projectsData} />
+            ) : (
+                <div>
+                    <Empty description="Không có dự án nào" />
+                    <Button 
+                        type="primary" 
+                        style={{ marginTop: '16px' }}
+                        onClick={() => console.log("Add new project clicked")}
+                    >
+                        Thêm dự án mới
+                    </Button>
+                </div>
+            )}
         </Content>
     );
 };
