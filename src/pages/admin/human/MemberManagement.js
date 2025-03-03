@@ -2,17 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Table, Button, Modal, Form, Input,
-    message, Popconfirm
+    message, Popconfirm, Upload
 } from 'antd';
-import { PlusOutlined, EditOutlined, DeleteOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { PlusOutlined, EditOutlined, DeleteOutlined, ArrowLeftOutlined, UploadOutlined } from '@ant-design/icons';
 import { ref, push, remove, update, get } from 'firebase/database';
 import { db } from '../../../firebase/config';
+import { uploadToBlob } from '../../../utils/uploadHelpers';
 
 const MemberManagement = () => {
     const [members, setMembers] = useState([]);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [form] = Form.useForm();
     const [editingId, setEditingId] = useState(null);
+    const [imageFile, setImageFile] = useState(null);
+    const [previewImage, setPreviewImage] = useState('');
+    const [currentImageUrl, setCurrentImageUrl] = useState('');
+    const [loading, setLoading] = useState(false);
 
     // Fetch members data
     useEffect(() => {
@@ -33,22 +38,63 @@ const MemberManagement = () => {
         fetchMembers();
     }, []);
 
+    // Handle image upload
+    const handleImageChange = (info) => {
+        if (info.file) {
+            setImageFile(info.file);
+            // Create preview URL
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreviewImage(reader.result);
+            };
+            reader.readAsDataURL(info.file);
+        }
+    };
+
     // Add/Edit member
     const handleSubmit = async (values) => {
+        setLoading(true);
         try {
+            let imageUrl = values.image;
+
+            // Upload image if a new file is selected
+            if (imageFile) {
+                imageUrl = await uploadToBlob(imageFile, 'humans');
+            }
+
+            const finalValues = {
+                ...values,
+                image: imageUrl
+            };
+
             if (editingId) {
-                await update(ref(db, `humans/${editingId}`), values);
-                message.success('Member updated successfully');
+                await update(ref(db, `humans/${editingId}`), finalValues);
+                // Cập nhật state members trực tiếp
+                setMembers(members.map(member =>
+                    member.key === editingId
+                        ? { ...member, ...finalValues }
+                        : member
+                ));
+                message.success('Cập nhật thành công');
             } else {
-                await push(ref(db, 'humans'), values);
-                message.success('Member added successfully');
+                const newRef = await push(ref(db, 'humans'), finalValues);
+                // Thêm member mới vào state
+                setMembers([...members, {
+                    key: newRef.key,
+                    ...finalValues
+                }]);
+                message.success('Thêm thành viên thành công');
             }
 
             setIsModalVisible(false);
             form.resetFields();
-            window.location.reload();
+            setImageFile(null);
+            setPreviewImage('');
+            setCurrentImageUrl('');
         } catch (error) {
             message.error('Error: ' + error.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -56,11 +102,30 @@ const MemberManagement = () => {
     const handleDelete = async (key) => {
         try {
             await remove(ref(db, `humans/${key}`));
-            message.success('Member deleted successfully');
-            window.location.reload();
+            // Cập nhật state trực tiếp
+            setMembers(members.filter(member => member.key !== key));
+            message.success('Xóa thành công');
         } catch (error) {
             message.error('Error deleting member');
         }
+    };
+
+    // Reset image state when modal is opened/closed
+    const handleModalClose = () => {
+        setIsModalVisible(false);
+        setImageFile(null);
+        setPreviewImage('');
+        setCurrentImageUrl('');
+        form.resetFields();
+    };
+
+    // Sửa lại cách xử lý khi ấn nút Edit
+    const handleEdit = (record) => {
+        setEditingId(record.key);
+        form.setFieldsValue(record);
+        setCurrentImageUrl(record.image);
+        setPreviewImage('');
+        setIsModalVisible(true);
     };
 
     // Table columns configuration
@@ -94,11 +159,7 @@ const MemberManagement = () => {
                     <Button
                         type="primary"
                         icon={<EditOutlined />}
-                        onClick={() => {
-                            setEditingId(record.key);
-                            form.setFieldsValue(record);
-                            setIsModalVisible(true);
-                        }}
+                        onClick={() => handleEdit(record)}
                         style={{ marginRight: 8 }}
                     />
                     <Popconfirm
@@ -270,57 +331,96 @@ const MemberManagement = () => {
             `}</style>
 
             <Modal
-                title={editingId ? 'Sửa thành viên' : 'Thêm thành viên'}
-                open={isModalVisible}
-                onCancel={() => setIsModalVisible(false)}
-                footer={null}
-                className="dark-modal"
+                title={editingId ? 'Sửa thành viên' : 'Thêm thành viên'} 
+            open={isModalVisible}
+            onCancel={handleModalClose}
+            footer={null}
+            className="dark-modal"
             >
-                <Form
-                    form={form}
-                    onFinish={handleSubmit}
-                    layout="vertical"
-                    theme="dark"
+            <Form
+                form={form}
+                onFinish={handleSubmit}
+                layout="vertical"
+                theme="dark"
+            >
+                <Form.Item
+                    name="name"
+                    label="Tên"
+                    rules={[{ required: true, message: 'Vui lòng nhập tên!' }]}
                 >
-                    <Form.Item
-                        name="name"
-                        label="Tên"
-                        rules={[{ required: true, message: 'Vui lòng nhập tên!' }]}
-                    >
-                        <Input />
-                    </Form.Item>
+                    <Input />
+                </Form.Item>
 
-                    <Form.Item
-                        name="description"
-                        label="Mô tả"
-                        rules={[{ required: true, message: 'Vui lòng nhập mô tả!' }]}
-                    >
-                        <Input />
-                    </Form.Item>
+                <Form.Item
+                    name="description"
+                    label="Mô tả"
+                    rules={[{ required: true, message: 'Vui lòng nhập mô tả!' }]}
+                >
+                    <Input />
+                </Form.Item>
 
-                    <Form.Item
-                        name="detail"
-                        label="Chi tiết"
-                    >
-                        <Input.TextArea />
-                    </Form.Item>
+                <Form.Item
+                    name="detail"
+                    label="Chi tiết"
+                >
+                    <Input.TextArea />
+                </Form.Item>
 
-                    <Form.Item
-                        name="image"
-                        label="URL Hình ảnh"
-                        rules={[{ required: true, message: 'Vui lòng nhập URL hình ảnh!' }]}
-                    >
-                        <Input placeholder="./assets/humans/example.jpg" />
-                    </Form.Item>
+                <Form.Item
+                    name="image"
+                    label="Hình ảnh"
+                    rules={[{ required: true, message: 'Vui lòng chọn hình ảnh!' }]}
+                >
+                    <div>
+                        <Input
+                            style={{ marginBottom: '10px' }}
+                            placeholder="URL hình ảnh hoặc tải lên"
+                            value={currentImageUrl}
+                            onChange={(e) => setCurrentImageUrl(e.target.value)}
+                        />
+                        <Upload
+                            beforeUpload={(file) => {
+                                handleImageChange({ file });
+                                return false;
+                            }}
+                            showUploadList={false}
+                        >
+                            <Button
+                                icon={<UploadOutlined />}
+                                style={{
+                                    backgroundColor: '#1f1f1f',
+                                    color: '#fff',
+                                    borderColor: '#303030'
+                                }}
+                            >
+                                Tải ảnh lên
+                            </Button>
+                        </Upload>
+                        {(previewImage || currentImageUrl) && (
+                            <div style={{ marginTop: '10px' }}>
+                                <img
+                                    src={previewImage || currentImageUrl}
+                                    alt="Preview"
+                                    style={{ maxWidth: '200px', maxHeight: '200px' }}
+                                />
+                            </div>
+                        )}
+                    </div>
+                </Form.Item>
 
-                    <Form.Item style={{ marginTop: 16 }}>
-                        <Button type="primary" htmlType="submit">
-                            {editingId ? 'Cập nhật' : 'Thêm'}
-                        </Button>
-                    </Form.Item>
-                </Form>
-            </Modal>
-        </div>
+                <Form.Item style={{ marginTop: 16 }}>
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                        loading={loading}
+                        disabled={loading}
+                    >
+                        {editingId ? 'Cập nhật' : 'Thêm'}
+                    </Button>
+                </Form.Item>
+            </Form>
+        </Modal>
+        </div >
     );
 };
 
