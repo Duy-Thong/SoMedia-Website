@@ -74,7 +74,7 @@ const RecruitmentManagement = () => {
         <div className="p-6 max-w-6xl mx-auto" style={darkThemeStyles.page}>
             <Card style={darkThemeStyles.card} bordered={false}>
                 <h1 className="text-2xl font-bold mb-6 text-center" style={darkThemeStyles.title}>
-                    Recruitment Management
+                    Quản Lý Tuyển Dụng
                 </h1>
                 <Form
                     form={form}
@@ -89,22 +89,22 @@ const RecruitmentManagement = () => {
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <Card
-                            title={<span style={darkThemeStyles.text}>Basic Information</span>}
+                            title={<span style={darkThemeStyles.text}>Thông Tin Cơ Bản</span>}
                             className="shadow-lg"
                             style={darkThemeStyles.innerCard}
                             bordered={false}
                         >
-                            <Form.Item label="Apply Link" name="applylink">
-                                <Input prefix={<LinkOutlined />} placeholder="Enter application link" />
+                            <Form.Item label="Đường Dẫn Ứng Tuyển" name="applylink">
+                                <Input prefix={<LinkOutlined />} placeholder="Nhập đường dẫn ứng tuyển" />
                             </Form.Item>
-                            <Form.Item label="Button Text" name="button">
-                                <Input prefix={<FileTextOutlined />} placeholder="Enter button text" />
+                            <Form.Item label="Nội Dung Nút" name="button">
+                                <Input prefix={<FileTextOutlined />} placeholder="Nhập nội dung nút" />
                             </Form.Item>
-                            <Form.Item label="QR Code URL" name="qr">
+                            <Form.Item label="Đường Dẫn Mã QR" name="qr">
                                 <Input.Group compact>
                                     <Input
                                         prefix={<QrcodeOutlined />}
-                                        placeholder="Enter QR code URL"
+                                        placeholder="Nhập đường dẫn mã QR"
                                         value={recruitmentData.qr}
                                         style={{ width: 'calc(100% - 64px)' }}
                                     />
@@ -112,29 +112,29 @@ const RecruitmentManagement = () => {
                                         onClick={() => recruitmentData.qr && window.open(recruitmentData.qr)}
                                         disabled={!recruitmentData.qr}
                                     >
-                                        Preview
+                                        Xem
                                     </Button>
                                 </Input.Group>
                             </Form.Item>
                         </Card>
 
                         <Card
-                            title={<span style={darkThemeStyles.text}>Title Settings</span>}
+                            title={<span style={darkThemeStyles.text}>Cài Đặt Tiêu Đề</span>}
                             className="shadow-lg"
                             style={darkThemeStyles.innerCard}
                             bordered={false}
                         >
-                            <Form.Item label="Title 1" name="title1">
+                            <Form.Item label="Tiêu Đề 1" name="title1">
                                 <Input.TextArea
                                     rows={3}
-                                    placeholder="Enter main title"
+                                    placeholder="Nhập tiêu đề chính"
                                     className="resize-none"
                                 />
                             </Form.Item>
-                            <Form.Item label="Title 2" name="title2">
+                            <Form.Item label="Tiêu Đề 2" name="title2">
                                 <Input.TextArea
                                     rows={3}
-                                    placeholder="Enter subtitle"
+                                    placeholder="Nhập tiêu đề phụ"
                                     className="resize-none"
                                 />
                             </Form.Item>
@@ -142,7 +142,7 @@ const RecruitmentManagement = () => {
                     </div>
 
                     <Card
-                        title={<span style={darkThemeStyles.text}>Timeline Events</span>}
+                        title={<span style={darkThemeStyles.text}>Các Sự Kiện Timeline</span>}
                         className="mt-6 shadow-lg"
                         style={darkThemeStyles.innerCard}
                         bordered={false}
@@ -166,43 +166,43 @@ const RecruitmentManagement = () => {
                                                     onClick={() => remove(field.name)}
                                                     size="small"
                                                 >
-                                                    Remove
+                                                    Xóa
                                                 </Button>
                                             }
                                         >
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <Form.Item
-                                                    label="Name"
+                                                    label="Tên"
                                                     name={[field.name, 'name']}
-                                                    rules={[{ required: true, message: 'Please input name' }]}
+                                                    rules={[{ required: true, message: 'Vui lòng nhập tên' }]}
                                                 >
                                                     <Input prefix={<FileTextOutlined />} />
                                                 </Form.Item>
                                                 <Form.Item
-                                                    label="Time"
+                                                    label="Thời Gian"
                                                     name={[field.name, 'time']}
-                                                    rules={[{ required: true, message: 'Please input time' }]}
+                                                    rules={[{ required: true, message: 'Vui lòng nhập thời gian' }]}
                                                 >
                                                     <Input prefix={<ClockCircleOutlined />} />
                                                 </Form.Item>
                                             </div>
                                             <Form.Item
-                                                label="Description"
+                                                label="Mô Tả"
                                                 name={[field.name, 'description']}
-                                                rules={[{ required: true, message: 'Please input description' }]}
+                                                rules={[{ required: true, message: 'Vui lòng nhập mô tả' }]}
                                             >
                                                 <Input.TextArea rows={2} className="resize-none" />
                                             </Form.Item>
                                         </Card>
                                     ))}
                                     <Button
-                                        type="dashed"
+                                        type="default"
                                         onClick={() => add()}
                                         block
                                         icon={<PlusOutlined />}
-                                        className="hover:border-blue-500"
+                                        className="hover:border-blue-500 text-blue-500"
                                     >
-                                        Add Timeline Item
+                                        Thêm Mục Timeline
                                     </Button>
                                     <Button
                                         type="primary"
@@ -211,7 +211,7 @@ const RecruitmentManagement = () => {
                                         icon={<SaveOutlined />}
                                         className="bg-blue-600 hover:bg-blue-700 mt-4 mb-4"
                                     >
-                                        Save Changes
+                                        Lưu Thay Đổi
                                     </Button>
                                     <Button
                                         type="default"
@@ -219,7 +219,7 @@ const RecruitmentManagement = () => {
                                         block
                                         className="bg-gray-600 hover:bg-gray-700"
                                     >
-                                        Back to Dashboard
+                                        Quay Lại Dashboard
                                     </Button>
 
                                 </div>
@@ -227,7 +227,7 @@ const RecruitmentManagement = () => {
                         </Form.List>
                     </Card>
 
-                    
+
                 </Form>
             </Card>
 
