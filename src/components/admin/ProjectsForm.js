@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Card, Divider, message, Space, Upload, Modal, Row, Col } from 'antd';
-import { DeleteOutlined, PlusOutlined, UploadOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { Form, Input, Button, message, Space, Modal, Row, Col } from 'antd';
+import { PlusOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { ref, set, push, remove, update } from 'firebase/database';
 import database from '../../firebase/config';
 import { useNavigate } from 'react-router-dom';
+import ProjectsGrid from './ProjectsGrid';
 
 const ProjectsForm = ({ initialData = [] }) => {
     const [form] = Form.useForm();
@@ -110,64 +111,84 @@ const ProjectsForm = ({ initialData = [] }) => {
 
     return (
         <div className="p-4">
-            <Row justify="space-between mt-6 mb-4">
+            <Row justify="space-between" align="middle" className="mb-6">
                 <Col>
                     <h1 className="text-2xl font-semibold text-white">Quản lý dự án</h1>
                 </Col>
                 <Col>
-                    <Button type="primary" icon={<PlusOutlined />} onClick={handleAddNew}>Thêm dự án mới</Button>
+                    <Space>
+                        <Button type="primary" icon={<PlusOutlined />} onClick={handleAddNew}>
+                            Thêm dự án mới
+                        </Button>
+                        <Button
+                            icon={<ArrowLeftOutlined />}
+                            onClick={() => navigate('/admin/dashboard')}
+                            style={{
+                                background: '#141414',
+                                borderColor: '#303030',
+                                color: '#e6e6e6'
+                            }}
+                        >
+                            Quay về Dashboard
+                        </Button>
+                    </Space>
                 </Col>
-                <Col>
-                    <Button
-                        icon={<ArrowLeftOutlined />}
-                        onClick={() => navigate('/admin/dashboard')}
-                        style={{
-                            background: '#141414',
-                            borderColor: '#303030',
-                            color: '#e6e6e6'
-                        }}
-                    >
-                        Quay về Dashboard
-                    </Button>
-                </Col>
-
             </Row>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-                {projects && projects.length > 0 ? (
-                    projects.map((project, index) => (
-                        <Card
-                            key={index}
-                            title={project.description || 'Dự án không tên'}
-                            style={{ width: 300 }}
-                            cover={project.img && <img alt={project.description} src={project.img} style={{ height: 120, objectFit: 'cover' }} />}
-                            actions={[
-                                <div style={{ height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Button type="link" onClick={() => handleEdit(project, index)}>Sửa</Button>
-                                </div>,
-                                <div style={{ height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Button type="link" danger onClick={() => handleDelete(index)}>Xóa</Button>
-                                </div>
-                            ]}
-                        >
-                            <p><strong>Mô tả:</strong> {project.description || 'Không có mô tả'}</p>
-                            <p><strong>Liên kết:</strong> <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ color: '#1890ff' }}>{project.link || 'Không có liên kết'}</a></p>
-                        </Card>
-                    ))
-                ) : (
-                    <p>Không có dự án nào để hiển thị</p>
-                )}
-            </div>
+            {projects && projects.length > 0 ? (
+                <ProjectsGrid
+                    projects={projects}
+                    onEdit={handleEdit}
+                    onDelete={handleDelete}
+                />
+            ) : (
+                <div className="text-center text-gray-400 py-8">
+                    Không có dự án nào để hiển thị
+                </div>
+            )}
 
             <Modal
-                title={editingIndex >= 0 ? "Chỉnh sửa dự án" : "Thêm dự án mới"}
+                title={<span style={{ color: '#fff' }}>{editingIndex >= 0 ? "Chỉnh sửa dự án" : "Thêm dự án mới"}</span>}
                 open={isModalVisible}
                 onCancel={() => setIsModalVisible(false)}
                 footer={null}
-                // Thêm styles mới cho Modal
-                className="custom-dark-modal"
+                width={500}
+                centered
                 style={{
-                    color: '#fff'
+                    maxHeight: '90vh'
+                }}
+                modalRender={(modal) => (
+                    <div style={{
+                        background: '#1f1f1f',
+                        borderRadius: '8px',
+                        overflow: 'hidden'
+                    }}>
+                        {modal}
+                    </div>
+                )}
+                styles={{
+                    header: {
+                        background: '#141414',
+                        padding: '12px 16px',
+                        borderBottom: '1px solid #303030'
+                    },
+                    content: {
+                        background: '#1f1f1f',
+                        padding: '16px'
+                    },
+                    body: {
+                        padding: '16px 0',
+                        maxHeight: 'calc(90vh - 120px)',
+                        overflowY: 'auto'
+                    },
+                    mask: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.65)'
+                    },
+                    title: {
+                        color: '#fff',
+                        fontSize: '16px',
+                        fontWeight: 500
+                    }
                 }}
             >
                 <Form
@@ -175,48 +196,68 @@ const ProjectsForm = ({ initialData = [] }) => {
                     layout="vertical"
                     onFinish={handleSubmit}
                     initialValues={editingIndex >= 0 ? projects[editingIndex] : {}}
-                    // Thêm styles cho Form
-                    style={{
-                        color: '#fff'
-                    }}
+                    style={{ color: '#fff' }}
+                    size="middle"
                 >
                     <Form.Item
                         name="description"
                         label={<span style={{ color: '#fff' }}>Mô tả dự án</span>}
                         rules={[{ required: true, message: 'Vui lòng nhập mô tả dự án' }]}
+                        style={{ marginBottom: '16px' }}
                     >
-                        <Input.TextArea rows={4} />
+                        <Input.TextArea
+                            rows={3}
+                            style={{
+                                background: '#141414',
+                                borderColor: '#303030',
+                                color: '#fff'
+                            }}
+                        />
                     </Form.Item>
 
                     <Form.Item
                         name="img"
                         label={<span style={{ color: '#fff' }}>Đường dẫn hình ảnh</span>}
                         rules={[{ required: true, message: 'Vui lòng nhập URL hình ảnh' }]}
+                        style={{ marginBottom: '16px' }}
                     >
-                        <Input />
+                        <Input
+                            style={{
+                                background: '#141414',
+                                borderColor: '#303030',
+                                color: '#fff'
+                            }}
+                        />
                     </Form.Item>
 
                     <Form.Item
                         name="link"
                         label={<span style={{ color: '#fff' }}>Liên kết dự án</span>}
                         rules={[{ required: true, message: 'Vui lòng nhập liên kết dự án' }]}
+                        style={{ marginBottom: '24px' }}
                     >
-                        <Input />
+                        <Input
+                            style={{
+                                background: '#141414',
+                                borderColor: '#303030',
+                                color: '#fff'
+                            }}
+                        />
                     </Form.Item>
 
-                    <Form.Item>
-                        <Space>
-                            <Button type="primary" htmlType="submit">
-                                {editingIndex >= 0 ? 'Cập nhật' : 'Thêm mới'}
-                            </Button>
+                    <Form.Item style={{ marginBottom: 0, marginTop: 24 }}>
+                        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
                             <Button onClick={() => setIsModalVisible(false)}>
                                 Hủy
                             </Button>
-                        </Space>
+                            <Button type="primary" htmlType="submit">
+                                {editingIndex >= 0 ? 'Cập nhật' : 'Thêm mới'}
+                            </Button>
+                        </div>
                     </Form.Item>
                 </Form>
             </Modal>
-        </div>
+        </div >
     );
 };
 
