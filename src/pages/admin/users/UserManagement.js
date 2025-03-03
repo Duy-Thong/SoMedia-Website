@@ -5,7 +5,7 @@ import {
 } from '../../../firebase/config';
 import {
     Table, Input, Button, Space, Modal, Form,
-    Select, Card, Tag, Typography, Popconfirm, ConfigProvider, theme, message
+    Select, Card, Tag, Typography, Popconfirm, ConfigProvider, theme, message, Row, Col
 } from 'antd';
 import {
     SearchOutlined, EditOutlined, DeleteOutlined,
@@ -27,7 +27,7 @@ const darkTheme = {
         colorBgElevated: '#1f1f1f',
         colorText: '#ffffff',
         colorBorder: '#303030',
-        borderRadius: 6,
+        borderRadius: 8,
     },
     algorithm: darkAlgorithm,
     components: {
@@ -50,56 +50,105 @@ const darkTheme = {
         Select: {
             optionSelectedBg: '#177ddc',
         },
+        Input: {
+            colorBgContainer: '#2a2a2a',
+            colorBorder: '#303030',
+            colorText: '#ffffff',
+        }
     },
 };
 
 // Tùy chỉnh style chung
 const styles = {
     pageContainer: {
-        padding: '24px',
+        padding: '32px',
         backgroundColor: '#121212',
         minHeight: '100vh',
         color: '#ffffff'
     },
     cardStyle: {
-        borderRadius: '8px',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        borderRadius: '12px',
+        boxShadow: '0 6px 16px rgba(0, 0, 0, 0.2)',
         marginBottom: '24px',
     },
     tableCard: {
         backgroundColor: '#1f1f1f',
         border: '1px solid #303030',
-        borderRadius: '8px',
+        borderRadius: '12px',
+        overflow: 'hidden',
     },
     headerTitle: {
         color: '#ffffff',
-        fontSize: '24px',
+        fontSize: '28px',
         fontWeight: 'bold',
-        margin: '0 0 16px 0'
+        margin: '0'
     },
     searchInput: {
         width: '100%',
         maxWidth: '400px',
-        marginBottom: '16px',
         backgroundColor: '#2a2a2a',
         borderColor: '#303030',
+        borderRadius: '8px',
     },
     addButton: {
         background: '#177ddc',
         borderColor: '#177ddc',
         boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
+        height: '40px',
+        borderRadius: '8px',
+        display: 'flex',
+        alignItems: 'center',
+    },
+    backButton: {
+        background: '#177ddc',
+        borderColor: '#177ddc',
+        height: '40px',
+        borderRadius: '8px',
+        display: 'flex',
+        alignItems: 'center',
     },
     editButton: {
         backgroundColor: '#177ddc',
         borderColor: '#177ddc',
+        borderRadius: '6px',
     },
     deleteButton: {
         backgroundColor: '#ff4d4f',
         borderColor: '#ff4d4f',
         color: '#ffffff',
+        borderRadius: '6px',
     },
     formLabel: {
         color: '#ffffff'
+    },
+    tableContainer: {
+        borderRadius: '10px',
+        overflow: 'hidden'
+    },
+    headerContainer: {
+        marginBottom: '28px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '16px'
+    },
+    headerLeft: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '20px',
+        flexWrap: 'wrap'
+    },
+    modalFooter: {
+        marginTop: '12px'
+    },
+    tableWrapper: {
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+        borderRadius: '12px',
+        overflow: 'hidden'
+    },
+    formItem: {
+        marginBottom: '18px'
     }
 };
 
@@ -250,9 +299,9 @@ const UserManagement = () => {
         filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
             <div
                 style={{
-                    padding: 8,
+                    padding: 12,
                     backgroundColor: '#1f1f1f',
-                    borderRadius: 6
+                    borderRadius: 8
                 }}
                 onKeyDown={(e) => e.stopPropagation()}
             >
@@ -263,7 +312,7 @@ const UserManagement = () => {
                     onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
                     onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
                     style={{
-                        marginBottom: 8,
+                        marginBottom: 12,
                         display: 'block',
                         backgroundColor: '#2a2a2a',
                         borderColor: '#303030',
@@ -275,21 +324,21 @@ const UserManagement = () => {
                         type="primary"
                         onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
                         icon={<SearchOutlined />}
-                        size="small"
-                        style={{ width: 90, backgroundColor: '#177ddc', borderColor: '#177ddc' }}
+                        size="middle"
+                        style={{ width: 90, backgroundColor: '#177ddc', borderColor: '#177ddc', borderRadius: '6px' }}
                     >
                         Tìm
                     </Button>
                     <Button
                         onClick={() => clearFilters && handleReset(clearFilters)}
-                        size="small"
-                        style={{ width: 90, backgroundColor: '#2a2a2a', borderColor: '#303030', color: '#ffffff' }}
+                        size="middle"
+                        style={{ width: 90, backgroundColor: '#2a2a2a', borderColor: '#303030', color: '#ffffff', borderRadius: '6px' }}
                     >
                         Đặt lại
                     </Button>
                     <Button
                         type="link"
-                        size="small"
+                        size="middle"
                         onClick={() => {
                             close();
                         }}
@@ -323,6 +372,7 @@ const UserManagement = () => {
             key: 'username',
             sorter: (a, b) => a.username.localeCompare(b.username),
             ...getColumnSearchProps('username'),
+            width: '20%',
         },
         {
             title: 'Email',
@@ -330,6 +380,7 @@ const UserManagement = () => {
             key: 'email',
             sorter: (a, b) => a.email.localeCompare(b.email),
             ...getColumnSearchProps('email'),
+            width: '30%',
         },
         {
             title: 'Ngày tạo',
@@ -337,6 +388,7 @@ const UserManagement = () => {
             key: 'createdAt',
             render: (text) => <span style={{ color: '#ffffff' }}>{new Date(text).toLocaleDateString()}</span>,
             sorter: (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
+            width: '15%',
         },
         {
             title: 'Vai trò',
@@ -344,24 +396,21 @@ const UserManagement = () => {
             key: 'role',
             render: (role) => {
                 let color = '#177ddc'; // blue for user
-                let displayText = 'Người dùng';
+                let displayText = 'Thành viên';
 
                 if (role === 'admin') {
                     color = '#ff4d4f'; // red for admin
                     displayText = 'Quản trị viên';
-                } else if (role === 'moderator') {
-                    color = '#52c41a'; // green for moderator
-                    displayText = 'Điều hành viên';
-                }
+                } 
 
-                return <Tag color={color} style={{ borderRadius: '4px' }}>{displayText}</Tag>;
+                return <Tag color={color} style={{ borderRadius: '12px', padding: '4px 12px' }}>{displayText}</Tag>;
             },
             filters: [
                 { text: 'Quản trị viên', value: 'admin' },
-                { text: 'Điều hành viên', value: 'moderator' },
-                { text: 'Người dùng', value: 'user' },
+                { text: 'Thành viên', value: 'user' },
             ],
             onFilter: (value, record) => record.role === value,
+            width: '15%',
         },
         {
             title: 'Thao tác',
@@ -393,6 +442,7 @@ const UserManagement = () => {
                     </Popconfirm>
                 </Space>
             ),
+            width: '20%',
         },
     ];
 
@@ -402,43 +452,34 @@ const UserManagement = () => {
                 <Card
                     style={{ ...styles.cardStyle, ...styles.tableCard }}
                     bordered={false}
+                    bodyStyle={{ padding: '24px' }}
                 >
-                    <Space direction="vertical" style={{ width: '100%' }} size="large">
-                        <div style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            marginBottom: '20px'
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                                <Button
-                                    type="primary"
-                                    icon={<LeftOutlined />}
-                                    onClick={() => navigate('/admin/dashboard')}
-                                    style={{
-                                        ...styles.editButton,
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }}
-                                >
-                                    Quay lại Dashboard
-                                </Button>
-                                <Title level={2} style={styles.headerTitle}>
-                                    Quản lý Người Dùng
-                                </Title>
-                            </div>
+                    <div style={styles.headerContainer}>
+                        <div style={styles.headerLeft}>
                             <Button
                                 type="primary"
-                                icon={<UserAddOutlined />}
-                                onClick={showAddUserModal}
-                                style={styles.addButton}
-                                size="large"
+                                icon={<LeftOutlined />}
+                                onClick={() => navigate('/admin/dashboard')}
+                                style={styles.backButton}
                             >
-                                Thêm Người Dùng Mới
+                                Quay lại Dashboard
                             </Button>
+                            <Title level={2} style={styles.headerTitle}>
+                                Quản lý Người Dùng
+                            </Title>
                         </div>
+                        <Button
+                            type="primary"
+                            icon={<UserAddOutlined />}
+                            onClick={showAddUserModal}
+                            style={styles.addButton}
+                            size="large"
+                        >
+                            Thêm Người Dùng Mới
+                        </Button>
+                    </div>
 
+                    <div style={styles.tableWrapper}>
                         <Table
                             columns={columns}
                             dataSource={users}
@@ -446,34 +487,24 @@ const UserManagement = () => {
                             pagination={{
                                 pageSize: 10,
                                 showSizeChanger: true,
-                                showTotal: (total) => `Tổng cộng ${total} người dùng`
+                                showTotal: (total) => `Tổng cộng ${total} người dùng`,
+                                position: ['bottomCenter']
                             }}
                             rowKey="id"
                             style={{ backgroundColor: '#1f1f1f' }}
                         />
-                    </Space>
+                    </div>
                 </Card>
 
                 {/* Edit User Modal */}
                 <Modal
-                    title={<span style={{ color: '#ffffff' }}>Chỉnh Sửa Người Dùng</span>}
+                    title={<span style={{ color: '#ffffff', fontSize: '18px' }}>Chỉnh Sửa Người Dùng</span>}
                     open={isModalVisible}
                     onCancel={handleEditCancel}
-                    footer={[
-                        <Button key="cancel" onClick={handleEditCancel}>
-                            Hủy
-                        </Button>,
-                        <Button
-                            key="submit"
-                            type="primary"
-                            icon={<SaveOutlined />}
-                            onClick={handleEditOk}
-                            style={styles.editButton}
-                        >
-                            Lưu Thay Đổi
-                        </Button>
-                    ]}
-                    bodyStyle={{ paddingTop: '12px' }}
+                    footer={null}
+                    bodyStyle={{ paddingTop: '20px' }}
+                    width={500}
+                    centered
                 >
                     <Form
                         form={form}
@@ -483,13 +514,14 @@ const UserManagement = () => {
                             name="username"
                             label={<span style={styles.formLabel}>Tên người dùng</span>}
                             rules={[{ required: true, message: 'Vui lòng nhập tên người dùng' }]}
+                            style={styles.formItem}
                         >
-                            <Input prefix={<UserOutlined />} />
+                            <Input prefix={<UserOutlined />} style={{ borderRadius: '6px' }} />
                         </Form.Item>
                         {
                             editingUser && (
-                                <Form.Item label={<span style={styles.formLabel}>Email</span>}>
-                                    <Input value={editingUser.email} disabled />
+                                <Form.Item label={<span style={styles.formLabel}>Email</span>} style={styles.formItem}>
+                                    <Input value={editingUser.email} disabled style={{ borderRadius: '6px' }} />
                                 </Form.Item>
                             )
                         }
@@ -497,36 +529,44 @@ const UserManagement = () => {
                             name="role"
                             label={<span style={styles.formLabel}>Vai trò</span>}
                             rules={[{ required: true, message: 'Vui lòng chọn vai trò' }]}
+                            style={styles.formItem}
                         >
-                            <Select>
-                                <Option value="user">Người dùng</Option>
+                            <Select style={{ borderRadius: '6px' }}>
+                                <Option value="user">Thành viên</Option>
                                 <Option value="admin">Quản trị viên</Option>
-                                <Option value="moderator">Điều hành viên</Option>
                             </Select>
                         </Form.Item>
+
+                        <Row justify="end" gutter={12} style={styles.modalFooter}>
+                            <Col>
+                                <Button key="cancel" onClick={handleEditCancel} style={{ borderRadius: '6px' }}>
+                                    Hủy
+                                </Button>
+                            </Col>
+                            <Col>
+                                <Button
+                                    key="submit"
+                                    type="primary"
+                                    icon={<SaveOutlined />}
+                                    onClick={handleEditOk}
+                                    style={{ ...styles.editButton, marginLeft: '8px' }}
+                                >
+                                    Lưu Thay Đổi
+                                </Button>
+                            </Col>
+                        </Row>
                     </Form>
                 </Modal>
 
                 {/* Add User Modal */}
                 <Modal
-                    title={<span style={{ color: '#ffffff' }}>Thêm Người Dùng Mới</span>}
+                    title={<span style={{ color: '#ffffff', fontSize: '18px' }}>Thêm Người Dùng Mới</span>}
                     open={isAddUserModalVisible}
                     onCancel={handleAddUserCancel}
-                    footer={[
-                        <Button key="cancel" onClick={handleAddUserCancel}>
-                            Hủy
-                        </Button>,
-                        <Button
-                            key="submit"
-                            type="primary"
-                            icon={<UserAddOutlined />}
-                            onClick={handleAddUserOk}
-                            style={styles.addButton}
-                        >
-                            Thêm Người Dùng
-                        </Button>
-                    ]}
-                    bodyStyle={{ paddingTop: '12px' }}
+                    footer={null}
+                    bodyStyle={{ paddingTop: '20px' }}
+                    width={500}
+                    centered
                 >
                     <Form
                         form={addUserForm}
@@ -536,8 +576,9 @@ const UserManagement = () => {
                             name="username"
                             label={<span style={styles.formLabel}>Tên người dùng</span>}
                             rules={[{ required: true, message: 'Vui lòng nhập tên người dùng' }]}
+                            style={styles.formItem}
                         >
-                            <Input prefix={<UserOutlined />} />
+                            <Input prefix={<UserOutlined />} style={{ borderRadius: '6px' }} />
                         </Form.Item>
                         <Form.Item
                             name="email"
@@ -546,8 +587,9 @@ const UserManagement = () => {
                                 { required: true, message: 'Vui lòng nhập email' },
                                 { type: 'email', message: 'Vui lòng nhập email hợp lệ' }
                             ]}
+                            style={styles.formItem}
                         >
-                            <Input />
+                            <Input style={{ borderRadius: '6px' }} />
                         </Form.Item>
                         <Form.Item
                             name="password"
@@ -556,20 +598,40 @@ const UserManagement = () => {
                                 { required: true, message: 'Vui lòng nhập mật khẩu' },
                                 { min: 6, message: 'Mật khẩu phải có ít nhất 6 ký tự' }
                             ]}
+                            style={styles.formItem}
                         >
-                            <Input.Password />
+                            <Input.Password style={{ borderRadius: '6px' }} />
                         </Form.Item>
                         <Form.Item
                             name="role"
                             label={<span style={styles.formLabel}>Vai trò</span>}
                             initialValue="user"
+                            style={styles.formItem}
                         >
-                            <Select>
-                                <Option value="user">Người dùng</Option>
+                            <Select style={{ borderRadius: '6px' }}>
+                                <Option value="user">Thành viên</Option>
                                 <Option value="admin">Quản trị viên</Option>
-                                <Option value="moderator">Điều hành viên</Option>
                             </Select>
                         </Form.Item>
+
+                        <Row justify="end" gutter={12} style={styles.modalFooter}>
+                            <Col>
+                                <Button key="cancel" onClick={handleAddUserCancel} style={{ borderRadius: '6px' }}>
+                                    Hủy
+                                </Button>
+                            </Col>
+                            <Col>
+                                <Button
+                                    key="submit"
+                                    type="primary"
+                                    icon={<UserAddOutlined />}
+                                    onClick={handleAddUserOk}
+                                    style={{ ...styles.addButton, marginLeft: '8px' }}
+                                >
+                                    Thêm Người Dùng
+                                </Button>
+                            </Col>
+                        </Row>
                     </Form>
                 </Modal>
             </div>
