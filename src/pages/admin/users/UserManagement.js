@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
     database, dbRef, dbGet, dbSet, dbRemove, dbUpdate,
     auth, createUserWithEmailAndPassword
@@ -9,8 +9,10 @@ import {
 } from 'antd';
 import {
     SearchOutlined, EditOutlined, DeleteOutlined,
-    UserAddOutlined, SaveOutlined, UserOutlined
+    UserAddOutlined, SaveOutlined, UserOutlined, LeftOutlined,
+    FilterOutlined
 } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import 'antd/dist/reset.css'; // Import Ant Design styles
 
 const { Title } = Typography;
@@ -104,12 +106,15 @@ const styles = {
 const UserManagement = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [searchText, setSearchText] = useState('');
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isAddUserModalVisible, setIsAddUserModalVisible] = useState(false);
     const [editingUser, setEditingUser] = useState(null);
     const [form] = Form.useForm();
     const [addUserForm] = Form.useForm();
+    const navigate = useNavigate();
+
+    // Search states
+    const searchInput = useRef(null);
 
     useEffect(() => {
         fetchUsers();
@@ -233,28 +238,98 @@ const UserManagement = () => {
         }
     };
 
+    const handleSearch = (selectedKeys, confirm, dataIndex) => {
+        confirm();
+    };
+
+    const handleReset = (clearFilters) => {
+        clearFilters();
+    };
+
+    const getColumnSearchProps = (dataIndex) => ({
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
+            <div
+                style={{
+                    padding: 8,
+                    backgroundColor: '#1f1f1f',
+                    borderRadius: 6
+                }}
+                onKeyDown={(e) => e.stopPropagation()}
+            >
+                <Input
+                    ref={searchInput}
+                    placeholder={`Tìm ${dataIndex === 'username' ? 'tên người dùng' : 'email'}`}
+                    value={selectedKeys[0]}
+                    onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                    onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+                    style={{
+                        marginBottom: 8,
+                        display: 'block',
+                        backgroundColor: '#2a2a2a',
+                        borderColor: '#303030',
+                        color: '#ffffff'
+                    }}
+                />
+                <Space>
+                    <Button
+                        type="primary"
+                        onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+                        icon={<SearchOutlined />}
+                        size="small"
+                        style={{ width: 90, backgroundColor: '#177ddc', borderColor: '#177ddc' }}
+                    >
+                        Tìm
+                    </Button>
+                    <Button
+                        onClick={() => clearFilters && handleReset(clearFilters)}
+                        size="small"
+                        style={{ width: 90, backgroundColor: '#2a2a2a', borderColor: '#303030', color: '#ffffff' }}
+                    >
+                        Đặt lại
+                    </Button>
+                    <Button
+                        type="link"
+                        size="small"
+                        onClick={() => {
+                            close();
+                        }}
+                        style={{ color: '#177ddc' }}
+                    >
+                        Đóng
+                    </Button>
+                </Space>
+            </div>
+        ),
+        filterIcon: (filtered) => (
+            <SearchOutlined style={{ color: filtered ? '#177ddc' : '#8c8c8c' }} />
+        ),
+        onFilter: (value, record) =>
+            record[dataIndex]
+                ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
+                : '',
+        onFilterDropdownOpenChange: (visible) => {
+            if (visible) {
+                setTimeout(() => searchInput.current?.select(), 100);
+            }
+        },
+        render: (text) => <span style={{ color: '#ffffff' }}>{text}</span>,
+    });
+
     // Define table columns
     const columns = [
         {
             title: 'Tên người dùng',
             dataIndex: 'username',
             key: 'username',
-            filteredValue: [searchText],
-            onFilter: (value, record) => {
-                return (
-                    String(record.username).toLowerCase().includes(value.toLowerCase()) ||
-                    String(record.email).toLowerCase().includes(value.toLowerCase())
-                );
-            },
             sorter: (a, b) => a.username.localeCompare(b.username),
-            render: (text) => <span style={{ color: '#ffffff' }}>{text}</span>,
+            ...getColumnSearchProps('username'),
         },
         {
             title: 'Email',
             dataIndex: 'email',
             key: 'email',
             sorter: (a, b) => a.email.localeCompare(b.email),
-            render: (text) => <span style={{ color: '#ffffff' }}>{text}</span>,
+            ...getColumnSearchProps('email'),
         },
         {
             title: 'Ngày tạo',
@@ -335,9 +410,24 @@ const UserManagement = () => {
                             alignItems: 'center',
                             marginBottom: '20px'
                         }}>
-                            <Title level={2} style={styles.headerTitle}>
-                                Quản lý Người Dùng
-                            </Title>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                                <Button
+                                    type="primary"
+                                    icon={<LeftOutlined />}
+                                    onClick={() => navigate('/admin/dashboard')}
+                                    style={{
+                                        ...styles.editButton,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}
+                                >
+                                    Quay lại Dashboard
+                                </Button>
+                                <Title level={2} style={styles.headerTitle}>
+                                    Quản lý Người Dùng
+                                </Title>
+                            </div>
                             <Button
                                 type="primary"
                                 icon={<UserAddOutlined />}
@@ -348,15 +438,6 @@ const UserManagement = () => {
                                 Thêm Người Dùng Mới
                             </Button>
                         </div>
-
-                        <Input
-                            placeholder="Tìm kiếm theo tên hoặc email"
-                            prefix={<SearchOutlined style={{ color: '#8c8c8c' }} />}
-                            value={searchText}
-                            onChange={e => setSearchText(e.target.value)}
-                            style={styles.searchInput}
-                            allowClear
-                        />
 
                         <Table
                             columns={columns}
@@ -405,11 +486,13 @@ const UserManagement = () => {
                         >
                             <Input prefix={<UserOutlined />} />
                         </Form.Item>
-                        {editingUser && (
-                            <Form.Item label={<span style={styles.formLabel}>Email</span>}>
-                                <Input value={editingUser.email} disabled />
-                            </Form.Item>
-                        )}
+                        {
+                            editingUser && (
+                                <Form.Item label={<span style={styles.formLabel}>Email</span>}>
+                                    <Input value={editingUser.email} disabled />
+                                </Form.Item>
+                            )
+                        }
                         <Form.Item
                             name="role"
                             label={<span style={styles.formLabel}>Vai trò</span>}

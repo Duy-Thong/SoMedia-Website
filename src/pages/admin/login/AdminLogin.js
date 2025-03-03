@@ -50,13 +50,13 @@ const AdminLogin = () => {
             const userData = {
                 username: values.username,
                 email: values.email,
-                role: 'admin', // Setting admin role directly for testing
+                role: 'user', // Setting admin role directly for testing
                 createdAt: new Date().toISOString()
             };
 
             await dbSet(dbRef(database, `users/${userCredential.user.uid}`), userData);
 
-            message.success('Đăng ký thành công với quyền admin');
+            message.success('Đăng ký thành công');
             navigate('/admin/dashboard');
         } catch (error) {
             message.error('Đăng ký thất bại: ' + error.message);
