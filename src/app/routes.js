@@ -21,6 +21,7 @@ import SystemSettings from '../pages/admin/settings/SystemSettings';
 import ActivitiesManagement from "../pages/admin/activities/ActivitiesManagement";
 import ProjectsManagement from "../pages/admin/projects/ProjectsManagement";
 import RecruitmentManagement from "../pages/admin/recruitment/RecruitmentManagement";
+import MemberManagement from "../pages/admin/human/MemberManagement";
 import PrivateRoute from "../components/PrivateRoute";
 import FocusRing from "../components/focusring";
 
@@ -108,6 +109,14 @@ const AnimatedRoutes = withRouter(({ location }) => {
           element={
             <PrivateRoute>
               <RecruitmentManagement />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/members"
+          element={
+            <PrivateRoute>
+              <MemberManagement />
             </PrivateRoute>
           }
         />

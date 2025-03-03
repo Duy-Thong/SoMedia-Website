@@ -13,11 +13,13 @@ import {
     ProfileOutlined,
     ProjectOutlined,
     TeamOutlined,
+    PhoneFilled,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../firebase/config';
 import { signOut } from 'firebase/auth';
 import './AdminDashboard.css';
+import { PhoneAuthCredential } from 'firebase/auth/cordova';
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -83,8 +85,14 @@ const AdminDashboard = () => {
             onClick: () => navigateTo('/admin/recruitment'),
         },
         {
-            key: 'contact',
+            key: 'members',
             icon: <ContactsOutlined />,
+            label: 'Quản lý thành viên',
+            onClick: () => navigateTo('/admin/members'),
+        },
+        {
+            key: 'contact',
+            icon: <PhoneFilled />,
             label: 'Quản lý liên hệ',
             onClick: () => navigateTo('/admin/contact-management'),
         },
@@ -184,6 +192,16 @@ const AdminDashboard = () => {
                         <Col xs={24} sm={12} lg={8}>
                             <Card className="management-card" hoverable style={{ background: '#1f1f1f' }}>
                                 <ContactsOutlined className="card-icon" style={{ color: '#1890ff' }} />
+                                <Title level={4} style={{ color: 'white' }}>Quản lý thành viên</Title>
+                                <p style={{ color: 'white' }}>Quản lý danh sách thành viên ban điều hành</p>
+                                <Button type="primary" onClick={() => navigateTo('/admin/members')}>
+                                    Truy cập
+                                </Button>
+                            </Card>
+                        </Col>
+                        <Col xs={24} sm={12} lg={8}>
+                            <Card className="management-card" hoverable style={{ background: '#1f1f1f' }}>
+                                <PhoneFilled className="card-icon" style={{ color: '#1890ff' }} />
                                 <Title level={4} style={{ color: 'white' }}>Quản lý liên hệ</Title>
                                 <p style={{ color: 'white' }}>Xem và phản hồi các tin nhắn liên hệ</p>
                                 <Button type="primary" onClick={() => navigateTo('/admin/contact-management')}>
