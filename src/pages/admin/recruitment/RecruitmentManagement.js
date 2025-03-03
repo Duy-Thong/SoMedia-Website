@@ -51,22 +51,22 @@ const RecruitmentManagement = () => {
 
     const darkThemeStyles = {
         page: {
-            backgroundColor: '#1f1f1f',
+            backgroundColor: '#141414',
             minHeight: '100vh'
         },
         card: {
-            backgroundColor: '#2d2d2d',
+            backgroundColor: '#1f1f1f',
             border: 'none'
         },
         innerCard: {
-            backgroundColor: '#363636',
-            border: '1px solid #404040'
+            backgroundColor: '#1f1f1f',
+            border: '1px solid #303030'
         },
         title: {
             color: '#ffffff'
         },
         text: {
-            color: '#e0e0e0'
+            color: '#fff'
         }
     };
 
@@ -74,7 +74,7 @@ const RecruitmentManagement = () => {
         <div className="p-6 max-w-6xl mx-auto" style={darkThemeStyles.page}>
             <Card style={darkThemeStyles.card} bordered={false}>
                 <h1 className="text-2xl font-bold mb-6 text-center" style={darkThemeStyles.title}>
-                    Quản Lý Tuyển Dụng
+                    Quản Lý trang Tuyển thành viên
                 </h1>
                 <Form
                     form={form}
@@ -233,23 +233,50 @@ const RecruitmentManagement = () => {
 
             <style jsx global>{`
                 .ant-form-item-label > label {
-                    color: #e0e0e0 !important;
+                    color: #fff !important;
                 }
                 .ant-input, .ant-input-textarea {
-                    background-color: #404040 !important;
-                    border-color: #505050 !important;
-                    color: #e0e0e0 !important;
+                    background-color: #141414 !important;
+                    border-color: #303030 !important;
+                    color: #fff !important;
                 }
                 .ant-input:hover, .ant-input:focus {
                     border-color: #1890ff !important;
                 }
                 .ant-card-head {
-                    background-color: #2d2d2d !important;
-                    border-bottom: 1px solid #404040 !important;
+                    background-color: #1f1f1f !important;
+                    border-bottom: 1px solid #303030 !important;
                 }
-                .ant-btn-dashed {
-                    border-color: #404040 !important;
-                    color: #e0e0e0 !important;
+                .ant-btn {
+                    background-color: #1f1f1f !important;
+                    border-color: #303030 !important;
+                    color: #fff !important;
+                }
+                .ant-btn:hover {
+                    border-color: #1890ff !important;
+                    color: #1890ff !important;
+                }
+                .ant-btn-primary {
+                    background-color: #1890ff !important;
+                    color: #fff !important;
+                }
+                .ant-btn-primary:hover {
+                    background-color: #40a9ff !important;
+                    border-color: #40a9ff !important;
+                    color: #fff !important;
+                }
+                .ant-btn-dangerous {
+                    background-color: #1f1f1f !important;
+                    border-color: #ff4d4f !important;
+                    color: #ff4d4f !important;
+                }
+                .ant-btn-dangerous:hover {
+                    background-color: #ff4d4f !important;
+                    color: #fff !important;
+                }
+                .ant-card {
+                    background-color: #1f1f1f !important;
+                    border-color: #303030 !important;
                 }
             `}</style>
         </div>

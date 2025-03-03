@@ -43,7 +43,7 @@ const HomeManagement = () => {
                 style={{
                     padding: '32px',
                     textAlign: 'center',
-                    background: 'linear-gradient(135deg, #121212 0%, #000000 100%)',
+                    backgroundColor: '#141414',
                     minHeight: 'calc(100vh - 64px)',
                     display: 'flex',
                     flexDirection: 'column',
@@ -51,7 +51,7 @@ const HomeManagement = () => {
                     alignItems: 'center'
                 }}
             >
-                <Spin size="large" tip={<Text style={{ color: '#bfbfbf', marginTop: '15px' }}>Loading intro data...</Text>} />
+                <Spin size="large" tip={<Text style={{ color: '#fff', marginTop: '15px' }}>Loading intro data...</Text>} />
             </Content>
         );
     }
@@ -61,13 +61,13 @@ const HomeManagement = () => {
             <Content
                 style={{
                     padding: '32px',
-                    background: 'linear-gradient(135deg, #121212 0%, #000000 100%)',
+                    backgroundColor: '#141414',
                     minHeight: 'calc(100vh - 64px)'
                 }}
             >
                 <Card
                     style={{
-                        background: '#0a0a0a',
+                        backgroundColor: '#1f1f1f',
                         borderRadius: '10px',
                         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)',
                         borderColor: '#303030'
@@ -88,7 +88,7 @@ const HomeManagement = () => {
         <Content
             style={{
                 padding: '32px',
-                background: 'linear-gradient(135deg, #121212 0%, #000000 100%)',
+                backgroundColor: '#141414',
                 minHeight: 'calc(100vh - 64px)'
             }}
         >
@@ -104,9 +104,9 @@ const HomeManagement = () => {
                         icon={<ArrowLeftOutlined />}
                         onClick={() => navigate('/admin/dashboard')}
                         style={{
-                            background: '#141414',
+                            backgroundColor: '#1f1f1f',
                             borderColor: '#303030',
-                            color: '#e6e6e6'
+                            color: '#fff'
                         }}
                     >
                         Quay về Dashboard
@@ -121,25 +121,25 @@ const HomeManagement = () => {
                     <Card
                         bordered={false}
                         style={{
-                            background: '#0a0a0a',
+                            backgroundColor: '#1f1f1f',
                             borderRadius: '12px',
                             overflow: 'hidden',
                             boxShadow: '0 6px 16px rgba(0, 0, 0, 0.6)',
                             borderColor: '#303030'
                         }}
                         title={
-                            <Text strong style={{ color: '#e6e6e6', fontSize: '18px' }}>
+                            <Text strong style={{ color: '#fff', fontSize: '18px' }}>
                                 Thông tin giới thiệu
                             </Text>
                         }
                         headStyle={{
-                            background: '#0a0a0a',
+                            backgroundColor: '#1f1f1f',
                             borderBottom: '1px solid #303030',
                             padding: '16px 24px'
                         }}
                         bodyStyle={{
                             padding: '24px',
-                            background: '#0a0a0a'
+                            backgroundColor: '#1f1f1f'
                         }}
                     >
                         <IntroForm initialData={introData} />
