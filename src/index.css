@@ -173,3 +173,25 @@ code {
 .ant-modal-close-icon {
     color: #fff;
 }
+
+/* Dark theme overrides for Ant Design components */
+.ant-form-item-label>label {
+    color: #fff !important;
+}
+
+.ant-input,
+.ant-input-textarea {
+    background-color: #1f1f1f !important;
+    border-color: #303030 !important;
+    color: #fff !important;
+}
+
+.ant-input:focus,
+.ant-input-textarea:focus {
+    border-color: #1890ff !important;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.ant-card-bordered {
+    border-color: #303030 !important;
+}

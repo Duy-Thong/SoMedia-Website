@@ -61,15 +61,15 @@ const ActivitiesManagement = () => {
 
     if (loading) {
         return (
-            <Content style={{ padding: '24px', textAlign: 'center', background: '#141414' }}>
+            <Card style={{ margin: '24px', background: '#141414', borderColor: '#303030' }}>
                 <Spin size="large" tip="Đang tải dữ liệu..." />
-            </Content>
+            </Card>
         );
     }
 
     if (error) {
         return (
-            <Content style={{ padding: '24px', background: '#141414' }}>
+            <Card style={{ margin: '24px', background: '#141414', borderColor: '#303030' }}>
                 <Alert
                     message="Error"
                     description={`Failed to load data: ${error}`}
@@ -77,40 +77,51 @@ const ActivitiesManagement = () => {
                     showIcon
                     style={{ background: '#2a1215', borderColor: '#5c0011' }}
                 />
-            </Content>
+            </Card>
         );
     }
 
     return (
-        <Content style={{ padding: '24px', background: '#0a0a0a', minHeight: 'calc(100vh - 64px)' }}>
+        <Layout style={{ padding: '24px', background: '#0a0a0a', minHeight: 'calc(100vh - 64px)' }}>
             <Card
                 style={{
                     background: '#141414',
-                    marginBottom: '24px',
-                    borderColor: '#303030'
+                    borderColor: '#303030',
+                    marginBottom: '24px'
                 }}
-                bodyStyle={{ padding: '16px' }}
             >
                 <Space direction="vertical" size="small" style={{ width: '100%' }}>
-                    <Title level={2} style={{ color: '#fff', margin: '0 0 16px 0' }}>Quản lý hoạt động và Slides</Title>
-                    <p style={{ color: '#d9d9d9' }}>Thêm, sửa và xóa các hoạt động sự kiện và slides hiển thị trên trang chủ. Thay đổi sẽ được cập nhật ngay sau khi lưu.</p>
+                    <Title level={2} style={{ color: '#fff', margin: '0 0 16px 0' }}>
+                        Quản lý hoạt động và Slides
+                    </Title>
+                    <p style={{ color: '#d9d9d9' }}>
+                        Thêm, sửa và xóa các hoạt động sự kiện và slides hiển thị trên trang chủ.
+                        Thay đổi sẽ được cập nhật ngay sau khi lưu.
+                    </p>
+                    <Button
+                        type="primary"
+                        icon={<DashboardOutlined />}
+                        onClick={handleReturnToDashboard}
+                        style={{
+                            background: '#141414',
+                            borderColor: '#303030',
+                            color: '#d9d9d9'
+                        }}
+                    >
+                        Về Dashboard
+                    </Button>
                 </Space>
-                <Button
-                    type="primary"
-                    icon={<DashboardOutlined />}
-                    onClick={handleReturnToDashboard}
-                    style={{
-                        background: '#141414',
-                        borderColor: '#303030',
-                        color: '#d9d9d9'
-                    }}
-                >
-                    Về Dashboard
-                </Button>
             </Card>
 
-            <ActivitiesForm initialData={activitiesData} initialSlides={slidesData} />
-        </Content>
+            <Card
+                style={{
+                    background: '#141414',
+                    borderColor: '#303030'
+                }}
+            >
+                <ActivitiesForm initialData={activitiesData} initialSlides={slidesData} />
+            </Card>
+        </Layout>
     );
 };
 

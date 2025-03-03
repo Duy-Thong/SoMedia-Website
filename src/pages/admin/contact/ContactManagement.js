@@ -69,18 +69,33 @@ const ContactManagement = () => {
         });
     };
 
+    const cardStyle = {
+        backgroundColor: '#1f1f1f',
+        border: '1px solid #303030',
+        borderRadius: '8px',
+    };
+
+    const innerCardStyle = {
+        backgroundColor: '#141414',
+        border: 'none',
+    };
+
     return (
-        <Content style={{ padding: '24px', maxWidth: 1000, margin: '0 auto' }}>
+        <Content style={{ padding: '24px', maxWidth: 1000, margin: '0 auto', backgroundColor: '#141414', minHeight: '100vh' }}>
             <Space direction="vertical" size="large" style={{ width: '100%' }}>
-                <Title level={2} className='text-white'>Quản lý thông tin liên hệ</Title>
-                
-                <Card>
+                <Title level={2} style={{ color: '#fff' }}>Quản lý thông tin liên hệ</Title>
+
+                <Card style={cardStyle}>
                     <Form
                         form={form}
                         layout="vertical"
                         onFinish={onFinish}
+                        style={{ color: '#fff' }}
                     >
-                        <Card title="Thông tin cơ bản" className="inner-card" bordered={false}>
+                        <Card title={<span style={{ color: '#fff' }}>Thông tin cơ bản</span>}
+                            className="inner-card"
+                            style={innerCardStyle}
+                            headStyle={{ backgroundColor: '#141414', borderBottom: '1px solid #303030' }}>
                             <Form.Item
                                 name="YOUR_ADDRESS"
                                 label={<Space><EnvironmentOutlined /> Địa chỉ</Space>}
@@ -111,7 +126,10 @@ const ContactManagement = () => {
                             </div>
                         </Card>
 
-                        <Card title="Cấu hình Email Service" className="inner-card" style={{ marginTop: '16px' }} bordered={false}>
+                        <Card title={<span style={{ color: '#fff' }}>Cấu hình Email Service</span>}
+                            className="inner-card"
+                            style={{ ...innerCardStyle, marginTop: '16px' }}
+                            headStyle={{ backgroundColor: '#141414', borderBottom: '1px solid #303030' }}>
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
                                 <Form.Item
                                     name="YOUR_SERVICE_ID"
@@ -139,7 +157,10 @@ const ContactManagement = () => {
                             </div>
                         </Card>
 
-                        <Card title="Mô tả" className="inner-card" style={{ marginTop: '16px' }} bordered={false}>
+                        <Card title={<span style={{ color: '#fff' }}>Mô tả</span>}
+                            className="inner-card"
+                            style={{ ...innerCardStyle, marginTop: '16px' }}
+                            headStyle={{ backgroundColor: '#141414', borderBottom: '1px solid #303030' }}>
                             <Form.Item
                                 name="description"
                                 label={<Space><FileTextOutlined /> Nội dung mô tả</Space>}
@@ -149,11 +170,10 @@ const ContactManagement = () => {
                             </Form.Item>
                         </Card>
 
-                        <Card
-                            title="Mạng xã hội"
-                            className="inner-card mt-4"
-                            bordered={false}
-                        >
+                        <Card title={<span style={{ color: '#fff' }}>Mạng xã hội</span>}
+                            className="inner-card"
+                            style={{ ...innerCardStyle, marginTop: '16px' }}
+                            headStyle={{ backgroundColor: '#141414', borderBottom: '1px solid #303030' }}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <Form.Item
                                     name="facebook"
@@ -217,8 +237,9 @@ const ContactManagement = () => {
                                 type="primary"
                                 htmlType="submit"
                                 loading={loading}
+                                block
                                 icon={<SaveOutlined />}
-                                size="large"
+                                style={{ backgroundColor: '#1890ff' }}
                             >
                                 Lưu thay đổi
                             </Button>
@@ -229,7 +250,8 @@ const ContactManagement = () => {
                     type="default"
                     onClick={() => navigate('/admin/dashboard')}
                     block
-                    className="bg-gray-600 hover:bg-gray-700"
+                    style={{ backgroundColor: '#303030', color: '#fff', border: 'none' }}
+                    className="hover:bg-gray-700"
                 >
                     Back to Dashboard
                 </Button>

@@ -135,18 +135,18 @@ const AboutManagement = () => {
 
     const departmentColumns = [
         {
-            title: 'Name',
+            title: 'Tên',
             dataIndex: 'name',
             key: 'name',
         },
         {
-            title: 'Description',
+            title: 'Mô tả',
             dataIndex: 'description',
             key: 'description',
             ellipsis: true,
         },
         {
-            title: 'Actions',
+            title: 'Thao tác',
             key: 'actions',
             render: (_, record) => (
                 <Space size="middle">
@@ -154,14 +154,14 @@ const AboutManagement = () => {
                         icon={<EditOutlined />}
                         onClick={() => showEditDepartmentModal(record)}
                     >
-                        Edit
+                        Sửa
                     </Button>
                     <Button
                         danger
                         icon={<DeleteOutlined />}
                         onClick={() => handleDepartmentDelete(record)}
                     >
-                        Delete
+                        Xóa
                     </Button>
                 </Space>
             ),
@@ -253,9 +253,9 @@ const AboutManagement = () => {
                         </Card>
                     )}
                 </TabPane>
-                <TabPane tab="Departments" key="2">
+                <TabPane tab="Phòng ban" key="2">
                     <Card
-                        title={<Text style={{ color: '#fff' }}>Danh sách Departments</Text>}
+                        title={<Text style={{ color: '#fff' }}>Danh sách phòng ban</Text>}
                         style={{ backgroundColor: '#242424', borderColor: '#303030' }}
                         extra={
                             <Button
@@ -263,7 +263,7 @@ const AboutManagement = () => {
                                 icon={<PlusOutlined />}
                                 onClick={showAddDepartmentModal}
                             >
-                                Thêm Department
+                                Thêm phòng ban
                             </Button>
                         }
                     >
@@ -278,7 +278,7 @@ const AboutManagement = () => {
                     </Card>
 
                     <Modal
-                        title={<Text style={{ color: '#fff' }}>{editingDepartment ? "Edit Department" : "Add Department"}</Text>}
+                        title={<Text style={{ color: '#fff' }}>{editingDepartment ? "Sửa phòng ban" : "Thêm phòng ban"}</Text>}
                         visible={isModalVisible}
                         onCancel={() => setIsModalVisible(false)}
                         footer={[
@@ -291,6 +291,14 @@ const AboutManagement = () => {
                         ]}
                         bodyStyle={{ backgroundColor: '#242424', borderColor: '#303030' }}
                         style={{ backgroundColor: '#242424' }}
+                        className="dark-modal"
+                        width={600}
+                        maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
+                        modalRender={modal => (
+                            <div style={{ backgroundColor: '#242424', borderRadius: '8px' }}>
+                                {modal}
+                            </div>
+                        )}
                     >
                         <Form
                             form={departmentForm}
@@ -298,27 +306,27 @@ const AboutManagement = () => {
                         >
                             <Form.Item
                                 name="name"
-                                label={<Text style={{ color: '#fff' }}>Department Name</Text>}
-                                rules={[{ required: true, message: 'Please enter department name' }]}
+                                label={<Text style={{ color: '#fff' }}>Tên phòng ban</Text>}
+                                rules={[{ required: true, message: 'Vui lòng nhập tên phòng ban' }]}
                             >
-                                <Input placeholder="Enter department name" style={{ backgroundColor: '#303030', color: '#fff', borderColor: '#434343' }} />
+                                <Input placeholder="Nhập tên phòng ban" style={{ backgroundColor: '#303030', color: '#fff', borderColor: '#434343' }} />
                             </Form.Item>
 
                             <Form.Item
                                 name="description"
-                                label={<Text style={{ color: '#fff' }}>Description</Text>}
-                                rules={[{ required: true, message: 'Please enter description' }]}
+                                label={<Text style={{ color: '#fff' }}>Mô tả</Text>}
+                                rules={[{ required: true, message: 'Vui lòng nhập mô tả' }]}
                             >
-                                <TextArea rows={4} placeholder="Enter department description" style={{ backgroundColor: '#303030', color: '#fff', borderColor: '#434343' }} />
+                                <TextArea rows={4} placeholder="Nhập mô tả phòng ban" style={{ backgroundColor: '#303030', color: '#fff', borderColor: '#434343' }} />
                             </Form.Item>
 
                             <Form.Item
                                 name="image"
-                                label={<Text style={{ color: '#fff' }}>Main Image URL</Text>}
-                                rules={[{ required: true, message: 'Please enter image URL' }]}
+                                label={<Text style={{ color: '#fff' }}>URL Hình ảnh</Text>}
+                                rules={[{ required: true, message: 'Vui lòng nhập URL hình ảnh' }]}
                             >
                                 <Input
-                                    placeholder="Enter image URL"
+                                    placeholder="Nhập URL hình ảnh"
                                     style={{ backgroundColor: '#303030', color: '#fff', borderColor: '#434343' }}
                                     value={imageUrl}
                                     onChange={handleMainImageChange}
