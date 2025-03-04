@@ -4,6 +4,7 @@ import { EditOutlined, DeleteOutlined, PlusOutlined, UploadOutlined, ArrowLeftOu
 import { getAboutData, updateAboutData, getDepartments, updateDepartment, addDepartment, deleteDepartment } from '../../../services/aboutService';
 import { uploadToBlob } from '../../../services/uploadService';
 import { useNavigate } from 'react-router-dom';
+import { auth, onAuthStateChanged, logActivity, database, dbRef, dbGet } from '../../../firebase/config';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -22,12 +23,31 @@ const AboutManagement = () => {
     const [imageUrl, setImageUrl] = useState('');
     const [fileList, setFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
+    const [currentUser, setCurrentUser] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        loadAboutData();
-        loadDepartments();
+        fetchInitialData();
+        // Set up auth state listener
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = dbRef(database, `users/${user.uid}`);
+                const snapshot = await dbGet(userRef);
+                if (snapshot.exists()) {
+                    setCurrentUser(snapshot.val());
+                }
+            }
+        });
+
+        return () => unsubscribe();
     }, []);
+
+    const fetchInitialData = async () => {
+        await Promise.all([
+            loadAboutData(),
+            loadDepartments()
+        ]);
+    };
 
     const loadAboutData = async () => {
         try {
@@ -71,6 +91,10 @@ const AboutManagement = () => {
         try {
             setSaving(true);
             await updateAboutData(values);
+            await logActivity(
+                currentUser?.username || 'Người dùng không xác định',
+                `Đã cập nhật thông tin giới thiệu chung - Tiêu đề: "${values.title}", Giới thiệu: "${values.aboutme.substring(0, 50)}...", Mục tiêu: "${values.goals.substring(0, 50)}..."`
+            );
             message.success('About information updated successfully');
         } catch (error) {
             message.error('Failed to update about information');
@@ -145,6 +169,10 @@ const AboutManagement = () => {
             onOk: async () => {
                 try {
                     await deleteDepartment(department.id);
+                    await logActivity(
+                        currentUser?.username || 'Người dùng không xác định',
+                        `Đã xóa phòng ban: "${department.name}" (ID: ${department.id})`
+                    );
                     message.success('Xóa phòng ban thành công');
                     // Refresh list after successful deletion
                     const updatedDepartments = departments.filter(dept => dept.id !== department.id);
@@ -164,9 +192,17 @@ const AboutManagement = () => {
 
             if (editingDepartment) {
                 await updateDepartment(editingDepartment.id, values); // Use id instead of key
+                await logActivity(
+                    currentUser?.username || 'Người dùng không xác định',
+                    `Đã cập nhật phòng ban - ID: ${editingDepartment.id}, Tên: "${values.name}", Mô tả: "${values.description.substring(0, 50)}...", Ảnh: ${values.image}`
+                );
                 message.success('Department updated successfully');
             } else {
-                await addDepartment(values);
+                const newDept = await addDepartment(values);
+                await logActivity(
+                    currentUser?.username || 'Người dùng không xác định',
+                    `Đã thêm phòng ban mới - ID: ${newDept.id}, Tên: "${values.name}", Mô tả: "${values.description.substring(0, 50)}...", Ảnh: ${values.image}`
+                );
                 message.success('Department added successfully');
             }
 

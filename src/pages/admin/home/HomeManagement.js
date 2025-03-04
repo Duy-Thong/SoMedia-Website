@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Typography, Spin, Alert, Card, Row, Col, Divider, Button, Space } from 'antd';
 import IntroForm from '../../../components/admin/IntroForm';
-import database, { logActivity } from '../../../firebase/config';
+import { database, dbRef, dbGet, logActivity, auth, onAuthStateChanged } from '../../../firebase/config';  // Update import
 import { ref, get } from 'firebase/database';
 import { HomeOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
@@ -13,29 +13,40 @@ const HomeManagement = () => {
     const [introData, setIntroData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [currentUser, setCurrentUser] = useState(null);  // Add currentUser state
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchIntroData = async () => {
-            try {
-                const introRef = ref(database, 'introdata');
-                const snapshot = await get(introRef);
-
+        fetchInitialData();
+        // Set up auth state listener
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = dbRef(database, `users/${user.uid}`);
+                const snapshot = await dbGet(userRef);
                 if (snapshot.exists()) {
-                    setIntroData(snapshot.val());
-                } else {
-                    console.log("No data available");
+                    setCurrentUser(snapshot.val());
                 }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                setError(error.message);
-            } finally {
-                setLoading(false);
             }
-        };
+        });
 
-        fetchIntroData();
+        return () => unsubscribe();
     }, []);
+
+    const fetchInitialData = async () => {
+        try {
+            const introRef = ref(database, 'introdata');
+            const snapshot = await get(introRef);
+
+            if (snapshot.exists()) {
+                setIntroData(snapshot.val());
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     if (loading) {
         return (
@@ -105,7 +116,10 @@ const HomeManagement = () => {
                     >
                         <IntroForm
                             initialData={introData}
-                            onLog={(action) => logActivity('admin', action)}
+                            onLog={(action) => logActivity(
+                                currentUser?.username || 'Người dùng không xác định',
+                                action
+                            )}
                         />
                     </Card>
                 </Col>
