@@ -46,6 +46,9 @@ const darkTheme = {
             contentBg: '#1f1f1f',
             headerBg: '#1f1f1f',
             titleColor: '#ffffff',
+            colorBgMask: 'rgba(0, 0, 0, 0.45)', // Thêm màu nền overlay
+            colorBgElevated: '#1f1f1f', // Background cho modal
+            colorText: '#ffffff',
         },
         Select: {
             optionSelectedBg: '#177ddc',
@@ -425,7 +428,13 @@ const UserManagement = () => {
                     open={isModalVisible}
                     onCancel={handleEditCancel}
                     footer={null}
-                    bodyStyle={{ paddingTop: '20px' }}
+                    bodyStyle={{
+                        paddingTop: '20px',
+                        background: '#1f1f1f'  // Thêm background color
+                    }}
+                    style={{
+                        background: '#1f1f1f'  // Thêm background color
+                    }}
                     width={500}
                     centered
                     className="responsive-modal"
@@ -484,7 +493,13 @@ const UserManagement = () => {
                     open={isAddUserModalVisible}
                     onCancel={handleAddUserCancel}
                     footer={null}
-                    bodyStyle={{ paddingTop: '20px' }}
+                    bodyStyle={{
+                        paddingTop: '20px',
+                        background: '#1f1f1f'  // Thêm background color
+                    }}
+                    style={{
+                        background: '#1f1f1f'  // Thêm background color
+                    }}
                     width={500}
                     centered
                     className="responsive-modal"
