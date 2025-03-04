@@ -4,7 +4,6 @@ import { ref, onValue } from 'firebase/database';
 import { Table, Input, Space, DatePicker, Button } from 'antd';
 import { SearchOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import moment from 'moment';
 
 const LogManagement = () => {
     const [logs, setLogs] = useState([]);
