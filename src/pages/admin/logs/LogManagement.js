@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { database } from '../../../firebase/config';
 import { ref, onValue } from 'firebase/database';
 import { Table, Input, Space, DatePicker, Button } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
 const LogManagement = () => {
@@ -11,6 +12,7 @@ const LogManagement = () => {
     const [searchedColumn, setSearchedColumn] = useState('');
     const [dateRange, setDateRange] = useState(null);
     const searchInput = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const logsRef = ref(database, 'logs');
@@ -125,7 +127,21 @@ const LogManagement = () => {
 
     return (
         <div style={{ padding: '20px' }}>
-            <h1 style={{ color: '#fff' }}>System Logs</h1>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+                <Button
+                    icon={<ArrowLeftOutlined />}
+                    onClick={() => navigate('/admin/dashboard')}
+                    style={{
+                        marginRight: '16px',
+                        background: '#141414',
+                        borderColor: '#303030',
+                        color: '#fff'
+                    }}
+                >
+                    Back to Dashboard
+                </Button>
+                <h1 style={{ color: '#fff', margin: 0 }}>System Logs</h1>
+            </div>
             <DatePicker.RangePicker
                 onChange={(dates) => setDateRange(dates)}
                 allowClear={true}

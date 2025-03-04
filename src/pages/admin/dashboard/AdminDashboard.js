@@ -15,6 +15,7 @@ import {
     TeamOutlined,
     PhoneFilled,
     TrophyOutlined,
+    FileSearchOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../firebase/config';
@@ -102,6 +103,12 @@ const AdminDashboard = () => {
             icon: <TrophyOutlined />,
             label: 'Quản lý giải thưởng',
             onClick: () => navigateTo('/admin/awards'),
+        },
+        {
+            key: 'logs',
+            icon: <FileSearchOutlined />,
+            label: 'Xem nhật ký',
+            onClick: () => navigateTo('/admin/logs'),
         },
         {
             key: 'logout',
@@ -231,6 +238,16 @@ const AdminDashboard = () => {
                                 <Title level={4} style={{ color: 'white' }}>Quản lý giải thưởng</Title>
                                 <p style={{ color: 'white' }}>Quản lý danh sách giải thưởng của câu lạc bộ</p>
                                 <Button type="primary" onClick={() => navigateTo('/admin/awards')}>
+                                    Truy cập
+                                </Button>
+                            </Card>
+                        </Col>
+                        <Col xs={24} sm={12} lg={8}>
+                            <Card className="management-card" hoverable style={{ background: '#1f1f1f' }}>
+                                <FileSearchOutlined className="card-icon" style={{ color: '#1890ff' }} />
+                                <Title level={4} style={{ color: 'white' }}>Xem nhật ký</Title>
+                                <p style={{ color: 'white' }}>Xem lịch sử hoạt động của hệ thống</p>
+                                <Button type="primary" onClick={() => navigateTo('/admin/logs')}>
                                     Truy cập
                                 </Button>
                             </Card>
