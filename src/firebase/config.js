@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set, get, remove, update, query, orderByChild } from 'firebase/database';
+import { getDatabase, ref, set, get, remove, update, query, orderByChild, serverTimestamp } from 'firebase/database';
 import {
     getAuth,
     signInWithEmailAndPassword,
@@ -30,6 +30,18 @@ export const dbUpdate = update;
 export const dbQuery = query;
 export const dbOrderByChild = orderByChild;
 export const db = database;
+
+// Log activity function
+export const logActivity = async (username, action) => {
+    const logRef = ref(database, 'logs');
+    const newLogRef = ref(database, `logs/${Date.now()}`);
+    await set(newLogRef, {
+        username,
+        action,
+        timestamp: serverTimestamp()
+    });
+};
+
 export {
     onAuthStateChanged,
     signOut,

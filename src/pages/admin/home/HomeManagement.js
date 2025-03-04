@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Typography, Spin, Alert, Card, Row, Col, Divider, Button, Space } from 'antd';
 import IntroForm from '../../../components/admin/IntroForm';
-import database from '../../../firebase/config';
+import database, { logActivity } from '../../../firebase/config';
 import { ref, get } from 'firebase/database';
 import { HomeOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
@@ -77,7 +77,7 @@ const HomeManagement = () => {
                             Quản lý trang chủ
                         </Title>
                     </Space>
-                    
+
                 </Col>
 
                 <Col span={24}>
@@ -103,7 +103,10 @@ const HomeManagement = () => {
                             backgroundColor: '#1f1f1f'
                         }}
                     >
-                        <IntroForm initialData={introData} />
+                        <IntroForm
+                            initialData={introData}
+                            onLog={(action) => logActivity('admin', action)}
+                        />
                     </Card>
                 </Col>
             </Row>

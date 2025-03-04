@@ -5,7 +5,7 @@ import database from '../../firebase/config';
 import { ref, set } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 
-const IntroForm = ({ initialData }) => {
+const IntroForm = ({ initialData, onLog }) => {
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
     const [animatedItems, setAnimatedItems] = useState([]);
@@ -29,6 +29,27 @@ const IntroForm = ({ initialData }) => {
         }
     }, [initialData, form]);
 
+    const getChangedFields = (values) => {
+        const changes = [];
+
+        if (initialData?.title !== values.title) {
+            changes.push(`tiêu đề từ "${initialData?.title}" thành "${values.title}"`);
+        }
+
+        if (initialData?.description !== values.description) {
+            changes.push(`mô tả từ "${initialData?.description}" thành "${values.description}"`);
+        }
+
+        const initialAnimated = initialData?.animated || {};
+        animatedItems.forEach(item => {
+            if (initialAnimated[item.key] !== item.value) {
+                changes.push(`văn bản động "${item.key}" từ "${initialAnimated[item.key]}" thành "${item.value}"`);
+            }
+        });
+
+        return changes;
+    };
+
     const handleSubmit = async (values) => {
         setLoading(true);
         try {
@@ -48,6 +69,13 @@ const IntroForm = ({ initialData }) => {
 
             await set(introRef, formattedData);
             message.success('Lưu dữ liệu thành công!');
+
+            const changes = getChangedFields(values);
+            if (changes.length > 0) {
+                onLog(`Đã cập nhật thông tin trang chủ: ${changes.join(', ')}`);
+            } else {
+                onLog('Không có thay đổi nào được thực hiện');
+            }
         } catch (error) {
             message.error('Lưu dữ liệu thất bại: ' + error.message);
         } finally {

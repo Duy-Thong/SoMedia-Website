@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
     database, dbRef, dbGet, dbSet, dbRemove, dbUpdate,
-    auth, createUserWithEmailAndPassword
+    auth, createUserWithEmailAndPassword, logActivity, onAuthStateChanged
 } from '../../../firebase/config';
 import {
     Table, Input, Button, Space, Modal, Form,
@@ -80,6 +80,7 @@ const styles = {
 const UserManagement = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [currentUser, setCurrentUser] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isAddUserModalVisible, setIsAddUserModalVisible] = useState(false);
     const [editingUser, setEditingUser] = useState(null);
@@ -92,6 +93,18 @@ const UserManagement = () => {
 
     useEffect(() => {
         fetchUsers();
+        // Set up auth state listener
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = dbRef(database, `users/${user.uid}`);
+                const snapshot = await dbGet(userRef);
+                if (snapshot.exists()) {
+                    setCurrentUser(snapshot.val());
+                }
+            }
+        });
+
+        return () => unsubscribe();
     }, []);
 
     const fetchUsers = async () => {
@@ -121,7 +134,15 @@ const UserManagement = () => {
 
     const handleDeleteUser = async (userId) => {
         try {
+            const userToDelete = users.find(user => user.id === userId);
             await dbRemove(dbRef(database, `users/${userId}`));
+
+            // Add logging for delete action
+            await logActivity(
+                currentUser?.username || 'Unknown user',
+                `Deleted user: ${userToDelete.username}`
+            );
+
             message.success("Xóa người dùng thành công");
             setUsers(users.filter(user => user.id !== userId));
         } catch (error) {
@@ -154,6 +175,12 @@ const UserManagement = () => {
             };
 
             await dbUpdate(dbRef(database, `users/${editingUser.id}`), updates);
+
+            // Update logging to use current user's username
+            await logActivity(
+                currentUser?.username || 'Unknown user',
+                `Edited user: ${editingUser.username} - New role: ${values.role}`
+            );
 
             setUsers(users.map(user =>
                 user.id === editingUser.id ? { ...user, ...updates } : user
@@ -199,6 +226,12 @@ const UserManagement = () => {
             };
 
             await dbSet(dbRef(database, `users/${userId}`), userData);
+
+            // Add logging for create action
+            await logActivity(
+                currentUser?.username || 'Unknown user',
+                `Created new user: ${values.username} with role: ${values.role}`
+            );
 
             const newUser = { key: userId, id: userId, ...userData };
             setUsers([...users, newUser]);
@@ -567,7 +600,7 @@ const UserManagement = () => {
                     </Form>
                 </Modal>
             </div>
-        </ConfigProvider>
+        </ConfigProvider >
     );
 };
 
