@@ -139,8 +139,8 @@ const UserManagement = () => {
 
             // Add logging for delete action
             await logActivity(
-                currentUser?.username || 'Unknown user',
-                `Deleted user: ${userToDelete.username}`
+                currentUser?.username || 'Người dùng không xác định',
+                `Đã xóa người dùng: ${userToDelete.username}`
             );
 
             message.success("Xóa người dùng thành công");
@@ -176,10 +176,10 @@ const UserManagement = () => {
 
             await dbUpdate(dbRef(database, `users/${editingUser.id}`), updates);
 
-            // Update logging to use current user's username
+            // Update logging to use Vietnamese
             await logActivity(
-                currentUser?.username || 'Unknown user',
-                `Edited user: ${editingUser.username} - New role: ${values.role}`
+                currentUser?.username || 'Người dùng không xác định',
+                `Đã chỉnh sửa người dùng: ${editingUser.username} - Vai trò mới: ${values.role === 'admin' ? 'Quản trị viên' : 'Thành viên'}`
             );
 
             setUsers(users.map(user =>
@@ -227,10 +227,10 @@ const UserManagement = () => {
 
             await dbSet(dbRef(database, `users/${userId}`), userData);
 
-            // Add logging for create action
+            // Add logging in Vietnamese
             await logActivity(
-                currentUser?.username || 'Unknown user',
-                `Created new user: ${values.username} with role: ${values.role}`
+                currentUser?.username || 'Người dùng không xác định',
+                `Đã tạo người dùng mới: ${values.username} với vai trò: ${values.role === 'admin' ? 'Quản trị viên' : 'Thành viên'}`
             );
 
             const newUser = { key: userId, id: userId, ...userData };
