@@ -31,14 +31,16 @@ export const dbQuery = query;
 export const dbOrderByChild = orderByChild;
 export const db = database;
 
-// Log activity function
-export const logActivity = async (username, action) => {
+// Enhanced log activity function
+export const logActivity = async (username, action, details) => {
     const logRef = ref(database, 'logs');
     const newLogRef = ref(database, `logs/${Date.now()}`);
     await set(newLogRef, {
         username,
         action,
-        timestamp: serverTimestamp()
+        details,
+        timestamp: serverTimestamp(),
+        date: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
     });
 };
 

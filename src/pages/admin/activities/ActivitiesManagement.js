@@ -5,10 +5,11 @@ import ActivityItem from '../../../components/admin/ActivityItem';
 import SlideItem from '../../../components/admin/SlideItem';
 import ActivityModalForm from '../../../components/admin/forms/ActivityModalForm';
 import SlideModalForm from '../../../components/admin/forms/SlideModalForm';
-import database from '../../../firebase/config';
+import database, { auth, dbRef, dbGet, logActivity } from '../../../firebase/config';
 import { ref, get, set, remove } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import { uploadToBlob } from '../../../utils/uploadHelpers';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -23,6 +24,7 @@ const ActivitiesManagement = () => {
     const [isSlideModalVisible, setIsSlideModalVisible] = useState(false);
     const [currentItem, setCurrentItem] = useState(null);
     const [modalMode, setModalMode] = useState('add'); // 'add' or 'edit'
+    const [currentUser, setCurrentUser] = useState(null);
     const navigate = useNavigate();
 
     const handleReturnToDashboard = () => {
@@ -68,6 +70,21 @@ const ActivitiesManagement = () => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        // Set up auth state listener
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = dbRef(database, `users/${user.uid}`);
+                const snapshot = await dbGet(userRef);
+                if (snapshot.exists()) {
+                    setCurrentUser(snapshot.val());
+                }
+            }
+        });
+
+        return () => unsubscribe();
+    }, []);
+
     const showActivityModal = (mode, activity = null) => {
         setModalMode(mode);
         setCurrentItem(activity);
@@ -111,6 +128,16 @@ const ActivitiesManagement = () => {
                 await set(ref(database, `activitiesData/${newActivity.id}`), newActivity);
                 // Cập nhật state trực tiếp
                 setActivitiesData(prev => [...prev, newActivity]);
+                await logActivity(
+                    currentUser.username,
+                    `[Quản lý hoạt động] Thêm mới hoạt động "${newActivity.description}" - ID: ${newActivity.id} - Thời gian: ${newActivity.time}`,
+                    {
+                        type: 'activity',
+                        operation: 'create',
+                        itemId: newActivity.id,
+                        data: newActivity
+                    }
+                );
             } else {
                 // Cập nhật activity hiện tại
                 const updatedActivity = {
@@ -122,6 +149,17 @@ const ActivitiesManagement = () => {
                 // Cập nhật state trực tiếp
                 setActivitiesData(prev =>
                     prev.map(item => item.id === currentItem.id ? updatedActivity : item)
+                );
+                await logActivity(
+                    currentUser.username,
+                    `[Quản lý hoạt động] Cập nhật hoạt động "${updatedActivity.description}" - ID: ${updatedActivity.id} - Từ "${currentItem.description}" thành "${updatedActivity.description}" - Thời gian từ "${currentItem.time}" thành "${updatedActivity.time}"`,
+                    {
+                        type: 'activity',
+                        operation: 'update',
+                        itemId: updatedActivity.id,
+                        oldData: currentItem,
+                        newData: updatedActivity
+                    }
                 );
             }
             handleModalCancel();
@@ -152,6 +190,16 @@ const ActivitiesManagement = () => {
                 await set(ref(database, `slides/${newSlide.id}`), newSlide);
                 // Cập nhật state trực tiếp
                 setSlidesData(prev => [...prev, newSlide]);
+                await logActivity(
+                    currentUser.username,
+                    `[Quản lý slides] Thêm mới slide "${newSlide.description}" - ID: ${newSlide.id} - Alt: ${newSlide.alt}`,
+                    {
+                        type: 'slide',
+                        operation: 'create',
+                        itemId: newSlide.id,
+                        data: newSlide
+                    }
+                );
             } else {
                 // Cập nhật slide hiện tại
                 const updatedSlide = {
@@ -163,6 +211,17 @@ const ActivitiesManagement = () => {
                 // Cập nhật state trực tiếp
                 setSlidesData(prev =>
                     prev.map(item => item.id === currentItem.id ? updatedSlide : item)
+                );
+                await logActivity(
+                    currentUser.username,
+                    `[Quản lý slides] Cập nhật slide "${updatedSlide.description}" - ID: ${updatedSlide.id} - Từ "${currentItem.description}" thành "${updatedSlide.description}" - Alt từ "${currentItem.alt}" thành "${updatedSlide.alt}"`,
+                    {
+                        type: 'slide',
+                        operation: 'update',
+                        itemId: updatedSlide.id,
+                        oldData: currentItem,
+                        newData: updatedSlide
+                    }
                 );
             }
             handleModalCancel();
@@ -176,15 +235,37 @@ const ActivitiesManagement = () => {
     const handleDelete = async (type, id) => {
         try {
             if (type === 'activity') {
+                const activity = activitiesData.find(item => item.id === id);
                 // Xóa từ Firebase
                 await remove(ref(database, `activitiesData/${id}`));
                 // Cập nhật state trực tiếp
                 setActivitiesData(prev => prev.filter(item => item.id !== id));
+                await logActivity(
+                    currentUser.username,
+                    `[Quản lý hoạt động] Xóa hoạt động "${activity.description}" - ID: ${id} - Thời gian: ${activity.time}`,
+                    {
+                        type: 'activity',
+                        operation: 'delete',
+                        itemId: id,
+                        deletedData: activity
+                    }
+                );
             } else {
+                const slide = slidesData.find(item => item.id === id);
                 // Xóa từ Firebase
                 await remove(ref(database, `slides/${id}`));
                 // Cập nhật state trực tiếp
                 setSlidesData(prev => prev.filter(item => item.id !== id));
+                await logActivity(
+                    currentUser.username,
+                    `[Quản lý slides] Xóa slide "${slide.description}" - ID: ${id} - Alt: ${slide.alt}`,
+                    {
+                        type: 'slide',
+                        operation: 'delete',
+                        itemId: id,
+                        deletedData: slide
+                    }
+                );
             }
         } catch (error) {
             setError(error.message);
