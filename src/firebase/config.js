@@ -38,9 +38,7 @@ export const logActivity = async (username, action, details) => {
     await set(newLogRef, {
         username,
         action,
-        details,
         timestamp: serverTimestamp(),
-        date: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
     });
 };
 

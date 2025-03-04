@@ -6,7 +6,7 @@ import {
 } from 'antd';
 import { PlusOutlined, EditOutlined, DeleteOutlined, ArrowLeftOutlined, UploadOutlined } from '@ant-design/icons';
 import { ref, push, remove, update, get } from 'firebase/database';
-import { db } from '../../../firebase/config';
+import { db, database, auth, logActivity } from '../../../firebase/config';
 import { uploadToBlob } from '../../../utils/uploadHelpers';
 
 const MemberManagement = () => {
@@ -18,6 +18,7 @@ const MemberManagement = () => {
     const [previewImage, setPreviewImage] = useState('');
     const [currentImageUrl, setCurrentImageUrl] = useState('');
     const [loading, setLoading] = useState(false);
+    const [currentUser, setCurrentUser] = useState(null);
 
     // Fetch members data
     useEffect(() => {
@@ -35,7 +36,21 @@ const MemberManagement = () => {
                 setMembers(membersData);
             }
         };
+
+        // Updated auth state listener with user data fetch
+        const unsubscribe = auth.onAuthStateChanged(async (user) => {
+            if (user) {
+                const userRef = ref(database, `users/${user.uid}`);
+                const snapshot = await get(userRef);
+                if (snapshot.exists()) {
+                    setCurrentUser(snapshot.val());
+                }
+            }
+        });
+
         fetchMembers();
+
+        return () => unsubscribe();
     }, []);
 
     // Handle image upload
@@ -62,9 +77,12 @@ const MemberManagement = () => {
                 imageUrl = await uploadToBlob(imageFile, 'humans');
             }
 
+            // Ensure all values are defined before saving
             const finalValues = {
-                ...values,
-                image: imageUrl
+                name: values.name || '',
+                description: values.description || '',
+                detail: values.detail || '',  // Add default empty string if undefined
+                image: imageUrl || ''
             };
 
             if (editingId) {
@@ -75,6 +93,10 @@ const MemberManagement = () => {
                         ? { ...member, ...finalValues }
                         : member
                 ));
+                await logActivity(
+                    currentUser?.username || 'Unknown user',
+                    `Đã cập nhật thông tin thành viên: ${values.name} (ID: ${editingId}) `
+                );
                 message.success('Cập nhật thành công');
             } else {
                 const newRef = await push(ref(db, 'humans'), finalValues);
@@ -83,6 +105,11 @@ const MemberManagement = () => {
                     key: newRef.key,
                     ...finalValues
                 }]);
+                await logActivity(
+                    currentUser?.username || 'Unknown user',
+                    
+                    `Đã thêm thành viên mới: ${values.name} (ID: ${newRef.key})`
+                );
                 message.success('Thêm thành viên thành công');
             }
 
@@ -101,9 +128,15 @@ const MemberManagement = () => {
     // Delete member
     const handleDelete = async (key) => {
         try {
+            const memberToDelete = members.find(member => member.key === key);
             await remove(ref(db, `humans/${key}`));
             // Cập nhật state trực tiếp
             setMembers(members.filter(member => member.key !== key));
+            await logActivity(
+                currentUser?.username || 'Unknown user',
+                
+                `Đã xóa thành viên: ${memberToDelete.name} (ID: ${key})`
+            );
             message.success('Xóa thành công');
         } catch (error) {
             message.error('Error deleting member');
@@ -331,95 +364,101 @@ const MemberManagement = () => {
             `}</style>
 
             <Modal
-                title={editingId ? 'Sửa thành viên' : 'Thêm thành viên'} 
-            open={isModalVisible}
-            onCancel={handleModalClose}
-            footer={null}
-            className="dark-modal"
+                title={editingId ? 'Sửa thành viên' : 'Thêm thành viên'}
+                open={isModalVisible}
+                onCancel={handleModalClose}
+                footer={null}
+                className="dark-modal"
             >
-            <Form
-                form={form}
-                onFinish={handleSubmit}
-                layout="vertical"
-                theme="dark"
-            >
-                <Form.Item
-                    name="name"
-                    label="Tên"
-                    rules={[{ required: true, message: 'Vui lòng nhập tên!' }]}
+                <Form
+                    form={form}
+                    onFinish={handleSubmit}
+                    layout="vertical"
+                    theme="dark"
+                    initialValues={{
+                        name: '',
+                        description: '',
+                        detail: '',
+                        image: ''
+                    }}
                 >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="description"
-                    label="Mô tả"
-                    rules={[{ required: true, message: 'Vui lòng nhập mô tả!' }]}
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="detail"
-                    label="Chi tiết"
-                >
-                    <Input.TextArea />
-                </Form.Item>
-
-                <Form.Item
-                    name="image"
-                    label="Hình ảnh"
-                    rules={[{ required: true, message: 'Vui lòng chọn hình ảnh!' }]}
-                >
-                    <div>
-                        <Input
-                            style={{ marginBottom: '10px' }}
-                            placeholder="URL hình ảnh hoặc tải lên"
-                            value={currentImageUrl}
-                            onChange={(e) => setCurrentImageUrl(e.target.value)}
-                        />
-                        <Upload
-                            beforeUpload={(file) => {
-                                handleImageChange({ file });
-                                return false;
-                            }}
-                            showUploadList={false}
-                        >
-                            <Button
-                                icon={<UploadOutlined />}
-                                style={{
-                                    backgroundColor: '#1f1f1f',
-                                    color: '#fff',
-                                    borderColor: '#303030'
-                                }}
-                            >
-                                Tải ảnh lên
-                            </Button>
-                        </Upload>
-                        {(previewImage || currentImageUrl) && (
-                            <div style={{ marginTop: '10px' }}>
-                                <img
-                                    src={previewImage || currentImageUrl}
-                                    alt="Preview"
-                                    style={{ maxWidth: '200px', maxHeight: '200px' }}
-                                />
-                            </div>
-                        )}
-                    </div>
-                </Form.Item>
-
-                <Form.Item style={{ marginTop: 16 }}>
-                    <Button
-                        type="primary"
-                        htmlType="submit"
-                        loading={loading}
-                        disabled={loading}
+                    <Form.Item
+                        name="name"
+                        label="Tên"
+                        rules={[{ required: true, message: 'Vui lòng nhập tên!' }]}
                     >
-                        {editingId ? 'Cập nhật' : 'Thêm'}
-                    </Button>
-                </Form.Item>
-            </Form>
-        </Modal>
+                        <Input />
+                    </Form.Item>
+
+                    <Form.Item
+                        name="description"
+                        label="Mô tả"
+                        rules={[{ required: true, message: 'Vui lòng nhập mô tả!' }]}
+                    >
+                        <Input />
+                    </Form.Item>
+
+                    <Form.Item
+                        name="detail"
+                        label="Chi tiết"
+                    >
+                        <Input.TextArea />
+                    </Form.Item>
+
+                    <Form.Item
+                        name="image"
+                        label="Hình ảnh"
+                        rules={[{ required: true, message: 'Vui lòng chọn hình ảnh!' }]}
+                    >
+                        <div>
+                            <Input
+                                style={{ marginBottom: '10px' }}
+                                placeholder="URL hình ảnh hoặc tải lên"
+                                value={currentImageUrl}
+                                onChange={(e) => setCurrentImageUrl(e.target.value)}
+                            />
+                            <Upload
+                                beforeUpload={(file) => {
+                                    handleImageChange({ file });
+                                    return false;
+                                }}
+                                showUploadList={false}
+                            >
+                                <Button
+                                    icon={<UploadOutlined />}
+                                    style={{
+                                        backgroundColor: '#1f1f1f',
+                                        color: '#fff',
+                                        borderColor: '#303030'
+                                    }}
+                                >
+                                    Tải ảnh lên
+                                </Button>
+                            </Upload>
+                            {(previewImage || currentImageUrl) && (
+                                <div style={{ marginTop: '10px' }}>
+                                    <img
+                                        src={previewImage || currentImageUrl}
+                                        alt="Preview"
+                                        style={{ maxWidth: '200px', maxHeight: '200px' }}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                    </Form.Item>
+
+                    <Form.Item style={{ marginTop: 16 }}>
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            loading={loading}
+                            disabled={loading}
+                        >
+                            {editingId ? 'Cập nhật' : 'Thêm'}
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </Modal>
         </div >
     );
 };
